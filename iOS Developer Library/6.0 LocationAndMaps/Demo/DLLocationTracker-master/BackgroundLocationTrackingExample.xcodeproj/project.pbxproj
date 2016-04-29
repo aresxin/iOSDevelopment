@@ -1,0 +1,301 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1DC8336015D8463D004EEC5E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DC8335F15D8463D004EEC5E /* UIKit.framework */; };
+		1DC8336215D8463D004EEC5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DC8336115D8463D004EEC5E /* Foundation.framework */; };
+		1DC8336415D8463D004EEC5E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DC8336315D8463D004EEC5E /* CoreGraphics.framework */; };
+		1DC8336A15D8463D004EEC5E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1DC8336815D8463D004EEC5E /* InfoPlist.strings */; };
+		1DC8336C15D8463D004EEC5E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC8336B15D8463D004EEC5E /* main.m */; };
+		1DC8337015D8463D004EEC5E /* TGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC8336F15D8463D004EEC5E /* TGAppDelegate.m */; };
+		1DC8337A15D8467E004EEC5E /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC8337915D8467E004EEC5E /* MainViewController.m */; };
+		1DC8337D15D846E5004EEC5E /* DLLocationTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC8337C15D846E5004EEC5E /* DLLocationTracker.m */; };
+		1DC8337F15D84D58004EEC5E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DC8337E15D84D58004EEC5E /* CoreLocation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1DC8335B15D8463D004EEC5E /* BackgroundLocationTrackingExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BackgroundLocationTrackingExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DC8335F15D8463D004EEC5E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		1DC8336115D8463D004EEC5E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1DC8336315D8463D004EEC5E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1DC8336715D8463D004EEC5E /* BackgroundLocationTrackingExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BackgroundLocationTrackingExample-Info.plist"; sourceTree = "<group>"; };
+		1DC8336915D8463D004EEC5E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1DC8336B15D8463D004EEC5E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1DC8336D15D8463D004EEC5E /* BackgroundLocationTrackingExample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BackgroundLocationTrackingExample-Prefix.pch"; sourceTree = "<group>"; };
+		1DC8336E15D8463D004EEC5E /* TGAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TGAppDelegate.h; sourceTree = "<group>"; };
+		1DC8336F15D8463D004EEC5E /* TGAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TGAppDelegate.m; sourceTree = "<group>"; };
+		1DC8337815D8467E004EEC5E /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		1DC8337915D8467E004EEC5E /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		1DC8337B15D846E5004EEC5E /* DLLocationTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLocationTracker.h; sourceTree = "<group>"; };
+		1DC8337C15D846E5004EEC5E /* DLLocationTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLocationTracker.m; sourceTree = "<group>"; };
+		1DC8337E15D84D58004EEC5E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1DC8335815D8463D004EEC5E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DC8337F15D84D58004EEC5E /* CoreLocation.framework in Frameworks */,
+				1DC8336015D8463D004EEC5E /* UIKit.framework in Frameworks */,
+				1DC8336215D8463D004EEC5E /* Foundation.framework in Frameworks */,
+				1DC8336415D8463D004EEC5E /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1DC8335015D8463D004EEC5E = {
+			isa = PBXGroup;
+			children = (
+				1DC8336515D8463D004EEC5E /* BackgroundLocationTrackingExample */,
+				1DC8335E15D8463D004EEC5E /* Frameworks */,
+				1DC8335C15D8463D004EEC5E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1DC8335C15D8463D004EEC5E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1DC8335B15D8463D004EEC5E /* BackgroundLocationTrackingExample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1DC8335E15D8463D004EEC5E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1DC8337E15D84D58004EEC5E /* CoreLocation.framework */,
+				1DC8335F15D8463D004EEC5E /* UIKit.framework */,
+				1DC8336115D8463D004EEC5E /* Foundation.framework */,
+				1DC8336315D8463D004EEC5E /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1DC8336515D8463D004EEC5E /* BackgroundLocationTrackingExample */ = {
+			isa = PBXGroup;
+			children = (
+				1DC8337715D84662004EEC5E /* Classes */,
+				1DC8336615D8463D004EEC5E /* Supporting Files */,
+			);
+			path = BackgroundLocationTrackingExample;
+			sourceTree = "<group>";
+		};
+		1DC8336615D8463D004EEC5E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1DC8336715D8463D004EEC5E /* BackgroundLocationTrackingExample-Info.plist */,
+				1DC8336815D8463D004EEC5E /* InfoPlist.strings */,
+				1DC8336B15D8463D004EEC5E /* main.m */,
+				1DC8336D15D8463D004EEC5E /* BackgroundLocationTrackingExample-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1DC8337715D84662004EEC5E /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				1DC8337B15D846E5004EEC5E /* DLLocationTracker.h */,
+				1DC8337C15D846E5004EEC5E /* DLLocationTracker.m */,
+				1DC8336E15D8463D004EEC5E /* TGAppDelegate.h */,
+				1DC8336F15D8463D004EEC5E /* TGAppDelegate.m */,
+				1DC8337815D8467E004EEC5E /* MainViewController.h */,
+				1DC8337915D8467E004EEC5E /* MainViewController.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1DC8335A15D8463D004EEC5E /* BackgroundLocationTrackingExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DC8337315D8463D004EEC5E /* Build configuration list for PBXNativeTarget "BackgroundLocationTrackingExample" */;
+			buildPhases = (
+				1DC8335715D8463D004EEC5E /* Sources */,
+				1DC8335815D8463D004EEC5E /* Frameworks */,
+				1DC8335915D8463D004EEC5E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BackgroundLocationTrackingExample;
+			productName = BackgroundLocationTrackingExample;
+			productReference = 1DC8335B15D8463D004EEC5E /* BackgroundLocationTrackingExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1DC8335215D8463D004EEC5E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = TG;
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = "Denis Lebedev";
+			};
+			buildConfigurationList = 1DC8335515D8463D004EEC5E /* Build configuration list for PBXProject "BackgroundLocationTrackingExample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 1DC8335015D8463D004EEC5E;
+			productRefGroup = 1DC8335C15D8463D004EEC5E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1DC8335A15D8463D004EEC5E /* BackgroundLocationTrackingExample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1DC8335915D8463D004EEC5E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DC8336A15D8463D004EEC5E /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1DC8335715D8463D004EEC5E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DC8336C15D8463D004EEC5E /* main.m in Sources */,
+				1DC8337015D8463D004EEC5E /* TGAppDelegate.m in Sources */,
+				1DC8337A15D8467E004EEC5E /* MainViewController.m in Sources */,
+				1DC8337D15D846E5004EEC5E /* DLLocationTracker.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1DC8336815D8463D004EEC5E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1DC8336915D8463D004EEC5E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1DC8337115D8463D004EEC5E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1DC8337215D8463D004EEC5E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1DC8337415D8463D004EEC5E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BackgroundLocationTrackingExample/BackgroundLocationTrackingExample-Prefix.pch";
+				INFOPLIST_FILE = "BackgroundLocationTrackingExample/BackgroundLocationTrackingExample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		1DC8337515D8463D004EEC5E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BackgroundLocationTrackingExample/BackgroundLocationTrackingExample-Prefix.pch";
+				INFOPLIST_FILE = "BackgroundLocationTrackingExample/BackgroundLocationTrackingExample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DC8335515D8463D004EEC5E /* Build configuration list for PBXProject "BackgroundLocationTrackingExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DC8337115D8463D004EEC5E /* Debug */,
+				1DC8337215D8463D004EEC5E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DC8337315D8463D004EEC5E /* Build configuration list for PBXNativeTarget "BackgroundLocationTrackingExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DC8337415D8463D004EEC5E /* Debug */,
+				1DC8337515D8463D004EEC5E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1DC8335215D8463D004EEC5E /* Project object */;
+}

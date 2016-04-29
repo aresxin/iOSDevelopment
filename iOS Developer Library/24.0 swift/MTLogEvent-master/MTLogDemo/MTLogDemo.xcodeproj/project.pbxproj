@@ -1,0 +1,517 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E848B8A11C4134840015DF5E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E848B8A01C4134840015DF5E /* AppDelegate.swift */; };
+		E848B8A31C4134840015DF5E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E848B8A21C4134840015DF5E /* ViewController.swift */; };
+		E848B8A61C4134840015DF5E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E848B8A41C4134840015DF5E /* Main.storyboard */; };
+		E848B8A81C4134840015DF5E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E848B8A71C4134840015DF5E /* Assets.xcassets */; };
+		E848B8AB1C4134840015DF5E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E848B8A91C4134840015DF5E /* LaunchScreen.storyboard */; };
+		E848B8B61C4134840015DF5E /* MTLogDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E848B8B51C4134840015DF5E /* MTLogDemoTests.swift */; };
+		E848B8C11C4134840015DF5E /* MTLogDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E848B8C01C4134840015DF5E /* MTLogDemoUITests.swift */; };
+		E848B8D01C41350E0015DF5E /* MTLogEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E848B8CF1C41350E0015DF5E /* MTLogEvent.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E848B8B21C4134840015DF5E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E848B8951C4134840015DF5E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E848B89C1C4134840015DF5E;
+			remoteInfo = MTLogDemo;
+		};
+		E848B8BD1C4134840015DF5E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E848B8951C4134840015DF5E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E848B89C1C4134840015DF5E;
+			remoteInfo = MTLogDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E848B89D1C4134840015DF5E /* MTLogDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MTLogDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E848B8A01C4134840015DF5E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E848B8A21C4134840015DF5E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E848B8A51C4134840015DF5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E848B8A71C4134840015DF5E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E848B8AA1C4134840015DF5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E848B8AC1C4134840015DF5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E848B8B11C4134840015DF5E /* MTLogDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MTLogDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E848B8B51C4134840015DF5E /* MTLogDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTLogDemoTests.swift; sourceTree = "<group>"; };
+		E848B8B71C4134840015DF5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E848B8BC1C4134840015DF5E /* MTLogDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MTLogDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E848B8C01C4134840015DF5E /* MTLogDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTLogDemoUITests.swift; sourceTree = "<group>"; };
+		E848B8C21C4134840015DF5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E848B8CF1C41350E0015DF5E /* MTLogEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTLogEvent.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E848B89A1C4134840015DF5E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E848B8AE1C4134840015DF5E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E848B8B91C4134840015DF5E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E848B8941C4134840015DF5E = {
+			isa = PBXGroup;
+			children = (
+				E848B89F1C4134840015DF5E /* MTLogDemo */,
+				E848B8B41C4134840015DF5E /* MTLogDemoTests */,
+				E848B8BF1C4134840015DF5E /* MTLogDemoUITests */,
+				E848B89E1C4134840015DF5E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E848B89E1C4134840015DF5E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E848B89D1C4134840015DF5E /* MTLogDemo.app */,
+				E848B8B11C4134840015DF5E /* MTLogDemoTests.xctest */,
+				E848B8BC1C4134840015DF5E /* MTLogDemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E848B89F1C4134840015DF5E /* MTLogDemo */ = {
+			isa = PBXGroup;
+			children = (
+				E848B8CE1C41348B0015DF5E /* MTLogEvent */,
+				E848B8A01C4134840015DF5E /* AppDelegate.swift */,
+				E848B8A21C4134840015DF5E /* ViewController.swift */,
+				E848B8A41C4134840015DF5E /* Main.storyboard */,
+				E848B8A71C4134840015DF5E /* Assets.xcassets */,
+				E848B8A91C4134840015DF5E /* LaunchScreen.storyboard */,
+				E848B8AC1C4134840015DF5E /* Info.plist */,
+			);
+			path = MTLogDemo;
+			sourceTree = "<group>";
+		};
+		E848B8B41C4134840015DF5E /* MTLogDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				E848B8B51C4134840015DF5E /* MTLogDemoTests.swift */,
+				E848B8B71C4134840015DF5E /* Info.plist */,
+			);
+			path = MTLogDemoTests;
+			sourceTree = "<group>";
+		};
+		E848B8BF1C4134840015DF5E /* MTLogDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E848B8C01C4134840015DF5E /* MTLogDemoUITests.swift */,
+				E848B8C21C4134840015DF5E /* Info.plist */,
+			);
+			path = MTLogDemoUITests;
+			sourceTree = "<group>";
+		};
+		E848B8CE1C41348B0015DF5E /* MTLogEvent */ = {
+			isa = PBXGroup;
+			children = (
+				E848B8CF1C41350E0015DF5E /* MTLogEvent.swift */,
+			);
+			name = MTLogEvent;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E848B89C1C4134840015DF5E /* MTLogDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E848B8C51C4134840015DF5E /* Build configuration list for PBXNativeTarget "MTLogDemo" */;
+			buildPhases = (
+				E848B8991C4134840015DF5E /* Sources */,
+				E848B89A1C4134840015DF5E /* Frameworks */,
+				E848B89B1C4134840015DF5E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MTLogDemo;
+			productName = MTLogDemo;
+			productReference = E848B89D1C4134840015DF5E /* MTLogDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E848B8B01C4134840015DF5E /* MTLogDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E848B8C81C4134840015DF5E /* Build configuration list for PBXNativeTarget "MTLogDemoTests" */;
+			buildPhases = (
+				E848B8AD1C4134840015DF5E /* Sources */,
+				E848B8AE1C4134840015DF5E /* Frameworks */,
+				E848B8AF1C4134840015DF5E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E848B8B31C4134840015DF5E /* PBXTargetDependency */,
+			);
+			name = MTLogDemoTests;
+			productName = MTLogDemoTests;
+			productReference = E848B8B11C4134840015DF5E /* MTLogDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E848B8BB1C4134840015DF5E /* MTLogDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E848B8CB1C4134840015DF5E /* Build configuration list for PBXNativeTarget "MTLogDemoUITests" */;
+			buildPhases = (
+				E848B8B81C4134840015DF5E /* Sources */,
+				E848B8B91C4134840015DF5E /* Frameworks */,
+				E848B8BA1C4134840015DF5E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E848B8BE1C4134840015DF5E /* PBXTargetDependency */,
+			);
+			name = MTLogDemoUITests;
+			productName = MTLogDemoUITests;
+			productReference = E848B8BC1C4134840015DF5E /* MTLogDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E848B8951C4134840015DF5E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = MT;
+				TargetAttributes = {
+					E848B89C1C4134840015DF5E = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					E848B8B01C4134840015DF5E = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = E848B89C1C4134840015DF5E;
+					};
+					E848B8BB1C4134840015DF5E = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = E848B89C1C4134840015DF5E;
+					};
+				};
+			};
+			buildConfigurationList = E848B8981C4134840015DF5E /* Build configuration list for PBXProject "MTLogDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E848B8941C4134840015DF5E;
+			productRefGroup = E848B89E1C4134840015DF5E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E848B89C1C4134840015DF5E /* MTLogDemo */,
+				E848B8B01C4134840015DF5E /* MTLogDemoTests */,
+				E848B8BB1C4134840015DF5E /* MTLogDemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E848B89B1C4134840015DF5E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E848B8AB1C4134840015DF5E /* LaunchScreen.storyboard in Resources */,
+				E848B8A81C4134840015DF5E /* Assets.xcassets in Resources */,
+				E848B8A61C4134840015DF5E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E848B8AF1C4134840015DF5E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E848B8BA1C4134840015DF5E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E848B8991C4134840015DF5E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E848B8A31C4134840015DF5E /* ViewController.swift in Sources */,
+				E848B8D01C41350E0015DF5E /* MTLogEvent.swift in Sources */,
+				E848B8A11C4134840015DF5E /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E848B8AD1C4134840015DF5E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E848B8B61C4134840015DF5E /* MTLogDemoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E848B8B81C4134840015DF5E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E848B8C11C4134840015DF5E /* MTLogDemoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E848B8B31C4134840015DF5E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E848B89C1C4134840015DF5E /* MTLogDemo */;
+			targetProxy = E848B8B21C4134840015DF5E /* PBXContainerItemProxy */;
+		};
+		E848B8BE1C4134840015DF5E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E848B89C1C4134840015DF5E /* MTLogDemo */;
+			targetProxy = E848B8BD1C4134840015DF5E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E848B8A41C4134840015DF5E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E848B8A51C4134840015DF5E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E848B8A91C4134840015DF5E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E848B8AA1C4134840015DF5E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E848B8C31C4134840015DF5E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E848B8C41C4134840015DF5E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E848B8C61C4134840015DF5E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MTLogDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.MT.MTLogDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E848B8C71C4134840015DF5E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MTLogDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.MT.MTLogDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		E848B8C91C4134840015DF5E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MTLogDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.MT.MTLogDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MTLogDemo.app/MTLogDemo";
+			};
+			name = Debug;
+		};
+		E848B8CA1C4134840015DF5E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MTLogDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.MT.MTLogDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MTLogDemo.app/MTLogDemo";
+			};
+			name = Release;
+		};
+		E848B8CC1C4134840015DF5E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MTLogDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.MT.MTLogDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MTLogDemo;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		E848B8CD1C4134840015DF5E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MTLogDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.MT.MTLogDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MTLogDemo;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E848B8981C4134840015DF5E /* Build configuration list for PBXProject "MTLogDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E848B8C31C4134840015DF5E /* Debug */,
+				E848B8C41C4134840015DF5E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E848B8C51C4134840015DF5E /* Build configuration list for PBXNativeTarget "MTLogDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E848B8C61C4134840015DF5E /* Debug */,
+				E848B8C71C4134840015DF5E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		E848B8C81C4134840015DF5E /* Build configuration list for PBXNativeTarget "MTLogDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E848B8C91C4134840015DF5E /* Debug */,
+				E848B8CA1C4134840015DF5E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		E848B8CB1C4134840015DF5E /* Build configuration list for PBXNativeTarget "MTLogDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E848B8CC1C4134840015DF5E /* Debug */,
+				E848B8CD1C4134840015DF5E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E848B8951C4134840015DF5E /* Project object */;
+}

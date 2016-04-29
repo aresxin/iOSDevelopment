@@ -1,0 +1,24 @@
+//
+//  prefix.pch
+//  iOS122
+//
+//  Created by 颜风 on 15/9/22.
+//  Copyright (c) 2015年 iOS122. All rights reserved.
+//
+
+#import <Availability.h>
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <QuartzCore/QuartzCore.h>
+
+// 定义这个常量,就可以在使用Masonry不必总带着前缀 `mas_`:
+#define MAS_SHORTHAND
+
+// 定义这个常量,以支持在 Masonry 语法中自动将基本类型转换为 object 类型:
+#define MAS_SHORTHAND_GLOBALS
+
+#import "Masonry.h"
+
+#endif

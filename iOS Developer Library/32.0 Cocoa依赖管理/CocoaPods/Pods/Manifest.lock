@@ -1,0 +1,16 @@
+PODS:
+  - AFNetworking (0.10.1)
+  - Reachability (3.0.0)
+  - RegexKitLite (4.0)
+
+DEPENDENCIES:
+  - AFNetworking
+  - Reachability (~> 3.0.0)
+  - RegexKitLite
+
+SPEC CHECKSUMS:
+  AFNetworking: 560d6b9394bf2f80c1efac9141e0d36739e0ff6d
+  Reachability: 31e4272bd8378e094beaf6609dc182c85c4e6574
+  RegexKitLite: c0e4c12e6e7de0769f3a3ed679f0f61604170661
+
+COCOAPODS: 0.39.0

@@ -1,0 +1,41 @@
+PODS:
+  - AFNetworkActivityLogger (2.0.3):
+    - AFNetworking/NSURLConnection (~> 2.0)
+    - AFNetworking/NSURLSession (~> 2.0)
+  - AFNetworking (2.5.0):
+    - AFNetworking/NSURLConnection (= 2.5.0)
+    - AFNetworking/NSURLSession (= 2.5.0)
+    - AFNetworking/Reachability (= 2.5.0)
+    - AFNetworking/Security (= 2.5.0)
+    - AFNetworking/Serialization (= 2.5.0)
+    - AFNetworking/UIKit (= 2.5.0)
+  - AFNetworking/NSURLConnection (2.5.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.5.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.5.0)
+  - AFNetworking/Security (2.5.0)
+  - AFNetworking/Serialization (2.5.0)
+  - AFNetworking/UIKit (2.5.0):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - MBProgressHUD (0.9)
+  - MediaRSSParser (1.0.1):
+    - AFNetworking (~> 2.0)
+
+DEPENDENCIES:
+  - AFNetworkActivityLogger (~> 2.0)
+  - MBProgressHUD (~> 0.8)
+  - MediaRSSParser (~> 1.0)
+
+SPEC CHECKSUMS:
+  AFNetworkActivityLogger: d6a2d2755fada3a1fbf1f490ec0dd92224e092a4
+  AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
+  MBProgressHUD: 2038dbcf3dce73215abed6001657043d53aa79a8
+  MediaRSSParser: 6d8bc5d86b7a7a897c122aa841a3302c8ee8113c
+
+COCOAPODS: 0.35.0

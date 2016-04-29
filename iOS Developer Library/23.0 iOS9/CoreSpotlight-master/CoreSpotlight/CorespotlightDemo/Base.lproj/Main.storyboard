@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="l7C-vO-fo6">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <scenes>
+        <!--Web-->
+        <scene sceneID="hzd-ca-Vob">
+            <objects>
+                <viewController title="Web" id="4tT-UD-taa" customClass="WebViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vPX-uP-lNs"/>
+                        <viewControllerLayoutGuide type="bottom" id="Z1M-BP-4wb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yrw-HJ-K7Z">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PSr-F9-8yz">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="PSr-F9-8yz" firstAttribute="top" secondItem="vPX-uP-lNs" secondAttribute="bottom" id="7iD-21-bnD"/>
+                            <constraint firstItem="PSr-F9-8yz" firstAttribute="leading" secondItem="yrw-HJ-K7Z" secondAttribute="leading" id="9o2-9P-T2Z"/>
+                            <constraint firstAttribute="trailing" secondItem="PSr-F9-8yz" secondAttribute="trailing" id="VQB-yi-9KZ"/>
+                            <constraint firstItem="PSr-F9-8yz" firstAttribute="bottom" secondItem="Z1M-BP-4wb" secondAttribute="top" id="sZn-4a-eyG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="PSr-F9-8yz" id="iX1-WE-mtT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XcK-Jq-7Q8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2011" y="384"/>
+        </scene>
+        <!--TXT-->
+        <scene sceneID="Zt2-2w-uhv">
+            <objects>
+                <viewController title="TXT" id="5Jg-FZ-dhI" customClass="TXTViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2T1-Mw-Ib8"/>
+                        <viewControllerLayoutGuide type="bottom" id="6lF-Ky-ueZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1SX-In-57X">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="长沙凯钿软件有限公司（Kdan Mobile：http://www.kdanmobile.com/en/）专注于打造多元的数字内容创作平台，为用户提供基础的创作素材、知识分享以及二次创作，启发用户的创作能力和创新灵感。" translatesAutoresizingMaskIntoConstraints="NO" id="lOc-3P-XXK">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lOc-3P-XXK" firstAttribute="bottom" secondItem="6lF-Ky-ueZ" secondAttribute="top" id="KFo-wC-I6i"/>
+                            <constraint firstItem="lOc-3P-XXK" firstAttribute="leading" secondItem="1SX-In-57X" secondAttribute="leading" id="U2s-BI-JDx"/>
+                            <constraint firstAttribute="trailing" secondItem="lOc-3P-XXK" secondAttribute="trailing" id="VUA-mN-iUi"/>
+                            <constraint firstItem="lOc-3P-XXK" firstAttribute="top" secondItem="2T1-Mw-Ib8" secondAttribute="bottom" id="jD6-5R-LP1"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Byg-5q-1F5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2015" y="1085"/>
+        </scene>
+        <!--CoreSpotlight-->
+        <scene sceneID="i9K-Aw-xIJ">
+            <objects>
+                <tableViewController id="IDi-Lc-yXy" customClass="CoreSpotlightTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="6hJ-XN-a8p">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CoreSpotlightIdentifier" id="ESl-Dy-YVG">
+                                <rect key="frame" x="0.0" y="86" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ESl-Dy-YVG" id="23b-LQ-dXs">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NI1-lY-XpY">
+                                            <rect key="frame" x="8" y="11" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="IDi-Lc-yXy" id="amj-Cr-aXx"/>
+                            <outlet property="delegate" destination="IDi-Lc-yXy" id="kjr-vH-qCW"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="CoreSpotlight" id="DQ1-Ki-Myh"/>
+                    <connections>
+                        <segue destination="4tT-UD-taa" kind="show" identifier="WebSegueIdentifier" id="aDN-mg-nNy"/>
+                        <segue destination="2b4-W4-mXe" kind="show" identifier="ImageSegueIdentifier" id="rHX-Xs-qZS"/>
+                        <segue destination="5Jg-FZ-dhI" kind="show" identifier="TXTSegueIdentifier" id="a0n-sL-5k8"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UNt-Vw-UIh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1263" y="1087"/>
+        </scene>
+        <!--Image-->
+        <scene sceneID="68j-fF-QHL">
+            <objects>
+                <viewController title="Image" id="2b4-W4-mXe" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DnF-GL-mV3"/>
+                        <viewControllerLayoutGuide type="bottom" id="3wE-ts-yau"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8RH-Bv-KcZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="KdanIconLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="wVQ-eq-hR0">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wVQ-eq-hR0" firstAttribute="leading" secondItem="8RH-Bv-KcZ" secondAttribute="leading" id="MfS-Wc-HxL"/>
+                            <constraint firstAttribute="trailing" secondItem="wVQ-eq-hR0" secondAttribute="trailing" id="SUW-AY-e2d"/>
+                            <constraint firstItem="wVQ-eq-hR0" firstAttribute="top" secondItem="DnF-GL-mV3" secondAttribute="bottom" id="ShO-0B-dxM"/>
+                            <constraint firstItem="wVQ-eq-hR0" firstAttribute="bottom" secondItem="3wE-ts-yau" secondAttribute="top" id="VSX-ok-o7x"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fOj-IQ-cut" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2045" y="1875"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kgP-8O-NTB">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="l7C-vO-fo6" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="S9H-Td-RCH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="IDi-Lc-yXy" kind="relationship" relationship="rootViewController" id="O5k-LG-Ot6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nUB-BU-V2J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="451" y="1087"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="KdanIconLogo.png" width="1024" height="1024"/>
+    </resources>
+</document>

@@ -1,0 +1,566 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B9134C311B63BFBF000C279D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B9134C301B63BFBF000C279D /* main.m */; };
+		B9134C341B63BFBF000C279D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9134C331B63BFBF000C279D /* AppDelegate.m */; };
+		B9134C3A1B63BFBF000C279D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9134C381B63BFBF000C279D /* Main.storyboard */; };
+		B9134C3C1B63BFBF000C279D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9134C3B1B63BFBF000C279D /* Assets.xcassets */; };
+		B9134C3F1B63BFBF000C279D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9134C3D1B63BFBF000C279D /* LaunchScreen.storyboard */; };
+		B9134C4A1B63BFBF000C279D /* CorespotlightDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B9134C491B63BFBF000C279D /* CorespotlightDemoTests.m */; };
+		B9134C551B63BFBF000C279D /* CorespotlightDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B9134C541B63BFBF000C279D /* CorespotlightDemoUITests.m */; };
+		B9134C641B63C06A000C279D /* CoreSpotlightTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9134C631B63C06A000C279D /* CoreSpotlightTableViewController.m */; };
+		B9134C671B63C361000C279D /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9134C661B63C361000C279D /* WebViewController.m */; };
+		B9134C6B1B63CB92000C279D /* lena bmp 标准测试图像.bmp in Resources */ = {isa = PBXBuildFile; fileRef = B9134C6A1B63CB92000C279D /* lena bmp 标准测试图像.bmp */; };
+		B9935E431B63D5530067F797 /* TXTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9935E421B63D5530067F797 /* TXTViewController.m */; };
+		B9AC0F231B647DE400A29D2F /* CoreSpotlight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9AC0F221B647DE400A29D2F /* CoreSpotlight.framework */; };
+		B9AC0F251B647FEC00A29D2F /* icon_Image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9AC0F241B647FEC00A29D2F /* icon_Image@2x.png */; };
+		B9AC0F271B64801300A29D2F /* icon_TXT@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9AC0F261B64801300A29D2F /* icon_TXT@2x.png */; };
+		B9AC0F291B64803200A29D2F /* icon_Web@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9AC0F281B64803200A29D2F /* icon_Web@2x.png */; };
+		DED82DFA1B6716BE002B08B0 /* KdanIconLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = DED82DF91B6716BE002B08B0 /* KdanIconLogo.png */; };
+		FD1C40831C59ECF8007A9AB0 /* SFWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1C40821C59ECF8007A9AB0 /* SFWebViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B9134C461B63BFBF000C279D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B9134C241B63BFBE000C279D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B9134C2B1B63BFBF000C279D;
+			remoteInfo = CorespotlightDemo;
+		};
+		B9134C511B63BFBF000C279D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B9134C241B63BFBE000C279D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B9134C2B1B63BFBF000C279D;
+			remoteInfo = CorespotlightDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B9134C2C1B63BFBF000C279D /* CorespotlightDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CorespotlightDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9134C301B63BFBF000C279D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B9134C321B63BFBF000C279D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B9134C331B63BFBF000C279D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B9134C391B63BFBF000C279D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B9134C3B1B63BFBF000C279D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B9134C3E1B63BFBF000C279D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B9134C401B63BFBF000C279D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B9134C451B63BFBF000C279D /* CorespotlightDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CorespotlightDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9134C491B63BFBF000C279D /* CorespotlightDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CorespotlightDemoTests.m; sourceTree = "<group>"; };
+		B9134C4B1B63BFBF000C279D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B9134C501B63BFBF000C279D /* CorespotlightDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CorespotlightDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9134C541B63BFBF000C279D /* CorespotlightDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CorespotlightDemoUITests.m; sourceTree = "<group>"; };
+		B9134C561B63BFBF000C279D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B9134C621B63C06A000C279D /* CoreSpotlightTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreSpotlightTableViewController.h; path = ../CoreSpotlightTableViewController.h; sourceTree = "<group>"; };
+		B9134C631B63C06A000C279D /* CoreSpotlightTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreSpotlightTableViewController.m; path = ../CoreSpotlightTableViewController.m; sourceTree = "<group>"; };
+		B9134C651B63C361000C279D /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		B9134C661B63C361000C279D /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		B9134C6A1B63CB92000C279D /* lena bmp 标准测试图像.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "lena bmp 标准测试图像.bmp"; sourceTree = "<group>"; };
+		B9935E411B63D5530067F797 /* TXTViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXTViewController.h; sourceTree = "<group>"; };
+		B9935E421B63D5530067F797 /* TXTViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXTViewController.m; sourceTree = "<group>"; };
+		B9AC0F221B647DE400A29D2F /* CoreSpotlight.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreSpotlight.framework; path = System/Library/Frameworks/CoreSpotlight.framework; sourceTree = SDKROOT; };
+		B9AC0F241B647FEC00A29D2F /* icon_Image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_Image@2x.png"; sourceTree = "<group>"; };
+		B9AC0F261B64801300A29D2F /* icon_TXT@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_TXT@2x.png"; sourceTree = "<group>"; };
+		B9AC0F281B64803200A29D2F /* icon_Web@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_Web@2x.png"; sourceTree = "<group>"; };
+		DED82DF91B6716BE002B08B0 /* KdanIconLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = KdanIconLogo.png; sourceTree = "<group>"; };
+		FD1C40811C59ECF8007A9AB0 /* SFWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFWebViewController.h; sourceTree = "<group>"; };
+		FD1C40821C59ECF8007A9AB0 /* SFWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFWebViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B9134C291B63BFBF000C279D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9AC0F231B647DE400A29D2F /* CoreSpotlight.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B9134C421B63BFBF000C279D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B9134C4D1B63BFBF000C279D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B9134C231B63BFBE000C279D = {
+			isa = PBXGroup;
+			children = (
+				B9AC0F221B647DE400A29D2F /* CoreSpotlight.framework */,
+				B9134C2E1B63BFBF000C279D /* CorespotlightDemo */,
+				B9134C481B63BFBF000C279D /* CorespotlightDemoTests */,
+				B9134C531B63BFBF000C279D /* CorespotlightDemoUITests */,
+				B9134C2D1B63BFBF000C279D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B9134C2D1B63BFBF000C279D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B9134C2C1B63BFBF000C279D /* CorespotlightDemo.app */,
+				B9134C451B63BFBF000C279D /* CorespotlightDemoTests.xctest */,
+				B9134C501B63BFBF000C279D /* CorespotlightDemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B9134C2E1B63BFBF000C279D /* CorespotlightDemo */ = {
+			isa = PBXGroup;
+			children = (
+				B9AC0F241B647FEC00A29D2F /* icon_Image@2x.png */,
+				B9AC0F261B64801300A29D2F /* icon_TXT@2x.png */,
+				B9AC0F281B64803200A29D2F /* icon_Web@2x.png */,
+				B9935E411B63D5530067F797 /* TXTViewController.h */,
+				B9935E421B63D5530067F797 /* TXTViewController.m */,
+				B9134C651B63C361000C279D /* WebViewController.h */,
+				B9134C661B63C361000C279D /* WebViewController.m */,
+				B9134C621B63C06A000C279D /* CoreSpotlightTableViewController.h */,
+				B9134C631B63C06A000C279D /* CoreSpotlightTableViewController.m */,
+				FD1C40811C59ECF8007A9AB0 /* SFWebViewController.h */,
+				FD1C40821C59ECF8007A9AB0 /* SFWebViewController.m */,
+				B9134C321B63BFBF000C279D /* AppDelegate.h */,
+				B9134C331B63BFBF000C279D /* AppDelegate.m */,
+				B9134C381B63BFBF000C279D /* Main.storyboard */,
+				B9134C3B1B63BFBF000C279D /* Assets.xcassets */,
+				B9134C3D1B63BFBF000C279D /* LaunchScreen.storyboard */,
+				B9134C401B63BFBF000C279D /* Info.plist */,
+				DED82DF91B6716BE002B08B0 /* KdanIconLogo.png */,
+				B9134C6A1B63CB92000C279D /* lena bmp 标准测试图像.bmp */,
+				B9134C2F1B63BFBF000C279D /* Supporting Files */,
+			);
+			path = CorespotlightDemo;
+			sourceTree = "<group>";
+		};
+		B9134C2F1B63BFBF000C279D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B9134C301B63BFBF000C279D /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B9134C481B63BFBF000C279D /* CorespotlightDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				B9134C491B63BFBF000C279D /* CorespotlightDemoTests.m */,
+				B9134C4B1B63BFBF000C279D /* Info.plist */,
+			);
+			path = CorespotlightDemoTests;
+			sourceTree = "<group>";
+		};
+		B9134C531B63BFBF000C279D /* CorespotlightDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B9134C541B63BFBF000C279D /* CorespotlightDemoUITests.m */,
+				B9134C561B63BFBF000C279D /* Info.plist */,
+			);
+			path = CorespotlightDemoUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B9134C2B1B63BFBF000C279D /* CorespotlightDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B9134C591B63BFBF000C279D /* Build configuration list for PBXNativeTarget "CorespotlightDemo" */;
+			buildPhases = (
+				B9134C281B63BFBF000C279D /* Sources */,
+				B9134C291B63BFBF000C279D /* Frameworks */,
+				B9134C2A1B63BFBF000C279D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CorespotlightDemo;
+			productName = CorespotlightDemo;
+			productReference = B9134C2C1B63BFBF000C279D /* CorespotlightDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B9134C441B63BFBF000C279D /* CorespotlightDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B9134C5C1B63BFBF000C279D /* Build configuration list for PBXNativeTarget "CorespotlightDemoTests" */;
+			buildPhases = (
+				B9134C411B63BFBF000C279D /* Sources */,
+				B9134C421B63BFBF000C279D /* Frameworks */,
+				B9134C431B63BFBF000C279D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B9134C471B63BFBF000C279D /* PBXTargetDependency */,
+			);
+			name = CorespotlightDemoTests;
+			productName = CorespotlightDemoTests;
+			productReference = B9134C451B63BFBF000C279D /* CorespotlightDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B9134C4F1B63BFBF000C279D /* CorespotlightDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B9134C5F1B63BFBF000C279D /* Build configuration list for PBXNativeTarget "CorespotlightDemoUITests" */;
+			buildPhases = (
+				B9134C4C1B63BFBF000C279D /* Sources */,
+				B9134C4D1B63BFBF000C279D /* Frameworks */,
+				B9134C4E1B63BFBF000C279D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B9134C521B63BFBF000C279D /* PBXTargetDependency */,
+			);
+			name = CorespotlightDemoUITests;
+			productName = CorespotlightDemoUITests;
+			productReference = B9134C501B63BFBF000C279D /* CorespotlightDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B9134C241B63BFBE000C279D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = kdanmobile;
+				TargetAttributes = {
+					B9134C2B1B63BFBF000C279D = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					B9134C441B63BFBF000C279D = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = B9134C2B1B63BFBF000C279D;
+					};
+					B9134C4F1B63BFBF000C279D = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = B9134C2B1B63BFBF000C279D;
+					};
+				};
+			};
+			buildConfigurationList = B9134C271B63BFBE000C279D /* Build configuration list for PBXProject "CorespotlightDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B9134C231B63BFBE000C279D;
+			productRefGroup = B9134C2D1B63BFBF000C279D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B9134C2B1B63BFBF000C279D /* CorespotlightDemo */,
+				B9134C441B63BFBF000C279D /* CorespotlightDemoTests */,
+				B9134C4F1B63BFBF000C279D /* CorespotlightDemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B9134C2A1B63BFBF000C279D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9AC0F291B64803200A29D2F /* icon_Web@2x.png in Resources */,
+				B9134C6B1B63CB92000C279D /* lena bmp 标准测试图像.bmp in Resources */,
+				B9134C3F1B63BFBF000C279D /* LaunchScreen.storyboard in Resources */,
+				DED82DFA1B6716BE002B08B0 /* KdanIconLogo.png in Resources */,
+				B9AC0F251B647FEC00A29D2F /* icon_Image@2x.png in Resources */,
+				B9134C3C1B63BFBF000C279D /* Assets.xcassets in Resources */,
+				B9AC0F271B64801300A29D2F /* icon_TXT@2x.png in Resources */,
+				B9134C3A1B63BFBF000C279D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B9134C431B63BFBF000C279D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B9134C4E1B63BFBF000C279D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B9134C281B63BFBF000C279D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD1C40831C59ECF8007A9AB0 /* SFWebViewController.m in Sources */,
+				B9134C341B63BFBF000C279D /* AppDelegate.m in Sources */,
+				B9134C311B63BFBF000C279D /* main.m in Sources */,
+				B9935E431B63D5530067F797 /* TXTViewController.m in Sources */,
+				B9134C641B63C06A000C279D /* CoreSpotlightTableViewController.m in Sources */,
+				B9134C671B63C361000C279D /* WebViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B9134C411B63BFBF000C279D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9134C4A1B63BFBF000C279D /* CorespotlightDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B9134C4C1B63BFBF000C279D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9134C551B63BFBF000C279D /* CorespotlightDemoUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B9134C471B63BFBF000C279D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B9134C2B1B63BFBF000C279D /* CorespotlightDemo */;
+			targetProxy = B9134C461B63BFBF000C279D /* PBXContainerItemProxy */;
+		};
+		B9134C521B63BFBF000C279D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B9134C2B1B63BFBF000C279D /* CorespotlightDemo */;
+			targetProxy = B9134C511B63BFBF000C279D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B9134C381B63BFBF000C279D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B9134C391B63BFBF000C279D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B9134C3D1B63BFBF000C279D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B9134C3E1B63BFBF000C279D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B9134C571B63BFBF000C279D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B9134C581B63BFBF000C279D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B9134C5A1B63BFBF000C279D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CorespotlightDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kdanmobile.CorespotlightDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B9134C5B1B63BFBF000C279D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CorespotlightDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kdanmobile.CorespotlightDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		B9134C5D1B63BFBF000C279D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = CorespotlightDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kdanmobile.CorespotlightDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CorespotlightDemo.app/CorespotlightDemo";
+			};
+			name = Debug;
+		};
+		B9134C5E1B63BFBF000C279D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = CorespotlightDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kdanmobile.CorespotlightDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CorespotlightDemo.app/CorespotlightDemo";
+			};
+			name = Release;
+		};
+		B9134C601B63BFBF000C279D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = CorespotlightDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kdanmobile.CorespotlightDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = CorespotlightDemo;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		B9134C611B63BFBF000C279D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = CorespotlightDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kdanmobile.CorespotlightDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = CorespotlightDemo;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B9134C271B63BFBE000C279D /* Build configuration list for PBXProject "CorespotlightDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B9134C571B63BFBF000C279D /* Debug */,
+				B9134C581B63BFBF000C279D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B9134C591B63BFBF000C279D /* Build configuration list for PBXNativeTarget "CorespotlightDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B9134C5A1B63BFBF000C279D /* Debug */,
+				B9134C5B1B63BFBF000C279D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B9134C5C1B63BFBF000C279D /* Build configuration list for PBXNativeTarget "CorespotlightDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B9134C5D1B63BFBF000C279D /* Debug */,
+				B9134C5E1B63BFBF000C279D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B9134C5F1B63BFBF000C279D /* Build configuration list for PBXNativeTarget "CorespotlightDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B9134C601B63BFBF000C279D /* Debug */,
+				B9134C611B63BFBF000C279D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B9134C241B63BFBE000C279D /* Project object */;
+}

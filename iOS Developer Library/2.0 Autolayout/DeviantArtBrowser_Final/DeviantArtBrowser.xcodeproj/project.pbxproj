@@ -1,0 +1,397 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4257A1181A22ABA3000DC32F /* RWBasicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4257A1171A22ABA3000DC32F /* RWBasicCell.m */; };
+		4257A11B1A22B710000DC32F /* RWLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4257A11A1A22B710000DC32F /* RWLabel.m */; };
+		4257A11E1A22BD61000DC32F /* RWImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4257A11D1A22BD61000DC32F /* RWImageCell.m */; };
+		44AEF624191DAE35003211BD /* RWDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44AEF623191DAE35003211BD /* RWDetailViewController.m */; };
+		44FDE38218EBD64B006499D2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44FDE38018EBD64B006499D2 /* InfoPlist.strings */; };
+		44FDE38418EBD64B006499D2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FDE38318EBD64B006499D2 /* main.m */; };
+		44FDE38818EBD64B006499D2 /* RWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FDE38718EBD64B006499D2 /* RWAppDelegate.m */; };
+		44FDE38B18EBD64B006499D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44FDE38918EBD64B006499D2 /* Main.storyboard */; };
+		44FDE39018EBD64B006499D2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44FDE38F18EBD64B006499D2 /* Images.xcassets */; };
+		44FDE3AE18EBD89B006499D2 /* RWFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FDE3AD18EBD89B006499D2 /* RWFeedViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		074BE7137F832FA503DB640D /* Pods-DeviantArtBrowser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeviantArtBrowser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DeviantArtBrowser/Pods-DeviantArtBrowser.debug.xcconfig"; sourceTree = "<group>"; };
+		132251CBEFD3B186F08F9954 /* Pods-DeviantArtBrowser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeviantArtBrowser.release.xcconfig"; path = "Pods/Target Support Files/Pods-DeviantArtBrowser/Pods-DeviantArtBrowser.release.xcconfig"; sourceTree = "<group>"; };
+		4257A1161A22ABA3000DC32F /* RWBasicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWBasicCell.h; sourceTree = "<group>"; };
+		4257A1171A22ABA3000DC32F /* RWBasicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWBasicCell.m; sourceTree = "<group>"; };
+		4257A1191A22B710000DC32F /* RWLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWLabel.h; sourceTree = "<group>"; };
+		4257A11A1A22B710000DC32F /* RWLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWLabel.m; sourceTree = "<group>"; };
+		4257A11C1A22BD61000DC32F /* RWImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWImageCell.h; sourceTree = "<group>"; };
+		4257A11D1A22BD61000DC32F /* RWImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWImageCell.m; sourceTree = "<group>"; };
+		44AEF622191DAE35003211BD /* RWDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWDetailViewController.h; sourceTree = "<group>"; };
+		44AEF623191DAE35003211BD /* RWDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWDetailViewController.m; sourceTree = "<group>"; };
+		44FDE37418EBD64B006499D2 /* DeviantArtBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeviantArtBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		44FDE37F18EBD64B006499D2 /* DeviantArtBrowser-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DeviantArtBrowser-Info.plist"; sourceTree = "<group>"; };
+		44FDE38118EBD64B006499D2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		44FDE38318EBD64B006499D2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		44FDE38518EBD64B006499D2 /* DeviantArtBrowser-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DeviantArtBrowser-Prefix.pch"; sourceTree = "<group>"; };
+		44FDE38618EBD64B006499D2 /* RWAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RWAppDelegate.h; sourceTree = "<group>"; };
+		44FDE38718EBD64B006499D2 /* RWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RWAppDelegate.m; sourceTree = "<group>"; };
+		44FDE38A18EBD64B006499D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		44FDE38F18EBD64B006499D2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		44FDE3AC18EBD89B006499D2 /* RWFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWFeedViewController.h; sourceTree = "<group>"; };
+		44FDE3AD18EBD89B006499D2 /* RWFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWFeedViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		44FDE37118EBD64B006499D2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		44FDE36B18EBD64B006499D2 = {
+			isa = PBXGroup;
+			children = (
+				44FDE37D18EBD64B006499D2 /* DeviantArtBrowser */,
+				44FDE37618EBD64B006499D2 /* Frameworks */,
+				44FDE37518EBD64B006499D2 /* Products */,
+				D393665C17692ED89D08EE04 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		44FDE37518EBD64B006499D2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				44FDE37418EBD64B006499D2 /* DeviantArtBrowser.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		44FDE37618EBD64B006499D2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		44FDE37D18EBD64B006499D2 /* DeviantArtBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				44FDE38618EBD64B006499D2 /* RWAppDelegate.h */,
+				44FDE38718EBD64B006499D2 /* RWAppDelegate.m */,
+				44FDE3B318EBD9B8006499D2 /* Controllers */,
+				44FDE3B118EBD9A6006499D2 /* Views */,
+				44FDE37E18EBD64B006499D2 /* Supporting Files */,
+			);
+			path = DeviantArtBrowser;
+			sourceTree = "<group>";
+		};
+		44FDE37E18EBD64B006499D2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				44FDE38F18EBD64B006499D2 /* Images.xcassets */,
+				44FDE37F18EBD64B006499D2 /* DeviantArtBrowser-Info.plist */,
+				44FDE38518EBD64B006499D2 /* DeviantArtBrowser-Prefix.pch */,
+				44FDE38018EBD64B006499D2 /* InfoPlist.strings */,
+				44FDE38318EBD64B006499D2 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		44FDE3B118EBD9A6006499D2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				44FDE38918EBD64B006499D2 /* Main.storyboard */,
+				4257A1161A22ABA3000DC32F /* RWBasicCell.h */,
+				4257A1171A22ABA3000DC32F /* RWBasicCell.m */,
+				4257A11C1A22BD61000DC32F /* RWImageCell.h */,
+				4257A11D1A22BD61000DC32F /* RWImageCell.m */,
+				4257A1191A22B710000DC32F /* RWLabel.h */,
+				4257A11A1A22B710000DC32F /* RWLabel.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		44FDE3B318EBD9B8006499D2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				44FDE3AC18EBD89B006499D2 /* RWFeedViewController.h */,
+				44FDE3AD18EBD89B006499D2 /* RWFeedViewController.m */,
+				44AEF622191DAE35003211BD /* RWDetailViewController.h */,
+				44AEF623191DAE35003211BD /* RWDetailViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		D393665C17692ED89D08EE04 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				074BE7137F832FA503DB640D /* Pods-DeviantArtBrowser.debug.xcconfig */,
+				132251CBEFD3B186F08F9954 /* Pods-DeviantArtBrowser.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		44FDE37318EBD64B006499D2 /* DeviantArtBrowser */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 44FDE3A618EBD64B006499D2 /* Build configuration list for PBXNativeTarget "DeviantArtBrowser" */;
+			buildPhases = (
+				C831D2021E224F758F561F87 /* Check Pods Manifest.lock */,
+				44FDE37018EBD64B006499D2 /* Sources */,
+				44FDE37118EBD64B006499D2 /* Frameworks */,
+				44FDE37218EBD64B006499D2 /* Resources */,
+				6930A58445B748178FFE5488 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DeviantArtBrowser;
+			productName = DeviantArtBrowser;
+			productReference = 44FDE37418EBD64B006499D2 /* DeviantArtBrowser.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		44FDE36C18EBD64B006499D2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = RW;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Razeware, LLC";
+			};
+			buildConfigurationList = 44FDE36F18EBD64B006499D2 /* Build configuration list for PBXProject "DeviantArtBrowser" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 44FDE36B18EBD64B006499D2;
+			productRefGroup = 44FDE37518EBD64B006499D2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				44FDE37318EBD64B006499D2 /* DeviantArtBrowser */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		44FDE37218EBD64B006499D2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44FDE39018EBD64B006499D2 /* Images.xcassets in Resources */,
+				44FDE38218EBD64B006499D2 /* InfoPlist.strings in Resources */,
+				44FDE38B18EBD64B006499D2 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6930A58445B748178FFE5488 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DeviantArtBrowser/Pods-DeviantArtBrowser-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C831D2021E224F758F561F87 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		44FDE37018EBD64B006499D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44AEF624191DAE35003211BD /* RWDetailViewController.m in Sources */,
+				4257A1181A22ABA3000DC32F /* RWBasicCell.m in Sources */,
+				44FDE38418EBD64B006499D2 /* main.m in Sources */,
+				4257A11E1A22BD61000DC32F /* RWImageCell.m in Sources */,
+				44FDE3AE18EBD89B006499D2 /* RWFeedViewController.m in Sources */,
+				44FDE38818EBD64B006499D2 /* RWAppDelegate.m in Sources */,
+				4257A11B1A22B710000DC32F /* RWLabel.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		44FDE38018EBD64B006499D2 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				44FDE38118EBD64B006499D2 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		44FDE38918EBD64B006499D2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				44FDE38A18EBD64B006499D2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		44FDE3A418EBD64B006499D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		44FDE3A518EBD64B006499D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		44FDE3A718EBD64B006499D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 074BE7137F832FA503DB640D /* Pods-DeviantArtBrowser.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DeviantArtBrowser/DeviantArtBrowser-Prefix.pch";
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = "DeviantArtBrowser/DeviantArtBrowser-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		44FDE3A818EBD64B006499D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 132251CBEFD3B186F08F9954 /* Pods-DeviantArtBrowser.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DeviantArtBrowser/DeviantArtBrowser-Prefix.pch";
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = "DeviantArtBrowser/DeviantArtBrowser-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		44FDE36F18EBD64B006499D2 /* Build configuration list for PBXProject "DeviantArtBrowser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				44FDE3A418EBD64B006499D2 /* Debug */,
+				44FDE3A518EBD64B006499D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		44FDE3A618EBD64B006499D2 /* Build configuration list for PBXNativeTarget "DeviantArtBrowser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				44FDE3A718EBD64B006499D2 /* Debug */,
+				44FDE3A818EBD64B006499D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 44FDE36C18EBD64B006499D2 /* Project object */;
+}

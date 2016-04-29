@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8tO-cI-HN4">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="L8z-xb-FmS" kind="presentation" id="YwS-ey-6Ap"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="8tO-cI-HN4" secondAttribute="centerY" constant="33" id="FWc-Xu-ndj"/>
+                            <constraint firstAttribute="centerX" secondItem="8tO-cI-HN4" secondAttribute="centerX" id="HQt-XB-rz3"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="8tO-cI-HN4"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="FWc-Xu-ndj"/>
+                                <exclude reference="HQt-XB-rz3"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="8tO-cI-HN4"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="FWc-Xu-ndj"/>
+                                <include reference="HQt-XB-rz3"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--Auto Layout-->
+        <scene sceneID="Ely-0z-GQ6">
+            <objects>
+                <viewController storyboardIdentifier="HAutoLayout" id="L8z-xb-FmS" customClass="HAutoLayout" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vhb-cj-lxp"/>
+                        <viewControllerLayoutGuide type="bottom" id="uc6-GZ-dKd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Nld-Nw-Jus">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m0T-Eg-pjg">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionButton:" destination="L8z-xb-FmS" eventType="touchDown" id="0tk-OD-VYy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="m0T-Eg-pjg" secondAttribute="centerX" constant="-45" id="E8n-lv-1OQ"/>
+                            <constraint firstAttribute="centerY" secondItem="m0T-Eg-pjg" secondAttribute="centerY" constant="-109" id="Kii-Zj-Eua"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="m0T-Eg-pjg"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="E8n-lv-1OQ"/>
+                                <exclude reference="Kii-Zj-Eua"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="m0T-Eg-pjg"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="E8n-lv-1OQ"/>
+                                <include reference="Kii-Zj-Eua"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tkg-uq-Mhg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="864" y="241"/>
+        </scene>
+    </scenes>
+</document>

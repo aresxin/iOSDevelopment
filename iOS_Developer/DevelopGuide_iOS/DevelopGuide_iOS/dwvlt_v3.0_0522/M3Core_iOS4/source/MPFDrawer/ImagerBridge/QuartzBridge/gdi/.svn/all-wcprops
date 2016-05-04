@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/gdi
+END
+MXDDeviceContextDraw.h
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/gdi/MXDDeviceContextDraw.h
+END
+MXDPen.h
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/gdi/MXDPen.h
+END
+MXDBrush.h
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/gdi/MXDBrush.h
+END
+MXDRegion.h
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/gdi/MXDRegion.h
+END
+MXDDeviceContext.h
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/gdi/MXDDeviceContext.h
+END
+MXDFont.h
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/gdi/MXDFont.h
+END
+MXDDeviceContextSearch.h
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/gdi/MXDDeviceContextSearch.h
+END
+MXDGdiObject.h
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/gdi/MXDGdiObject.h
+END
+MXDDeviceContextFactory.h
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/gdi/MXDDeviceContextFactory.h
+END
+MXDDCForVectorDraw.h
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/gdi/MXDDCForVectorDraw.h
+END
+MXDPalette.h
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/gdi/MXDPalette.h
+END

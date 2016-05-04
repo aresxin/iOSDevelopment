@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/gdi/txt_drawer
+END
+MXDWinFont.h
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/gdi/txt_drawer/MXDWinFont.h
+END
+MXDMspFont.h
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/gdi/txt_drawer/MXDMspFont.h
+END
+MXDFixedFont.h
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/gdi/txt_drawer/MXDFixedFont.h
+END
+MXDSymbolFont.h
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/gdi/txt_drawer/MXDSymbolFont.h
+END
+MXDCJKFont.h
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/gdi/txt_drawer/MXDCJKFont.h
+END
+MXDTraditionalChineseFont.h
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/gdi/txt_drawer/MXDTraditionalChineseFont.h
+END
+MXDChineseFont.h
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/gdi/txt_drawer/MXDChineseFont.h
+END
+MXDKoreanFont.h
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/gdi/txt_drawer/MXDKoreanFont.h
+END
+MXDMsFont.h
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/gdi/txt_drawer/MXDMsFont.h
+END
+MXDFontSelector.h
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/gdi/txt_drawer/MXDFontSelector.h
+END
+MXDArabicFont.h
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/gdi/txt_drawer/MXDArabicFont.h
+END
+MXDLanguageFont.h
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/gdi/txt_drawer/MXDLanguageFont.h
+END
+MXDSimplifiedChineseFont.h
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/gdi/txt_drawer/MXDSimplifiedChineseFont.h
+END
+MXDJapaneseFont.h
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/gdi/txt_drawer/MXDJapaneseFont.h
+END
+MXDProportionalFont.h
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/gdi/txt_drawer/MXDProportionalFont.h
+END
+MXDExtendedLatinFont.h
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/gdi/txt_drawer/MXDExtendedLatinFont.h
+END
+MXDAsciiFont.h
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/gdi/txt_drawer/MXDAsciiFont.h
+END

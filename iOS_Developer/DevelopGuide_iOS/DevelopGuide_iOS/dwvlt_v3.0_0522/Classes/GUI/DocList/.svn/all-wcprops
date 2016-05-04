@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/DW_iPhoneViewer_30/!svn/ver/997/trunk/dwvlt_v3.0/Classes/GUI/DocList
+END
+FileSortSettingsViewController.mm
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/Classes/GUI/DocList/FileSortSettingsViewController.mm
+END
+ScaleSpecifyViewController.mm
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/Classes/GUI/DocList/ScaleSpecifyViewController.mm
+END
+AboutDocuworksViewController.mm
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/Classes/GUI/DocList/AboutDocuworksViewController.mm
+END
+FileDetailViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/Classes/GUI/DocList/FileDetailViewController.h
+END
+DirectoryViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/Classes/GUI/DocList/DirectoryViewController.h
+END
+DWAuthenticationManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/Classes/GUI/DocList/DWAuthenticationManager.h
+END
+EnvironmentSettingsViewController.mm
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/DW_iPhoneViewer_30/!svn/ver/997/trunk/dwvlt_v3.0/Classes/GUI/DocList/EnvironmentSettingsViewController.mm
+END
+FileSortSettingsViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/Classes/GUI/DocList/FileSortSettingsViewController.h
+END
+DWRemoveLimitViewController.mm
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/Classes/GUI/DocList/DWRemoveLimitViewController.mm
+END
+ScaleSpecifyViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/Classes/GUI/DocList/ScaleSpecifyViewController.h
+END
+DocumentSummaryManager.mm
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/Classes/GUI/DocList/DocumentSummaryManager.mm
+END
+AboutDocuworksViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/Classes/GUI/DocList/AboutDocuworksViewController.h
+END
+FileDetailViewController.mm
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/Classes/GUI/DocList/FileDetailViewController.mm
+END
+EnvironmentSettingsViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/Classes/GUI/DocList/EnvironmentSettingsViewController.h
+END
+DirectoryViewController.mm
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/DW_iPhoneViewer_30/!svn/ver/997/trunk/dwvlt_v3.0/Classes/GUI/DocList/DirectoryViewController.mm
+END
+DWRemoveLimitViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/Classes/GUI/DocList/DWRemoveLimitViewController.h
+END
+DocumentSummaryManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/Classes/GUI/DocList/DocumentSummaryManager.h
+END
+DWAuthenticationManager.mm
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/Classes/GUI/DocList/DWAuthenticationManager.mm
+END

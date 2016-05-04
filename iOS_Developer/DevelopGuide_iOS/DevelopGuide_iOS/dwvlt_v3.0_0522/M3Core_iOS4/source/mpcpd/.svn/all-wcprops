@@ -1,0 +1,251 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd
+END
+mhpdseed.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/mhpdseed.h
+END
+adppdseed.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/adppdseed.h
+END
+nthdatagenerator.h
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/nthdatagenerator.h
+END
+imgpdbse.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/imgpdbse.h
+END
+emfpd_mpf.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/emfpd_mpf.h
+END
+pd3local.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/pd3local.h
+END
+fmapping.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/fmapping.h
+END
+imgrot.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/imgrot.h
+END
+qomoenc.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/qomoenc.h
+END
+jpgpdseed.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/jpgpdseed.h
+END
+mrcpdseed.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/mrcpdseed.h
+END
+readonlydata.h
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/readonlydata.h
+END
+mmrcodes.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/mmrcodes.h
+END
+pd3mf.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/pd3mf.h
+END
+mppd_mmr.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/mppd_mmr.h
+END
+bigalloc.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/bigalloc.h
+END
+idecoder.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/idecoder.h
+END
+acces.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/acces.h
+END
+wmfpd_mpf.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/wmfpd_mpf.h
+END
+imgshk.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/imgshk.h
+END
+jlthreshold.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/jlthreshold.h
+END
+mppd_mh.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/mppd_mh.h
+END
+mfpdutil.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/mfpdutil.h
+END
+qomodec.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/qomodec.h
+END
+bmpmhpdseed.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/bmpmhpdseed.h
+END
+readonlydataimpl.h
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/readonlydataimpl.h
+END
+readdib.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/readdib.h
+END
+magnify.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/magnify.h
+END
+imgmag.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/imgmag.h
+END
+okdpdseed.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/okdpdseed.h
+END
+bmppdseed.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/bmppdseed.h
+END
+pd3impl.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/pd3impl.h
+END
+huffmancode.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/huffmancode.h
+END
+mmrpdseed.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/mmrpdseed.h
+END
+imgpdtpl.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/imgpdtpl.h
+END
+imgshkrl.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/imgshkrl.h
+END
+imgpdtpl_mpf.h
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/imgpdtpl_mpf.h
+END
+imsobjectdrawer.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/imsobjectdrawer.h
+END
+imgpdutl.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/imgpdutl.h
+END
+imsutil.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/imsutil.h
+END
+decoders.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/decoders.h
+END

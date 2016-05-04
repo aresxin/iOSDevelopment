@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/Decomposer/PageManager/src
+END
+PM_VBGenerator.h
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/Decomposer/PageManager/src/PM_VBGenerator.h
+END
+PM_DeviceFigure.h
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/Decomposer/PageManager/src/PM_DeviceFigure.h
+END
+PM_ClipManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/Decomposer/PageManager/src/PM_ClipManager.h
+END
+PM_VBDefine.h
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/Decomposer/PageManager/src/PM_VBDefine.h
+END
+PM_DLMemoryManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/Decomposer/PageManager/src/PM_DLMemoryManager.h
+END
+PM_PageGenerator.h
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/Decomposer/PageManager/src/PM_PageGenerator.h
+END
+PM_VBRasterManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/Decomposer/PageManager/src/PM_VBRasterManager.h
+END
+PM_ELMemoryManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/Decomposer/PageManager/src/PM_ELMemoryManager.h
+END
+PM_DLGenerator.h
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/Decomposer/PageManager/src/PM_DLGenerator.h
+END
+PM_InternalDefine.h
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/Decomposer/PageManager/src/PM_InternalDefine.h
+END
+PM_PageManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/Decomposer/PageManager/src/PM_PageManager.h
+END
+PM_DLDefine.h
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/Decomposer/PageManager/src/PM_DLDefine.h
+END
+PM_DLRasterManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/Decomposer/PageManager/src/PM_DLRasterManager.h
+END

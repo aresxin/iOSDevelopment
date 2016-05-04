@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/Include
+END
+XdwGraphicFormat.h
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/Include/XdwGraphicFormat.h
+END
+XdwGraphicFormatFullParser.h
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/Include/XdwGraphicFormatFullParser.h
+END
+XdwGraphicFormatThumbnailParser.h
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/Include/XdwGraphicFormatThumbnailParser.h
+END
+XdwGraphicFormatParsingStrategy.h
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/Include/XdwGraphicFormatParsingStrategy.h
+END
+XdwGraphicFormatTextFilter.h
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/Include/XdwGraphicFormatTextFilter.h
+END
+XdwGraphicFormatInfo.h
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/Include/XdwGraphicFormatInfo.h
+END

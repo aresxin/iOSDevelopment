@@ -1,0 +1,149 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/dweditor
+END
+RectangleAnnotationManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/dweditor/RectangleAnnotationManager.h
+END
+listimpl.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/dweditor/listimpl.h
+END
+linearrow.h
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/dweditor/linearrow.h
+END
+EMRDef.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/dweditor/EMRDef.h
+END
+FreehandAnnotationManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/dweditor/FreehandAnnotationManager.h
+END
+ImplDWDocumentEditor.h
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/dweditor/ImplDWDocumentEditor.h
+END
+emfann.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/dweditor/emfann.h
+END
+AnnotationManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/dweditor/AnnotationManager.h
+END
+anemfcreator.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/dweditor/anemfcreator.h
+END
+PageManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/dweditor/PageManager.h
+END
+charsetjudge.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/dweditor/charsetjudge.h
+END
+freehandpoints.h
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/dweditor/freehandpoints.h
+END
+TextAnnotationManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/dweditor/TextAnnotationManager.h
+END
+List.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/dweditor/List.h
+END
+chrwidth.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/dweditor/chrwidth.h
+END
+PolygonAnnotationManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/dweditor/PolygonAnnotationManager.h
+END
+LineAnnotationManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/dweditor/LineAnnotationManager.h
+END
+emfgdicomment.h
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/dweditor/emfgdicomment.h
+END
+NotepadAnnotationManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/dweditor/NotepadAnnotationManager.h
+END
+EMFCore.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/dweditor/EMFCore.h
+END
+EllipseAnnotationManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/dweditor/EllipseAnnotationManager.h
+END
+emfdrawing.h
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/dweditor/emfdrawing.h
+END
+polygonpoints.h
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/dweditor/polygonpoints.h
+END
+DC.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/dweditor/DC.h
+END

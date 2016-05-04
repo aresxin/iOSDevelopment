@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>																							
+<status>																							
+	<deviceId>001</deviceId><!--设备id-->																						
+	<power>On</power><!--电源状态-->																						
+	<!--无应用程序，或<power>标签内容为Off时，无<applications>标签，及其子标签-->																						
+	<applications><!--应用程序列表-->																						
+		<application><!--应用程序-->																					
+			<appid>001</appid><!--应用程序id-->																				
+			<running>yes</running><!--应用程序运行状态-->																				
+		</application>																					
+		<application>																					
+			<appid>002</appid>																				
+			<running>no</running>																				
+		</application>																					
+	</applications>																						
+</status>																							

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>																																			
+<applications>																																			
+	<application>																																		
+		<applicationId>0101</applicationId>																			<!--应用程序ID（与数据库应用程序配置信息一致）-->														
+		<applicationName>iTunes</applicationName>																			<!--应用程序名称-->														
+		<applicationPath>C:\Program Files\iTunes\</applicationPath>																			<!--应用程序路径（路径最后为反斜线）-->														
+		<applicationFile>iTunes.exe</applicationFile>																			<!--应用程序文件（即进程的名字）-->														
+		<applicationArgs></applicationArgs>																			<!--命令行参数（无参数是为空白）-->														
+	</application>																																		
+	<application>																																		
+		<applicationId>0102</applicationId>																																	
+		<applicationName>网络播放器</applicationName>																																	
+		<applicationPath>D:\TSAI\09.RM\11.软件（整理中）\01.融合\UnZip\网络控制播放\</applicationPath>																																	
+		<applicationFile>player.exe</applicationFile>																																	
+		<applicationArgs> -d60</applicationArgs>																																	
+	</application>																																		
+</applications>																																			
+																																			

@@ -1,0 +1,143 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/Classes/GUI/Display
+END
+FacingSettingsViewController.mm
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/Classes/GUI/Display/FacingSettingsViewController.mm
+END
+LinkAnnotInfo.mm
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/Classes/GUI/Display/LinkAnnotInfo.mm
+END
+DWSelectGhostView.mm
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/Classes/GUI/Display/DWSelectGhostView.mm
+END
+XdwLinkManager.mm
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/Classes/GUI/Display/XdwLinkManager.mm
+END
+DocumentViewController.mm
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/Classes/GUI/Display/DocumentViewController.mm
+END
+PageViewManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/Classes/GUI/Display/PageViewManager.h
+END
+CooperationSettingsViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/Classes/GUI/Display/CooperationSettingsViewController.h
+END
+XdwListinXbdViewController.mm
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/Classes/GUI/Display/XdwListinXbdViewController.mm
+END
+AnnotationListViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/Classes/GUI/Display/AnnotationListViewController.h
+END
+LinkAnnotationManager.mm
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/Classes/GUI/Display/LinkAnnotationManager.mm
+END
+FacingSettingsViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/Classes/GUI/Display/FacingSettingsViewController.h
+END
+CooperationSettingsViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/Classes/GUI/Display/CooperationSettingsViewController.m
+END
+FontSettingsViewController.mm
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/Classes/GUI/Display/FontSettingsViewController.mm
+END
+LinkAnnotInfo.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/Classes/GUI/Display/LinkAnnotInfo.h
+END
+DWSelectGhostView.h
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/Classes/GUI/Display/DWSelectGhostView.h
+END
+XdwLinkManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/Classes/GUI/Display/XdwLinkManager.h
+END
+DocumentViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/Classes/GUI/Display/DocumentViewController.h
+END
+XdwListinXbdViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/Classes/GUI/Display/XdwListinXbdViewController.h
+END
+LinkAnnotationManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/Classes/GUI/Display/LinkAnnotationManager.h
+END
+PageViewManager.mm
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/Classes/GUI/Display/PageViewManager.mm
+END
+punycode.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/Classes/GUI/Display/punycode.h
+END
+FontSettingsViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/Classes/GUI/Display/FontSettingsViewController.h
+END
+AnnotationListViewController.mm
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/Classes/GUI/Display/AnnotationListViewController.mm
+END

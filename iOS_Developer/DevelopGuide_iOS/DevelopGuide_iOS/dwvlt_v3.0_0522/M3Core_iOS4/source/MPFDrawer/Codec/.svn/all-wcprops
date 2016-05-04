@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/Codec
+END
+XdwOkdCommon.h
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/Codec/XdwOkdCommon.h
+END
+XdwBridgeRasterDecodeStrategyALLAv2.h
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/Codec/XdwBridgeRasterDecodeStrategyALLAv2.h
+END
+XdwBridgeRasterDecodeStrategyMH.h
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/Codec/XdwBridgeRasterDecodeStrategyMH.h
+END
+XdwBridgeRasterDecodeStrategyJPEG.h
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/Codec/XdwBridgeRasterDecodeStrategyJPEG.h
+END
+XdwBridgeRasterDecodeStrategyMMRConstants.h
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/Codec/XdwBridgeRasterDecodeStrategyMMRConstants.h
+END
+XdwBridgeRasterDecodeStrategyALLA.h
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/Codec/XdwBridgeRasterDecodeStrategyALLA.h
+END
+XdwBridgeRasterDecodeStrategyMMR.h
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/Codec/XdwBridgeRasterDecodeStrategyMMR.h
+END
+XdwBridgeRasterDecodeStrategyOKD.h
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/Codec/XdwBridgeRasterDecodeStrategyOKD.h
+END
+XdwOkdDecoder.h
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/Codec/XdwOkdDecoder.h
+END
+XdwBridgeRasterDecodeStrategyDIB.h
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/Codec/XdwBridgeRasterDecodeStrategyDIB.h
+END
+XdwDIBDecoder.h
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/Codec/XdwDIBDecoder.h
+END
+XdwBridgeRasterDecodeStrategy.h
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/Codec/XdwBridgeRasterDecodeStrategy.h
+END
+XdwBridgeRasterDecodeStrategyMHMMR.h
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/Codec/XdwBridgeRasterDecodeStrategyMHMMR.h
+END

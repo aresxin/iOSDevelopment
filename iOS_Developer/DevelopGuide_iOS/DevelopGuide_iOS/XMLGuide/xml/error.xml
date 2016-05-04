@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>											
+<error>											
+	<errorCode>E00</errorCode>
+    <content>无法建立连接</content>	
+    <errorCode>E02</errorCode>
+    <content>异常终止</content>									
+</error>
+
+											

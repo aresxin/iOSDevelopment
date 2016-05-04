@@ -1,0 +1,359 @@
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header
+END
+XdwGraphicFormatWMFMetaRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaRecord.h
+END
+XdwGraphicFormatWMFMeta.h
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMeta.h
+END
+XdwGraphicFormatWMFMetaCreatePaletteRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaCreatePaletteRecord.h
+END
+XdwGraphicFormatWMFMetaCurveRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaCurveRecord.h
+END
+XdwGraphicFormatWMFMetaDIBCreatePatternBrushRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaDIBCreatePatternBrushRecord.h
+END
+XdwGraphicFormatWMFMetaPaletteObject.h
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaPaletteObject.h
+END
+XdwGraphicFormatWMFMetaPatBltRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaPatBltRecord.h
+END
+XdwGraphicFormatWMFMetaPointRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaPointRecord.h
+END
+XdwGraphicFormatWMFMetaCreateBrushIndirectRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 169
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaCreateBrushIndirectRecord.h
+END
+XdwGraphicFormatWMFMetaHeader.h
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaHeader.h
+END
+XdwGraphicFormatWMFMetaLineToRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaLineToRecord.h
+END
+XdwGraphicFormatWMFMetaPolylineRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaPolylineRecord.h
+END
+XdwGraphicFormatWMFMetaSetTextJustificationRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 170
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaSetTextJustificationRecord.h
+END
+XdwGraphicFormatWMFMetaSetPixelRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaSetPixelRecord.h
+END
+XdwGraphicFormatWMFMetaSetROP2Record.h
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaSetROP2Record.h
+END
+XdwGraphicFormatWMFMetaDIBBitBltRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaDIBBitBltRecord.h
+END
+XdwGraphicFormatWMFMetaChordRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaChordRecord.h
+END
+XdwGraphicFormatWMFMetaSetTextColorRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaSetTextColorRecord.h
+END
+XdwGraphicFormatWMFMetaSetTextCharExtraRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 166
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaSetTextCharExtraRecord.h
+END
+XdwGraphicFormatWMFMetaRectangleRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaRectangleRecord.h
+END
+XdwGraphicFormatWMFMetaObjectRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaObjectRecord.h
+END
+XdwGraphicFormatWMFMetaObject.h
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaObject.h
+END
+XdwGraphicFormatWMFMetaSetTextAlignRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaSetTextAlignRecord.h
+END
+XdwGraphicFormatWMFMetaCreateFontIndirectRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaCreateFontIndirectRecord.h
+END
+XdwGraphicFormatWMFMetaPieRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaPieRecord.h
+END
+XdwGraphicFormatWMFMetaSetBKModeRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaSetBKModeRecord.h
+END
+XdwGraphicFormatWMFMetaColorRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaColorRecord.h
+END
+XdwGraphicFormatWMFMetaPolyRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaPolyRecord.h
+END
+XdwGraphicFormatWMFMetaModeRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaModeRecord.h
+END
+XdwGraphicFormatWMFMetaIntersectClipRectRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaIntersectClipRectRecord.h
+END
+XdwGraphicFormatWMFMetaPolygonRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaPolygonRecord.h
+END
+XdwGraphicFormatWMFMetaScaleRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaScaleRecord.h
+END
+XdwGraphicFormatWMFMetaCreatePenIndirectRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaCreatePenIndirectRecord.h
+END
+XdwGraphicFormatWMFMetaRestoreDCRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaRestoreDCRecord.h
+END
+XdwGraphicFormatWMFMetaStretchDIBRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaStretchDIBRecord.h
+END
+XdwGraphicFormatWMFMetaSetWindowOrgRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaSetWindowOrgRecord.h
+END
+XdwGraphicFormatWMFMetaRectRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaRectRecord.h
+END
+XdwGraphicFormatWMFMetaExtTextOutRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaExtTextOutRecord.h
+END
+XdwGraphicFormatWMFMetaDIBStretchBltRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaDIBStretchBltRecord.h
+END
+XdwGraphicFormatWMFMetaEllipseRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaEllipseRecord.h
+END
+XdwGraphicFormatWMFMetaSetMapModeRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaSetMapModeRecord.h
+END
+XdwGraphicFormatWMFMetaSetStretchBltModeRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaSetStretchBltModeRecord.h
+END
+XdwGraphicFormatWMFMetaScaleWindowExtRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaScaleWindowExtRecord.h
+END
+XdwGraphicFormatWMFMetaRasterRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaRasterRecord.h
+END
+XdwGraphicFormatWMFMetaNullObject.h
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaNullObject.h
+END
+XdwGraphicFormatWMFMetaSetViewportOrgRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaSetViewportOrgRecord.h
+END
+XdwGraphicFormatWMFMetaSetWindowExtRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaSetWindowExtRecord.h
+END
+XdwGraphicFormatWMFMetaSaveDCRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaSaveDCRecord.h
+END
+XdwGraphicFormatWMFMetaArcRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaArcRecord.h
+END
+XdwGraphicFormatWMFMetaRoundRectRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaRoundRectRecord.h
+END
+XdwGraphicFormatWMFMetaCreateRegionRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaCreateRegionRecord.h
+END
+XdwGraphicFormatWMFMetaSetBKColorRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaSetBKColorRecord.h
+END
+XdwGraphicFormatWMFMetaScaleViewportExtRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 166
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaScaleViewportExtRecord.h
+END
+XdwGraphicFormatWMFMetaMoveToRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaMoveToRecord.h
+END
+XdwGraphicFormatWMFMetaRealizePaletteRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaRealizePaletteRecord.h
+END
+XdwGraphicFormatWMFMetaSizeRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaSizeRecord.h
+END
+XdwGraphicFormatWMFMetaSetPolyFillModeRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 165
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaSetPolyFillModeRecord.h
+END
+XdwGraphicFormatWMFMetaTextOutRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaTextOutRecord.h
+END
+XdwGraphicFormatWMFMetaSetViewportExtRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Meta/Header/XdwGraphicFormatWMFMetaSetViewportExtRecord.h
+END

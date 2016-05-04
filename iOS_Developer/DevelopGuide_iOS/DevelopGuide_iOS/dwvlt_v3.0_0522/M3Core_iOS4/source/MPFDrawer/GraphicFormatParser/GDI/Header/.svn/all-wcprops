@@ -1,0 +1,119 @@
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/GDI/Header
+END
+XdwGraphicFormatGDIColorRef.h
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/GDI/Header/XdwGraphicFormatGDIColorRef.h
+END
+XdwGraphicFormatGDI.h
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/GDI/Header/XdwGraphicFormatGDI.h
+END
+XdwGraphicFormatGDIReadPointArray.h
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/GDI/Header/XdwGraphicFormatGDIReadPointArray.h
+END
+XdwGraphicFormatGDILogPen.h
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/GDI/Header/XdwGraphicFormatGDILogPen.h
+END
+XdwGraphicFormatGDILogBrush.h
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/GDI/Header/XdwGraphicFormatGDILogBrush.h
+END
+XdwGraphicFormatGDIBitmapInfo.h
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/GDI/Header/XdwGraphicFormatGDIBitmapInfo.h
+END
+XdwGraphicFormatGDIPoint.h
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/GDI/Header/XdwGraphicFormatGDIPoint.h
+END
+XdwGraphicFormatGDIXForm.h
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/GDI/Header/XdwGraphicFormatGDIXForm.h
+END
+XdwGraphicFormatGDIEllipse.h
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/GDI/Header/XdwGraphicFormatGDIEllipse.h
+END
+XdwGraphicFormatGDIPalette.h
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/GDI/Header/XdwGraphicFormatGDIPalette.h
+END
+XdwGraphicFormatGDILogPalette.h
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/GDI/Header/XdwGraphicFormatGDILogPalette.h
+END
+XdwGraphicFormatGDIBitmapInfoHeader.h
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/GDI/Header/XdwGraphicFormatGDIBitmapInfoHeader.h
+END
+XdwGraphicFormatGDIRectangle.h
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/GDI/Header/XdwGraphicFormatGDIRectangle.h
+END
+XdwGraphicFormatGDIExtText.h
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/GDI/Header/XdwGraphicFormatGDIExtText.h
+END
+XdwGraphicFormatGDIExtLogPen.h
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/GDI/Header/XdwGraphicFormatGDIExtLogPen.h
+END
+XdwGraphicFormatGDIRoundRect.h
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/GDI/Header/XdwGraphicFormatGDIRoundRect.h
+END
+XdwGraphicFormatGDILogObject.h
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/GDI/Header/XdwGraphicFormatGDILogObject.h
+END
+XdwGraphicFormatGDILogFont.h
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/GDI/Header/XdwGraphicFormatGDILogFont.h
+END
+XdwGraphicFormatGDISize.h
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/GDI/Header/XdwGraphicFormatGDISize.h
+END

@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/DataObject/Base/Header
+END
+XdwDataObjectBaseFile.h
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/DataObject/Base/Header/XdwDataObjectBaseFile.h
+END
+XdwDataObjectBaseSharedMemory.h
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/DataObject/Base/Header/XdwDataObjectBaseSharedMemory.h
+END
+XdwDataObjectBaseTmpFile.h
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/DataObject/Base/Header/XdwDataObjectBaseTmpFile.h
+END
+XdwDataObjectBaseStorage.h
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/DataObject/Base/Header/XdwDataObjectBaseStorage.h
+END
+XdwDataObjectBaseMemory.h
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/DataObject/Base/Header/XdwDataObjectBaseMemory.h
+END
+XdwDataObjectBaseBuffer.h
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/DataObject/Base/Header/XdwDataObjectBaseBuffer.h
+END

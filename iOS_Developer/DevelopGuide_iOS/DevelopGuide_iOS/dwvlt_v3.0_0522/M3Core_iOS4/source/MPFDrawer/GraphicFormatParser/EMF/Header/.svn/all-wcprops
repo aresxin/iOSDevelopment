@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/EMF/Header
+END
+XdwGraphicFormatEMFTextFilter.h
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/EMF/Header/XdwGraphicFormatEMFTextFilter.h
+END
+XdwGraphicFormatEMFRasterManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/EMF/Header/XdwGraphicFormatEMFRasterManager.h
+END
+XdwGraphicFormatEMFParser.h
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/EMF/Header/XdwGraphicFormatEMFParser.h
+END
+XdwGraphicFormatEMF.h
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/EMF/Header/XdwGraphicFormatEMF.h
+END
+XdwGraphicFormatEMFFontManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/EMF/Header/XdwGraphicFormatEMFFontManager.h
+END
+XdwGraphicFormatEMFObjectManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/EMF/Header/XdwGraphicFormatEMFObjectManager.h
+END

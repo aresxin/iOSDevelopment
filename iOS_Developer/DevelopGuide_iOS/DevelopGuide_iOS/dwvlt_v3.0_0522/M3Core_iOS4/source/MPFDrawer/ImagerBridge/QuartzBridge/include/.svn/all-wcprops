@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/include
+END
+MXCImage.h
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/include/MXCImage.h
+END
+reverseendian.h
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/include/reverseendian.h
+END
+MXSDoProtocol.h
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/include/MXSDoProtocol.h
+END
+MXCDecodeRLE.h
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/include/MXCDecodeRLE.h
+END
+MXCWrapperConst.h
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/include/MXCWrapperConst.h
+END
+imgpdseed4osx.h
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/include/imgpdseed4osx.h
+END
+MXCTextUtl.h
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/include/MXCTextUtl.h
+END
+MXCAnnotation.h
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/include/MXCAnnotation.h
+END
+MXCTRCS.h
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/include/MXCTRCS.h
+END
+MXCBitmapWrapper.h
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/include/MXCBitmapWrapper.h
+END
+MXCWrapper.h
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/include/MXCWrapper.h
+END

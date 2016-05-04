@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/HBPSPrintBridge
+END
+XdwBridgeHBPSInternal.h
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/HBPSPrintBridge/XdwBridgeHBPSInternal.h
+END
+XdwBridgeHBPS.h
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/HBPSPrintBridge/XdwBridgeHBPS.h
+END
+XdwBridgeColorManagerForHBPS.h
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/HBPSPrintBridge/XdwBridgeColorManagerForHBPS.h
+END
+XdwBridgeGraphicDrawForHBPS.h
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/HBPSPrintBridge/XdwBridgeGraphicDrawForHBPS.h
+END
+XdwBridgePatternDrawForHBPS.h
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/HBPSPrintBridge/XdwBridgePatternDrawForHBPS.h
+END
+XdwBridgeRasterManagerForHBPS.h
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/HBPSPrintBridge/XdwBridgeRasterManagerForHBPS.h
+END
+XdwBridgeGraphicStatePenForHBPS.h
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/HBPSPrintBridge/XdwBridgeGraphicStatePenForHBPS.h
+END
+XdwBridgeRopStateForHBPS.h
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/HBPSPrintBridge/XdwBridgeRopStateForHBPS.h
+END
+XdwBridgeGraphicStateBrushForHBPS.h
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/HBPSPrintBridge/XdwBridgeGraphicStateBrushForHBPS.h
+END
+XdwBridgeRasterOutputAdapterForHBPS.h
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/HBPSPrintBridge/XdwBridgeRasterOutputAdapterForHBPS.h
+END

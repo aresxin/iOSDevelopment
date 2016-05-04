@@ -1,0 +1,34 @@
+=======================================================================
++ CODE EXAMPLES REPOSITORY
+
+  See http://useyourloaf.com for details
+
+  This README last updated: 05-September-2014
+=======================================================================
+
++ INDEX
+
+  AirPrinter    - Example of how to print from iOS
+  AlertView     - Demo iOS 5 changes to UIAlertView
+  AlertController - UIAlertController changes in iOS 8 
+  Collection    - Simple collection view with popovers
+  DynamicText   - Supporting dynamic text size changes
+  Huckleberry   - Auto layout table view cells with varying row heights
+  MasterSlide   - Implementing a mail app style split view controller
+  Motion        - Adding motion effects to views
+  NibCollection - Example use of IBOutletCollection
+  QReader       - Capturing and decoding QR Codes
+  Refresh       - Using a UIRefreshControl in a table view controller
+  RemindMe      - Scheduling local notifications with UILocaNotification
+  Restorer      - State Preservation and Restoration
+  SelfSize      - iOS 8 Self Sizing Table View Cells (Huckleberry updated)
+  SpeakEasy     - Text to speech synthesis
+  StaticTable   - Using a storyboard to implement static table views
+  Stepper       - Example use of UIStepper control
+  Styles        - Using UIAppearance proxy to style UIKit controls
+  SyncMe        - Example use of iCloud Key-value Storage
+  TaskTimer     - Example of UIAccessibility Support
+  TCNibLoad     - Example use of UINib class
+  TwitterSearch - Example of using NSURLConnection to query Twitter API
+  WorldFacts    - Using an iOS 8 UISearchController to filter a table view
+=======================================================================

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="12C3103" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="LoanProductDM" representedClassName="LoanProduct" syncable="YES">
+        <attribute name="discountcharge" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="firstpayPercent" attributeType="Binary" syncable="YES"/>
+        <attribute name="interestrate" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="lastpayPercent" attributeType="Binary" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="period" attributeType="Binary" syncable="YES"/>
+        <attribute name="reservedAtt1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="reservedAtt2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="reservedAtt3" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="reservedAtt4" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="reservedAtt5" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="reservedAtt6" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="reservedAtt7" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="reservedAtt8" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="reservedAtt9" optional="YES" attributeType="Integer 32" syncable="YES"/>
+        <attribute name="reservedAtt10" optional="YES" attributeType="Integer 32" syncable="YES"/>
+        <attribute name="reservedAtt11" optional="YES" attributeType="Integer 32" syncable="YES"/>
+        <relationship name="loantype" optional="YES" minCount="1" maxCount="1" deletionRule="No Action" destinationEntity="LoanType" syncable="YES"/>
+    </entity>
+    <entity name="LoanType" representedClassName="LoanType" syncable="YES">
+        <attribute name="finance" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="loantype" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="partner" attributeType="String" syncable="YES"/>
+        <attribute name="reservedAtt1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="reservedAtt2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="reservedAtt3" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="reservedAtt4" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="reservedAtt5" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="reservedAtt6" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="reservedAtt7" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="reservedAtt8" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="reservedAtt9" optional="YES" attributeType="Integer 32" syncable="YES"/>
+        <attribute name="reservedAtt10" optional="YES" attributeType="Integer 32" syncable="YES"/>
+        <attribute name="reservedAtt11" optional="YES" attributeType="Integer 32" syncable="YES"/>
+    </entity>
+    <entity name="PreCustomer" representedClassName="PreCustomer" syncable="YES">
+        <attribute name="brand_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cConvertProject" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="city_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="close_date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dCreate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="dHopeTryDriveBegin" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="dHopeTryDriveEnd" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="intent_auto" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isDel" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="mail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mobile" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="preCustomerid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="reservedAtt1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="reservedAtt2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="reservedAtt3" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="reservedAtt4" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="reservedAtt5" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="reservedAtt6" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="reservedAtt7" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="reservedAtt8" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="reservedAtt9" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="reservedAtt10" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="reservedAtt11" optional="YES" attributeType="Boolean" defaultValueString="0" syncable="YES"/>
+        <attribute name="reservedAtt12" optional="YES" attributeType="Boolean" defaultValueString="0" syncable="YES"/>
+        <attribute name="reservedAtt13" optional="YES" attributeType="Boolean" defaultValueString="0" syncable="YES"/>
+        <attribute name="sale_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sex_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uCarShowID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uProjectId" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="LoanProductDM" positionX="160" positionY="192" width="128" height="315"/>
+        <element name="LoanType" positionX="160" positionY="192" width="128" height="270"/>
+        <element name="PreCustomer" positionX="160" positionY="192" width="128" height="510"/>
+    </elements>
+</model>

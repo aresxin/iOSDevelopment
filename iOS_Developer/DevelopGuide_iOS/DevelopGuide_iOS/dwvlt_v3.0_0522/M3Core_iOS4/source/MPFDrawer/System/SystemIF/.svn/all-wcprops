@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/System/SystemIF
+END
+XdwCharacterTranslator.h
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/System/SystemIF/XdwCharacterTranslator.h
+END
+XdwFileIO.h
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/System/SystemIF/XdwFileIO.h
+END
+XdwBuiltinContainer.h
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/System/SystemIF/XdwBuiltinContainer.h
+END
+XdwError.h
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/System/SystemIF/XdwError.h
+END
+XdwNew.h
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/System/SystemIF/XdwNew.h
+END
+XdwAssert.h
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/System/SystemIF/XdwAssert.h
+END
+XdwStl.h
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/System/SystemIF/XdwStl.h
+END
+XdwConfig.h
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/System/SystemIF/XdwConfig.h
+END

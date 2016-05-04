@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpjpg
+END
+jpgalloc.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpjpg/jpgalloc.h
+END
+jmorecfg.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpjpg/jmorecfg.h
+END
+cdjpeg.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpjpg/cdjpeg.h
+END
+jinclude.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpjpg/jinclude.h
+END
+bmpdest.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpjpg/bmpdest.h
+END
+jversion.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpjpg/jversion.h
+END
+jpegint.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpjpg/jpegint.h
+END
+cderror.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpjpg/cderror.h
+END
+fmapping.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpjpg/fmapping.h
+END
+jerror.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpjpg/jerror.h
+END
+jchuff.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpjpg/jchuff.h
+END
+jdhuff.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpjpg/jdhuff.h
+END
+jpeglib.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpjpg/jpeglib.h
+END
+jpegio.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpjpg/jpegio.h
+END
+jconfig.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpjpg/jconfig.h
+END
+jpegmem.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpjpg/jpegmem.h
+END
+jdct.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpjpg/jdct.h
+END
+jmemsys.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpjpg/jmemsys.h
+END

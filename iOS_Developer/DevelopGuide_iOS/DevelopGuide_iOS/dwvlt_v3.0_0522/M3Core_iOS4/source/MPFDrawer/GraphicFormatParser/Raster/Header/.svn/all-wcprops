@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/Raster/Header
+END
+XdwGraphicFormatRasterDIB.h
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/Raster/Header/XdwGraphicFormatRasterDIB.h
+END
+XdwGraphicFormatRaster.h
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/Raster/Header/XdwGraphicFormatRaster.h
+END
+XdwGraphicFormatRasterMRC.h
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/Raster/Header/XdwGraphicFormatRasterMRC.h
+END
+XdwGraphicFormatRasterThumbnail.h
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/Raster/Header/XdwGraphicFormatRasterThumbnail.h
+END
+XdwGraphicFormatRasterParser.h
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/Raster/Header/XdwGraphicFormatRasterParser.h
+END

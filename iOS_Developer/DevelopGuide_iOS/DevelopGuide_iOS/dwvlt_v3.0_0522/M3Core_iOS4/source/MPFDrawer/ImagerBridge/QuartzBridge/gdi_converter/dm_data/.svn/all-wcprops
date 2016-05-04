@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/gdi_converter/dm_data
+END
+MXDImageDataOf32BitPaletteColor.h
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/gdi_converter/dm_data/MXDImageDataOf32BitPaletteColor.h
+END
+MXDImageDataFactory.h
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/gdi_converter/dm_data/MXDImageDataFactory.h
+END
+MXDImageDataOf32BitColor.h
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/gdi_converter/dm_data/MXDImageDataOf32BitColor.h
+END
+MXDImageDataOf8BitGray.h
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/gdi_converter/dm_data/MXDImageDataOf8BitGray.h
+END
+MXDImageData.h
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/gdi_converter/dm_data/MXDImageData.h
+END

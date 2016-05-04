@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge
+END
+XdwBridgeRasterOutputAdapterMac.h
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/XdwBridgeRasterOutputAdapterMac.h
+END
+XdwRasterDrawImage.h
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/XdwRasterDrawImage.h
+END
+buildenvironment.h
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/buildenvironment.h
+END
+XdwBridgeQuartz.h
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/XdwBridgeQuartz.h
+END
+mxd_color.h
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/mxd_color.h
+END
+mxd_original_define.h
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/mxd_original_define.h
+END
+XdwBridgeQuartzImpl.h
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/QuartzBridge/XdwBridgeQuartzImpl.h
+END

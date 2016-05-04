@@ -1,0 +1,155 @@
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/JBIG2/include
+END
+jbf2_error.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/JBIG2/include/jbf2_error.h
+END
+jbf2_pixmap.h
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/JBIG2/include/jbf2_pixmap.h
+END
+jbf2_halftone.h
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/JBIG2/include/jbf2_halftone.h
+END
+jbf2_profile.h
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/JBIG2/include/jbf2_profile.h
+END
+jbf2_segment.h
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/JBIG2/include/jbf2_segment.h
+END
+config.h
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/JBIG2/include/config.h
+END
+jbf2_types.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/JBIG2/include/jbf2_types.h
+END
+jbf2_symbol.h
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/JBIG2/include/jbf2_symbol.h
+END
+jbf2_arith.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/JBIG2/include/jbf2_arith.h
+END
+jbf2_io.h
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/JBIG2/include/jbf2_io.h
+END
+jbf2_refine.h
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/JBIG2/include/jbf2_refine.h
+END
+jbf2_memory.h
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/JBIG2/include/jbf2_memory.h
+END
+jbf2_pdf.h
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/JBIG2/include/jbf2_pdf.h
+END
+jbf2_list.h
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/JBIG2/include/jbf2_list.h
+END
+jbf2_bitmap.h
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/JBIG2/include/jbf2_bitmap.h
+END
+jbf2_extension.h
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/JBIG2/include/jbf2_extension.h
+END
+jbf2_generic.h
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/JBIG2/include/jbf2_generic.h
+END
+jbf2_page.h
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/JBIG2/include/jbf2_page.h
+END
+jbf2_pattern.h
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/JBIG2/include/jbf2_pattern.h
+END
+jbf2_bitarray.h
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/JBIG2/include/jbf2_bitarray.h
+END
+jbf2_array.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/JBIG2/include/jbf2_array.h
+END
+jbf2_document.h
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/JBIG2/include/jbf2_document.h
+END
+jbf2.h
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/JBIG2/include/jbf2.h
+END
+jbf2_huffman.h
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/JBIG2/include/jbf2_huffman.h
+END
+jbf2_text.h
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/mpcpd/JBIG2/include/jbf2_text.h
+END

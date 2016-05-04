@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Header
+END
+XdwGraphicFormatWMFTextFilter.h
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Header/XdwGraphicFormatWMFTextFilter.h
+END
+XdwGraphicFormatWMFRasterManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Header/XdwGraphicFormatWMFRasterManager.h
+END
+XdwGraphicFormatWMFParser.h
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Header/XdwGraphicFormatWMFParser.h
+END
+XdwGraphicFormatWMF.h
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Header/XdwGraphicFormatWMF.h
+END
+XdwGraphicFormatWMFFontManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Header/XdwGraphicFormatWMFFontManager.h
+END
+XdwGraphicFormatWMFObjectManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/WMF/Header/XdwGraphicFormatWMFObjectManager.h
+END

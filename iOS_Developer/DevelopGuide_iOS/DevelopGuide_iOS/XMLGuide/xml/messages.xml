@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<messages>
+	<error>
+		<errorCode>E00</errorCode>
+		<message>未知错误或系统内部错误。</message>
+	</error>
+	<error>
+		<errorCode>E01</errorCode>
+		<message>内部数据错误。</message>
+	</error>
+	<error>
+		<errorCode>E02</errorCode>
+		<message>存在非法的数据定义。</message>
+	</error>
+	<error>
+		<errorCode>E03</errorCode>
+		<message>输入输出错误。</message>
+	</error>
+	<error>
+		<errorCode>E04</errorCode>
+		<message>MAC地址设置错误。</message>
+	</error>
+	<error>
+		<errorCode>E05</errorCode>
+		<message>Socket错误。</message>
+	</error>
+	<error>
+		<errorCode>E06</errorCode>
+		<message>未知目标主机。</message>
+	</error>
+	<error>
+		<errorCode>E07</errorCode>
+		<message>串口操作不受系统支持。</message>
+	</error>
+	<error>
+		<errorCode>E08</errorCode>
+		<message>数据库数据访问错误。</message>
+	</error>
+	<error>
+		<errorCode>E09</errorCode>
+		<message>串口正在被占用，请稍后再试。</message>
+	</error>
+	<error>
+		<errorCode>E10</errorCode>
+		<message>未能找到串口设备，请检查后再试。</message>
+	</error>
+</messages>

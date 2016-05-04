@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/System/Linux
+END
+XdwFileIOLinux.h
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/System/Linux/XdwFileIOLinux.h
+END
+XdwCharacterTranslatorLinuxQT.h
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/System/Linux/XdwCharacterTranslatorLinuxQT.h
+END
+XdwFileIOLinuxQT.h
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/System/Linux/XdwFileIOLinuxQT.h
+END
+linux2mac.h
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/System/Linux/linux2mac.h
+END
+XdwLinuxZaurusLib.h
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/System/Linux/XdwLinuxZaurusLib.h
+END

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>guide</key>
+	<array>
+		<string>XMLGuide</string>
+		<string>UIImage</string>
+		<string>Socket_TCP</string>
+		<string>Socket_UDP</string>
+		<string>CoreLocation</string>
+		<string>UIWebView</string>
+		<string>JSON</string>
+		<string>NSDate+NSDateFormatter+NSTimeZone</string>
+		<string>Quatze</string>
+		<string>AddressBook</string>
+		<string>UIDeveice</string>
+		<string>跑马灯效果</string>
+		<string>拖动矩形框</string>
+		<string>Generating PDF Content</string>
+		<string>In-App Purchase</string>
+		<string>数据持久化</string>
+		<string>本地通知</string>
+		<string>CoreImageFramework</string>
+		<string>iAd</string>
+		<string>GameKit+Bluetooth</string>
+		<string>CoreMotion</string>
+		<string>QuickLook+QLPreViewController</string>
+		<string>MapView</string>
+		<string>UIImageView+UITableView异步加载图片</string>
+		<string>简单切图</string>
+		<string>Core Animation</string>
+		<string>Blocks</string>
+		<string>AssetsLibary</string>
+		<string>gif生成播放</string>
+		<string>可以移动缩放的UIImageView</string>
+		<string>CoreData</string>
+		<string>CALayer简单教程</string>
+		<string>用Block代替delegate</string>
+		<string>NSTimer(暂停 恢复)</string>
+		<string>16种视图切换动画</string>
+		<string>UISearchBar+UISearchDisplayController</string>
+		<string>KVO</string>
+		<string>ImageLayer</string>
+		<string>GCD的串行与并行</string>
+		<string>NSPredicate</string>
+		<string>NotificationTest</string>
+		<string>AVFoundation</string>
+	</array>
+</dict>
+</plist>

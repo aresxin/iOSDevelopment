@@ -1,0 +1,395 @@
+/* application version message */
+//"MSG_VERSION" = "DocuWorks Viewer Light for iPhone/iPad Version 1.1.0";
+//"MSG_VERSION" = "DocuWorks Viewer Light for iPhone/iPad Version 1.2.0";
+//"MSG_VERSION" = "DocuWorks Viewer Light for iPhone/iPad Version 2.0";
+//"MSG_VERSION" = "DocuWorks Viewer Light for iPhone/iPad Version 2.1.0";
+"MSG_VERSION" = "DocuWorks Viewer Light for iPhone/iPad Version 3.0";
+
+/* document view menu button to show annotation list view */
+"MENU_ANNOTATIONLIST_BUTTON" = "便箋";
+
+/* annotation list view title for kind */
+"TITLE_ANNOTATIONLISTVIEW_KIND" = "類型";
+
+/* annotation list view title for page */
+"TITLE_ANNOTATIONLISTVIEW_PAGE" = "頁碼";
+
+/* annotation list view title for content */
+"TITLE_ANNOTATIONLISTVIEW_CONTENT" = "內容";
+
+/* the name of this application */
+"TITLE_ALERT_APPNAME" = "DocuWorks";
+
+/* alert title for error */
+"TITLE_ALERT_ERROR" = "錯誤";
+
+/* the alert title */
+"TITLE_ALERT_NOTICE" = "注意";
+
+/* alert title for warning */
+"TITLE_ALERT_WARNING" = "警告";
+
+/* the title for link annotation */
+"TITLE_LINKANNOTATION_ALERT" = "連結註解";
+
+/* the title for save temp file alert */
+"TITLE_SAVETEMPFILE_ALERT" = "打開文件";
+
+/* alert button title for Yes */
+"BUTTON_TITLE_YES" = "是";
+
+/* alert button title for No */
+"BUTTON_TITLE_NO" = "否";
+
+/* alert button title for OK */
+"BUTTON_TITLE_OK" = "確定";
+
+/* alert button title for cancel */
+"BUTTON_TITLE_CANCEL" = "取消";
+
+/* alert button title for close */
+"BUTTON_TITLE_CLOSE" = "關閉";
+
+/* create dir fail message */
+"MSG_CREATEFILE_FAIL" = "檔案已存在，無法在%@\n建立暫存檔。";
+
+/* delete file message */
+"MSG_DELETEFILE" = "確定刪除檔案？";
+
+/* delete file successfully message */
+"MSG_DELETEFILE_SUCCESS" = "檔案已刪除。";
+
+/* delete file failed message */
+"MSG_DELETEFILE_FAIL" = "無法刪除檔案。";
+
+/* find file fail message */
+"MSG_FINDFILE_FAIL" = "找不到檔案。";
+
+/* download file fail message */
+"MSG_DOWNLOADFILE_FAIL" = "無法下載檔案。";
+
+/* toobar button to set verticalbooks */
+"TOOLBAR_BUTTON_VERTICALBOOKS" = "向右翻頁";
+
+/* toobar button to set crossbooks */
+"TOOLBAR_BUTTON_CROSSBOOKS" = "向左翻頁";
+
+/* toolbar button to display single page */
+"TOOLBAR_BUTTON_SINGLEPAGE" = "單頁";
+
+/* toolbar button to display facing with head page */
+"TOOLBAR_BUTTON_FACING_WITHHEADPAGE" = "雙頁(含封面)";
+
+/* toolbar button to display facing without head page */
+"TOOLBAR_BUTTON_FACING_WITHOUTHEADPAGE" = "雙頁";
+
+/* file list view title and document view button title */
+"MENU_FILELIST_TITLE" = "文件";
+
+/* setting view title */
+"MENU_SETTINGVIEW_TITLE" = "設定";
+
+/* input page number alert message */
+"MSG_INPUT_PAGENUMBER" = "請輸入頁碼";
+
+/* setting view message */
+"MSG_SAVEFILESTATE" = "記憶上次使用最終顯示頁面。";
+
+/* will save file to local message */
+"MSG_SAVETOLOCAL" = "是否使用此應用程式儲存文件？";
+
+/* file display failed message */
+"MSG_FILE_DISPLAYERROR" = "無法顯示此檔案。\n此檔案格式不受支援。";
+
+/* File is not DocWorks file(Error 1) */
+"MSG_ERROR_FILETYPEERROR" = "無法顯示此檔案。\n此檔案格式不受支援。";
+
+/* File open error(Error 2) */
+"MSG_ERROR_FILENAMEERROR" = "無法顯示此檔案。\n請檢查檔案名稱及存取權限。";
+
+/* Software open DocuWorks error(Error 3) */
+"MSG_ERROR_FILEVERSIONERROR" = "無法顯示此檔案。\n此DocuWorks文件版本不受支援。";
+
+/* Open protected file fail(Error 4) */
+"MSG_ERROR_FILEPROTECTEDERROR" = "無法顯示此檔案。\n無法打開寫入保護的文件。";
+
+/* File can not open.(Error 5) */
+"MSG_ERROR_FILEDEFAULTERROR" = "無法顯示此檔案。\n可能不是DocuWorks文件，或文件已損毀。";
+
+/* Out of memory(Error 6) */
+"MSG_ERROR_MEMORYOUTERROR" = "記憶體不足。\n請關閉部份使用中的應用程式後重試。";
+
+/* input number error message(warning 1) */
+"MSG_WARNING_PAGENUMBERWARNING" = "請輸入1至%d的數字。";
+
+/* Link annotation to show the profile is set to jump.(warning 2) */
+"MSG_WARNING_ANNO_SETJUMPWARNING" = "無法跳至連結目的地。\n已設定連結至[原始資料]畫面。";
+
+/* Link setted to another document(warning 3) */
+"MSG_WARNING_ANNO_LINKTOOTHERDOCWARNING" = "無法跳至連結目的地。\n已設定連結至另一文件檔案。";
+
+/* Link annotation setting conflict(warning 4) */
+"MSG_WARNING_ANNO_LINKCONFLICTWARNING" = "註解連結的設定不正確\n將打開首頁。";
+
+/* File count greater than 500 */
+"MSG_FILELIST_FILECOUNTERROR" = "部分檔案無法顯示。清單最多能顯示500份文件。";
+
+/* Link Annotation message */
+"MSG_LINKANNO_XDWPAGENUMBER" = "目前文件中的第 %d頁";
+
+/* Link Annotation message for binder file jump */
+"MSG_LINKANNO_XBDPAGENUMBER" = "目前活頁夾中的第%d頁";
+
+/* Link Annotation message for internal file jump */
+"MSG_LINKANNO_INTERNALFILE" = "活頁夾文件%@的第 %d頁";
+
+/* Link Annotation message for profile */
+"MSG_LINKANNO_PROFILE" = "活頁夾文件%@的原始資料";
+
+/* add by lixin 20101220 */
+"MSG_ERROR_OPENURL_AUTHENTICATION" = "無法顯示此檔案。\n無法支援需認證的網站。";
+
+/* releasenote */
+// liuqw 20110623 start
+// change file name.
+//"RELEASENOTE" = "Readme_zh_TW.xdw";
+// 20111031 M.Chikyu(AR18920) start
+//"RELEASENOTE" = "HowToUse(1.2)_TW.xdw";
+// 20111031 M.Chikyu(AR18920) end
+// liuqw 20110623 end
+
+// liuqw 2011/10/28 start
+"HANDBOOK" = "DocuWorksViewerLightHandbook_TW.xdw";
+// liuqw 2011/10/28 end
+
+// リンクアノテーション表示不具合(AR17722)対応 M.Chikyu 20110224 -start
+/* Link Annotation message */
+"MSG_LINKANNO_TITLE" = "名稱：”%@”";
+// リンクアノテーション表示不具合(AR17722)対応 M.Chikyu 20110224 -end
+
+// FileSort の対応 start
+"MSG_FILE_SORT_TITLE" = "文件排序";
+"MSG_FILE_SORT_TYPE" = "排序依：";
+"MSG_SORT_BY_FILENAME" = "文件名稱";
+"MSG_SORT_BY_FILECREATEDATE" = "修改日期";
+"MSG_SORT_BY_FILESIZE" = "大小";
+
+"MSG_SORT_MODE_ASC" = "遞增";
+"MSG_SORT_MODE_DESC" = "遞減";
+// FileSort の対応 end
+
+// SendEmail の対応 start
+"BUTTON_TITLE_SENDMAIL" = "以郵件傳送";
+"BUTTON_TITLE_OPENMODE" = "開啟檔案";
+// SendEmail の対応 end
+
+/* 新規追加 の対応 start */
+"MSG_SORT_BY_FILENAME_SHORT" = "名稱";
+"MSG_SORT_BY_FILECREATEDATE_SHORT" = "日期";
+"MSG_SORT_BY_FILESIZE_SHORT" = "大小";
+"MSG_SORT_MODE_ASC_SHORT" = "遞增";
+"MSG_SORT_MODE_DESC_SHORT" = "遞減";
+/* 新規追加 の対応 end */
+
+// add by lixin 20110607 start DW_iPhoneEnhance_12
+"BUTTON_TITLE_BACK" = "後退";
+"BUTTON_TITLE_LINK" = "支援";
+// add by lixin 20110607 end DW_iPhoneEnhance_12
+
+// 「拡大率指定ボタンの追加」の対応 start
+"TITLE_ALERT_ZOOMSCALE_INPUT" = "輸入顯示比例[%d-%d]%%";
+"MSG_ERROR_INPUT_NO_NUMBER" = "輸入顯示比例的數字";
+"MSG_ERROR_INPUT_OUT_RANGE" = "指定顯示比例已超出範圍。	";
+"TITLE_SPECIFY_SCALE" = "顯示比例設定";
+"TITLE_INPUT_SCALE" = "輸入顯示比例";
+"TITLE_FIXED_SCALE" = "固定顯示比例";
+"TITLE_SELECT_FIXED_SCALE" = "固定顯示比例[1-200]%";
+// 「拡大率指定ボタンの追加」の対応 end
+
+// 3.5アプリ情報機能の追加 の対応 start 
+// change by lixin 20110613 DW_iPhoneEnhance_12
+// 20111031 M.Chikyu(AR18920) start
+//"URL_SUPPORT" = "http://www.fxap.com.sg/product/dwvlt/tc/Readme_iOS_1.2.html";
+//"URL_SUPPORT" = "http://www.fxap.com.sg/product/dwvlt/tc/Readme_iOS_2.0.html";
+"URL_SUPPORT" = "http://www.fxap.com.sg/product/dwvlt/tc/readme_ios_21.html";
+// 20111031 M.Chikyu(AR18920) end
+// 3.5アプリ情報機能の追加 の対応 end
+
+// 3.6 バインダ文書対応 の対応 start
+// change by lixin 20110608 DW_iPhoneEnhance_12
+/* document view menu button to show annotation list view */
+"MENU_XDWDOCLIST_BUTTON" = "活頁夾";
+"MENU_ANNOTLIST_BUTTON" = "NotePads";
+// 3.6 バインダ文書対応 の対応 end
+
+// 3.6 バインダ文書対応 の対応 start
+// change by lixin 20110608 DW_iPhoneEnhance_12
+/* xdw document list view title for file name */
+"TITLE_XDWDOCLISTVIEW_NAME" = "名稱";
+
+/* xdw document list view title for page count */
+"TITLE_XDWDOCLISTVIEW_PAGE" = "頁數";
+// 3.6 バインダ文書対応 の対応 end
+
+// 3.7 初回起動時に更新内容の表示 start
+// change by lixin 20110607 DW_iPhoneEnhance_12
+"TITLE_UPDATECONTENT_ALERT" = "New Function";
+"MSG_UPDATECONTENT_CONTENT" = "DocuWorks Viewer Light for iPhone/iPad 2 特殊功能\n* 下列所提及的特殊功能僅可於此版本中使用。\n\n標記註解和文字便箋註解可新增至DocuWorks檔案。\n文字便箋為含有之前所貼上之文字註解的便箋註解。您可以輸入或編輯文字。\n貼上標記和文字便箋之後，您可以編輯其屬性。\n註解可移動或刪除。不但可以移動或刪除使用Viewer Light貼上的標記或文字便箋，也可以移動或刪除一開始貼上的註解。\n\nDocuWorks Viewer Light for iPhone/iPad 2.0的變更内容\n部分 PDF 檔未正確顯示。此問題已修正。(17781)\n即使未顯示註解，連結功能仍會啟動。此問題已修正。(17834)\n在Microsoft® Windows®版本的DocuWorks中顯示時，多角形註解的顯示方式不同。此問題已修正。(17835)\n開啟受保護文件時，清單檢視會出現相同名稱的檔案。此問題已修正。(17904)\n若於左右兩頁檢視文件時旋轉裝置（右頁旋轉方向），會顯示不同頁面。此問題已修正。(17926)\n文字便箋的文字註解未顯示於文字便籤中。此問題已修正。(18118)\n即使編輯其間旋轉裝置，文件方向也不會改變。(18598)\n拖曳文字便籤時，不會拖曳手指按住的區域，而是文字便籤的中央。此問題已修正。(18881)\n在文字便籤中，若將文字註解設定為自動換行，則分行符號會處於不正確的位置。此問題已修正。(18930)\n在iOS５中，PDF檔案顯示可能延遲顯示。此問題已修正。(18968)\n編輯文字註解時，字體大小會變大。(18985)\n註解編輯後的影像速度已獲得改善。(18988)\n新增標記註解的效能已獲得改善。(18991)\n自頁面顯示視窗轉換至編輯視窗的影像速度已獲得改善。(18993)";
+// 3.7 初回起動時に更新内容の表示 end
+
+// add by yangjx 20110609 start
+"MSG_WARING_SENDEMAIL" = "已選擇%d個檔案。\n是否附加到郵件？";
+"MSG_WARING_DELETE_FILE" = "已選擇%d個檔案。\n是否刪除檔案？";
+"MSG_WARING_RESTORE_FILE" = "是否恢復上次刪除的檔案？";
+"MSG_WARING_FILECOUNT_OUT" = "附加的檔案數量不能超過10個。";
+"MSG_WARING_FILESIZE_OUT" = "附加的檔案大小不能超過10MB。";
+"MSG_DELETE_MODE" = "永遠清除所選的檔案";
+"MSG_DELETE_ALL_FILE" = "將永久刪除%d個檔案。\n您確定嗎？";
+"TITLE_BUTTONITEM_EDIT" = "編輯";
+"TITLE_BUTTONITEM_DONE" = "完成";
+"TITLE_BUTTONITEM_SLECTALL" = "全選";
+"TITLE_BUTTONITEM_UNSLECTALL" = "取消選取";
+"TITLE_BUTTONITEM_SENDMAIL" = "以郵件傳送";
+"TITLE_BUTTONITEM_DELETE" = "刪除";
+"TITLE_BUTTONITEM_CANCELDELETE" = "還原";
+"TITLE_BUTTONITEM_SORT" = "排序";
+// add by yangjx 20110609 end
+
+//『文書情報画面』の対応 start
+"MSG_FILE_TABLE_TITLE" = "文件資訊";
+"MSG_FILE_NAME" = "檔案名稱";
+"MSG_FILE_MODIFIED_DATE" = "修改日期";
+"MSG_FILE_SIZE" = "大小";
+"MSG_FILE_TITLE" = "標題";
+"MSG_FILE_SUBTITLE" = "主旨";
+"MSG_FILE_AUTHOR" = "作者";
+"MSG_FILE_KEYWORD" = "關鍵字";
+"MSG_FILE_REMARK" = "註解";
+
+// zhaijie 2012.03.30 start
+// 『セキュリティ』の情報の対応
+"MSG_DOC_EDIT" = "文書の編集";
+"MSG_ANNO_EDIT" = "アノテーションの編集";
+"MSG_PRINT" = "印刷";
+"MSG_COPY" = "転記";
+"MSG_GET_RESULT_PERMISSION" = "許可";
+"MSG_GET_RESULT_UNPERMISSION" = "許可しない";
+// zhaijie 2012.03.30 end
+
+// 『文書情報画面』の対応 end
+
+// ファイル名変更機能の追加 start
+"FILE_NAME_MODIFY" = "輸入新檔案名稱";
+"FILE_UPDATE_EXISTED" = "檔案名稱已經存在";
+"FILE_UPDATE_OVERLENGTH" = "檔案名稱太長";
+"FILE_UPDATE_ILLEGAL" = "檔案名稱中包含無效的字元";
+"FILE_UPDATE_FAILURE" = "無法變更檔案名稱";
+"MSG_FILE_NAME_OVERLENGTH" = "由於檔案名稱過長，無法記憶將要關閉的頁面。\n請縮短檔案名稱。";
+// ファイル名変更機能の追加 end
+
+// 20110701 M.Chikyu (AR17887,AR17889) start
+"LOCAL_ENCODING" = "CHINESEBIG5_CHARSET";
+// 20110701 M.Chikyu (AR17887,AR17889) end
+
+// add for DW_iPhoneViewer_20 start
+"MSG_ASSOCIATION_NOEXISTED" = "無法啟動%@。是否要將編輯儲存到文件？";
+"TITLE_ANNOTATIONPROPERTYSET_TEXTDEMO" = "A";
+"TOOLBAR_BUTTON_LEFTPAGE" = "編輯左頁";
+"TOOLBAR_BUTTON_RIGHTPAGE" = "編輯右頁";
+"MSG_ANNOTATIONEDIT_SAVE" = "是否儲存在%@中所做的編輯？";
+"MSG_ANNOTATIONEDIT_SAVEFAILE" = "無法儲存編輯。";
+"MSG_ASSOCIATION_SAVE" = "是否要將在%@中所做的編輯儲存到%@？";
+
+// liuqw 2012.03.08 start
+// AR NO.19044の対応
+
+/*
+ "MSG_ASSOCIATION_SAVEFAILE" = "由於檔案太大而無法將其儲存到%@。\n可透過動作按鈕啟動將其儲存到%@。";
+ */
+
+"MSG_ASSOCIATION_SAVEFAILE" = "Failed to save the file to %@ because of its large size.\nYou can save it by selecting %@ from the list.";
+
+// liuqw 2012.03.08 end
+
+"MSG_ANNOTATIONEDIT_ADD_FAILE" = "無法增加註解。";
+"MSG_OPENEDITINGFILE" = "顯示編輯中的檔案。";
+"MSG_HANLEOPENURL_SAVEEIDT" = "尚有編輯中的檔案。是否將其儲存到文件？";
+"BUTTON_HANLEOPENURL_SAVE" = "儲存";
+"BUTTON_HANLEOPENURL_NOTSAVE" = "不儲存";
+
+"TITLE_TEXTNOTEPAD_PROPERTYTITLE" = "便箋設定";
+"TITLE_TEXTNOTEPAD_NOTEPADCOLOR" = "便箋顏色";
+"TITLE_TEXTNOTEPAD_TEXTCOLOR" = "文字顏色";
+"TITLE_TEXTNOTEPAD_FONTSIZE" = "文字大小";
+"TITLE_FREEHAND_PROPERTYTITLE" = "標記設定";
+"TITLE_FREEHAND_LINECOLOR" = "標記顏色";
+"TITLE_FREEHAND_LINESIZE" = "標記粗細";
+
+// wangpp 2012.3.5 start
+// freehand transparent
+"TITLE_FREEHAND_TRANSPARENT" = "マーカーの透過";
+// wangpp 2012.3.5 end
+
+"MSG_DOCUWORKS_CHARSET_UNICODE" = "將更新文件版本。更新之後便無法在舊版DocuWorks Viewer中開啟該文件。\n是否儲存在%@中所做的編輯？";
+"MSG_BRIEFCASE_CHARSET_UNICODE" = "將更新文件版本。更新之後便無法在舊版DocuWorks Viewer中開啟該文件。\n是否要將在%@中所做的編輯儲存到%@？";
+// DW_iPhoneViewer_20 end 
+
+// tongtx 20120206 start
+// 有償化アナウンス機能の対応
+"MSG_EDIT_PAYMENT_NOTICE" = "DocuWorks Viewer Light for iPhone/iPad免費提供下列功能：\n- 貼上及編輯新註解 (標記與文字便箋)\n- 移動及刪除註解\n下一版本將針對上述功能收費。\n我們將要求您購買產品以繼續使用這些功能。\n感謝您的理解。";
+
+"MSG_PAYMENT_NOTICE" = "下一版本將針對下列功能收費。\n- 貼上及編輯新註解 (標記與文字便箋)\n- 移動及刪除註解\n我們將要求您購買產品以繼續使用這些功能。\n感謝您的理解。";
+// tongtx 20120206 end
+
+// MTA連動機能の対応 start
+"ASSOCIATION_DEFAULT_APPNAME" = "連結的應用程式";
+// MTA連動機能の対応 end
+
+// liuqw 2012.03.08 start
+// AR NO.19043の対応
+"MSG_READ_DATA_FAIL" = "Failed to link. You can open it by an action button.";
+// liuqw 2012.03.08 end
+
+// xuxinjun 2012.03.15 start
+// 保護文書の対応
+"MSG_AUTH_ALERT_PASSWORD_TITLE" = "この文書開くにはパスワードが必要です。開くパスワードを入力してください。";
+"MSG_AUTH_ALERT_VIEW_PLACEHOLDER" = "パスワード";
+"MSG_AUTH_ALERT_PASSWORD_ERROR_MESSAGE" = "パスワードが正しくありません。";
+
+// アプリ内課金による機能制限	
+"MSG_PAYM_ALERT_LIMIT_MESSAGE" = "編集機能をご利用いただくためには、機能制限の解除が必要です。\nご購入手続きは設定画面から実施いただけます。";
+"MSG_PAYM_CELL_TEXTLABLE_TEXT" = "機能制限の解除";
+"MSG_PAYM_TABLEVIEW_SECTION" = "制限を解除することで、DocuWorks文書にアノテーションを追加することかできます。";
+"MSG_PAYM_CELL_ANN_EDIT_TEXT" = "アノテーション編集機能";
+"MSG_PAYM_ALERT_PURCHASEBUTTON_TITLE" = "アドオンを入手";
+"MSG_PAYM_ALERT_PURCHASEBUTTON_MESSAGE" = "編集機能の解除を%@で購入しますか？";
+"MSG_PAYM_ALERT_BUYLIMIT_MESSAGE" = "iOS内の設定により購入が制限されでいます。設定からアプリケーション内での購入を有効にしてください。";
+"MSG_PAYM_CELL_TEXTLABEL_RESTORE" = "購入した機能をリストアする";
+"TITLE_BUTTON_PAY_PRO" = "購入する";
+"TITLE_BUTTON_PAY_END" = "購入済み";
+// xuxinjun 2012.03.15 end
+
+// xujj 2012.03.22 start
+// 検索機能の追加
+"MSG_SEARCH_HOLD_TEXT" = "検索するテキストを入力してください";
+"MSG_SEARCH_NO_RESULT_ALL" = "指定した文字列は見つかりませんでした。";
+"MSG_SEARCH_FIRST_PAGE" = "文書の最初のページまで検索しました。最後から検索を続けましか？";
+"MSG_SEARCH_LAST_PAGE" = "文書の最後のページまで検索しました。先頭から検索を続けましか？";
+"TITLE_BUTTONITEM_FRONT" = "前へ";
+"TITLE_BUTTONITEM_NEXT" = "次へ";
+// xujj 2012.03.22 end
+
+// wangpp 2012.3.29 start
+// logIn
+"TITLE_LOGIN_ANNOTATION_EDIT" = "登録アノテーションの編集";
+"TITLE_LOGIN_ANNOTATION_SETTITLE" = "登録アノテーション";
+"TITLE_LOGIN_ANNOTATION_PROPERTYTITLE" = "登録アノテーションの選択";
+"MSG_WARING_LOGIN_ANNOTATION" = "新規登録アノテーションを追加しますか？";
+"MSG_WARING_REGIST_ANN_NO" = "既に登録されたいるアノテーションの数が10個ありますので、追加できません。";
+"MSG_WARING_DELETE_LOGIN_ANN" = "選択した登録アノテーションを削除しますか？";
+// wangpp 2012.3.29 end
+
+// tongtx 2012.04.11 start
+// 禁止コピー
+"MSG_FORBID_TO_COPY_TEXT" = "コピーすることを禁止します";
+// tongtx 2012.04.11 end

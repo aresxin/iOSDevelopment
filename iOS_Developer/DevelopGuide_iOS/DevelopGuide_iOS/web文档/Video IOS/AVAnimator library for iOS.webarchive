@@ -1,0 +1,909 @@
+bplist00Ò_WebMainResource_WebSubresourcesÕ	
+_WebResourceData_WebResourceMIMEType_WebResourceTextEncodingName_WebResourceFrameName^WebResourceURLO4–<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Description" content="AVAnimator library for iOS">
+
+<meta name="viewport" content="width = device-width">
+
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" href="icon.png" type="image/png">
+<link rel="stylesheet" type="text/css" href="../style.css">
+
+<title>AVAnimator library for iOS</title>
+</head>
+
+<body>
+
+<table width="100%">
+<tbody>
+<tr>
+<td>
+<img src="../banner.jpg" alt="Mo DeJong Consulting">
+</td>
+</tr>
+</tbody>
+</table>
+
+  <table class="navbar">
+    <tbody>
+      <tr>
+        <td class="navbar">
+          <a href="index.html">AVAnimator 2.0</a>
+        </td>
+        <td class="navbar">
+          <a href="supported.html">Supported Formats</a>
+        </td>
+        <td class="navbar">
+          <a href="examples.html">Example Projects</a>
+        </td>
+        <td class="navbar">
+          <a href="utils.html">Util Software</a>
+        </td>
+        <td class="navbar">
+          <a href="github.html">GitHub</a>
+        </td>
+        <td class="navbar">
+          <a href="license.html">License</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+<table class="page">
+
+<tbody><tr>
+
+<td class="page">
+<img class="tl" src="../t_left.jpg">
+</td>
+
+<td class="page">&nbsp;</td>
+
+<td class="page">
+<img class="tr" src="../t_right.jpg">
+</td>
+
+</tr>
+
+<tr>
+
+<td class="page">&nbsp;</td>
+
+<td class="page">
+
+<h3>AVAnimator Example Projects</h3>
+
+<hr>
+
+<p>
+The examples that follow each demonstrate an interesting way that AVAnimator can be used in an iOS application. Each example is a complete Xcode project that contains the full source code for AVAnimator.
+</p>
+
+<p>
+To integrate AVAnimator into your own Xcode project, copy the <code>AVAnimator</code>, <code>LZMASDK</code>, and optional <code>MovieControls</code> directories into your project and add the directories to the project file in the normal way. You will also need to copy over the <code>AutoPropertyRelease.h</code> and <code>AutoPropertyRelease.m</code> files. The examples are already configured with the proper flags, but a new project using Xcode 4.5 or newer will need to pass the <code>-no-integrated-as</code> flag to the compilation of <code>maxvid_decode_arm.s</code>. See <a href="http://stackoverflow.com/questions/12779502/xcode4-5-assembler-fails-to-compile-files-that-xcode4-4-handled-perfectly/13025159#comment18493082_13025159">this stackoverflow post</a> for additional info. Also note that if you are using ARC, the <code>-fno-objc-arc</code> flag will need to be set on each .m in the AVAnimator directory to disable ARC. See this <a href="http://stackoverflow.com/questions/6646052/how-can-i-disable-arc-for-a-single-file-in-a-project">disable ARC for a single file</a> post for more info.
+</p>
+
+<h3>Examples:</h3>
+
+<ol>
+  <li><a href="#StreetFighter">StreetFighter Example</a></li>
+  <li><a href="#AppBoot">Animated App Boot Example</a></li>
+  <li><a href="#AVSync">AVSync Example</a></li>
+  <li><a href="#KittyBoom">KittyBoom Example</a></li>
+  <li><a href="#ApngPlayer">APNG Player</a></li>
+  <li><a href="#Play8Movies">Play8Movies Example</a></li>
+  <li><a href="#AVDecodeEncode">AVDecodeEncode Example</a></li>
+  <li><a href="#AVRender">AVRender Example</a></li>
+  <li><a href="#QTFileParserApp">QTFileParserApp Example</a></li>
+</ol>
+
+<hr>
+
+<h3 id="StreetFighter">StreetFighter Example : <small>StreetFighter II for iPhone</small></h3>
+
+<p>
+This iPhone project is a quick little hack based on
+<a href="http://www.icodeblog.com/2009/07/24/iphone-programming-tutorial-animating-a-game-sprite/">this page</a>
+that shows a punch, kick,
+and special move button. When you press a button, it makes Ryu
+throw a punch, kick, or a fireball. This example is not a playable game,
+it is just a quick little demo
+of playing audio and video as a result of user actions.
+This demo was whipped up in a couple of hours with some files
+off the net. What this example demonstrates is how quickly one can create
+an iPhone app that makes use of existing audio/video resources. Take a look
+at the implementaiton and run the example to see how multiple audio and video
+resources are loaded, played, and unloaded without hogging the CPU or taking
+up all the system memory.
+</p>
+
+<p>
+<img src="RyuFireball.gif">
+</p>
+
+<a href="StreetFighter200.zip">StreetFighter200.zip</a> (1200 Kb) <br>
+
+<hr>
+  
+  <h3 id="AppBoot">Animated App Boot Example : <small>Fastest animation at app boot time</small></h3>
+  
+<p>
+  This iPhone app shows how to create an animation that is displayed when the app starts.
+  The animation shows a spinning laser that becomes a company logo.
+  This example is implemented in two ways. The first implementation uses a compressed animation file attached as a
+  resource. The second implementation demonstrates APNG animation file format support.
+  The APNG implementation uses an 8 bit palette, which saves a lot of space (1/2 meg) but takes a bit longer
+  to decode during the very first boot. After the first boot, the decoded video is saved and
+  any future boot will begin to animate in less than a second. In comparison, a boot animation implemented with
+  the built-in H.264 support takes about 4 seconds to load each time the app is started (results on 3G iPhone).
+  You could just use a H.264 on startup, but it would be fairly slow on every boot. This example shows the
+  fastest possible boot animation start time, except that the very first boot takes a few seconds to decode the file.
+  </p>
+  
+  <a href="BootAnimationApp200.zip">BootAnimationApp200.zip</a> (3800 Kb) <br>
+  
+<hr>
+
+<h3 id="AVSync">AVSync Example : <small>Synchronize video to an audio track</small></h3>
+
+<p>
+This example project demonstrates how a video track can be displayed in sync with an audio track using the AVAnimator library. The video content is a C major scale lesson from
+<a href="http://itunes.apple.com/app/ipractice/id327883216?mt=8">iPractice</a>,
+a digital practice assistant for guitar players. One requirement for a musical app is that the visuals need to be tightly synchronized to the audio track, if the video sync is off by as little as 1/20th of a second then the user experience will suffer. This example actually contains 2 audio tracks, one is a fast tempo of 70 BPM and the other is a slow tempo of 45 BPM. This example contains only one video track, so the playback rate of the video track is dynamically adjusted to match the tempo of the audio track. This type of playback rate adjustment and dynamic selection of the audio track used with a specific video track is not possible using the built-in movie player classes shipped with iOS. In addition, this example shows how a devloper can use custom movie controls that look like the built-in movie controls.
+</p>
+
+<a href="AVSync200.zip">AVSync200.zip</a> (1800 Kb) <br>
+
+<hr>
+
+<h3 id="KittyBoom">KittyBoom Example :</h3>
+  
+<p>
+  Do you love Hello Kitty? Not me. This example is an iPhone/iPad app that shows Hello Kitty being blown up with a realistic video of
+  an explosion originally shot against a green screen.
+  The Hello Kitty animation was converted from a gif to apng and then the movie was attached to the project file.
+  The explosion video was encoded as a pair of H.264 videos using the new H264 + alpha channel support in AVAnimator 2.0.
+  Each explosion component video is about 80 Kb and the Hello Kitty animation is about 15 Kb.
+</p>
+
+<p>
+    This example demonstrates how to decode and join two component videos encoded with H.264 back into a single Maxvid file with an alpha channel. In addition, this example shows how CALayer animations can be combined with NSNotifications delivered by AVAnimator media objects. At runtime, iOS will composite the explosion video video over the background image to provide a realistic looking explosion.
+</p>
+  
+<a href="KittyBoom200.zip">KittyBoom200.zip</a> (1300 Kb) <br>
+  
+<hr>
+
+<h3 id="ApngPlayer">ApngPlayer Example : <small>APNG file player app for iOS</small></h3>
+  
+<p>
+  This example contains the full source code for the
+  <a href="http://itunes.apple.com/us/app/apng/id447928057?mt=8">APNG</a>
+  file player utility program available in the app store. This program handles the details of downloading an APNG file via the network and then rendering each frame in the animation. This example app is designed for both iPhone and iPad.
+</p>
+  
+<a href="ApngPlayer200.zip">ApngPlayer200.zip</a> (700 Kb) <br>
+  
+<hr>
+
+<h3 id="Play8Movies">Play8Movies Example : <small>Pushing memory and CPU limits</small></h3>
+  
+<p>
+  This example app will decode a H.264 video of a shark swimming into 8 different Maxvid files. Each resulting file is about 500 megs. Then, all 8 Maxvid files are rendered into CALayers in a loop. This universal app is configured for either iPhone or iPad. This example shows off two new features in AVAnimator 2.0. First, the H.264 decoding makes it possible to use H.264 videos that are significantly smaller than a lossless encoded version of the same video. A 7zip compressed Maxvid of this shark clocks in at about 16 megs but the H.264 version is only 300K. The movies only need to be decoded from H.264 the first time the app is run, after that the existing files on disk are read directly. The second important AVAnimator 2.0 feature this example demonstrates is the partial file mapping logic that makes it possible to map only the visible frame data from a Maxvid file, instead of the entire movie file. It would not be possible to memory map even two 500 meg files in iOS, so this example would not be able to run if AVAnimator did not support partial file mapping. This example writes 8 different movies instead of writing the movie once and then reading from the same file just to make sure that very large file support is working. Note that it would not be possible to decode or display 8 different H.264 movies with the built-in iOS video support. This example pushes the iOS device to the limits of what is possible and is IO bound, if one frame display takes too long when frames are dropped to keep up with the expected frame rate. The example consumes about 25% CPU on an iPhone 4.
+</p>
+
+<a href="Play8Movies200.zip">Play8Movies.zip</a> (600 Kb) <br>
+  
+<hr>
+
+<h3 id="AVDecodeEncode">AVDecodeEncode Example : <small>H.264 -&gt; Maxvid -&gt; H.264</small></h3>
+  
+<p>
+  This example shows how to decode from H.264 to Maxvid and then encode back into H.264. Finally, the encoded result is played using the built-in H.264 player support in newer versions of iOS. This logic is implemented with the modules <code>AVAssetReaderConvertMaxvid</code> and <code>AVAssetWriterConvertFromMaxvid</code> new to AVAnimator 2.0. In a real app, you might want to do something more interesting like apply effects to the video stream. The point of this demo is simply to show how to convert from H.264 to Maxvid and then back again using these new APIs. All encoding and decoding is done in a secondary thread. Note that decoding and then encoding again can take quite some time as there is quite a bit of IO, it does not happen in real time.
+</p>
+  
+<a href="AVDecodeEncodeExample200.zip">AVDecodeEncodeExample200.zip</a> (1500 Kb) <br>
+  
+<hr>
+
+<h3 id="AVRender">AVRender Example : <small>Offline Composition</small></h3>
+  
+<p>
+  This example shows how to use the new <code>AVOfflineComposition</code> module to compose two different videos into one single video. This example uses a larger video of a person in a newsroom like setting an a smaller video of a specific news story that is superimposed over an area in the upper right corner. The smaller video is only visible for a portion of the time the larger movie plays. These composition opertions are controlled by input XML files that describe the composition operations. After the composition is complete, the result movie is played. This type of offline composition can be very useful in certain cases. For example, one might compose a alpha channel video over colored backgrounds to produce a 24BPP movie that could be exported and perhaps emailed. Note that composition can take quite some time due to large amounts of IO, it does not happen in real time.
+</p>
+  
+<a href="AVRenderExample200.zip">AVRenderExample200.zip</a> (10 Megs) <br>
+  
+<hr>
+  
+<h3 id="QTFileParserApp">QTFileParserApp Example : <small>Everything and the kitchen sink</small></h3>
+  
+<p>
+  This example iPhone app contains a whole bunch of demo movies.
+  The example iPhone app will decode and display 16, 24, and 32 BPP movies.
+  This example also shows how to use custom movie
+  controls designed to look and work like the built-in controls.
+  In addition, examples of rendering into a UIView and into
+  a CALayer (CoreAnimation) are included.
+  Decoding from 7zip compressed Maxvid, APNG, and H.264 are demonstrated in this example.
+  In addition, the example includes a very useful regression test harness. If you
+  are a developer looking to make changes to AVAnimator, this is the best place to start
+  since it includes everything.
+</p>
+  
+<a href="QTFileParserApp200.zip">QTFileParserApp200.zip</a> (2500 Kb) <br>
+  
+<hr>
+
+
+</td>
+
+<td class="page">&nbsp;</td>
+
+</tr>
+
+<tr>
+
+<td class="page">
+<img class="bl" src="../b_left.jpg">
+</td>
+
+<td class="page">&nbsp;</td>
+
+<td class="page">
+<img class="br" src="../b_right.jpg">
+</td>
+
+</tr>
+
+</tbody></table>
+
+<hr>
+
+
+
+
+
+</body></html>Ytext/htmlUUTF-8P_0http://www.modejong.com/AVAnimator/examples.html§"'+Ô_WebResourceResponseOæbplist00Ô^_X$versionX$objectsY$archiverT$top † ¯#)*0123GHIJKLMNOPQRSTUXYU$nullÝ	
+ !"R$6S$10R$2R$7R$3S$11R$8V$classR$4R$9R$0R$5R$1€	€€€€€€€Ó$%&'(WNS.base[NS.relative€ €€_!http://www.modejong.com/style.cssÒ+,-.Z$classnameX$classesUNSURL¢-/XNSObject#Aº[²ªãÂD ÈÓ456>FWNS.keysZNS.objects§789:;<=€	€
+€€€€€§?ABCDE€€€€€€€€VServer\Content-Type]Last-Modified]Accept-RangesTDate^Content-LengthTEtag_CApache/2.2.21 (Unix) mod_ssl/2.2.21 OpenSSL/0.9.8w DAV/2 PHP/5.3.10Xtext/css_Fri, 22 Jun 2012 19:05:01 GMTUbytes_Tue, 06 Jan 2015 06:06:03 GMTT2412_"6103-96c-4c3144f23c6b6"Ò+,VW\NSDictionary¢V/	lÒ+,Z[_NSHTTPURLResponse£\]/_NSHTTPURLResponse]NSURLResponse_NSKeyedArchiverÑ`a_WebResourceResponse€    # - 2 7 T Z u x |  ‚ … ‰ Œ “ – ™ œ Ÿ ¢ ¤ ¦ ¨ ª ¬ ­ ¯ ± ³ µ · ¹ » Â Ê Ö Ø Ú Ü "+468?GRZ\^`bdfhprtvxz|~€‡”¢°µÄÉ8>^c~ƒ“–›¯³ÇÕçê              b              O	l/* CSS Style Sheet */
+
+pre, code {
+  /* font-family: monospace; */
+  font-family: Lucida Console, Bitstream Vera Sans Mono, Courier New, Times New Roman, monospace;
+  font-size: 105%
+}
+
+h1, h2, h3, h4 {
+  font-size: 110%;
+}
+
+body {
+  background-color: white;
+
+  /* Text color */
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: left;
+  font-size: 80%;
+
+  margin-left: 1%; margin-right: 1%;
+  margin-top: 0%; margin-bottom 0%;
+}
+
+a:link {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+
+/* navbar : table at top of page containing links */
+
+table.navbar {
+  width: 100%;
+  font-size: 90%;
+  font-weight: bold;
+
+  border-color: grey;
+  border-style: double;
+  border-collapse: collapse;
+  border-size: 1px;
+}
+
+td.navbar {
+  /* 100% / 6 = 16% */
+  width: 16%;
+  text-align: center;
+  border-color: grey;
+  border-style: solid;
+  border-width: 1px;
+  padding: 0px;
+  margin: 0px;
+}
+
+/* Page table contains rounded corners and text elements */
+
+table.page
+{
+  width: 100%;
+  background-color: white;
+
+  border-color: black;
+  border-style: solid;
+  border-width: 10px;
+  border-spacing: 0px 0px;
+
+  padding: 0px;
+  margin: 0px;
+}
+
+/* Apply border-collapse in IE only */
+
+* html table.page {
+  bo\rder-collapse: collapse;
+}
+
+td.page {
+  background-color: white;
+
+  border-style: hidden;
+  border-width: 0px;
+
+  padding: 0px;
+  margin: 0px;
+}
+
+/* Corner images in page */
+
+img.tl {
+  vertical-align: top;
+  float: left;
+  width: 25px;
+  height: 25px;
+}
+
+img.tr {
+  vertical-align: top;
+  float: right;
+  width: 25px;
+  height: 25px;
+}
+
+img.bl {
+  vertical-align: bottom;
+  float: left;
+  width: 25px;
+  height: 25px;
+}
+
+img.br {
+  vertical-align: bottom;
+  float: right;
+  width: 25px;
+  height: 25px;
+}
+
+/* Adjust broken image rendering, IE only */
+
+* html img.tl {
+  p\osition: relative; left: -3px;
+}
+
+* html img.bl {
+  p\osition: relative; left: -3px;
+}
+
+* html img.tr {
+  p\osition: relative; left: 3px;
+}
+
+* html img.br {
+  p\osition: relative; left: 3px;
+}
+
+/* Image that floats to the left/right of a text paragraph */
+
+img.floatright {
+  float:right
+}
+
+img.floatleft {
+  float:left
+}
+
+/* Table header text */
+
+td.smallheader {
+  color: grey;
+  font-size: 70%;
+  font-style: bold;
+  text-align: center;
+}
+
+Xtext/css_!http://www.modejong.com/style.cssÔOëbplist00Ô^_X$versionX$objectsY$archiverT$top † ¯#)*0123GHIJKLMNOPQRSTUXYU$nullÝ	
+ !"R$6S$10R$2R$7R$3S$11R$8V$classR$4R$9R$0R$5R$1€	€€€€€€€Ó$%&'(WNS.base[NS.relative€ €€_"http://www.modejong.com/banner.jpgÒ+,-.Z$classnameX$classesUNSURL¢-/XNSObject#Aº[²ªäC ÈÓ456>FWNS.keysZNS.objects§789:;<=€	€
+€€€€€§?ABCDE€€€€€€€€VServer\Content-Type]Last-Modified]Accept-RangesTDate^Content-LengthTEtag_CApache/2.2.21 (Unix) mod_ssl/2.2.21 OpenSSL/0.9.8w DAV/2 PHP/5.3.10Zimage/jpeg_Fri, 22 Jun 2012 19:02:47 GMTUbytes_Tue, 06 Jan 2015 06:06:03 GMTU18923_"60c9-49eb-4c314472ef699"Ò+,VW\NSDictionary¢V/IëÒ+,Z[_NSHTTPURLResponse£\]/_NSHTTPURLResponse]NSURLResponse_NSKeyedArchiverÑ`a_WebResourceResponse€    # - 2 7 T Z u x |  ‚ … ‰ Œ “ – ™ œ Ÿ ¢ ¤ ¦ ¨ ª ¬ ­ ¯ ± ³ µ · ¹ » Â Ê Ö Ø Ú Ü #,579@HS[]_acegiqsuwy{}ˆ•£±¶ÅÊ;Aagƒˆ•˜› ´¸ÌÚìï             b              OIëÿØÿà JFIF  H H  ÿá
+aExif  MM *                  b       j(       1       r2       †‡i       œ   È   H      H   Adobe Photoshop 7.0 2006:03:29 18:33:13         ÿÿ         >        Z                          (             &      	3       H      H   ÿØÿà JFIF  H H  ÿí Adobe_CM ÿî Adobe d€   ÿÛ „ 			
+ÿÀ  $ €" ÿÝ  ÿÄ?          	
+         	
+ 3 !1AQa"q2‘¡±B#$RÁb34r‚ÑC%’Sðáñcs5¢²ƒ&D“TdEÂ£t6ÒUâeò³„ÃÓuãóF'”¤…´•ÄÔäô¥µÅÕåõVfv†–¦¶ÆÖæö7GWgw‡—§·Ç×ç÷ 5 !1AQaq"2‘¡±B#ÁRÑð3$bár‚’CScs4ñ%¢²ƒ&5ÂÒD“T£dEU6teâò³„ÃÓuãóF”¤…´•ÄÔäô¥µÅÕåõVfv†–¦¶ÆÖæö'7GWgw‡—§·ÇÿÚ   ? õT’LH “Àå%5s:¯NÁ²ª²òM—îô˜ãîvÆºÛÖvÊëcœ÷¬ž‘õÿ êŸXÊn{NKÌW]}EÇ÷k71Œ{ÿ ßzó_Wªõ:ú·ÖÌ’ÍýL[ÓúYÈ±•W]%™W¶ËßSvcã~©W§úKo¾ïôk“=¶ºSÂXé²—3þšJ~—Isâÿ ©eu«TœË«É¿Ç×Ôñ`x`i­ïwú_Mìß¿ôŸáŸ[ê6ac6¼VúC1Þ†\Í„=gü3?O{¿q‰)­·¨}c¿&	§¤3ìµ;±¾àËòÜßøš[Oýråbï¬=.‹M°XYXÚ}G·K*Åsk-Ê¶¸ý%tz›?°Òºs:nXm{­5‚l¹ÿ JËM—Þÿ åÝkŸbÄÉ·'Ûƒ}ù8—ß‘ˆöVâÁmÖd×;öìê9¯·÷?Á?ú4”ïãfâåTËj¶Âæ´8;s	e¬5Ù¶Æ¾§µÌ±›}ˆYSÆÕcm²ÇÛ(ªËˆoŸövYéµßË\éY>¹}Øop»+:ë*4o³&«ßm,SžX]ÒŒ÷²ßÒÛ†ú­ý*ÐëÝ?"üwãeV2N.5O±ÔÛ}N²‹¾Ñ­V}fµßàþ‚Jz^¡‡•Pº›Aiy®,:—ÕheµÜßôOg¨šþ¥‡FS1-yY¶ k‹FòæSêØÖšêõ¬cÙOªïÒ¿è.`ô÷zî³7÷6ïB¦ßuF÷ÛMUz7z´2¼§aß}ß¥÷¿Ô«Ñõòë}>…a=?ª_C¨È¯'&ë[€.¢Æìuuâ_nV]-êôñr·Õo¡Šêò>Ógý¨³éÜ’žÐ[QÁí-iÚã"ýÒ‘ºÁa{v;FºDƒ—zVG¬û‡ëÓêelÐ­•½›:V¸N©Îv5Þï¶º›*Çÿ Oïz†?OÈ²öQ‘G¡’1°_‘¿–Ôo6:žµé`é·í‘C-ÏÆÆû3+g¾ìçRSÞ‚‚¬Þ‚*Oô6ýœd^(€ÀÁkÚßKo·ÓýÝ«I%?ÿÐõTÄ<S¤’Ÿÿ ®`uÛ2³w]Óìötû˜ØªºüÆßego³Óÿ üÿ øG®[§ôìî¥•^/ÈÈ´€ÊØ$ëÝßšÆÿ -þÅõš×´µÀ9§B …ƒÕ>°tŽˆÛ(Â¥—fé8Ô44;Fì­®Ø÷»èUúL›?ÁPô”×úµÓ±¾¥}UÇÇÌtÞçnµµî³&èÛŒÆÿ ;gÐ¦¿ø¿UN¬¼NŸ”z§^¹­êÙ-ôèÂªn²Š]tÕŽÛ-½ï±¾¦NO§ú[àj©¢uÎ§“ûO¬^ì7™WT›S¢hªÏwØXÿ ð¾–þ¡oýÌ£ù•Ðtþ“Ózef¼vPeî^óûöÚíÖÚÿ åØô”Ò=[¬dmýŸÒ_±ßásln8õ–·'+üúkR8ÿ Y®o¿/øUKî?öå×Tßük.S«ýqÉé½S7ãz¬Ã¯Ôf3k»Õ²½•?ö‡Ú™]˜t`Õ‘wÙò=OæþÏ‘oé-ýQ%:mé=lÿ 9×.ÿ ­ÑŽßúºmNzGWC®dÏò©Å?“‹ÿ ã!¸WæŽpª¬Vä³Ô°0¹çìž¥šÿ DÆ3¨Weyá½;?D‰Ô~¼ßKï«§Y}ø›õÙ½‡oÙòóiÿ í¶ZÜJÜÖÿ Âÿ ¤IN»0~±Õ«z­Y¿úx×Qÿ P˜æ}eÇptú3+îü[ö<ü/–ÊÙÿ ³Kÿ šýcgK{ê¥·¸Þ×í®k–Pß{çQe]6çY™ù›éý_ô«£èY½g¤cõ&×é€ï`vðêŽËv³Ô­Þžêß±žÄ”Š¯¬½,Þ1²?!ßF¬Ægþ.÷~«wýfûìœ<,Æ5¹TWÆÍ±¯ þów‡"]MWÖêncm©â[ÀsHðs]írÈ=îŸèý‘­’p-—â¿ù-oó¸_ÖÅw¥ÿ u­INËZÖ45 5­Ö °N³zwYnUÇ2“ƒÔØÝïÄyÜßô¸·€Úòéþ]Í‡®¥¤’ŸÿÑõT—Ê©$§è~µû[í¿®}£ö${ÿ gFÿ å}³þ×ú[ò·ôŠ·Õ¯Øÿ ´]³Òüÿ ØÞŒ}ŸÐë}Ÿÿ 6Ÿùiö×ôx
+I)ú©%òªI)ú©%òªI)ú©%òªI)ú—'ìßf·í{>Í±Þ¿«Ÿ§¤õwû==ŸOzXßgû=_eÙömô=(ôý8ý¥³ÙéìúËI$§ê¤—Ê©$§é/¬ÿ ³~ÄÏµïûNñû?Ðþ“öˆýØÿ á?Òný¥ý'ô¢¿Ó¾Ýö
+?hìûnÁöKèovÕòòI)ÿÙÿí(Photoshop 3.0 8BIM%                     8BIMí      H     H    8BIM&               ?€  8BIM        x8BIM        8BIMó     	         8BIM
+       8BIM'     
+        8BIMõ     H /ff  lff       /ff  ¡™š       2    Z         5    -        8BIMø     p  ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿè    ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿè    ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿè    ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿè  8BIM       8BIM                             8BIM          @  @    8BIM         8BIM    A              Z  >    b a n n e r                                >   Z                                            null      boundsObjc         Rct1       Top long        Leftlong        Btomlong   Z    Rghtlong  >   slicesVlLs   Objc        slice      sliceIDlong       groupIDlong       originenum   ESliceOrigin   autoGenerated    Typeenum   
+ESliceType    Img    boundsObjc         Rct1       Top long        Leftlong        Btomlong   Z    Rghtlong  >   urlTEXT         nullTEXT         MsgeTEXT        altTagTEXT        cellTextIsHTMLbool   cellTextTEXT        	horzAlignenum   ESliceHorzAlign   default   	vertAlignenum   ESliceVertAlign   default   bgColorTypeenum   ESliceBGColorType    None   	topOutsetlong       
+leftOutsetlong       bottomOutsetlong       rightOutsetlong     8BIM      8BIM        8BIM    	O      €   $  €  6   	3  ÿØÿà JFIF  H H  ÿí Adobe_CM ÿî Adobe d€   ÿÛ „ 			
+ÿÀ  $ €" ÿÝ  ÿÄ?          	
+         	
+ 3 !1AQa"q2‘¡±B#$RÁb34r‚ÑC%’Sðáñcs5¢²ƒ&D“TdEÂ£t6ÒUâeò³„ÃÓuãóF'”¤…´•ÄÔäô¥µÅÕåõVfv†–¦¶ÆÖæö7GWgw‡—§·Ç×ç÷ 5 !1AQaq"2‘¡±B#ÁRÑð3$bár‚’CScs4ñ%¢²ƒ&5ÂÒD“T£dEU6teâò³„ÃÓuãóF”¤…´•ÄÔäô¥µÅÕåõVfv†–¦¶ÆÖæö'7GWgw‡—§·ÇÿÚ   ? õT’LH “Àå%5s:¯NÁ²ª²òM—îô˜ãîvÆºÛÖvÊëcœ÷¬ž‘õÿ êŸXÊn{NKÌW]}EÇ÷k71Œ{ÿ ßzó_Wªõ:ú·ÖÌ’ÍýL[ÓúYÈ±•W]%™W¶ËßSvcã~©W§úKo¾ïôk“=¶ºSÂXé²—3þšJ~—Isâÿ ©eu«TœË«É¿Ç×Ôñ`x`i­ïwú_Mìß¿ôŸáŸ[ê6ac6¼VúC1Þ†\Í„=gü3?O{¿q‰)­·¨}c¿&	§¤3ìµ;±¾àËòÜßøš[Oýråbï¬=.‹M°XYXÚ}G·K*Åsk-Ê¶¸ý%tz›?°Òºs:nXm{­5‚l¹ÿ JËM—Þÿ åÝkŸbÄÉ·'Ûƒ}ù8—ß‘ˆöVâÁmÖd×;öìê9¯·÷?Á?ú4”ïãfâåTËj¶Âæ´8;s	e¬5Ù¶Æ¾§µÌ±›}ˆYSÆÕcm²ÇÛ(ªËˆoŸövYéµßË\éY>¹}Øop»+:ë*4o³&«ßm,SžX]ÒŒ÷²ßÒÛ†ú­ý*ÐëÝ?"üwãeV2N.5O±ÔÛ}N²‹¾Ñ­V}fµßàþ‚Jz^¡‡•Pº›Aiy®,:—ÕheµÜßôOg¨šþ¥‡FS1-yY¶ k‹FòæSêØÖšêõ¬cÙOªïÒ¿è.`ô÷zî³7÷6ïB¦ßuF÷ÛMUz7z´2¼§aß}ß¥÷¿Ô«Ñõòë}>…a=?ª_C¨È¯'&ë[€.¢Æìuuâ_nV]-êôñr·Õo¡Šêò>Ógý¨³éÜ’žÐ[QÁí-iÚã"ýÒ‘ºÁa{v;FºDƒ—zVG¬û‡ëÓêelÐ­•½›:V¸N©Îv5Þï¶º›*Çÿ Oïz†?OÈ²öQ‘G¡’1°_‘¿–Ôo6:žµé`é·í‘C-ÏÆÆû3+g¾ìçRSÞ‚‚¬Þ‚*Oô6ýœd^(€ÀÁkÚßKo·ÓýÝ«I%?ÿÐõTÄ<S¤’Ÿÿ ®`uÛ2³w]Óìötû˜ØªºüÆßego³Óÿ üÿ øG®[§ôìî¥•^/ÈÈ´€ÊØ$ëÝßšÆÿ -þÅõš×´µÀ9§B …ƒÕ>°tŽˆÛ(Â¥—fé8Ô44;Fì­®Ø÷»èUúL›?ÁPô”×úµÓ±¾¥}UÇÇÌtÞçnµµî³&èÛŒÆÿ ;gÐ¦¿ø¿UN¬¼NŸ”z§^¹­êÙ-ôèÂªn²Š]tÕŽÛ-½ï±¾¦NO§ú[àj©¢uÎ§“ûO¬^ì7™WT›S¢hªÏwØXÿ ð¾–þ¡oýÌ£ù•Ðtþ“Ózef¼vPeî^óûöÚíÖÚÿ åØô”Ò=[¬dmýŸÒ_±ßásln8õ–·'+üúkR8ÿ Y®o¿/øUKî?öå×Tßük.S«ýqÉé½S7ãz¬Ã¯Ôf3k»Õ²½•?ö‡Ú™]˜t`Õ‘wÙò=OæþÏ‘oé-ýQ%:mé=lÿ 9×.ÿ ­ÑŽßúºmNzGWC®dÏò©Å?“‹ÿ ã!¸WæŽpª¬Vä³Ô°0¹çìž¥šÿ DÆ3¨Weyá½;?D‰Ô~¼ßKï«§Y}ø›õÙ½‡oÙòóiÿ í¶ZÜJÜÖÿ Âÿ ¤IN»0~±Õ«z­Y¿úx×Qÿ P˜æ}eÇptú3+îü[ö<ü/–ÊÙÿ ³Kÿ šýcgK{ê¥·¸Þ×í®k–Pß{çQe]6çY™ù›éý_ô«£èY½g¤cõ&×é€ï`vðêŽËv³Ô­Þžêß±žÄ”Š¯¬½,Þ1²?!ßF¬Ægþ.÷~«wýfûìœ<,Æ5¹TWÆÍ±¯ þów‡"]MWÖêncm©â[ÀsHðs]írÈ=îŸèý‘­’p-—â¿ù-oó¸_ÖÅw¥ÿ u­INËZÖ45 5­Ö °N³zwYnUÇ2“ƒÔØÝïÄyÜßô¸·€Úòéþ]Í‡®¥¤’ŸÿÑõT—Ê©$§è~µû[í¿®}£ö${ÿ gFÿ å}³þ×ú[ò·ôŠ·Õ¯Øÿ ´]³Òüÿ ØÞŒ}ŸÐë}Ÿÿ 6Ÿùiö×ôx
+I)ú©%òªI)ú©%òªI)ú©%òªI)ú—'ìßf·í{>Í±Þ¿«Ÿ§¤õwû==ŸOzXßgû=_eÙömô=(ôý8ý¥³ÙéìúËI$§ê¤—Ê©$§é/¬ÿ ³~ÄÏµïûNñû?Ðþ“öˆýØÿ á?Òný¥ý'ô¢¿Ó¾Ýö
+?hìûnÁöKèovÕòòI)ÿÙ 8BIM!     U       A d o b e   P h o t o s h o p    A d o b e   P h o t o s h o p   7 . 0    8BIM         ÿáHhttp://ns.adobe.com/xap/1.0/ <?xpacket begin='ï»¿' id='W5M0MpCehiHzreSzNTczkc9d'?>
+<?adobe-xap-filters esc="CR"?>
+<x:xapmeta xmlns:x='adobe:ns:meta/' x:xaptk='XMP toolkit 2.8.2-33, framework 1.5'>
+<rdf:RDF xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#' xmlns:iX='http://ns.adobe.com/iX/1.0/'>
+
+ <rdf:Description about='uuid:78ec5422-bf95-11da-8675-ea124a36ee5c'
+  xmlns:xapMM='http://ns.adobe.com/xap/1.0/mm/'>
+  <xapMM:DocumentID>adobe:docid:photoshop:78ec5420-bf95-11da-8675-ea124a36ee5c</xapMM:DocumentID>
+ </rdf:Description>
+
+</rdf:RDF>
+</x:xapmeta>
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                       
+<?xpacket end='w'?>ÿî Adobe d@   ÿÛ „ 		
+
+				
+	
+ÿÀ  Z> ÿÝ  (ÿÄ ‹            	
+                     !1A"2QaqB	‘#345¡Ñb67±ÁR’%µ8r¢ÒCcDT´uvw                ÿÚ   ? ßå@ P(
+@ P(¶kÅÅqkåþc¡¦-‘yKQÐ{©&ƒ¸?a•}^àoÕ³óy½Ùå@qc¯Ë6¢¡>Ê…P(
+@ P(
+@ P(
+AÿÐßå@ P(-«Þ_ŽcÊe»µÚ47¤,6Ãq!kQì ×SA¥Ì­ÙëøÆsl¡«uçÒCËˆ5R’—©×NÚŠL#™œ~Ï¤7Çž@ù‡t´ó²Iÿ •¥NÂŸ
+âÂ%A”Ü¸îPëJ
+Iëº@ À®og2Î?`Ú\yÒ¬ƒpf·´Ù÷“¨zŠ {4 ÊÝ¥ÂbmößãX´FÃi¶Âi 4Õ~#ÈŸå ¼¯W»f?Û•ÚR"C`8òÈ öÐE6^Bí5þælö¼¶™á^>‚]A:ýAÙÉ7ëkq9¨·ß2¨p¥9§‹Kq õíÜÐH˜îMeÊ 7s±În|'F¨y²?X ¯Ð(#üÓsð­¿m.åW¶-IWÂ^ZS¯é"‚;‡Ê=’œú#±›ÀSŽ=TÒ ›,×û>AlóÙŸÁª\iACOä ¬P(#l»vð,CQr[ükkïÛuiI$ý¤P^6;õ«#€ÕÊÏ-a¼›y² ýb‚±@ P(
+@ ÿÑßå@ Pa1ù}Œñ«yaæåå“ÛRmvà¡äGE(}ƒL\UÜÝÓåW&mùc{”ö?¸»‹ðüÔ#´†õPk§J%æ~áÉä^ãßãÈSð[¹9òÕ!¨çÓNŸêÐc<µÊÚò$@œôG› ¡ÆÖRAa Ù÷?1,÷i¯Ö¼o9º=~Ãä8†\T…-”“¦ Ÿ¢ƒÓî	›Ø·µå8ìÆæÛnŒ¥æœm@éä5ÐéAxÐ(Û½Ò-šÙ6é5Ô³+yçt)šmì„	|äM¼—VÔî+‰:»v$•P¥ è§¯Jš€  tµsjt˜{P„Gp¶™w¬Hï6ãí¡i?QŠ
+‡$öFÈn5Ã	Ã,8ÞYZ¿´]íVè±&2mN&jÂe´/õ0¶È×ÞŽ´/6ÛÉöBÓ›n./fÊòŒîåp»ª}æy’·D&ZmRZ’ÐLp´¤=ÿ .ê4>×ïTÜ#2Ýý°ÁñÇrŒ¹ýÅÉáaøm¼6ÒŒÅÊAH÷ÊŽÃ-éÕE(Bt:
+	õÌ‹˜v$*÷uÛÜ~ýldz²lV[¸~ä–û«Á·™a·‘÷Pá'²|ÿ µ[ŸcÝLf6AfYOž¨—ÀPë. ø­·­
+T•#Ph1ÏðËN]Ìk®?”Ú ävHwq™ÕsŒÔ¸è‘ø¥­°ðiä­!a*RB´ÔG´ÐAïÎØ±º–ñ_gníyœÜ&nu}7œ¨MHv*á'T)A%a+Õ ’’¢ŸÛ¸wÈ4ÜÛ*¬MÎsl·2¥ÙñVË’„´%´—£ÅO¾°ÓÉÚƒ®Šò	>:%!,#!æÜ"÷nÛÜ~ÏkxX°]¯	jæ[=@[m2ó(QuN‚;+CA(lîóÁ]æÁÚÅ3|^A‡’cS|RügÀ
+Ðø’•%IPR’R¤¤’’+·ksÉ-ó‡—Ø­™L;-¢Æm1®±šÜróó}E4BÂJüS®ô>Âï¶Mi‹|ÚÝ¿Æ^Í3¯Ç¯	¶Ù#©¶Y‡<×P—_uÕ!¦Zm% ìJA$
+“–òãaÜƒ%Û»&IcŠ’õÂÛŽ\þnàË)êµ&;ÌGõJF¾ëJRÝ‚ƒcäÆo¼Ón6ý„°Ûò	6‘¥_•q˜˜M²%)Ä¶€¥%D«V•¨Ó§¶‚³)æ<+sy5çm,ÀmŸ™™ŠÁ»¡ûÂ[ÉIK^’Y[€}Ä¼I=©éAÀÇ*.;Šl¸ÞÊã§.Í.ÐÕ6\E¸ˆñíñÐR—šóš’•('B
+‰>)J•ÒƒµøÇ5"\X†öŠ\cºÒÞ]Æ-ðz(ðRé+ÖŽÒüÔ¨Ñ:hQA6ì¶ç9¹v;Œ‰‘“ïcŸ&×yŠ…¥¹pÞ[ (tPA Žô5@ ÿÒßå@ £dWv,;¥âJ‚·Fq÷z’h<hóyï{Ý½y%ÅéNIjâZcJR„«Äx®ƒ`[;n‹Ä>f«{Jaç[•VÜY…û¯ úH+HïÑ'Z+L~]Îd©Ï½"[ªyåèI*YÔš1
+aíÓö ÿ Eå&6BŒgRAÔ(=þQ|€¸Ü˜»mþbÝù4úö„º£¨Oµ#ZòÐ(ÌÎ¹ÜWgØÌÕ=”æÎ¥‹‚™:ª<RtqJÓ·J§Ù´¶mVcÅmí%
+‰c u[¤jµô“A+Ðag8ÿ Â¨ú¼üËt&MÆNôã[ysÑv­ÀÁïÁØÊÓGžƒ&Ðÿ ØI|ÐZØ_Éà;µ;i’]‰…mÆdå|¢ãfƒõ$v*S2~µ}TÄÙ/9lÜ’ÐÈW}½›G—©ò‚ý#ç<5÷´ó,k§Õ­½Å‹o!£òË>“›5‘7i?‹òMÄH×µpþò¥ÀW¿âYðì×—¹­Oqì¡{ÇÈ·lÇ\]Y„¡£OHËKm	þ:týì;¯×­çÿ ìƒÿ ¬®?ï{UOÄwC8ÝÇÚK~Û_£Ú²MÜºÝåg2 <Õº=¯ñ§$9'æB[#Ó£Cïô	Ô(23”Ùž3#“œQÃ.1%8æ@.·ô/E"3·)˜¶z§]}V
+ôW³ÄöîFñdV›úáRÚ]ÐÍ2øðÚ^%wÆ&¸Õ‘HJÜSìºßÍ³×Öõ’5O‘ññ ƒeZn›áË{´F¤d»ÛvöëµÏÃ¤Ëœìiêi.:˜ïÈkÇÐ’Ø¨/DöñëAwðçÜKFñr=üêÝr	.’ÝqÛœˆR&ún4¢<\òiHp”4ZOeB=ü¾¤Z$æ¼˜z‘—’N¸±&É!ír
+¤Ü=öÈ÷‹~©G¨SÓàöéAOà¥·¢oVæ?¸Œd¬YÜ·IþÙ9~†¾m–Ápx­ÏOÕ:£Ýð'ØQAxp©vG9Ë§1¿LØ—~ÖYÓÒ-ÃBÖ<ÝÓîéAhþ_™–Y”nöû¹‘dwÑœÓs¤¢\…ºƒ Lq°àBŠHAñ  Ÿtt PV?/÷-éÍ9E'Ë·“ªòÂázÞØé“qHÓN¾	uIóñÔëì ªp:ÉÈ+No»ŽnÄ<’–PB¥…/¤H½úþóÑÃÅ`µåæ¶½Ò=>¤xÐL\>ï¼?û÷#ÿ zH ÍJAÿÓßå@ ù52DÜiQIµf’Q§}|™îñbë½+6Ê£*&Ë\ÛŒÇÇŠ(QW’ºPe/*rþ6_ò˜¨ÜLñËÍ«dAÇpk	óf;mtÑKî¤÷Òƒßäo±qèa»ÕÏÓøf]ò*ÓÚR()nsVÌÆ©¶ìN ËcáÇó:}´”ó7—îÝö}µ|a†½#úEkðG|vw3ß[${iÕ…d²ÛXOù°t¤ÚƒÑpì>Ê´îöîÕ“hp‹žGt}?2–Ô‹l=}÷žPÑ	Hîu4ÁÅª½^î×múÜvTæQ•¬¹gŠøÔÅŠN¨JAíÒƒ`4
+—yvÊ>êáò±§ž1œYF4Õ …!C]GB Æ[ÆÃò*ý™â»‰qÝÆ–àÎc˜‹T6ÛW&½)u”´ï’?ÒQ¡ ü3°œˆgp$nÊwqƒŸL±ŒiùêµÁSØDŸEË^šOª€¯ 5ïôÐwãñLE¹™Û2évMÝvë6úæu 6ËæuÅÅ»(–Â}"Û¥Å4RPR|||zPVÝÁyi|mË%çxb[-JUÖÏj‹äãdh¯ +ÒR‡Þi(P?	MAmfØXv«‰Ø™ñi„þµãÕn,õR”£Ô’z’h#ÉÚ<Þ^n7'kr†ñLÅv·¬Ò&½‰¹CÌ>¶ÔÔ„­?´Ž‚ê4Ó]	 ²ÚÁù…/Ê<Ýîƒ;£ÅÉìV´¼{”)l,õéAWÄ¼:F1~·d’¤ä™.Lá•{Êçº§§?(£ªyGËTèt:$  ‚”ÎË+mØ¬ÛÇ}•éDºÝ­Q%ÜšhtH2RGÞuQûÄÐPXâÒÙp‡hÜ;Ã;Ì§•*Nà:ê^’û®7é)¶âTÊÚ(Ñ‘G€H $ 4
+Ì½å^Sü{(ÝÈvüzb{Œ›%®4)ï°¡â´üÀó-•Žêh!Cî‘AÝŸÅXv¸åÏjï²0,ÏŽc[/ð5SJ -—Úq+mæ× %%I$¦ 9uÊlµ—lvîF¶ã’ÒY¹;`·G6C
++A”Ÿ5·ä;–|ôAO´ñ+Ú»”«†ÅeláK¼Eþ…Â‹1·KSD&Kk	P.+¨ï¯]t<CŠ¹ÞÓË~õ´Ùº1Ëõê:bä“‡bd :^'ÁöÖ”Ÿ2N©‚Ã¶^Ñ´»ñ>V[»—£½\!ñ¼â" Çp”ûî9>,åNaØÄ¸TÒÛm`!E$hT(2¿Îï;k;(Ëw×’Ø®c`DeEÃ1Ë*!2ó ºSÆ<T¤IPB[l, TGz
+ÇñÛµ»¾d—˜µÌÎ/wú­®|LŒ§%•ßª€Pe@ ÿÔßå@ ´³¬n]ŠÞqë€ò…tŽ¦e 5÷4WóPy±ç?$\Û¥ñ›e#/Æ,ÉÊ.ñÇ¥"{Ë©iÐ„–ƒPN¼ëî)×ÜS®¬ê·I$Ÿi&ƒŽ@ ÜOåµsïÛ±?:v2…ºÂÁJ)÷KŠöAéÎ‚ÛË2»6bŸ_f7”ë®¸@è‘®ƒZob\‹—›¦3¼‡aí6%$ÿ gm®‚5ÆÕÑÕ$ô#§JÂ‡V!Äi,ÇŒ€ÛM¤hR4 
+ÕÂ@î@ûh)³/6˜	+›q#¹qÄ§ü¦‚9½ï–ÔãÞŠæö¸Å¿‰%ôüÆ‚%ºsSam¥iRgáP§uÿ T*G=6½D‹Užùut³	ÝüÚ
+z¹Ñls÷-®ÊåaD%õý"ƒÿ ÛòUÕ+˜©?éj ú9ÈÒ?yÚº8ö•BUm®xa(#ñ<;#¶¼\„çOÐ(.Ko:66i	“t—ms²‘&3éö’š	>ÇÉÝ’¿øˆ9å·Í]›qÔ¡_ ÐJÖÜÏ¼!¶ßàÌJþMä+_Ðh.D:ÛƒVÜJÇÒ’î@ PYÙnŠgÕ&³Ç¹°¡¡KÈ
+ÿ ( Œ1þ1lÎ3<\­Xd%¥^Ip2€AþAA<ÆŒÄFQ3Ie–Æˆm#@  ç P(ÿÕßå@ ø@P)#PF„Ph‡ó5á5Ï%‘#x¶þÜ©S‚«äSª”>0z=³`Ë·Iv$Øë%…:Ë€¥@Ž„h:”
+	_hö1Þ²ÛŒb¶§æ½1ä!×‚PÚIê¥^ÜDã¥§ŽûakÇeó%¤»x”ŠS¤uýT)d6œ^Õ.óz˜Ü›S>ê‚@	ûh5©u¹eüÌÎÿ ³|Å§eñé?í	ýQøŠ¯…'Úž”ÆqÌÇáXí,³l¶[YKhHÑD5=¨#ó’{E·ˆp_2Ø†Szé	…‡]'è	N¦ƒ.\ÔÊrÇ—h6¢ñ‘•û¬Ü¤4¦X:ö:¨v §&ÉÍ­Ë%s®öÝ»·?ÿ TÈ.<”Ÿ¯¶´ˆ\%¿ßV$n&ðdÕ««±Ù}L´~‘¢M•bàþÆZB.ÆíéñÕnÎynù¬(š	~ÓÇý ²¥	·à–¦|4Ðú'§Ú(/˜Ø6)LlnÞÊSÑ!, iüÔVìVfgkŠ;hÒGù¨;BÝ & ú=4ÿ Eí·>;|ukô¶Ÿè §½‰ãR5Xá;¯&PÍAkÜöƒm.þB~kËâÖ::ÿ 5W}âÄ_JÔî‹îäQéÒ(";§q
+ÞÃ3+þ(ø>LˆÒÜ)Iöt$ÐZîìW+p]Á÷ld‘Z·ìIÙä:Ð~[äW%¶áA­ÊÚ7opYý­ÒÎKsáÞ‚_Â9±´KÍÛîÓžÄ®Ê!+ƒumL¯£U (2¦Ï‘Ø¯ñÑ*ÏupaÀ
+eÄ¬~ÃA[ P(
+AÿÖßå@ Pu¦C‹>;±&0‰ßIC¬¸’Aî4Õä?åŸ´[Ã"UîÆÐÅoÒ	RÝŒR]JG×A­«÷äáºLKZly<1|‚ÝÕ'J	n¿&Û¿Ï0þ{–´˜ˆ »(Ô¨{F¦ƒp{Å­«Ø;[0ñ)œ”€õÑÄ…<³ôùPKÙÖŒmÝŠeÿ &¹3o…²²\PZÉÓA­KÞE—r¶ôäË´÷0m‹´<Vô‡ÖX]Á?^žé ¤òÛÈöß`ñóKœí&ÜÑ,%`iä· Ó¿z
+L}­åFú¸&gùqÛ¬nI×ð;i!ÿ Lû¿²‚{Àxc´jÛ>Ö¬¦ðS—+¢‹ëR½§ßÖƒ(m˜ý–ÌÊ#Úíq ²Øe´¤ >ÁAXí@ P(
+@ P(F!²‡¡¡JÒþzk9ãÖÓî.¢ÿ ˆÂqçÒSm¥ô…$A‰÷®gX‡/¹W*š>mØf8§£+N¾:Òƒ¥jåñm¶íñ€IvÞÒ½5evÄ)ÖH<Ô éAš›w¼ûy¹ð›ŠdQf—
+âù€êOÐRzŠ	W¿j@ Pÿ×ßå@ P(
+„€	'@;šlÞîL`ûAqÝ”/4€Sn°Ä>£Ëpô ¥:è5 Õ6k¹9&èe,]7	rî:m]´•¡:ŸqRÊuëƒ(pž1î¦ï7nìÞˆáŒ„˜¨–P’éNšôïAŸ[}³{}¶vö`b¸ìX>š@T€Ø.(iQ“A(€ Ð öP} P(8dHb$wåÊyãEmNÈ}Â„6€T¥(ž€ 5&ƒUQ1}ÐÊìYNïm‡ïyç±çàÓsÖoŒ±zœÚ^C.Lƒe1–ë‰Au$¥*VšûëF‹ôÃ8ržOì&dÂ¯™þçYp&wÙñ‹ÛòÄïC–Ú\mÅÃsõÍ€ÊÒUªTAœË{·¶¬fû›nÖ)Y3H¯ÍÃîón±‘ë2q×a;æRúR—›:¶N¾iÓ_!AÇûpÛi{Áu±—öÆ¦<üÑ7~I‰ ¥?.êÉ´€ÑgÉ:'Þ‡JÉÉŽ?äxótl»¿‹ÎÛìbC12L¬OimïÈu¶nZ–RY.8ê€°<¼†šëAÍšoæÝbÖÜ±üšÏæxæ?pa`\jlëD8ËÜ„ —–](	ø(uÐö ÄÜó)ÚGl¼h—œÚ…Þ¹|álMÎ,¸ØÜX“Ü·±&å%äÃ_¥)Ö\),õSn'OwR†+Éûãø­Ñ¹á›†ìÖMÁ'FMiq2]y–Õte>&Þò–ÚR–œ>D’>í“rb÷Dä¿ü{»8¾\0æ—#'UºäÃ‰…•ItùèëGêú|T/•ülÜ\‚'ƒïn#“d×Y.ÄµØ Üš\¹.°‚ã–u
+p$¨) ¤€H'Jƒ P(‹½†Ï~ˆì+½¹‹„g’RãO ,~ÑA„[ÂëYžî]³—¹;•6¢êˆ²˜Î¬uÑmŽM›‰rsrvvíä><ëQÃ13HÈ*Žà×@¥‘Úƒ`xÆY`Ì-qîøõÍ‹”(mæV4?eÇ@ P(?ÿÐßå@ P(†]â¸=µû®Myk‰%KSÎ“§Ð	 ×vãòÓ4Üƒq±lµP,1Â“tÏç‚Ôf5òSeZkÒƒ°=´Ë÷k*‘	~Eòk®”ä»£qIN§ßL0®ƒê"ƒk»)Æ\ha7!˜i»ä¯ ©÷ÙcÔyn¤…+]:Ðd˜  4°h
+‚Ùcd–æ=1knúß&Ý)Æú--ÊiL¬§ëGJ2lÌNyqƒg®<ZÀ8îŒ—+¶drÎÞï‰¹@8Òms¥üËÒ¥ÇuÏ0¡«…(Z’­5G“a.g{vG}±NDßw‚õ°¹mnÜmž‹‚Hù5BŽÝ£$mˆíI”!ÎòôX}ÆœXScT¥ÕQ:¬-¼[…»ÇdµþZX®i…1š[vrõ™]7~3®Ã™ÈÍêt)ðc:—œÑÿ OÀƒé…¤-
+Ðøø’Ôî!o|nä®½—tþÐrNa‡bv»¼+DßìêP[fáhRKÑ‚Û)K#ª<´GšQAMÅ¸·Ê§‹œÒÂg`R¡»¹R±‰Û\ÎSÅ3½¹d»"á4Ýæ[Ô’ò‹mx´e:­V¢[)
+_^XfÖrWr71ÜlŸ—­´³«Œ7=®±1r¸Ûä=6ðÜ4´Ò|u+k×yKH)
+QZ §GâîùcX/åÁ~sbœÌo;+'kwqIµ&kQî7ä[Ðâ¤?é¼ÚB]px©a]]ìqOYùˆZlûm6uÃx÷O¿m¤dÊ„“u·CºÈ}ù•H¬(‡
+O^‚‚èÜ®+ev]ÕäÎCjÇ-[C´™ÜÄ¢fÞ¤e™«Ó
+µ-ÈÒƒ+J›Bšˆ¶ÜuMø†Áêz¿Çù3§ò«òñ²¯f±½¼•ˆâ÷+S™.3wµ^U•·×-.Þ_6•8…-.8â•äµ<BÈIÐ=(Ð(
+‚ÐÌp\_<´É³dÖˆ÷8rPP¤º€¢5Á4ðÉ¶—ux¹xw2Ùùrr<Õ.ÝðÇT¥–›×U{öÊÇÙ=úÄw–È‰v©"-æ8ðºY^>/²èø’Rz÷ è
+ÿÑßå@ s¥‰˜n^‚Bz~OÃ¶2ÊJ”u!GO k­å\ÇÈóyÎã;…ÌÊ&¸¢×ãî¶¤Co®ž^DuÒ‚ÞÆ¬ŠþËûÉìåÉÑ! Ë^8Û…¸mûÞ*èh,|{¹òbþ1¬2ÞpÝ‰Ç^ôr2=\½3¡5IÒƒg¸6míŠ?ŒÛY·Â†ÚPÚ@*Ði©#¹4@ P(
+@ P(
+¤øn°fÚî˜¹[.L9ãn”Ú^bC$¡Æm`¥hZIJ’ ACAíÇ¸ÿ ´7ù™NÙí3†dsš[^íÐPÜ”²éòq¦œ:–¢©oÅ'A¨è(':@ P(8že©-—ÛK­8
+VÚ† ƒôŠï—ox}õ{Ë±ëU§#‚}{Í‰RÌÖÓÕ@ tÔÐO<|ß«>ñcþ.³²«Wê/¶W}×Zy=îžºkA‘”
+ÿÒßå@ ëÊýŠþÃA¬ÞMÿ üö£øçì;ýêŸãÇ÷j'÷CáÝîßËAsÇü%‘ücöÈýÃ÷nã÷Ÿê}?U­Å_ðƒþûª?ƒþÏ°ø¿­ôÐd•@ P(
+@ P(
+@ P(
+AÖ™û«ÿ ³øí~ÞßªƒS;mÿ ù'ÅðŸî¯î}ÿ ïŸÖ Ûj~÷ííïAú ÿÙZimage/jpeg_"http://www.modejong.com/banner.jpgÔOêbplist00Ô^_X$versionX$objectsY$archiverT$top † ¯#)*0123GHIJKLMNOPQRSTUXYU$nullÝ	
+ !"R$6S$10R$2R$7R$3S$11R$8V$classR$4R$9R$0R$5R$1€	€€€€€€€Ó$%&'(WNS.base[NS.relative€ €€_"http://www.modejong.com/t_left.jpgÒ+,-.Z$classnameX$classesUNSURL¢-/XNSObject#Aº[²ªäÅ ÈÓ456>FWNS.keysZNS.objects§789:;<=€	€
+€€€€€§?ABCDE€€€€€€€€VServer\Content-Type]Last-Modified]Accept-RangesTDate^Content-LengthTEtag_CApache/2.2.21 (Unix) mod_ssl/2.2.21 OpenSSL/0.9.8w DAV/2 PHP/5.3.10Zimage/jpeg_Fri, 22 Jun 2012 19:05:09 GMTUbytes_Tue, 06 Jan 2015 06:06:03 GMTT8255_"610e-203f-4c3144f9fd4f9"Ò+,VW\NSDictionary¢V/ ?Ò+,Z[_NSHTTPURLResponse£\]/_NSHTTPURLResponse]NSURLResponse_NSKeyedArchiverÑ`a_WebResourceResponse€    # - 2 7 T Z u x |  ‚ … ‰ Œ “ – ™ œ Ÿ ¢ ¤ ¦ ¨ ª ¬ ­ ¯ ± ³ µ · ¹ » Â Ê Ö Ø Ú Ü #,579@HS[]_acegiqsuwy{}ˆ•£±¶ÅÊ;Aaf‚‡”—šŸ³·ËÙëî             b              O ?ÿØÿà JFIF  H H  ÿá°Exif  MM *                  b       j(       1       r2       †‡i       œ   È   H      H   Adobe Photoshop 7.0 2006:03:29 12:15:26         ÿÿ                                            (             &      ‚       H      H   ÿØÿà JFIF  H H  ÿí Adobe_CM ÿî Adobe d€   ÿÛ „ 			
+ÿÀ   " ÿÝ  ÿÄ?          	
+         	
+ 3 !1AQa"q2‘¡±B#$RÁb34r‚ÑC%’Sðáñcs5¢²ƒ&D“TdEÂ£t6ÒUâeò³„ÃÓuãóF'”¤…´•ÄÔäô¥µÅÕåõVfv†–¦¶ÆÖæö7GWgw‡—§·Ç×ç÷ 5 !1AQaq"2‘¡±B#ÁRÑð3$bár‚’CScs4ñ%¢²ƒ&5ÂÒD“T£dEU6teâò³„ÃÓuãóF”¤…´•ÄÔäô¥µÅÕåõVfv†–¦¶ÆÖæö'7GWgw‡—§·ÇÿÚ   ? ón“Òòº¦c1qš\÷˜Ó²ößªŸâû¦tŠnEbì’qp˜+3üUýXf&í;Ùúk¾„öÑRÍkXÐÖ€ÖŽ á:I$§ÿÐôÎ›ˆÌ,*q˜ VÐ?e$’R’I$”ÿ ÿÙÿíbPhotoshop 3.0 8BIM%                     8BIMí      H     H    8BIM&               ?€  8BIM        8BIM        8BIMó     	         8BIM
+       8BIM'     
+        8BIMõ     H /ff  lff       /ff  ¡™š       2    Z         5    -        8BIMø     p  ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿè    ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿè    ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿè    ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿè  8BIM        8BIM         8BIM          @  @    8BIM         8BIM    A                     c o r n e r                                                                                null      boundsObjc         Rct1       Top long        Leftlong        Btomlong       Rghtlong      slicesVlLs   Objc        slice      sliceIDlong       groupIDlong       originenum   ESliceOrigin   autoGenerated    Typeenum   
+ESliceType    Img    boundsObjc         Rct1       Top long        Leftlong        Btomlong       Rghtlong      urlTEXT         nullTEXT         MsgeTEXT        altTagTEXT        cellTextIsHTMLbool   cellTextTEXT        	horzAlignenum   ESliceHorzAlign   default   	vertAlignenum   ESliceVertAlign   default   bgColorTypeenum   ESliceBGColorType    None   	topOutsetlong       
+leftOutsetlong       bottomOutsetlong       rightOutsetlong     8BIM      8BIM        8BIM    ž            L  l  ‚  ÿØÿà JFIF  H H  ÿí Adobe_CM ÿî Adobe d€   ÿÛ „ 			
+ÿÀ   " ÿÝ  ÿÄ?          	
+         	
+ 3 !1AQa"q2‘¡±B#$RÁb34r‚ÑC%’Sðáñcs5¢²ƒ&D“TdEÂ£t6ÒUâeò³„ÃÓuãóF'”¤…´•ÄÔäô¥µÅÕåõVfv†–¦¶ÆÖæö7GWgw‡—§·Ç×ç÷ 5 !1AQaq"2‘¡±B#ÁRÑð3$bár‚’CScs4ñ%¢²ƒ&5ÂÒD“T£dEU6teâò³„ÃÓuãóF”¤…´•ÄÔäô¥µÅÕåõVfv†–¦¶ÆÖæö'7GWgw‡—§·ÇÿÚ   ? ón“Òòº¦c1qš\÷˜Ó²ößªŸâû¦tŠnEbì’qp˜+3üUýXf&í;Ùúk¾„öÑRÍkXÐÖ€ÖŽ á:I$§ÿÐôÎ›ˆÌ,*q˜ VÐ?e$’R’I$”ÿ ÿÙ8BIM!     U       A d o b e   P h o t o s h o p    A d o b e   P h o t o s h o p   7 . 0    8BIM         ÿáHhttp://ns.adobe.com/xap/1.0/ <?xpacket begin='ï»¿' id='W5M0MpCehiHzreSzNTczkc9d'?>
+<?adobe-xap-filters esc="CR"?>
+<x:xapmeta xmlns:x='adobe:ns:meta/' x:xaptk='XMP toolkit 2.8.2-33, framework 1.5'>
+<rdf:RDF xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#' xmlns:iX='http://ns.adobe.com/iX/1.0/'>
+
+ <rdf:Description about='uuid:c1bd6721-bf60-11da-97a0-d70c2dfef230'
+  xmlns:xapMM='http://ns.adobe.com/xap/1.0/mm/'>
+  <xapMM:DocumentID>adobe:docid:photoshop:d69f183a-bf58-11da-97a0-d70c2dfef230</xapMM:DocumentID>
+ </rdf:Description>
+
+</rdf:RDF>
+</x:xapmeta>
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                       
+<?xpacket end='w'?>ÿî Adobe d@   ÿÛ „ 		
+
+				
+	
+ÿÀ    ÿÝ  ÿÄ c              	
+                          1!A	Qaq¡"                ÿÚ   ? ‰\SÅÛ7.n½CX¥%»¹	šÇ4Æ“Ð¸Ÿ²QþÔ~>¸Ó†08Ü¦Íˆ¯°mÒÆÉ,Ïeíäu <QºÕ«Ó‚*µaezð´6#hkZÑØ <è?ÿÐîŠïl4´ýœ«°ãÚüÞ|z±®•¿Ôqy×ê‚Ê   ÿÑ¸¼s¨ÔÑt­sW§b‹FÖŽƒÔÖ ïÚn€€ƒÿÒ¿c°ü ÊÿÙ_"http://www.modejong.com/t_left.jpgÔ !Oëbplist00Ô^_X$versionX$objectsY$archiverT$top † ¯#)*0123GHIJKLMNOPQRSTUXYU$nullÝ	
+ !"R$6S$10R$2R$7R$3S$11R$8V$classR$4R$9R$0R$5R$1€	€€€€€€€Ó$%&'(WNS.base[NS.relative€ €€_#http://www.modejong.com/t_right.jpgÒ+,-.Z$classnameX$classesUNSURL¢-/XNSObject#Aº[²ªã’} ÈÓ456>FWNS.keysZNS.objects§789:;<=€	€
+€€€€€§?ABCDE€€€€€€€€VServer\Content-Type]Last-Modified]Accept-RangesTDate^Content-LengthTEtag_CApache/2.2.21 (Unix) mod_ssl/2.2.21 OpenSSL/0.9.8w DAV/2 PHP/5.3.10Zimage/jpeg_Fri, 22 Jun 2012 19:05:09 GMTUbytes_Tue, 06 Jan 2015 06:06:03 GMTT8261_"610f-2045-4c3144fa1a326"Ò+,VW\NSDictionary¢V/ EÒ+,Z[_NSHTTPURLResponse£\]/_NSHTTPURLResponse]NSURLResponse_NSKeyedArchiverÑ`a_WebResourceResponse€    # - 2 7 T Z u x |  ‚ … ‰ Œ “ – ™ œ Ÿ ¢ ¤ ¦ ¨ ª ¬ ­ ¯ ± ³ µ · ¹ » Â Ê Ö Ø Ú Ü!$-68:AIT\^`bdfhjrtvxz|~€‚‰–¤²·ÆË<Bbgƒˆ•˜› ´¸ÌÚìï             b              O EÿØÿà JFIF  H H  ÿá´Exif  MM *                  b       j(       1       r2       †‡i       œ   È   H      H   Adobe Photoshop 7.0 2006:03:29 12:14:03         ÿÿ                                            (             &      †       H      H   ÿØÿà JFIF  H H  ÿí Adobe_CM ÿî Adobe d€   ÿÛ „ 			
+ÿÀ   " ÿÝ  ÿÄ?          	
+         	
+ 3 !1AQa"q2‘¡±B#$RÁb34r‚ÑC%’Sðáñcs5¢²ƒ&D“TdEÂ£t6ÒUâeò³„ÃÓuãóF'”¤…´•ÄÔäô¥µÅÕåõVfv†–¦¶ÆÖæö7GWgw‡—§·Ç×ç÷ 5 !1AQaq"2‘¡±B#ÁRÑð3$bár‚’CScs4ñ%¢²ƒ&5ÂÒD“T£dEU6teâò³„ÃÓuãóF”¤…´•ÄÔäô¥µÅÕåõVfv†–¦¶ÆÖæö'7GWgw‡—§·ÇÿÚ   ? ôüœ<\¦lÈ­¶4þðqŸY?Å‡Jê5ºÜ&Š/äG®å$”üÑ×~¯çôL§Q”Â >×v+1}õÃêÖ7\é–1Ì³ZKÞWÌ¼ÿ Ý))ÿÐõT’I%)Wûú&ýÊÂI)ÿÙÿífPhotoshop 3.0 8BIM%                     8BIMí      H     H    8BIM&               ?€  8BIM        8BIM        8BIMó     	         8BIM
+       8BIM'     
+        8BIMõ     H /ff  lff       /ff  ¡™š       2    Z         5    -        8BIMø     p  ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿè    ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿè    ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿè    ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿè  8BIM        8BIM         8BIM          @  @    8BIM         8BIM    A                     c o r n e r                                                                                null      boundsObjc         Rct1       Top long        Leftlong        Btomlong       Rghtlong      slicesVlLs   Objc        slice      sliceIDlong       groupIDlong       originenum   ESliceOrigin   autoGenerated    Typeenum   
+ESliceType    Img    boundsObjc         Rct1       Top long        Leftlong        Btomlong       Rghtlong      urlTEXT         nullTEXT         MsgeTEXT        altTagTEXT        cellTextIsHTMLbool   cellTextTEXT        	horzAlignenum   ESliceHorzAlign   default   	vertAlignenum   ESliceVertAlign   default   bgColorTypeenum   ESliceBGColorType    None   	topOutsetlong       
+leftOutsetlong       bottomOutsetlong       rightOutsetlong     8BIM      8BIM        8BIM    ¢            L  l  †  ÿØÿà JFIF  H H  ÿí Adobe_CM ÿî Adobe d€   ÿÛ „ 			
+ÿÀ   " ÿÝ  ÿÄ?          	
+         	
+ 3 !1AQa"q2‘¡±B#$RÁb34r‚ÑC%’Sðáñcs5¢²ƒ&D“TdEÂ£t6ÒUâeò³„ÃÓuãóF'”¤…´•ÄÔäô¥µÅÕåõVfv†–¦¶ÆÖæö7GWgw‡—§·Ç×ç÷ 5 !1AQaq"2‘¡±B#ÁRÑð3$bár‚’CScs4ñ%¢²ƒ&5ÂÒD“T£dEU6teâò³„ÃÓuãóF”¤…´•ÄÔäô¥µÅÕåõVfv†–¦¶ÆÖæö'7GWgw‡—§·ÇÿÚ   ? ôüœ<\¦lÈ­¶4þðqŸY?Å‡Jê5ºÜ&Š/äG®å$”üÑ×~¯çôL§Q”Â >×v+1}õÃêÖ7\é–1Ì³ZKÞWÌ¼ÿ Ý))ÿÐõT’I%)Wûú&ýÊÂI)ÿÙ8BIM!     U       A d o b e   P h o t o s h o p    A d o b e   P h o t o s h o p   7 . 0    8BIM         ÿáHhttp://ns.adobe.com/xap/1.0/ <?xpacket begin='ï»¿' id='W5M0MpCehiHzreSzNTczkc9d'?>
+<?adobe-xap-filters esc="CR"?>
+<x:xapmeta xmlns:x='adobe:ns:meta/' x:xaptk='XMP toolkit 2.8.2-33, framework 1.5'>
+<rdf:RDF xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#' xmlns:iX='http://ns.adobe.com/iX/1.0/'>
+
+ <rdf:Description about='uuid:3ce91fb6-bf60-11da-97a0-d70c2dfef230'
+  xmlns:xapMM='http://ns.adobe.com/xap/1.0/mm/'>
+  <xapMM:DocumentID>adobe:docid:photoshop:d69f183a-bf58-11da-97a0-d70c2dfef230</xapMM:DocumentID>
+ </rdf:Description>
+
+</rdf:RDF>
+</x:xapmeta>
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                       
+<?xpacket end='w'?>ÿî Adobe d@   ÿÛ „ 		
+
+				
+	
+ÿÀ    ÿÝ  ÿÄ e               	
+                          1Q!’“TU	                ÿÚ   ? z÷ŸlÝ±
+âÉ"fÑÞKdRkÎ‘#Gqÿ ÌM*Ô¸3³[#-k‹¥Ï¤Ú 
+OÐW7]vû~è-Ï*ß»²º´Ç¸EÒ{uZA¢ÿÐˆ»ýµÛZû¦™Ô9u#pBR¶U80wÚÒ@ÇŠ
+Ñþ.¿=•_)AÿÑˆ@p-pÄ%ô;Cà"zaÿÒˆÿÙ_#http://www.modejong.com/t_right.jpgÔ#$%&Oúbplist00Ô^_X$versionX$objectsY$archiverT$top † ¯#)*0123GHIJKLMNOPQRSTUXYU$nullÝ	
+ !"R$6S$10R$2R$7R$3S$11R$8V$classR$4R$9R$0R$5R$1€	€€€€€€€Ó$%&'(WNS.base[NS.relative€ €€_2http://www.modejong.com/AVAnimator/RyuFireball.gifÒ+,-.Z$classnameX$classesUNSURL¢-/XNSObject#Aº[²¬LZ` ÈÓ456>FWNS.keysZNS.objects§789:;<=€	€
+€€€€€§?ABCDE€€€€€€€€VServer\Content-Type]Last-Modified]Accept-RangesTDate^Content-LengthTEtag_CApache/2.2.21 (Unix) mod_ssl/2.2.21 OpenSSL/0.9.8w DAV/2 PHP/5.3.10Yimage/gif_Tue, 10 May 2011 19:02:09 GMTUbytes_Tue, 06 Jan 2015 06:06:04 GMTU10412_"61ee-28ac-4a2f097c58e40"Ò+,VW\NSDictionary¢V/(¬Ò+,Z[_NSHTTPURLResponse£\]/_NSHTTPURLResponse]NSURLResponse_NSKeyedArchiverÑ`a_WebResourceResponse€    # - 2 7 T Z u x |  ‚ … ‰ Œ “ – ™ œ Ÿ ¢ ¤ ¦ ¨ ª ¬ ­ ¯ ± ³ µ · ¹ » Â Ê Ö Ø Ú Ü!*03<EGIPXckmoqsuwyƒ…‡‰‹‘˜¥³ÁÆÕÚ *JPpv’—¤§ª¯ÃÇÛéûþ             b              O(¬GIF89aœ P ÷        ,A==~y¾3(zay MÐÅur4_|?ÍÌÆ%``¬nc‚qŒƒ"Ž¥AEjDÈÒn×ëïHi­žD›I?Ÿ¾È !%>=<e"l*BWV~µqrÜ¶|^¢>
+¸ŽUŸ°Qƒ­“mBÆÍ~´§Y	^Þ”¿î<7Ó¬s#oÝhi>,PŸ–Še0XO@Äƒ+cT¬ yN•!¤*!~†ëÓÖÕMf•vKýýýÎÇ¦7Q*m‘W‡wš…`+KQf¥¹’t]IÇ¸”%'-Ê£`ÂšnÅ©hƒ?Þá~kÜVKæpÅ`}#‚i?¨°©Ã™`YYUÏßî®ØïP;˜–š°”j¨·tª©¸\µ­d(£{QMjb |Q'?d{µP¦91KNQ­†L‹‹ˆ\[‹™£xA˜bqèÇ`[*iW“±VSK¥Íº¾·‹§ì~]0…rQÂ£{?{—`M/·Ébimd­‰^:oñïÛr/a»F()•rYQÊ9~Å£¢£(8EI"¸—mW©/Ë­Š¡Á×S€_;%†èÒµ‹7s±dhé‹lBNB/·°Ž¸»¦¿ÝíJe_7mK< [ì¸b¥{`£ëÝÕÀ¿ÈÇYp“ªM‡–¡j‡WçÎuhÏ„s^d[¾§O*442«½Y>xàäìsì)n§‰q.mƒ²F?µ¡‰jM!U™bË¯†á»‚Q+[_bf¦šä·[A]EJDÛÛÛ‚™<¬§ä»Ìl¬ƒXXs—åÂ‡|k0dux(*/™i0$%)z~t!ŸƒXP~F›q?C_Z(WF‚»Ÿuq`+]1êÎ’y^Hâ¨+˜|S&q­¸t@ bí¬–vÌ£kØ»‘–€nÑÜ•çêíïîð-YfoM/¤Éí‚}0µvQ|‘1¡0,ÎÛtikQryð;T'‚¡ˆS•-fYB¬c‹J)‚v¢¤ˆ^†0)Mg#a9*m|Çe+–’uÌ†„Ù±w!ÿNETSCAPE2.0   !ù2   ,    œ P  ÿ {8Ü¯ƒ*\È°¡Ã‡#JœHq!(ÉÜÈ‘ƒ)Y²ÔI²¤É“(Sª\É²¥Ë—0MVIƒ2ä9Ô1%ÍžËšmJTÑ£CnQ ”©Ó§P£JJµªÕ«N=)ðÄUk×­]Ãr!–«‚fö¤™¢#çFr êUi¶‹Øˆ»xóêÝË·¯ß½ÄL¸°áÀ»+Þ ±ãÇ#KžL²‚*õp¾•EÕÝ² ÃŽCº´éÓ¨S«^ÍZLâÕŒ$®L»¶íÈÉ²h¨£žçÐÀ=v ¸ñãÈ“+_Î¼¹—P¡,7äô¡€‰&JÔ*`½: ÿ[ð'Zq Ò›—vw=§T!<ôpMøóëßÏ¿¿ÿÿ zÑ(¯ôç@/¢N¨S0è¡;e„RFDA†
+š„Á!€ø±×dUL‘i4C_}eÝâ‹0Æ¨Ÿê ƒÇ‡ú‘±ƒAD±ƒ:¢HP†(ìÃŽ¬RáÛàG
+Ž Š8¢cž¤Á€@S ³‹öIã‚ƒB!_Fæ .hÒÍ—„bÝ¨ …
+.Ð	æ™hºÐŒùÑÌ%@é ¡hBJ/Q(™¨:«°CÁ£B†E“*H åRNÙØSô@N¾h—]0ƒ"³”%³PbË-!´ÿð"ƒ,Ã,1 B‚3@2È(&¤Ã-ÆkŒ>(R$„\
+ )Hp‰)è7h¦,°CM|§Gz<J†DÁš@¡Ž³ýeªéY3NÉ4Ej©3´¬-|C$ðÍ?!üK"£d1	1(qÄ#ˆ ¡‡k±h 13dT«æžÿ1!A*¼Ò$~XÃ
+‰6Á…À4Q†’„² +ø­ñ»ø¹àÈžîN©A=¿ÔSˆHÊ¢©ßlò	ÿüM›lB1ß´ 5T(á†1-PÁ†22hèKuÆÊÔÑˆ<›2g7tïY÷%bŠ)¤Øÿí…5Ïx0À\(¡„ˆ‚át@
+ºûD¡È kâV\qN'A¨@!¿r4RK)š#Lr6$lÀl {Ôh°îFÁµ{ÀTÔÿ 5	hÈÀ†uÔaŽ9dÔí<¨áE7Òí@>Q”ó#’t°JÀ88äQˆ‰&¢Là¼&Žt²Âã#¯ChúØç¿Ì1úPB•Y¢â
+ q6Š‘€Ð Ãñ„»ß¡Vß@4d@@Np‚dZ€†$€j;eP89 P7Lº© èE>€T³8*HJZEù„2¡Ýp…ÿé?ù‘­8ƒýƒ?ý!­PŒ¢P¦"šI´Î`XÜDÀX0Üâß˜Z¿ú…5,v‘b›èïê 	’Ím¦pEÝ€à QÀ‰	¦ [9~°ƒèá;¡èÀ¸¾Ç`H |LØF7¶±HtâW€ß8ŽqTa‰iâþH·…)RÅTú‚•Åþ!«°aÍ_ÿøâ?H¹¯[|1ã—¿¬µŒ‚dx2öÀK( CˆÀ„^òæ
+ °Â	ÛˆF/øX=¨#Zƒœ0þ ?äƒŽ˜À;,ÑŠ"vs’òkÅ%1©É'B±“R<çTF ¯]£X_;Ö5âiŒ}}Í•ðtC<-Fÿ,‹Õ`aÙö !:Á	ÀLèj”Â‚²‚È(Æz‘oCM €vÆ¥­ÆU¢? E+ZAÉVT ˆ”çË‰Îtº´tOa'±àùÎ™ºA”°"ÖL¡ÓË•3uå?’5Øí.H¨R]‰(ØL¬pÅ6ö€HLôÐƒ!Ë@
+Í’ŠB>B±ƒ@Ì¡’“Dë-‰É °Ô¥pU§SØé†wòôõÔç<ñIÓbÁÒ¯«4Æ5ð™SR‚1	 #^1’ºTW8‚ ‚À@*è!!BâMï€A>$ðÇ$EhfÂ vÈÚ‹øâàL-Uj¿rÆõµ0eç5fÔÿÌvžú¬«nw[¬½º¸mnë9ÔYíÅXªº8÷¹èÕÂ°ÌôBXgõ(köb?h§PªÚ”¶Õµ¯…-êÚùNŸêÓ¶Â½gpq«OÁâÖ¾îœ'm[@Tâ¡Žp€í¡3<×¹f…‚1ÐkD¡­`@D¡4h”Mí6LŠBä-ïjÏ:'¦÷ÄžOë©_X¥ò¦®¥Og:ÏŸÖS§±\1OÕ04¬AÀöðìÜuÈ"ðG8€ô" `B	*Ñ[LA˜C€Á„)Ìa¿ÐÁâ%bó’t]8Ú‰Ó»ç´ÿžw%,õÅÊØ™Xó$˜¾,6çXùóX~6˜Là6  DÆÁ‘€€%3™	`Å/JÀ	NÌ¿è€æáƒü"L0HòWf3¯t¢ÓÀša+ÚXžõô³+ïIJxþt_+ž±=JJ€’@ƒpda†D ÁÄÆÇ!1 <À”G~°€Jø€BøÅ=>¡*Ç ›sÀNJ-N‡NÍ«†k›[éÓÛÖõ•|¾EnoÑ›ÞŸõýÚnojç4ç ƒÌ`†u;H¸>@zÈàHã¢ qˆÎ‚3òÐ5a`F[Ú"/—ûÌaÿ®‡ª¥¸òU¯›§!¨kpqýÅcÉü¬„¥]õíNÝö–Þý
+c`…NÂ ÍÅÁ	®#`ü A’PÃpé¡X@ÙÀÚJp†¤–˜ß7SËV”-(PÔ€ÚÓ®öµ7£íoŠŠu{Ûc¯1å;ñÊg÷ÞB¸+Î©(a9°ÂCí¿Ø\':!9¬Á—ÀÞ2Y ž8u¡øžD±ƒãÙÑt!º ¿J¶Â
+VG7GŠÖJ²VSø;{áþvU¯öoßÂþ.ï¯Õ;V›åWÉwÃš2¯v†	‚þ€…-lRØ@a	ÍUjàÂÊÐGøâ?€Aÿ(DñeXÑÒav¸ð©B”ž’)ê­ðÍ²Ÿú õJÛ÷Ïÿþ«ºÍÓ;VF³AT EvÖ5M£AÊW1V“1ÓEg0hà/hP	 À ¡@	\àTQða ½ ƒS~œ%3Q $P.\ mî'/(5'õ~ö×Z #{þ÷ƒü×“ð2@€C„J€´DÐ<$	'At6=g”1'@AhC1hÀ	ð0eòó¤`‡Ò1T–
+`P8Àß‚] ?À(2á4vj•V¯7%±—µ„@(„$0„'`'°	2ÿp’ ' 'À'  	šø„™X2@Ažˆ@"t6cÐ6u@¨x<ãôgD¿Pk9ÐR&)BâÂ!œ53«
+ÖeÈ@r}hD«GRª§Df'ˆ„HˆBx<$@@'€‚Ð'Ðæ æ@ËcÖÈú	æ€	Ë32@ž8´PŠc€	XP˜@XF`æ8Ðð•¤zŸpé Pä—äÁ(BÖ rX!¡Ð,0¤‡DE¤z#uz‘t–p+P?É¸ËÈvý'„'@ h‚€		¸°lú¸ð’˜€	/‰‡€1‰	cÿ`ë“u°’æ€˜ÀXÀ“ 'PF0
+‘
+ë°fu
+oøGŠ#
+ÀÂðGV/Ð
+P ¹p–`ÕI¨g	ïƒz‘tç€Œ‘y1è‘…¨ ª 
+þ'„áøŽ¸Ð‚À¸ “+¹l5i˜‡ð’ú °Ð+‰´“…IËFƒY Bò 	R § ŠP`¦t
+&©€«°
+aF	¿Ðâ@	ØÅÚ¥!§ ˜P õpz¹tfy‘Y}pù‚ÑÄ€—žuIˆ[ ¾°Éàª€	‰‰	'ðÃÀˆ‰˜3©‡€5 áÿð/¹Ô™˜‡@DY P  B B–hF†dJÆq p¬Ù¢P	œ 
+MÀ	^&	ˆàS°ª 
+¨—§7–0¡j	Ã —ÉàÍ`=˜Ì¹¾àÑ’ƒ‰	<°	JÛÉ’yð5 ày
+50´à˜@ù’ƒ©£/YÕ`y°ïÉ6ðþph‰¶hÆ¸€PÑö	Ð(à)@s€ÌÀ-ð•Ì zùø ðepãfa¦¬U“g  ÷ó¡vùƒ[°g@¢?Ø–X5+ª-Zá	“	Ø 4Z5À`ÿ°	GYp£cÐP<ÀÇPo°ËÀRPS qPlÇFš lÌ†¢ sP	â0L@	:@	Êð	ãiGàek1¼:% E¬Ì†¾ZiðÀ	¾@œÄàƒáVà¬µœ?¸wš§%Ê“P5›0UÃ¢ˆ™Šª¨Ø€5p
+‰Ú|€Û
+`0—Ê®|À®ˆ€©šPR@D 5Ppgl	ÇGÇPèÀJ÷ÀÿP
+ÆÀ¼`ý¤ðSûª»Û±«»ÉànšIœºª°# 
+¾ÀDtºuÊ©Õª§Aÿ8êÊ:»­€š˜á‰°`¨Š
+ŽéÊUƒ´Ýº	|0ÜÊ>¤,@ÕÐxg€8ð”ë`ô0Ç ð4f[¶Ù@ŒÀ) ;àx0L V[·v{·r`Ìº¬¡žž 
+­ÉšI1{²€¸ÔŠ§6k—A³Ûª­ª‰’À˜Þ °àBë‚p(…éº	ê*ºˆ€Ã —ú´>ú,ð£o `°»«° ?H@‰“_ð‰$À¥P
+ÙEQêÀc—0&„ °»¼Ì+%|‹¡À·ÄP/,[*µœ'ë‘Ù[³Ñ™½j7:ÿ˜(	c —z¾—h‰—È¾—89«®J ˆ y`<À­'©>Jóh
+ÀN°á²
+Ãô€	FpßÓ¬UNUØ‘šH0åÀ
+È 7 ÀN`&`B¬ÎË¬ÑkœÔ­×{¸Ù»½Œ›œªvÙ8K¿Žº…8ì‰žë¹20uàÃu°Ã’ £+¿J°	Œ‰`ÀJ@¯þ‹PÀ¦àN`
+„À²
+´ð’Q« 
+ÀßõÚR.‰S0Û ¯ D{SxpYwpöàÁe
+Îû¼~¸‚[½…ëV,ÜÂœÚ/ì½9ôÿ{Ä;ì´G¹é:RX‰Ã0¿ô›³ÙÉÄw€Œ˜*º¿>ZþkP@ð°k ©ù ,@$ãbMvHV¶ÈR3½pÁ¬€A RlÅ&PŠj{ 	{ÈÌŒ‘¡&Ë©)»²-û²†‹„ÜÂ†l­„¬8‹Œì¹~ÊÍðëßàô€@ÜjÉ¢Û´K<u|ÔPv@ÜÊTëtX0
+º€Û0ÇµÐ( Ô¦]ùð]ùð…ã#Ý“BÝcM&¬À
+ÈÑ& Åð
+4Zo"7È, ²±ÌÏÛ¬
+ð¬Ñ:È„|Í$šÍ3@º7ÜˆI»A›$``ÊÀ~ÿjÉ+ŠºN‚àŸ Þà>@û‹PÔoðº 	Èl¤ 
+()€<~?ð†¡Ð•;Ð>rHÐ
+Û€ÌÑÈ	Ì°%æ |0
+bÍÑ²¡Ïp*§0KÍÕ|²Í9¢0ÜÂÚ¬Ò$	7=ŒÀÊ@éÀÜ€“U#¿w ¨§5p•”À •à’à£Ç€ÕàÙÛðÕ&° 60d÷\øÀ0ÐP¹¨Åã¶ùÆàP°±ðÕ·¯€§@ )`a÷PÈ¼Í×º¡:§v}×‰—)‹Ò‹í¨ìëØÃðŒÐpˆÿýŒ0j ®Ü\Ç›ÀÚÀ¨` Ø@	1`”àÞÔ 	ü[Q`F°ÏÛ°ŠtÏÕµFFŒS\P	\PÚâTíý@dÚn	õ€ÎB1)0È á½¬±Ñ¬ŠœÊI§ÒÃ†\ÍÚ¬®w0Rˆ ÔÝ]ƒÍ¶àà@ó€|P‰ïzØ6Ð¬ÒÞ ™JµGm¯p	ýàþ •Ïeøø ª€ >Ðí¤p»SÆ	ùÀ£€ \£°DÐá Î1àBÀÚÉ-!—xA—&Î©H€‚>è†~×Úÿ¬ãÔÀY›0éÀÜ@ŸÀ-ÀÓàP0éºò¼°<àŸ®³åÞ€˜«ä>ŠFð— é€ hVžd 0 ‡€I@¢ %0À	i0?0\ð	œ ªD 
+‹&0nÞ
+¶ŠÙ”ð	÷ ‹`	Ûð
+z›¡³Ñu¹‡>èà.îâŽÒÔ óqRPZPº|0G06>\#éé*ÏZ êÚ°°ûÎ5 P™ Î`õmù" l€å¥ªtqÀ	Ñó• _Öùàë•Ðëû°»ÍŽ‹aÞpÀ 6`ÿð
+Éâ€è‚NÈ„>î;Ã¾0èq’Àîˆ0Zpˆ GàŸÀ!ÞÚÐîZïèÍR ÎàŠÚŠ*Î@µ¢
+Ö 8"ð@pë€‡pËÖlhÐ‹jÀ	0 ”V	¤ÐÇÎ	"pìD€òËŽ•P	à€¹³`° &ó4¡Ê}óvmèù=ßó*ôXÉ³°RHÊ `p2.é—zóp÷°Ù?zùÐ\?Ìþû€#ö">‚(Ç
+\›ö§Šée }ü	 €p} ½Ðñpñ Í
+—ð
+1 œŒ™ ˆúÿl2‹O³·ñí’_þä~²HP P¼þóhóH’	Œ	5ÎðHœùð¸þPœ   ªÔ×ËA,ožÕŠrcG¯i‰DˆxÆäAµo€‰*SæO”x0<ôéõ…Ÿ²ñüH0íFŸ>Ï.]z!ÜX5°éLÇ(™WA_	°‹X€¢H•.eŠTA¡_¿ê-CRÕêU¬U—m¥Ê¢Z:´ÄÒ22¶Î½~N°!!£,Y#qiUûZ§-Iˆâ˜#X¥Q5#2/1i˜Ðiñ<Lëãa1 @Qþ û/b¢(_¾¤â‡¯q‚–Ó<ÀH0H¬pØ`ª!ï” AwN”(ÿ1£Mu3}ujÖ«Ë4,KÉÖI'NðÒ\Ê±æÇ„øð¡ªÊ©#”žË8ºI<xH’‚(gó~ÌìH,Âò@‰ÁÔGD¢i	à{ˆ×â>Bá'ÎRy &Ãú€aAþž±£‘;–;ÂA‘\^Ùæ €¸˜£vÙm·Þ`†*àªj	C)Î8Ž¡¥k¬qŠŽ˜áºOüèç#l²œhV;£œ*ä™A
+_X©2Äú˜ïÄ@»A>ÇDphšËFê#
+e¾xà~¥¡Ñí™=Ú	'œSNySp€â°ÃJjDÞ 2ÅWlñÅàT‘Dž€hÿ`QFY¥‡JàÇpfEÕtQÖÍEy¤#–Zj‰ç%‘<ˆ2`‚i±Dâ™O´<H vˆ¢êÐìÐ\ícd˜a™\¢É…ØSöˆå4<‹qO>—êí—B N8â¶5„•D;Ü°ÃXÖÇ(AÆ–Ozð#p…‚6–X˜á”s©¢
+2Xae"ÆFkLU˜¦!-±Xé“Ï`akdÎN’/^_h¶Xfö¨"b¯br‘ 7ÜD¬ÖZ¨¤Ò6E–—1¤ÞÚ¶ÙðÎQüøÄ‡4€(Â?Ðe…C…zåÙXäq6–=öXô_÷K¤*ñk&Ë¦ÿá³Wmm•Ö,3B†1Ð‰ïá^&Ùi4öÈÃ—0A&ŒgŽEd’w1ùd§Rþe¾3dÑÓè¥×ß#>ù„V€`%ê|˜‚Á‰Ž|†hè¦ŠE™è ”^ú˜&ŠüFŠÈÖ–npj5ab•´•~p%×ãq×IfÀfŒ×VvŸ0|‰|î‘Ñn¼¸vïd’/.ù¾Û vÂ O’j¢‘ä²;%‘é‡’#ÒÍzèå‘„<I(oç…Þ¨æ|Iiä|ù¥°œ«¼ñ¤h¤9ù	"<'ÂþâW‡þUã/ˆ^4Þ×I¯|õ•È„W²»Uëx€Ró”Çÿ·I@ðç3ÇùlpJA9ÊøPX‡žÀ*¼Ÿ$Æ 	mhƒó»ßÿx ÃýiÃÎØáý˜ñÀ/‰áÑ¡xöw¿æ9%¬árF8$ò  Òšñð¶A$x°ƒdY¡Ãøá'<‚7ì§SØÁÔ@á„pÆ!‚'‡:¬†<äD;H‘<C$b ùpg QŠ?bx!H!ÞCýGH;LB‘ÌâÇ³I°€‹zÊ ŸÀÆå½ˆŒ„ºÊ´1bÃ~âa£öèñÀ.¤„3îñËõ’ˆ“h!%LIØa|p†äÈ‡yh!‘Ú@äshÍkÿ–R¦ùÙŽ<p“Røå/Ç“HQ’,DÅ3žÞ´¥JB‘+3ðå¥MðQBðÃám@	j€ÂÄÆ«¹?_"’<wDä>çáKmØAÔ è<$™Ð_æÐ¢"tøK_6âåt†]ªyÆ8ã¡C´ƒ.Ói·uŒc¤©<¯2DJ¡
+r)” _DC¨Ñ f9yÀFPá÷ g5ï!	¶ÕÓP¦/µ€Ãydu{èÇî@Ñ{ØAcÕÂC_YVXú÷x([í—Pg”#Nõ¨
+Í{T”F9
+nØ9ÓšÂ•ó´§}É0 •Îd,"	KnDÿ*-(\áG­*tˆxè<Äƒ-€öÌ ÆW)*Ah¢h½"\ËY)h­ªÏ2¡¹”‘„¥6Ê*…—úux_t'*OV.cvH©Tù e°¡µèFg«ë€á–¤¦/³zO§6ÔÈªÄZÎ
+acÍª$…àZj€V¶®½S9»YDüÐ¢gÔ‚C­{4Q¤ÇëÓ“/•ÇMe¯2‰h´#šˆ„¥<ª Áë€¶¼ZàÁ)¼áQ•ÆÉµd½‡……€Þ«ÚÁ¯…å=ø^-„Ãw˜ñÐJÕ²÷Å•o|_àôÎã¾ÀF4CZ5(SˆýÿGpCTÊ]+ª0îq‹U„á½#ž‡„€cXœxÌ¸ƒi¿È¯–ˆ,s|Çk‡rì¡´ñG;&Šck´Ô¸Wñ¼òªÖ¶Xí<®7Þ9‡aŽ¥m3 yÄ·´6æÁXK‹ˆIDÃÅ›êñrdá`ð™w_Ôø«w8ã m±[ BZ¸ƒ-Êl‹:ß#¾_å¬3jmë2óAåèê«ëkDã*õj™µÀ1Š:Bª}Ä )ª«Ð.ó–ÐrÈcŽ·¶õ/)jãL˜ZÕÚ@ÈÑƒ)0C¥^¥U”{nX/û×ƒ~,ïàU[?Âí (ÿ"þã{ÀÚÛm–D4Ô0hoÛÂB€8"Í‡ÒºZa í#Àño€¾‡­->heBüÕaþímXóy¼€N7É’eÝìG•JÃ‚­\Bi 
+¯^Èµ±p$Ýãàðuµ«mpäðÕ®.÷ÓŸnÏêàà÷mñŠ‚ãGÿ8Ä·÷õG¤ÝäP/+Û]mj<¢ÖI§Fï`u¶ëZì5ß…ìæES¦=è9¦‹fÐ{°V:×¡¾l¥Ü¬~„ ¾un=éƒÖzÒ7ŸtDRnð<5Úq÷GÜÖZçwµ·g´ß‚ëZXB¤W¯v±zÞ“?£Ç5ÿÏugÀúé^Q ?¢*LáÝ„×A=6@+ÛTè®F„Xîj©º´mŒÆTNtßºäK8,1ƒpÀzê§†7`¡BÛ3¦Æ«íoxƒ€¾¶¼áí÷Ã±* =ò´!ó?B£º%˜8[#¾M3¾jI†zÐÂ#<r …,Ø€	, c%$Ð€fh†-hÜ<Á<ATAðô„-xAO¤ÁÌAÔAÌA»ÁÁ¿B!B¿bŠã‘M+¤À9¥H†,`€å«À¬‡\HÐ  s°æ9®à
+øB0ÃC2LÁdAHC5\ClCÒìA8ÄA©C;¼Ã:Bv²–*¨(¬@@$˜‚4@†3P….LDE\DFôBáCHŒDH,CJ¬Ä1<C\CMÜDNìDOlÁNÔ€@›)Ð(D)d€)È‚,¨WtÅBˆEYŒÅW|ÅY”ÅZÌÅ[¤Å\ìE_üE`FaFb¬‡*H_dÅ)øCTlF)Œ
+hÔ.˜‚9˜‚zhEP€Fhœƒz˜ƒ.Hƒ4(ÐFmŒÅ9(pìr\GvlGw|GxŒGyŒ
+PÐv<ET !ù2   ," &    ÿ H° AXˆò1È°!Áž<!–Ã‹Ã¡z©#1ÂŠØ±$ªp!`H•Ž =‰sÐ¡ã.†|ø(ás38d@ôf¤™3sä8EÑ& ›”ÄŒ, °²$óÜ•¯+FT²I'"XÐÀèÌ²*{è¬ð
+êS+rèF–ÏY0' h+Ä• „ÌbdXq¥‚"E¿È‘;W@Î;›¢òáÁV:‹ºŠA)†â–>ƒ,yÜ" Z¨Ýá3Ñ<gÚ²[”¥P¥#³(Q:âCÑ,Eà"K~M¢{÷œ!ÂÝ%X—¾‰û8Bi‰·p³>Iÿ^NÐ™)Y„Øë"z–û#GligPIùø× ÎW3"¯6!`Ï(õTBI%ï)‚ˆ"âÝ'XD(¡Ì,²‹€òËWt‘Á•ÜÑ yÑbâ‰´È†ìeðÕŒ]Á 8#Ž#–@çsž$ÞTÒO. ‡RŒ­À(àŒGŽ%iTÎ“PFcˆ*3ðÁ(Å•\‘3^z	ÔÀ˜cDL}Â2Õãf[^ÑÊ8œƒÊ@fÆ¯ ±†sørŠðµ™eM3­@Gå¹g,¬TÒÃ8 PÒÂœ2ÑÁ•é)ê ”à‡ŸÄ€ ¬ Ó{‹Ä g$w´ã1á0ðÉ¨Ú I#RÔp”HÄ­{$”  |Gx£’H ³>ø`l‡9ñàÌpÐR¢g’p&¡Û9ƒ$ðŸÞ${­¸<ØQ®6ï2’Ž7Zä73ÎÜ£Ð!B!ù[CãF*_02ÌEÚP€Æ9côÈÀ7Ð8ÔˆÐ°ñÔE{¸ËF !ù2   ,# & *   ÿ H°`ÁM›&4È°¡Ãƒˆ"šø°¢E…|"*Q‚HÊ@0°jx¼h1â&J6	‚50*Tprå!	àa#òÆ‡’;ˆVB°)‡Q£>¼¹I	€”ˆv‚Ùyçµpž<)JgÅ¹+WèÀy¸	 7jæ&HF·æ öJrä*ÐÉå@œ›Ò™1“*][PmTÀŠ+–,ÝÅ[aÅ(†Jü
+tV5ŽŒT˜05j“õ	æ>®`/^K+è@zÈÇÖ'pà’pc3±ÖH§Ñ9wN²d×ã†ÓäµOw¾•âÅÔöŠ¡²—…Îp°‘+´ÿjEÎÊ\:‹8<òé£÷ÿù+Tˆ œºo…<9âÄM¡^AZ8ÃƒGPÁ2Üp“Nù…·Ÿ%vùGÜ
+VL!BAFÐRZAM:›Øp4Ð@ ‡=pÀCÞ=YkxcÅcSäãGA	%Ÿø -gX ÕXød‘CÞ95îóÞ	Ž6ÐBKŠi…JjçA™”ä´rNlV2$…BœâK§œ¢Í1oÖ©cîäLWuY2Îk+,òPCR¢Š*§00åD
+„’‹qex”­P ­Áž3Ø±‡¤NK¨6` ò[W6VÚ6ˆ/]öI¾ÌÐŽm¤2€G,§ÎpÊ+<J$ÊyGG$a<´Ï/ øAÉgìÀ>¹F,@Ä"ÏÀæòA¥‘ RÌMáC øÐO9a%%B"l,3D‹@|½‚2¹ÐÚ$%ø€í/GôS7×Àƒ$RH’o;Ùñ$’áÃ@”q–ABò òÃcÐ$6BXt¶pi²A`P1‹@B2c$÷Ps-%¿<Qãƒy£Å5ø<	 @³G£4@+=# ¤sŠÉ'X@@ ;Yimage/gif_2http://www.modejong.com/AVAnimator/RyuFireball.gifÔ()*Oêbplist00Ô^_X$versionX$objectsY$archiverT$top † ¯#)*0123GHIJKLMNOPQRSTUXYU$nullÝ	
+ !"R$6S$10R$2R$7R$3S$11R$8V$classR$4R$9R$0R$5R$1€	€€€€€€€Ó$%&'(WNS.base[NS.relative€ €€_"http://www.modejong.com/b_left.jpgÒ+,-.Z$classnameX$classesUNSURL¢-/XNSObject#Aº[²«QÉq ÈÓ456>FWNS.keysZNS.objects§789:;<=€	€
+€€€€€§?ABCDE€€€€€€€€VServer\Content-Type]Last-Modified]Accept-RangesTDate^Content-LengthTEtag_CApache/2.2.21 (Unix) mod_ssl/2.2.21 OpenSSL/0.9.8w DAV/2 PHP/5.3.10Zimage/jpeg_Fri, 22 Jun 2012 19:02:47 GMTUbytes_Tue, 06 Jan 2015 06:06:03 GMTT8279_"60c6-2057-4c31447271fc3"Ò+,VW\NSDictionary¢V/ WÒ+,Z[_NSHTTPURLResponse£\]/_NSHTTPURLResponse]NSURLResponse_NSKeyedArchiverÑ`a_WebResourceResponse€    # - 2 7 T Z u x |  ‚ … ‰ Œ “ – ™ œ Ÿ ¢ ¤ ¦ ¨ ª ¬ ­ ¯ ± ³ µ · ¹ » Â Ê Ö Ø Ú Ü #,579@HS[]_acegiqsuwy{}ˆ•£±¶ÅÊ;Aaf‚‡”—šŸ³·ËÙëî             b              O WÿØÿà JFIF  H H  ÿá¹Exif  MM *                  b       j(       1       r2       †‡i       œ   È   H      H   Adobe Photoshop 7.0 2006:03:29 12:15:01         ÿÿ                                            (             &      ‹       H      H   ÿØÿà JFIF  H H  ÿí Adobe_CM ÿî Adobe d€   ÿÛ „ 			
+ÿÀ   " ÿÝ  ÿÄ?          	
+         	
+ 3 !1AQa"q2‘¡±B#$RÁb34r‚ÑC%’Sðáñcs5¢²ƒ&D“TdEÂ£t6ÒUâeò³„ÃÓuãóF'”¤…´•ÄÔäô¥µÅÕåõVfv†–¦¶ÆÖæö7GWgw‡—§·Ç×ç÷ 5 !1AQaq"2‘¡±B#ÁRÑð3$bár‚’CScs4ñ%¢²ƒ&5ÂÒD“T£dEU6teâò³„ÃÓuãóF”¤…´•ÄÔäô¥µÅÕåõVfv†–¦¶ÆÖæö'7GWgw‡—§·ÇÿÚ   ? õ@A5:æ¾¤}d£­tš½ã×­¡¯o}J’”’I$§ÿÐóÿ «ÿ X³º[r1ž@Ÿs;½—ê×øÅéZ¦×{Å®0	^
+­ôßé-ø¤§éÊ®ªÖî­ÁíñT×õ#ù¦|`’ŸÿÙÿílPhotoshop 3.0 8BIM%                     8BIMí      H     H    8BIM&               ?€  8BIM        8BIM        8BIMó     	         8BIM
+       8BIM'     
+        8BIMõ     H /ff  lff       /ff  ¡™š       2    Z         5    -        8BIMø     p  ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿè    ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿè    ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿè    ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿè  8BIM        8BIM         8BIM          @  @    8BIM         8BIM    A                     c o r n e r                                                                                null      boundsObjc         Rct1       Top long        Leftlong        Btomlong       Rghtlong      slicesVlLs   Objc        slice      sliceIDlong       groupIDlong       originenum   ESliceOrigin   autoGenerated    Typeenum   
+ESliceType    Img    boundsObjc         Rct1       Top long        Leftlong        Btomlong       Rghtlong      urlTEXT         nullTEXT         MsgeTEXT        altTagTEXT        cellTextIsHTMLbool   cellTextTEXT        	horzAlignenum   ESliceHorzAlign   default   	vertAlignenum   ESliceVertAlign   default   bgColorTypeenum   ESliceBGColorType    None   	topOutsetlong       
+leftOutsetlong       bottomOutsetlong       rightOutsetlong     8BIM      8BIM        8BIM    §            L  l  ‹  ÿØÿà JFIF  H H  ÿí Adobe_CM ÿî Adobe d€   ÿÛ „ 			
+ÿÀ   " ÿÝ  ÿÄ?          	
+         	
+ 3 !1AQa"q2‘¡±B#$RÁb34r‚ÑC%’Sðáñcs5¢²ƒ&D“TdEÂ£t6ÒUâeò³„ÃÓuãóF'”¤…´•ÄÔäô¥µÅÕåõVfv†–¦¶ÆÖæö7GWgw‡—§·Ç×ç÷ 5 !1AQaq"2‘¡±B#ÁRÑð3$bár‚’CScs4ñ%¢²ƒ&5ÂÒD“T£dEU6teâò³„ÃÓuãóF”¤…´•ÄÔäô¥µÅÕåõVfv†–¦¶ÆÖæö'7GWgw‡—§·ÇÿÚ   ? õ@A5:æ¾¤}d£­tš½ã×­¡¯o}J’”’I$§ÿÐóÿ «ÿ X³º[r1ž@Ÿs;½—ê×øÅéZ¦×{Å®0	^
+­ôßé-ø¤§éÊ®ªÖî­ÁíñT×õ#ù¦|`’ŸÿÙ 8BIM!     U       A d o b e   P h o t o s h o p    A d o b e   P h o t o s h o p   7 . 0    8BIM         ÿáHhttp://ns.adobe.com/xap/1.0/ <?xpacket begin='ï»¿' id='W5M0MpCehiHzreSzNTczkc9d'?>
+<?adobe-xap-filters esc="CR"?>
+<x:xapmeta xmlns:x='adobe:ns:meta/' x:xaptk='XMP toolkit 2.8.2-33, framework 1.5'>
+<rdf:RDF xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#' xmlns:iX='http://ns.adobe.com/iX/1.0/'>
+
+ <rdf:Description about='uuid:3ce91fba-bf60-11da-97a0-d70c2dfef230'
+  xmlns:xapMM='http://ns.adobe.com/xap/1.0/mm/'>
+  <xapMM:DocumentID>adobe:docid:photoshop:d69f183a-bf58-11da-97a0-d70c2dfef230</xapMM:DocumentID>
+ </rdf:Description>
+
+</rdf:RDF>
+</x:xapmeta>
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                       
+<?xpacket end='w'?>ÿî Adobe d@   ÿÛ „ 		
+
+				
+	
+ÿÀ    ÿÝ  ÿÄ d               	
+                           1!±Ast56	                ÿÚ   ? Hë1UÑƒ£€Èàâ9`% @ÿÐd<!ä}vžÂMÂ[jK=,ºk+8öbŠ8gñÛpÿÑOÛÈmq°¶“Qé[„ÉrbšÚ#ëš˜õ@Y_Ñ]¥Þ;m¿P]dé­PQR}5K„G|:ø“ Ãm·{eâj­uÒk©Ü³d¸qË#‘€ÿÒ¯üÃÛoØè~ª÷€´‡ÿ oûqØ@2ÿÙ_"http://www.modejong.com/b_left.jpgÔ,-.Oëbplist00Ô^_X$versionX$objectsY$archiverT$top † ¯#)*0123GHIJKLMNOPQRSTUXYU$nullÝ	
+ !"R$6S$10R$2R$7R$3S$11R$8V$classR$4R$9R$0R$5R$1€	€€€€€€€Ó$%&'(WNS.base[NS.relative€ €€_#http://www.modejong.com/b_right.jpgÒ+,-.Z$classnameX$classesUNSURL¢-/XNSObject#Aº[²«N†ƒ ÈÓ456>FWNS.keysZNS.objects§789:;<=€	€
+€€€€€§?ABCDE€€€€€€€€VServer\Content-Type]Last-Modified]Accept-RangesTDate^Content-LengthTEtag_CApache/2.2.21 (Unix) mod_ssl/2.2.21 OpenSSL/0.9.8w DAV/2 PHP/5.3.10Zimage/jpeg_Fri, 22 Jun 2012 19:02:47 GMTUbytes_Tue, 06 Jan 2015 06:06:03 GMTT8280_"60c7-2058-4c3144728edae"Ò+,VW\NSDictionary¢V/ XÒ+,Z[_NSHTTPURLResponse£\]/_NSHTTPURLResponse]NSURLResponse_NSKeyedArchiverÑ`a_WebResourceResponse€    # - 2 7 T Z u x |  ‚ … ‰ Œ “ – ™ œ Ÿ ¢ ¤ ¦ ¨ ª ¬ ­ ¯ ± ³ µ · ¹ » Â Ê Ö Ø Ú Ü!$-68:AIT\^`bdfhjrtvxz|~€‚‰–¤²·ÆË<Bbgƒˆ•˜› ´¸ÌÚìï             b              O XÿØÿà JFIF  H H  ÿá¸Exif  MM *                  b       j(       1       r2       †‡i       œ   È   H      H   Adobe Photoshop 7.0 2006:03:29 12:14:30         ÿÿ                                            (             &      Š       H      H   ÿØÿà JFIF  H H  ÿí Adobe_CM ÿî Adobe d€   ÿÛ „ 			
+ÿÀ   " ÿÝ  ÿÄ?          	
+         	
+ 3 !1AQa"q2‘¡±B#$RÁb34r‚ÑC%’Sðáñcs5¢²ƒ&D“TdEÂ£t6ÒUâeò³„ÃÓuãóF'”¤…´•ÄÔäô¥µÅÕåõVfv†–¦¶ÆÖæö7GWgw‡—§·Ç×ç÷ 5 !1AQaq"2‘¡±B#ÁRÑð3$bár‚’CScs4ñ%¢²ƒ&5ÂÒD“T£dEU6teâò³„ÃÓuãóF”¤…´•ÄÔäô¥µÅÕåõVfv†–¦¶ÆÖæö'7GWgw‡—§·ÇÿÚ   ? õT’I%1{ÚÆ»@Ñ%s¿ó¿Ä}ê?^þ°UÑú5¾à.´°wÕxoíÌ¿ß))ÿÐõU“×>²tÞŽërmnà4dêJÓ·ù·|
+ðßñƒý-ß’œŸ­ßZr~°gº×’)iŠÙä°I%?ÿÙÿíjPhotoshop 3.0 8BIM%                     8BIMí      H     H    8BIM&               ?€  8BIM        8BIM        8BIMó     	         8BIM
+       8BIM'     
+        8BIMõ     H /ff  lff       /ff  ¡™š       2    Z         5    -        8BIMø     p  ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿè    ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿè    ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿè    ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿè  8BIM        8BIM         8BIM          @  @    8BIM         8BIM    A                     c o r n e r                                                                                null      boundsObjc         Rct1       Top long        Leftlong        Btomlong       Rghtlong      slicesVlLs   Objc        slice      sliceIDlong       groupIDlong       originenum   ESliceOrigin   autoGenerated    Typeenum   
+ESliceType    Img    boundsObjc         Rct1       Top long        Leftlong        Btomlong       Rghtlong      urlTEXT         nullTEXT         MsgeTEXT        altTagTEXT        cellTextIsHTMLbool   cellTextTEXT        	horzAlignenum   ESliceHorzAlign   default   	vertAlignenum   ESliceVertAlign   default   bgColorTypeenum   ESliceBGColorType    None   	topOutsetlong       
+leftOutsetlong       bottomOutsetlong       rightOutsetlong     8BIM      8BIM        8BIM    ¦            L  l  Š  ÿØÿà JFIF  H H  ÿí Adobe_CM ÿî Adobe d€   ÿÛ „ 			
+ÿÀ   " ÿÝ  ÿÄ?          	
+         	
+ 3 !1AQa"q2‘¡±B#$RÁb34r‚ÑC%’Sðáñcs5¢²ƒ&D“TdEÂ£t6ÒUâeò³„ÃÓuãóF'”¤…´•ÄÔäô¥µÅÕåõVfv†–¦¶ÆÖæö7GWgw‡—§·Ç×ç÷ 5 !1AQaq"2‘¡±B#ÁRÑð3$bár‚’CScs4ñ%¢²ƒ&5ÂÒD“T£dEU6teâò³„ÃÓuãóF”¤…´•ÄÔäô¥µÅÕåõVfv†–¦¶ÆÖæö'7GWgw‡—§·ÇÿÚ   ? õT’I%1{ÚÆ»@Ñ%s¿ó¿Ä}ê?^þ°UÑú5¾à.´°wÕxoíÌ¿ß))ÿÐõU“×>²tÞŽërmnà4dêJÓ·ù·|
+ðßñƒý-ß’œŸ­ßZr~°gº×’)iŠÙä°I%?ÿÙ8BIM!     U       A d o b e   P h o t o s h o p    A d o b e   P h o t o s h o p   7 . 0    8BIM         ÿáHhttp://ns.adobe.com/xap/1.0/ <?xpacket begin='ï»¿' id='W5M0MpCehiHzreSzNTczkc9d'?>
+<?adobe-xap-filters esc="CR"?>
+<x:xapmeta xmlns:x='adobe:ns:meta/' x:xaptk='XMP toolkit 2.8.2-33, framework 1.5'>
+<rdf:RDF xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#' xmlns:iX='http://ns.adobe.com/iX/1.0/'>
+
+ <rdf:Description about='uuid:3ce91fb8-bf60-11da-97a0-d70c2dfef230'
+  xmlns:xapMM='http://ns.adobe.com/xap/1.0/mm/'>
+  <xapMM:DocumentID>adobe:docid:photoshop:d69f183a-bf58-11da-97a0-d70c2dfef230</xapMM:DocumentID>
+ </rdf:Description>
+
+</rdf:RDF>
+</x:xapmeta>
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                       
+<?xpacket end='w'?>ÿî Adobe d@   ÿÛ „ 		
+
+				
+	
+ÿÀ    ÿÝ  ÿÄ g               	
+                  	         !1Q’²áSst5U6	                ÿÚ   ? ¿€ ³f3$™²ˆ­©×UÑ)*˜Ëöë-{Hýþ€?ÿÐ¿€ öûwkÑ-¿©3‹ýî:âÛ#’‹VTÅN|**Ÿœ3_Ôî0ÿÑ¿€½qÜŽ›hn]ŸwÌ×è¨˜Ãj8öä¸“uk"àXHê([·ÝdÜ†{™v–ûŒØ"8¤Zmø
+Q^N¦DÿÒ½×O–Ïøw<LT vL÷Ëò0üù˜ ÿÙ_#http://www.modejong.com/b_right.jpg            1   <   N   d   ‚   ™   ¨  5B  5L  5R  5S  5†  5Ž  5—  5­  9—  C  C  C4  C=  G,  ‘  ‘&  ‘K  ‘T  •B  µ…  µª  µ³  ¹¢  Ùë  Ú  Ú  Þ È Ò   
+þ +Y +~ +‡ /v OÒ             /             Oø

@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/Classes/FileStorage
+END
+DocumentSettingsManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/Classes/FileStorage/DocumentSettingsManager.h
+END
+DocumentSettingsManager.mm
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/Classes/FileStorage/DocumentSettingsManager.mm
+END
+DocumentDownloader.h
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/Classes/FileStorage/DocumentDownloader.h
+END
+DWAssociationManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/Classes/FileStorage/DWAssociationManager.h
+END
+DocumentDownloader.m
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/Classes/FileStorage/DocumentDownloader.m
+END
+DWAssociationManager.mm
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/Classes/FileStorage/DWAssociationManager.mm
+END

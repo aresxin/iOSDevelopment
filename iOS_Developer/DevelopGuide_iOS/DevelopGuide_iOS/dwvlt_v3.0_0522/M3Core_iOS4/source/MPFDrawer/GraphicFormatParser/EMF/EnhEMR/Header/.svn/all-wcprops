@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/EMF/EnhEMR/Header
+END
+XdwGraphicFormatEMFEnhEMRSetDIBRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/EMF/EnhEMR/Header/XdwGraphicFormatEMFEnhEMRSetDIBRecord.h
+END
+XdwGraphicFormatEMFEnhEMRSetRasterRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/EMF/EnhEMR/Header/XdwGraphicFormatEMFEnhEMRSetRasterRecord.h
+END
+XdwGraphicFormatEMFEnhEMR.h
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/EMF/EnhEMR/Header/XdwGraphicFormatEMFEnhEMR.h
+END
+XdwGraphicFormatEMFEnhEMRSetJpegRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/EMF/EnhEMR/Header/XdwGraphicFormatEMFEnhEMRSetJpegRecord.h
+END
+XdwGraphicFormatEMFEnhEMRRectClipRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/EMF/EnhEMR/Header/XdwGraphicFormatEMFEnhEMRRectClipRecord.h
+END
+XdwGraphicFormatEMFEnhEMRStretchDIBitsRefRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 170
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/EMF/EnhEMR/Header/XdwGraphicFormatEMFEnhEMRStretchDIBitsRefRecord.h
+END

@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:iOS-Categories-master/IOS-Categories.xcodeproj">
+   </FileRef>
+   <Group
+      location = "group:ThirdParty"
+      name = "ThirdParty">
+      <Group
+         location = "group:MSCMoreOptionTableViewCell-master"
+         name = "MSCMoreOptionTableViewCell-master">
+         <FileRef
+            location = "group:LICENSE">
+         </FileRef>
+         <Group
+            location = "group:MSCMoreOptionTableViewCell"
+            name = "MSCMoreOptionTableViewCell">
+            <FileRef
+               location = "group:MSCMoreOptionTableViewCell-Prefix.pch">
+            </FileRef>
+            <FileRef
+               location = "group:MSCMoreOptionTableViewCell.h">
+            </FileRef>
+            <FileRef
+               location = "group:MSCMoreOptionTableViewCell.m">
+            </FileRef>
+            <FileRef
+               location = "group:MSCMoreOptionTableViewCellDelegate.h">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:MSCMoreOptionTableViewCell.png">
+         </FileRef>
+         <FileRef
+            location = "group:MSCMoreOptionTableViewCell.podspec">
+         </FileRef>
+         <FileRef
+            location = "group:MSCMoreOptionTableViewCell.xcodeproj">
+         </FileRef>
+         <Group
+            location = "group:MSCMoreOptionTableViewCellDemo"
+            name = "MSCMoreOptionTableViewCellDemo">
+            <Group
+               location = "group:App"
+               name = "App">
+               <FileRef
+                  location = "group:AppDelegate.h">
+               </FileRef>
+               <FileRef
+                  location = "group:AppDelegate.m">
+               </FileRef>
+               <FileRef
+                  location = "group:Info.plist">
+               </FileRef>
+               <FileRef
+                  location = "group:main.m">
+               </FileRef>
+               <FileRef
+                  location = "group:Prefix.pch">
+               </FileRef>
+               <Group
+                  location = "group:Sources"
+                  name = "Sources">
+                  <FileRef
+                     location = "group:StandardTableViewCellController.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:StandardTableViewCellController.m">
+                  </FileRef>
+                  <FileRef
+                     location = "group:StoryboardTableViewCellController.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:StoryboardTableViewCellController.m">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:Storyboard.storyboard">
+               </FileRef>
+            </Group>
+            <FileRef
+               location = "group:MSCMoreOptionTableViewCellDemo.xcodeproj">
+            </FileRef>
+            <Group
+               location = "group:Resources"
+               name = "Resources">
+               <FileRef
+                  location = "group:Default-568h@2x.png">
+               </FileRef>
+               <FileRef
+                  location = "group:Trash.png">
+               </FileRef>
+            </Group>
+         </Group>
+         <FileRef
+            location = "group:README.md">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:IHKeyboardAvoiding-master"
+         name = "IHKeyboardAvoiding-master">
+         <FileRef
+            location = "group:CHANGELOG.md">
+         </FileRef>
+         <Group
+            location = "group:Classes"
+            name = "Classes">
+            <FileRef
+               location = "group:IHKeyboardAvoiding.h">
+            </FileRef>
+            <FileRef
+               location = "group:IHKeyboardAvoiding.m">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:Example"
+            name = "Example">
+            <FileRef
+               location = "group:Default-568h@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Default.png">
+            </FileRef>
+            <FileRef
+               location = "group:Default@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:diamond_upholstery.png">
+            </FileRef>
+            <FileRef
+               location = "group:diamond_upholstery@2x.png">
+            </FileRef>
+            <Group
+               location = "group:en.lproj"
+               name = "en.lproj">
+               <FileRef
+                  location = "group:IHViewController_iPad.xib">
+               </FileRef>
+               <FileRef
+                  location = "group:IHViewController_iPhone.xib">
+               </FileRef>
+               <FileRef
+                  location = "group:InfoPlist.strings">
+               </FileRef>
+            </Group>
+            <FileRef
+               location = "group:IHAppDelegate.h">
+            </FileRef>
+            <FileRef
+               location = "group:IHAppDelegate.m">
+            </FileRef>
+            <FileRef
+               location = "group:IHKeyboardAvoiding-Info.plist">
+            </FileRef>
+            <FileRef
+               location = "group:IHKeyboardAvoiding-Prefix.pch">
+            </FileRef>
+            <FileRef
+               location = "group:IHViewController.h">
+            </FileRef>
+            <FileRef
+               location = "group:IHViewController.m">
+            </FileRef>
+            <FileRef
+               location = "group:main.m">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:IHKeyboardAvoiding - &#x81ea;&#x52a8;&#x8c03;&#x6574;UIView&#x4f4d;&#x7f6e;&#x907f;&#x514d;&#x88ab;&#x952e;&#x76d8;&#x906e;&#x6321; - CocoaChina&#x4ee3;&#x7801;&#x5e93; - iOS&#x5f00;&#x53d1;&#x8005;&#x4e2d;&#x5fc3; - CocoaChina &#x5f00;&#x53d1;&#x8ba8;&#x8bba;&#x533a; &#x6700;&#x70ed;&#x7684;iOS&#x5f00;&#x53d1;&#x8bba;&#x575b;| &#x6700;.webarchive">
+         </FileRef>
+         <FileRef
+            location = "group:IHKeyboardAvoiding.podspec">
+         </FileRef>
+         <FileRef
+            location = "group:IHKeyboardAvoiding.xcodeproj">
+         </FileRef>
+         <FileRef
+            location = "group:LICENSE">
+         </FileRef>
+         <FileRef
+            location = "group:Rakefile">
+         </FileRef>
+         <FileRef
+            location = "group:README.md">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:WebViewPackage"
+         name = "WebViewPackage">
+         <Group
+            location = "group:WebViewPackage"
+            name = "WebViewPackage">
+            <FileRef
+               location = "group:AppDelegate.h">
+            </FileRef>
+            <FileRef
+               location = "group:AppDelegate.m">
+            </FileRef>
+            <Group
+               location = "group:Base.lproj"
+               name = "Base.lproj">
+               <FileRef
+                  location = "group:LaunchScreen.xib">
+               </FileRef>
+               <FileRef
+                  location = "group:Main.storyboard">
+               </FileRef>
+            </Group>
+            <Group
+               location = "group:Images.xcassets"
+               name = "Images.xcassets">
+               <Group
+                  location = "group:AppIcon.appiconset"
+                  name = "AppIcon.appiconset">
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+               </Group>
+            </Group>
+            <FileRef
+               location = "group:Info.plist">
+            </FileRef>
+            <FileRef
+               location = "group:KINWebBrowserExampleViewController.h">
+            </FileRef>
+            <FileRef
+               location = "group:KINWebBrowserExampleViewController.m">
+            </FileRef>
+            <FileRef
+               location = "group:KINWebBrowserExampleViewController.xib">
+            </FileRef>
+            <FileRef
+               location = "group:KINWebBrowserViewController.h">
+            </FileRef>
+            <FileRef
+               location = "group:KINWebBrowserViewController.m">
+            </FileRef>
+            <FileRef
+               location = "group:main.m">
+            </FileRef>
+            <FileRef
+               location = "group:ViewController.h">
+            </FileRef>
+            <FileRef
+               location = "group:ViewController.m">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:WebViewPackage.xcodeproj">
+         </FileRef>
+         <Group
+            location = "group:WebViewPackageTests"
+            name = "WebViewPackageTests">
+            <FileRef
+               location = "group:Info.plist">
+            </FileRef>
+            <FileRef
+               location = "group:WebViewPackageTests.m">
+            </FileRef>
+         </Group>
+      </Group>
+   </Group>
+   <FileRef
+      location = "group:DevelopGuide_iOS/DevelopGuide_iOS.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:StudyiOS-master/StudyiOS.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:RTLibrary-ios-master/RTLibrary-ios.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:issue-1-lighter-view-controllers-master/PhotoData.xcodeproj">
+   </FileRef>
+</Workspace>

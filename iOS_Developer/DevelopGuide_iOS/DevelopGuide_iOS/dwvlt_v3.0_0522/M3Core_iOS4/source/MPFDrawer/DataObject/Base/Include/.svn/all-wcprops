@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/DataObject/Base/Include
+END
+XdwDataObjectBase.h
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/DataObject/Base/Include/XdwDataObjectBase.h
+END
+XdwDataObjectBaseInterface.h
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/DataObject/Base/Include/XdwDataObjectBaseInterface.h
+END
+XdwDataObjectBaseGenerator.h
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/DataObject/Base/Include/XdwDataObjectBaseGenerator.h
+END

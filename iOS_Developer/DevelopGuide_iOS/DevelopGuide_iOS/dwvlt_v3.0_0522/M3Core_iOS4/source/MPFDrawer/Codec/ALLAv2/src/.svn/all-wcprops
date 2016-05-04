@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/Codec/ALLAv2/src
+END
+buffer.h
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/Codec/ALLAv2/src/buffer.h
+END
+referer.h
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/Codec/ALLAv2/src/referer.h
+END
+info.h
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/Codec/ALLAv2/src/info.h
+END
+crc32.h
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/Codec/ALLAv2/src/crc32.h
+END
+lrle.h
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/Codec/ALLAv2/src/lrle.h
+END
+ycc.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/Codec/ALLAv2/src/ycc.h
+END
+macro.h
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/Codec/ALLAv2/src/macro.h
+END
+formatter.h
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/Codec/ALLAv2/src/formatter.h
+END
+huffman.h
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/Codec/ALLAv2/src/huffman.h
+END
+config.h
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/Codec/ALLAv2/src/config.h
+END
+codeword.h
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/Codec/ALLAv2/src/codeword.h
+END

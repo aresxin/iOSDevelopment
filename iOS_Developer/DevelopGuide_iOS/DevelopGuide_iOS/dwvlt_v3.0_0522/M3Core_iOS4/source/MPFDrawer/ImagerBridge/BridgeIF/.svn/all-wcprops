@@ -1,0 +1,149 @@
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/BridgeIF
+END
+XdwFont.h
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/BridgeIF/XdwFont.h
+END
+XdwBridgeGraphicStateContents.h
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/BridgeIF/XdwBridgeGraphicStateContents.h
+END
+XdwBridgeObjectFont.h
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/BridgeIF/XdwBridgeObjectFont.h
+END
+XdwBridgePrintContIF.h
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/BridgeIF/XdwBridgePrintContIF.h
+END
+XdwColor.h
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/BridgeIF/XdwColor.h
+END
+XdwBridgeObjectManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/BridgeIF/XdwBridgeObjectManager.h
+END
+XdwBridgeObjectPattern.h
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/BridgeIF/XdwBridgeObjectPattern.h
+END
+XdwBridgeViewerContIF.h
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/BridgeIF/XdwBridgeViewerContIF.h
+END
+XdwPen.h
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/BridgeIF/XdwPen.h
+END
+XdwBridgeObject.h
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/BridgeIF/XdwBridgeObject.h
+END
+XdwGraphicsAttribute.h
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/BridgeIF/XdwGraphicsAttribute.h
+END
+XdwBridgeColorManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/BridgeIF/XdwBridgeColorManager.h
+END
+XdwBridgeGraphicStateManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/BridgeIF/XdwBridgeGraphicStateManager.h
+END
+XdwBridgeObjectPen.h
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/BridgeIF/XdwBridgeObjectPen.h
+END
+XdwBridgeObjectBrush.h
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/BridgeIF/XdwBridgeObjectBrush.h
+END
+XdwBridgeDrawIF.h
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/BridgeIF/XdwBridgeDrawIF.h
+END
+XdwPoint.h
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/BridgeIF/XdwPoint.h
+END
+XdwBridgeCTMManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/BridgeIF/XdwBridgeCTMManager.h
+END
+XdwBridge.h
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/BridgeIF/XdwBridge.h
+END
+XdwRaster.h
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/BridgeIF/XdwRaster.h
+END
+XdwShape.h
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/BridgeIF/XdwShape.h
+END
+XdwBridgeObjectPalette.h
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/BridgeIF/XdwBridgeObjectPalette.h
+END
+XdwMatrix.h
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/BridgeIF/XdwMatrix.h
+END
+XdwBridgeCommon.h
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/ImagerBridge/BridgeIF/XdwBridgeCommon.h
+END

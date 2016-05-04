@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/EMF/NotUseEMR
+END
+XdwGraphicFormatEMFEMRSetPaletteEntriesRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/EMF/NotUseEMR/XdwGraphicFormatEMFEMRSetPaletteEntriesRecord.h
+END
+XdwGraphicFormatEMFEMROffsetClipRgnRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/EMF/NotUseEMR/XdwGraphicFormatEMFEMROffsetClipRgnRecord.h
+END
+XdwGraphicFormatEMFEMRArcToRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/EMF/NotUseEMR/XdwGraphicFormatEMFEMRArcToRecord.h
+END
+XdwGraphicFormatEMFEMRAngleArcRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/EMF/NotUseEMR/XdwGraphicFormatEMFEMRAngleArcRecord.h
+END
+XdwGraphicFormatEMFEMRSetMapperFlagsRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/EMF/NotUseEMR/XdwGraphicFormatEMFEMRSetMapperFlagsRecord.h
+END
+XdwGraphicFormatEMFEMRInvertRgnRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/EMF/NotUseEMR/XdwGraphicFormatEMFEMRInvertRgnRecord.h
+END
+XdwGraphicFormatEMFEMRPolyTextOutRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/EMF/NotUseEMR/XdwGraphicFormatEMFEMRPolyTextOutRecord.h
+END
+XdwGraphicFormatEMFEMRPaintRgnRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/EMF/NotUseEMR/XdwGraphicFormatEMFEMRPaintRgnRecord.h
+END
+XdwGraphicFormatEMFEMRSetPixelvRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/EMF/NotUseEMR/XdwGraphicFormatEMFEMRSetPixelvRecord.h
+END
+XdwGraphicFormatEMFEMRSetColorAdjustMentRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 165
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/EMF/NotUseEMR/XdwGraphicFormatEMFEMRSetColorAdjustMentRecord.h
+END
+XdwGraphicFormatEMFEMRModifyWorldTransformRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/EMF/NotUseEMR/XdwGraphicFormatEMFEMRModifyWorldTransformRecord.h
+END
+XdwGraphicFormatEMFEMRExtFloodFillRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/EMF/NotUseEMR/XdwGraphicFormatEMFEMRExtFloodFillRecord.h
+END
+XdwGraphicFormatEMFEMRFillRgnRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/EMF/NotUseEMR/XdwGraphicFormatEMFEMRFillRgnRecord.h
+END
+XdwGraphicFormatEMFEMRChordRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/EMF/NotUseEMR/XdwGraphicFormatEMFEMRChordRecord.h
+END
+XdwGraphicFormatEMFEMRSetWorldTransformRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/EMF/NotUseEMR/XdwGraphicFormatEMFEMRSetWorldTransformRecord.h
+END
+XdwGraphicFormatEMFEMRPolyDrawRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/EMF/NotUseEMR/XdwGraphicFormatEMFEMRPolyDrawRecord.h
+END
+XdwGraphicFormatEMFEMRFrameRgnRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/DW_iPhoneViewer_30/!svn/ver/952/trunk/dwvlt_v3.0/M3Core_iOS4/source/MPFDrawer/GraphicFormatParser/EMF/NotUseEMR/XdwGraphicFormatEMFEMRFrameRgnRecord.h
+END

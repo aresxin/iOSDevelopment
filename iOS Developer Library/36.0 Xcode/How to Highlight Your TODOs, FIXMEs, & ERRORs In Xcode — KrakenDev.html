@@ -1,0 +1,651 @@
+<!doctype html>
+
+<html xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:article="http://ogp.me/ns/article" lang="en-US" itemscope itemtype="http://schema.org/Article" >
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    
+    <!-- This is Squarespace. --><!-- krakendev -->
+<base href="">
+<meta charset="utf-8" />
+<title>How to Highlight Your TODOs, FIXMEs, &amp; ERRORs In Xcode — KrakenDev</title>
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
+<link rel="canonical" href="https://krakendev.io/blog/generating-warnings-in-xcode"/>
+<meta property="og:site_name" content="KrakenDev"/>
+<meta property="og:title" content="How to Highlight Your TODOs, FIXMEs, &amp; ERRORs In Xcode"/>
+<meta property="og:latitude" content="40.7207559"/>
+<meta property="og:longitude" content="-74.00076130000002"/>
+<meta property="og:url" content="https://krakendev.io/blog/generating-warnings-in-xcode"/>
+<meta property="og:type" content="article"/>
+<meta property="og:description" content="Quite often we find ourselves marking our code with TODOs, FIXMEs, and 
+ERRORs only to find some of them forgotten about and left by the wayside. 
+In Objective-C, it was easy to mark these tags and have them show up in the 
+Issue Navigator but since the introduction of Swift, we haven't gotten an 
+equivalent to compiler directives that can do the equivalent. Until now."/>
+<meta property="og:image" content="http://static1.squarespace.com/static/5592eb03e4b051859f0b377f/t/5595eee6e4b06639d23be78f/1435889398468/nq3wj.jpg?format=1000w"/>
+<meta itemprop="name" content="How to Highlight Your TODOs, FIXMEs, &amp; ERRORs In Xcode"/>
+<meta itemprop="url" content="https://krakendev.io/blog/generating-warnings-in-xcode"/>
+<meta itemprop="description" content="Quite often we find ourselves marking our code with TODOs, FIXMEs, and 
+ERRORs only to find some of them forgotten about and left by the wayside. 
+In Objective-C, it was easy to mark these tags and have them show up in the 
+Issue Navigator but since the introduction of Swift, we haven't gotten an 
+equivalent to compiler directives that can do the equivalent. Until now."/>
+<meta itemprop="thumbnailUrl" content="http://static1.squarespace.com/static/5592eb03e4b051859f0b377f/t/5595eee6e4b06639d23be78f/1435889398468/nq3wj.jpg?format=1000w"/>
+<link rel="image_src" href="http://static1.squarespace.com/static/5592eb03e4b051859f0b377f/t/5595eee6e4b06639d23be78f/1435889398468/nq3wj.jpg?format=1000w" />
+<meta itemprop="image" content="http://static1.squarespace.com/static/5592eb03e4b051859f0b377f/t/5595eee6e4b06639d23be78f/1435889398468/nq3wj.jpg?format=1000w"/>
+<link rel="author" href="https://plus.google.com/116643729521167265260" />
+<meta name="twitter:title" content="How to Highlight Your TODOs, FIXMEs, &amp; ERRORs In Xcode"/>
+<meta name="twitter:image" content="http://static1.squarespace.com/static/5592eb03e4b051859f0b377f/t/5595eee6e4b06639d23be78f/1435889398468/nq3wj.jpg?format=1000w"/>
+<meta name="twitter:url" content="https://krakendev.io/blog/generating-warnings-in-xcode"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:description" content="Quite often we find ourselves marking our code with TODOs, FIXMEs, and 
+ERRORs only to find some of them forgotten about and left by the wayside. 
+In Objective-C, it was easy to mark these tags and have them show up in the 
+Issue Navigator but since the introduction of Swift, we haven't gotten an 
+equivalent to compiler directives that can do the equivalent. Until now."/>
+<meta name="description" content="Quite often we find ourselves marking our code with TODOs, FIXMEs, and 
+ERRORs only to find some of them forgotten about and left by the wayside. 
+In Objective-C, it was easy to mark these tags and have them show up in the 
+Issue Navigator but since the introduction of Swift, we haven't gotten an 
+equivalent to compiler directives that can do the equivalent. Until now." />
+<script type="text/javascript" src="//use.typekit.net/ik/aU1F1i3RXFcKLBB3P2dNb2pHe_HEmYe_4I7KB_m1TkSfe732fFHN4UJLFRbh52jhWD9u5Q48jRMDZQsKw29U529oZRgKwDSaZyTi-a4y-hm0ZemhOc8zOYiaikonScBnZAoqZWj0-AvCdeNRjAUGdaFXOelkjAl8dcs8iKoDSWmyScmDSeBRZPoRdhXCHKonScBnZAoqZWj0SaBujW48Sagyjh90jhNlJ6U3ScNt-AuyOAozicIKfAZuiYmkjPu3ifG4fHCgIMMjMPMfH6qJnMIbMg6OJMJ7fbRKHyMMeMw6MKG4f5w7IMMj2PMfH6qJn3IbMg6IJMJ7fbK3MsMMeMt6MKG4fHXgIMMjgKMfH6qJn6IbMg6bJMJ7fbKOMsMMeMS6MKG4fJ3gIMMjIPMfH6qJ7bIbMg6JJMJ7fbK7MsMMegJ6MKG4fJqgIMMjfPMfH6qJK6IbMg6QJMJ7fbKemsMgeMw6MKG4fJFmIMIj2PMfH6qJyB9bMs6IJMJ7fbKBmsMgeMt6MKG4fVN9IMIjgPMfH6qJ6B9bMs6VJMJ7fbKgmsMgeMS6MKG4fJ4mIMIjIPMfH6qJyu9bMs6JJMJ7fbKJmsMgegJ6MTMgCnndnM9.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700normal,700italic"/>
+<script type="text/javascript">SQUARESPACE_ROLLUPS = {};</script>
+<script>(function(rollups, name) { if (!rollups[name]) { rollups[name] = {}; } rollups[name].js = ["//static.squarespace.com/universal/scripts-compressed/common-05cc305dab99cf2fb727-min.js"]; })(SQUARESPACE_ROLLUPS, 'squarespace-common');</script>
+<script crossorigin="anonymous" src="//static.squarespace.com/universal/scripts-compressed/common-05cc305dab99cf2fb727-min.js"></script><script type="text/javascript" data-sqs-type="imageloader">(function() {var EXCLUDED_SIZES=function(){var a=window.location.search,b=a.indexOf("exclude_imageloader_sizes=");return-1<b&&(a=a.substr(b+26).split("&")[0])?a.split(",").map(function(a){return parseInt(a,10)}):[]}(),SQUARESPACE_SIZES=[2500,1500,1E3,750,500,300,100].filter(function(a){return-1===EXCLUDED_SIZES.indexOf(a)}),IMAGE_LOADING_CLASS="loading",ImageLoader=new function(){this.load=function(a,b){function d(a,b,c){var d=new Image;d.onload=b;d.onerror=c;d.src=a}a.getDOMNode&&(a=a.getDOMNode());var c=this._getDataFromNode(a,
+b),e=!(!c.dimensions||!c.dimensions.width||!c.dimensions.height),g=c.load+"";if("false"===g)return!1;var h=c.mode;if(e&&("fit"===h||"fill"===h)){h=a.parentNode;if(!h)return console.error("Not doing anything, parentNode not found."),!1;if(!this.refresh(a,b,h))return!1}var n=this._intendToLoad(a,c);if("string"===typeof n&&"viewport"!==g){var m=this.getUrl(n,c),g=a.getAttribute("data-image-resolution");a.getAttribute("src")!==m&&this.isValidResolution(n,g)&&(a.onload=function(){a.className=a.className.replace(IMAGE_LOADING_CLASS,
+" ").trim();a.setAttribute("data-image-resolution",n)},!a.getAttribute("src")&&-1===a.className.indexOf(IMAGE_LOADING_CLASS)&&(a.className+=(a.className?" ":"")+IMAGE_LOADING_CLASS),!a.getAttribute("src")&&e?(a.setAttribute("src",m),c.useBgImage&&(a.parentNode.style.backgroundImage="url("+m+")")):d(m,function(){e?a.setAttribute("src",m):(a.setAttribute("data-image-dimensions",this.width+"x"+this.height),ImageLoader.load(a,b))},function(){a.className=a.className.replace(IMAGE_LOADING_CLASS," ").trim();
+a.setAttribute("src",m)}));return!0}return n};this.refresh=function(a,b,d){a.getDOMNode&&(a=a.getDOMNode());d&&d.getDOMNode&&(d=d.getDOMNode());d=d||a.parentNode;if(!d)return console.error("Not doing anything, parentNode not found."),!1;var c=this._getDataFromNode(a,b),e=d.offsetWidth,g=d.offsetHeight;b=c.mode;if("none"!==b){var h=c.dimensions.width,n=c.dimensions.height,m=h/n,q=e/g;if(c.useBgImage&&"fill"===b&&"backgroundSize"in document.documentElement.style)return a.style.display="none",d.style.backgroundSize=
+"cover",d.style.backgroundPosition=100*c.focalPoint.x+"% "+100*c.focalPoint.y+"%",!0;if(c.fixedRatio)"fill"==b&&q>m||"fit"==b&&q<m?(k=100,l=100*(q/m),r=(100-l)*c.focalPoint.y,p=0):(k=100*(m/q),l=100,r=0,p=(100-k)*c.focalPoint.x),a.style.top=r+"%",a.style.left=p+"%",a.style.width=k+"%",a.style.height=l+"%";else{var f;"fill"===b?f=m>q?g/n:e/h:"fit"===b&&(f=m<q?g/n:e/h);!c.stretch&&"fit"==b&&1<f&&(f=1);var k=Math.ceil(h*f),l=Math.ceil(n*f);if(0===k||0===l)return!1;var p,r;"fill"===b?(p=Math.min(Math.max(e/
+2-k*c.focalPoint.x,e-k),0),r=Math.min(Math.max(g/2-l*c.focalPoint.y,g-l),0)):"fit"===b&&(f=c.fitAlignment,p=f.left?0:f.right?e-k:k<e?(e-k)/2:0,r=f.top?0:f.bottom?g-l:l<g?(g-l)/2:0,"inline"==this._getStyle(a,"display")&&(a.style.fontSize="0px"),this._resetAlt(a,function(){k-=a.offsetHeight-a.clientHeight;l-=a.offsetWidth-a.clientWidth}));a.style.top=Math.ceil(r)+"px";a.style.left=Math.ceil(p)+"px";a.style.width=Math.ceil(k)+"px";a.style.height=Math.ceil(l)+"px"}p=this._getStyle(d,"position");a.style.position=
+"relative"==p?"absolute":"relative";if("fill"==b&&(b=this._getStyle(d,"overflow"),!b||"hidden"!=b))d.style.overflow="hidden";return!0}};this._intendToLoad=function(a,b){function d(c,d){"none"===b.mode&&(a.style.width=null,a.style.height=null);var e=parseFloat(a.getAttribute(c)),f=parseFloat(e);if(!f||isNaN(f))e=h._getStyle(a,c),f=parseFloat(e);if(!f||isNaN(f))e=h._getStyle(a,"max-"+c,"max"+(c.substr(0,1).toUpperCase()+c.substr(1))),f=parseFloat(e);if(0===d||e)switch(h._stringType(e)){case "percentage":d=
+parseInt(e,10)/100*g["offset"+c.substr(0,1).toUpperCase()+c.substr(1)];break;case "number":d=parseInt(e,10)}!f&&0!==d&&!a.getAttribute("src")&&(d=0);return d}b=b||this._getDataFromNode(a);if(!b.source)return!1;var c=a.offsetWidth,e=a.offsetHeight,g=a.parentNode,h=this;this._resetAlt(a,function(){c=d("width",c);e=d("height",e)});0===c&&0===e?(c=b.dimensions.width,e=b.dimensions.height):0===c?c=this.getDimensionForValue("width",e,b):0===e&&(e=this.getDimensionForValue("height",c,b));"viewport"===b.load&&
+(a.style.width=Math.floor(c)+"px",a.style.height=Math.floor(e)+"px");return this.getSquarespaceSize(c,e,b)};this._getDataFromNode=function(a,b){b=b||{};var d={focalPoint:{x:0.5,y:0.5},dimensions:{width:null,height:null},mode:"none",fitAlignment:{center:!0},load:"true",stretch:!0,fixedRatio:!1};if(b.focalPoint)d.focalPoint=b.focalPoint;else{var c=a.getAttribute("data-image-focal-point");if(c&&(c=c.split(","))&&2==c.length)d.focalPoint={x:parseFloat(c[0]),y:parseFloat(c[1])}}if(b.dimensions)d.dimensions=
+b.dimensions;else if((c=a.getAttribute("data-image-dimensions"))&&(c=c.split("x"))&&2==c.length)d.dimensions={width:parseInt(c[0],10),height:parseInt(c[1],10)};b.mode?d.mode=b.mode:a.parentNode&&(c=a.parentNode.className,-1!==c.indexOf("content-fill")?d.mode="fill":-1!==c.indexOf("content-fit")&&(d.mode="fit"));if("fit"===d.mode&&a.parentNode&&(c=b.fitAlignment||a.getAttribute("data-alignment")||a.parentNode.getAttribute("data-alignment")))d.fitAlignment={top:-1!==c.indexOf("top"),left:-1!==c.indexOf("left"),
+center:-1!==c.indexOf("center"),right:-1!==c.indexOf("right"),bottom:-1!==c.indexOf("bottom")};b.load?d.load=b.load:(c=a.getAttribute("data-load"))&&(d.load=c);if("undefined"!==typeof b.stretch)d.stretch=b.stretch;else if(c=a.getAttribute("data-image-stretch"))d.stretch="true"===c?!0:!1;d.source=b.source?b.source:a.getAttribute("data-src");d.source&&this.isSquarespaceUrl(d.source)&&("http:"===d.source.substr(0,5)&&"https"===window.location.protocol.substr(0,5))&&(d.source=d.source.replace("http://",
+"https://"));if(b.fixedRatio)d.fixedRatio=b.fixedRatio;else if(c=a.getAttribute("data-fixed-ratio"))d.fixedRatio="true"==c;b.useBgImage?d.useBgImage=b.useBgImage:(c=a.getAttribute("data-use-bg-image"),d.useBgImage="true"===c||!0===c?!0:!1);return d};this._stringType=function(a){return"string"===typeof a&&-1!==a.indexOf("%")?"percentage":isNaN(parseInt(a,10))?NaN:"number"};this._getStyle=function(a,b,d){var c;a.currentStyle?c=a.currentStyle[d||b]:window.getComputedStyle&&(c=document.defaultView.getComputedStyle(a,
+null).getPropertyValue(b));return c};this._isVisible=function(a){a=a.getBoundingClientRect();return 0<=a.left&&0<=a.top||0<=a.bottom&&0<=a.right||0<=a.left&&0<=a.bottom||0<=a.right&&0<=a.top};this.getSquarespaceSize=function(a,b,d){a=Math.max(b/(d.dimensions.height/d.dimensions.width),a);"undefined"===typeof app&&"number"===typeof window.devicePixelRatio&&(a*=window.devicePixelRatio);for(b=1;b<SQUARESPACE_SIZES.length&&!(a>SQUARESPACE_SIZES[b]);b++);return SQUARESPACE_SIZES[b-1]+"w"};this.getDimensionForValue=
+function(a,b,d){var c=d.dimensions.width;d=d.dimensions.height;return"width"==a?c/d*b:"height"==a?d/c*b:NaN};this.getUrl=function(a,b){var d=b.source;return a&&("/"==d[0]||this.isSquarespaceUrl(d))?(-1===d.indexOf("format="+a)&&(d=d+(-1!==d.indexOf("?")?"&":"?")+"format="+a),d):b.source};this.isSquarespaceUrl=function(a){return-1!==a.indexOf("squarespace.com")||-1!==a.indexOf("squarespace.net")||-1!==a.indexOf("sqsp.net")};this.isValidResolution=function(a,b){a=parseInt(a,10);b=parseInt(b,10);return isNaN(a)||
+isNaN(b)?!0:a>b};this._resetAlt=function(a,b){var d=a.getAttribute("alt"),c=d&&0<d.length&&!a.getAttribute("src");if(c){var e=a.style.display;a.removeAttribute("alt");a.style.display="none";a.offsetHeight+0;a.style.display=e}b.call(this);c&&a.setAttribute("alt",d)};this.bootstrap=function(){var a=document.images;if(0<a.length)for(var b=0,d=a.length;b<d;b++)((a[b].hasAttribute?a[b].hasAttribute("data-image"):a[b].attributes["data-image"])||(a[b].hasAttribute?a[b].hasAttribute("data-src"):a[b].attributes["data-src"]))&&
+"false"!==(a[b].getAttribute?a[b].getAttribute("data-load"):a[b].attributes["data-load"])+""&&ImageLoader.load(a[b])}};window.ImageLoader=ImageLoader;window.YUI&&YUI.add("squarespace-imageloader",function(a){},"1.0",{requires:[]});
+})();</script>
+<script>Static.SQUARESPACE_CONTEXT = {"facebookAppId":"314192535267336","rollups":{"squarespace-announcement-bar":{"css":"//static.squarespace.com/universal/styles-compressed/announcement-bar-d41d8cd98f00b204e9800998ecf8427e-min.css","js":"//static.squarespace.com/universal/scripts-compressed/announcement-bar-b2e54894700e1d8df3ce-min.js"},"squarespace-audio-player":{"css":"//static.squarespace.com/universal/styles-compressed/audio-player-76e4bfcc3f9830beb388bae2002fbe6c-min.css","js":"//static.squarespace.com/universal/scripts-compressed/audio-player-c8c5785bb6944fae9f09-min.js"},"squarespace-blog-collection-list":{"css":"//static.squarespace.com/universal/styles-compressed/blog-collection-list-d41d8cd98f00b204e9800998ecf8427e-min.css","js":"//static.squarespace.com/universal/scripts-compressed/blog-collection-list-155b2ad961e9a020012f-min.js"},"squarespace-calendar-block-renderer":{"css":"//static.squarespace.com/universal/styles-compressed/calendar-block-renderer-032634519fa160b1d2da6986dce0cdae-min.css","js":"//static.squarespace.com/universal/scripts-compressed/calendar-block-renderer-060968f3c2e5441b51b4-min.js"},"squarespace-chartjs-helpers":{"css":"//static.squarespace.com/universal/styles-compressed/chartjs-helpers-9935a41d63cf08ca108505d288c1712e-min.css","js":"//static.squarespace.com/universal/scripts-compressed/chartjs-helpers-8afb81a0877bac8c53af-min.js"},"squarespace-comments":{"css":"//static.squarespace.com/universal/styles-compressed/comments-08e3b2d84ec6944b47a0e8ebeac7b6bf-min.css","js":"//static.squarespace.com/universal/scripts-compressed/comments-583dc1f57b073f9b01c2-min.js"},"squarespace-dialog":{"css":"//static.squarespace.com/universal/styles-compressed/dialog-41403d1f0d87846c1b05baa36a8d7c38-min.css","js":"//static.squarespace.com/universal/scripts-compressed/dialog-a4b66bfe991907594bbe-min.js"},"squarespace-events-collection":{"css":"//static.squarespace.com/universal/styles-compressed/events-collection-032634519fa160b1d2da6986dce0cdae-min.css","js":"//static.squarespace.com/universal/scripts-compressed/events-collection-e6b0a32741ce2502cbd8-min.js"},"squarespace-form-rendering-utils":{"js":"//static.squarespace.com/universal/scripts-compressed/form-rendering-utils-c9143895fcfa4122b9e0-min.js"},"squarespace-gallery-collection-list":{"css":"//static.squarespace.com/universal/styles-compressed/gallery-collection-list-d41d8cd98f00b204e9800998ecf8427e-min.css","js":"//static.squarespace.com/universal/scripts-compressed/gallery-collection-list-02f8809547a859ed9bcb-min.js"},"squarespace-image-zoom":{"css":"//static.squarespace.com/universal/styles-compressed/image-zoom-ae974921915aeccaff8ad60c60e19c31-min.css","js":"//static.squarespace.com/universal/scripts-compressed/image-zoom-d41c7eb26234b82b864d-min.js"},"squarespace-pinterest":{"css":"//static.squarespace.com/universal/styles-compressed/pinterest-d41d8cd98f00b204e9800998ecf8427e-min.css","js":"//static.squarespace.com/universal/scripts-compressed/pinterest-b49d66f26410f84b887e-min.js"},"squarespace-product-quick-view":{"css":"//static.squarespace.com/universal/styles-compressed/product-quick-view-eb4b900ac0155bed2f175aa82e2a7c17-min.css","js":"//static.squarespace.com/universal/scripts-compressed/product-quick-view-ecb58d8ec59072516737-min.js"},"squarespace-products-collection-item-v2":{"css":"//static.squarespace.com/universal/styles-compressed/products-collection-item-v2-ae974921915aeccaff8ad60c60e19c31-min.css","js":"//static.squarespace.com/universal/scripts-compressed/products-collection-item-v2-a328ddc1b674685dabbc-min.js"},"squarespace-products-collection-list-v2":{"css":"//static.squarespace.com/universal/styles-compressed/products-collection-list-v2-ae974921915aeccaff8ad60c60e19c31-min.css","js":"//static.squarespace.com/universal/scripts-compressed/products-collection-list-v2-87a66aa4e4edcbb6d282-min.js"},"squarespace-search-page":{"css":"//static.squarespace.com/universal/styles-compressed/search-page-031b3c854435303b74a36777a3d07449-min.css","js":"//static.squarespace.com/universal/scripts-compressed/search-page-5209a787eb2368c3ef1f-min.js"},"squarespace-search-preview":{"js":"//static.squarespace.com/universal/scripts-compressed/search-preview-b3a450585ce29aceee25-min.js"},"squarespace-share-buttons":{"js":"//static.squarespace.com/universal/scripts-compressed/share-buttons-6a0ee7c661253bf9ef77-min.js"},"squarespace-simple-liking":{"css":"//static.squarespace.com/universal/styles-compressed/simple-liking-09fa291ec2800c97714f0d157fd0a6ca-min.css","js":"//static.squarespace.com/universal/scripts-compressed/simple-liking-b0ac26ab527aaa4fdd4f-min.js"},"squarespace-social-buttons":{"css":"//static.squarespace.com/universal/styles-compressed/social-buttons-7a696232d1cd101fd62b5f174f9ae6ff-min.css","js":"//static.squarespace.com/universal/scripts-compressed/social-buttons-bf7a9f2dd7ca784b1f45-min.js"},"squarespace-tourdates":{"css":"//static.squarespace.com/universal/styles-compressed/tourdates-d41d8cd98f00b204e9800998ecf8427e-min.css","js":"//static.squarespace.com/universal/scripts-compressed/tourdates-80110ebb995939429941-min.js"},"squarespace-website-overlays-manager":{"css":"//static.squarespace.com/universal/styles-compressed/website-overlays-manager-9259a1560b191f1ca4beb8b93b0d30ca-min.css","js":"//static.squarespace.com/universal/scripts-compressed/website-overlays-manager-aeae447614b13108becd-min.js"}},"pageType":50,"website":{"id":"5592eb03e4b051859f0b377f","identifier":"krakendev","websiteType":1,"contentModifiedOn":1480094583126,"cloneable":false,"developerMode":true,"siteStatus":{},"language":"en-US","timeZone":"America/Los_Angeles","machineTimeZoneOffset":-28800000,"timeZoneOffset":-28800000,"timeZoneAbbr":"PST","siteTitle":"KrakenDev","siteTagLine":"A blog where you see me learn and teach about Swift and interesting topics for iOS Development in general.","siteDescription":"","location":{"mapZoom":9.0,"mapLat":40.4140534394003,"mapLng":-73.90583255854493,"markerLat":40.7207559,"markerLng":-74.00076130000002},"socialLogoImageId":"5594fd38e4b0c9c17ec338b8","shareButtonOptions":{"5":true,"1":true,"7":true,"6":true,"4":true,"3":true,"2":true,"8":true},"socialLogoImageUrl":"//static1.squarespace.com/static/5592eb03e4b051859f0b377f/t/5594fd38e4b0c9c17ec338b8/1480094583126/","authenticUrl":"https://krakendev.io","internalUrl":"https://krakendev.squarespace.com","baseUrl":"https://krakendev.io","primaryDomain":"krakendev.io","sslSetting":3,"socialAccounts":[{"serviceId":4,"userId":"39381786","userName":"allonsykraken","screenname":"Hector Matos","addedOn":1435739816527,"profileUrl":"https://twitter.com/allonsykraken","iconUrl":"http://pbs.twimg.com/profile_images/2188074499/185577_10150255748521939_583231938_7695308_7829895_n_normal.jpg","collectionId":"5593a6a8e4b023c4ffd78618","iconEnabled":true,"serviceName":"twitter"},{"serviceId":23,"userId":"2718104","userName":"hectormatos2011","screenname":"hectormatos2011","addedOn":1435739950598,"profileUrl":"https://github.com/hectormatos2011","iconUrl":"https://avatars.githubusercontent.com/u/2718104?v=3","iconEnabled":true,"serviceName":"github"},{"serviceId":14,"userId":"B1LvhoxWzA","userName":"hectormatos","screenname":"Hector Matos","addedOn":1435739800145,"profileUrl":"https://www.linkedin.com/in/hectormatos","iconUrl":"https://media.licdn.com/mpr/mprx/0_-zC9rqAjDPL-Pxz0-9-5rBK27qCPlVL0rBnWrBAuKAnCmY-xY1tVYc5CTsGS-jX1198H0r_QtGAS","iconEnabled":true,"serviceName":"linkedin"},{"serviceId":19,"userId":"62909863453264369","screenname":"Hector Matos","addedOn":1438396295739,"profileUrl":"https://www.pinterest.com/hectormatos2011/","iconUrl":"http://media-cache-ak0.pinimg.com/avatars/tito08boricua_1328568829_60.jpg","metaData":{"service":"pinterest"},"iconEnabled":true,"serviceName":"pinterest"},{"serviceId":20,"userId":"hectormatos2011@gmail.com","screenname":"hectormatos2011@gmail.com","addedOn":1437025135815,"profileUrl":"mailto:hectormatos2011@gmail.com","iconEnabled":true,"serviceName":"email"}],"typekitId":"","statsMigrated":false,"imageMetadataProcessingEnabled":false,"screenshotId":"12a612ec"},"websiteSettings":{"id":"5592eb03e4b051859f0b3781","websiteId":"5592eb03e4b051859f0b377f","type":"Personal","subjects":[],"country":"US","state":"CA","simpleLikingEnabled":true,"mobileInfoBarSettings":{"isContactEmailEnabled":false,"isContactPhoneNumberEnabled":false,"isLocationEnabled":false,"isBusinessHoursEnabled":false},"commentLikesAllowed":true,"commentAnonAllowed":true,"commentThreaded":true,"commentApprovalRequired":false,"commentAvatarsOn":true,"commentSortType":2,"commentFlagThreshold":0,"commentFlagsAllowed":true,"commentEnableByDefault":true,"disqusShortname":"krakendev","commentsEnabled":true,"contactPhoneNumber":"","storeSettings":{"returnPolicy":null,"termsOfService":null,"privacyPolicy":null,"paymentSettings":{},"expressCheckout":false,"useLightCart":false,"showNoteField":false,"shippingCountryDefaultValue":"US","billToShippingDefaultValue":false,"showShippingPhoneNumber":true,"isShippingPhoneRequired":false,"showBillingPhoneNumber":true,"isBillingPhoneRequired":false,"currenciesSupported":["CHF","HKD","MXN","EUR","DKK","USD","CAD","NOK","AUD","SGD","GBP","SEK","NZD"],"defaultCurrency":"USD","selectedCurrency":"USD","measurementStandard":1,"orderConfirmationInjectCode":"","showCustomCheckoutForm":false,"enableMailingListOptInByDefault":true,"businessName":"KrakenDev","sameAsRetailLocation":false,"businessId":"","stripeConnected":false,"isLive":false},"useEscapeKeyToLogin":true,"ssBadgeType":1,"ssBadgePosition":4,"ssBadgeVisibility":1,"ssBadgeDevices":1,"pinterestOverlayOptions":{"mode":"enabled_for_blogs_and_pages","size":"small","shape":"round"},"ampEnabled":false},"cookieSettings":{"isRestrictiveCookiePolicyEnabled":false},"websiteCloneable":false,"collection":{"title":"KrakenDev","id":"5594defde4b0ad11495b5c4e","fullUrl":"/","publicCommentCount":8,"type":1},"item":{"title":"How to Highlight Your TODOs, FIXMEs, & ERRORs In Xcode","id":"5594fd5fe4b099fe48976ef7","fullUrl":"/blog/generating-warnings-in-xcode","publicCommentCount":0,"commentState":1,"recordType":1},"subscribed":false,"appDomain":"squarespace.com","templateTweakable":true,"tweakJSON":{"aspect-ratio":"Auto","contentBgColor":"rgba(255,255,255,1)","first-index-image-fullscreen":"true","fixed-header":"true","footerBgColor":"rgba(52,73,94,1)","gallery-arrow-style":"No Background","gallery-auto-crop":"true","gallery-autoplay":"false","gallery-design":"Slideshow","gallery-info-overlay":"Show on Hover","gallery-loop":"false","gallery-navigation":"Bullets","gallery-show-arrows":"true","galleryArrowBackground":"rgba(34,34,34,1)","galleryArrowColor":"rgba(255,255,255,1)","galleryAutoplaySpeed":"3","galleryCircleColor":"rgba(255,255,255,1)","galleryInfoBackground":"rgba(0, 0, 0, .7)","galleryThumbnailSize":"100px","gridSize":"350px","gridSpacing":"20px","headerBgColor":"rgba(251,251,251,1)","index-image-height":"Two Thirds","parallax-scrolling":"true","product-gallery-auto-crop":"true","product-image-auto-crop":"true","transparent-header":"false"},"templateId":"55941e9be4b0b32d29a65511","pageFeatures":[1,2,4],"impersonatedSession":false,"isFacebookTab":false,"tzData":{"zones":[[-480,"US","P%sT",null]],"rules":{"US":[[1967,2006,null,"Oct","lastSun","2:00","0","S"],[1987,2006,null,"Apr","Sun>=1","2:00","1:00","D"],[2007,"max",null,"Mar","Sun>=8","2:00","1:00","D"],[2007,"max",null,"Nov","Sun>=1","2:00","0","S"]]}}};</script><script type="text/javascript"> SquarespaceFonts.loadViaContext(); Squarespace.load(window);</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://krakendev.io/blog?format=RSS" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://krakendev.io","name":"KrakenDev","description":""}</script><script type="application/ld+json">{"@context":"http://schema.org","@type":"Organization","legalName":"KrakenDev","address":"","email":"hectormatos2011@gmail.com","telephone":""}</script><!--[if gte IE 9]> <link rel="stylesheet" type="text/css" href="//static1.squarespace.com/static/sitecss/5592eb03e4b051859f0b377f/64/55941e9be4b0b32d29a65511/55941e9be4b0b32d29a6552e/9-05142015/1467426308040/site.css?&filterFeatures=false&part=1"/><link rel="stylesheet" type="text/css" href="//static1.squarespace.com/static/sitecss/5592eb03e4b051859f0b377f/64/55941e9be4b0b32d29a65511/55941e9be4b0b32d29a6552e/9-05142015/1467426308040/site.css?&filterFeatures=false&part=2"/><link rel="stylesheet" type="text/css" href="//static1.squarespace.com/static/sitecss/5592eb03e4b051859f0b377f/64/55941e9be4b0b32d29a65511/55941e9be4b0b32d29a6552e/9-05142015/1467426308040/site.css?&filterFeatures=false&part=3"/><link rel="stylesheet" type="text/css" href="//static1.squarespace.com/static/sitecss/5592eb03e4b051859f0b377f/64/55941e9be4b0b32d29a65511/55941e9be4b0b32d29a6552e/9-05142015/1467426308040/site.css?&filterFeatures=false&part=4"/><![endif]-->
+<!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="//static1.squarespace.com/static/sitecss/5592eb03e4b051859f0b377f/64/55941e9be4b0b32d29a65511/55941e9be4b0b32d29a6552e/9-05142015/1467426308040/site.css?&filterFeatures=false&noMedia=true&part=1"/><link rel="stylesheet" type="text/css" href="//static1.squarespace.com/static/sitecss/5592eb03e4b051859f0b377f/64/55941e9be4b0b32d29a65511/55941e9be4b0b32d29a6552e/9-05142015/1467426308040/site.css?&filterFeatures=false&noMedia=true&part=2"/><link rel="stylesheet" type="text/css" href="//static1.squarespace.com/static/sitecss/5592eb03e4b051859f0b377f/64/55941e9be4b0b32d29a65511/55941e9be4b0b32d29a6552e/9-05142015/1467426308040/site.css?&filterFeatures=false&noMedia=true&part=3"/><link rel="stylesheet" type="text/css" href="//static1.squarespace.com/static/sitecss/5592eb03e4b051859f0b377f/64/55941e9be4b0b32d29a65511/55941e9be4b0b32d29a6552e/9-05142015/1467426308040/site.css?&filterFeatures=false&noMedia=true&part=4"/><![endif]-->
+<!--[if !IE]> --><link rel="stylesheet" type="text/css" href="//static1.squarespace.com/static/sitecss/5592eb03e4b051859f0b377f/64/55941e9be4b0b32d29a65511/55941e9be4b0b32d29a6552e/9-05142015/1467426308040/site.css?&filterFeatures=false"/><!-- <![endif]-->
+<!-- AddThisEvent -->
+<script type="text/javascript" src="https://addthisevent.com/libs/1.6.0/ate.min.js"></script>
+
+<!-- Prism Code Syntax Highlighting -->
+<script>/* http://prismjs.com/download.html?themes=prism-okaidia&languages=clike+bash+c+objectivec+ruby+swift&plugins=line-numbers+show-language */
+self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{};var Prism=function(){var e=/\blang(?:uage)?-(?!\*)(\w+)\b/i,t=self.Prism={util:{encode:function(e){return e instanceof n?new n(e.type,t.util.encode(e.content),e.alias):"Array"===t.util.type(e)?e.map(t.util.encode):e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).match(/\[object (\w+)\]/)[1]},clone:function(e){var n=t.util.type(e);switch(n){case"Object":var a={};for(var r in e)e.hasOwnProperty(r)&&(a[r]=t.util.clone(e[r]));return a;case"Array":return e.map(function(e){return t.util.clone(e)})}return e}},languages:{extend:function(e,n){var a=t.util.clone(t.languages[e]);for(var r in n)a[r]=n[r];return a},insertBefore:function(e,n,a,r){r=r||t.languages;var i=r[e];if(2==arguments.length){a=arguments[1];for(var l in a)a.hasOwnProperty(l)&&(i[l]=a[l]);return i}var s={};for(var o in i)if(i.hasOwnProperty(o)){if(o==n)for(var l in a)a.hasOwnProperty(l)&&(s[l]=a[l]);s[o]=i[o]}return t.languages.DFS(t.languages,function(t,n){n===r[e]&&t!=e&&(this[t]=s)}),r[e]=s},DFS:function(e,n,a){for(var r in e)e.hasOwnProperty(r)&&(n.call(e,r,e[r],a||r),"Object"===t.util.type(e[r])?t.languages.DFS(e[r],n):"Array"===t.util.type(e[r])&&t.languages.DFS(e[r],n,r))}},highlightAll:function(e,n){for(var a,r=document.querySelectorAll('code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'),i=0;a=r[i++];)t.highlightElement(a,e===!0,n)},highlightElement:function(a,r,i){for(var l,s,o=a;o&&!e.test(o.className);)o=o.parentNode;if(o&&(l=(o.className.match(e)||[,""])[1],s=t.languages[l]),a.className=a.className.replace(e,"").replace(/\s+/g," ")+" language-"+l,o=a.parentNode,/pre/i.test(o.nodeName)&&(o.className=o.className.replace(e,"").replace(/\s+/g," ")+" language-"+l),s){var u=a.textContent;if(u){u=u.replace(/^(?:\r?\n|\r)/,"");var g={element:a,language:l,grammar:s,code:u};if(t.hooks.run("before-highlight",g),r&&self.Worker){var c=new Worker(t.filename);c.onmessage=function(e){g.highlightedCode=n.stringify(JSON.parse(e.data),l),t.hooks.run("before-insert",g),g.element.innerHTML=g.highlightedCode,i&&i.call(g.element),t.hooks.run("after-highlight",g)},c.postMessage(JSON.stringify({language:g.language,code:g.code}))}else g.highlightedCode=t.highlight(g.code,g.grammar,g.language),t.hooks.run("before-insert",g),g.element.innerHTML=g.highlightedCode,i&&i.call(a),t.hooks.run("after-highlight",g)}}},highlight:function(e,a,r){var i=t.tokenize(e,a);return n.stringify(t.util.encode(i),r)},tokenize:function(e,n){var a=t.Token,r=[e],i=n.rest;if(i){for(var l in i)n[l]=i[l];delete n.rest}e:for(var l in n)if(n.hasOwnProperty(l)&&n[l]){var s=n[l];s="Array"===t.util.type(s)?s:[s];for(var o=0;o<s.length;++o){var u=s[o],g=u.inside,c=!!u.lookbehind,f=0,h=u.alias;u=u.pattern||u;for(var p=0;p<r.length;p++){var d=r[p];if(r.length>e.length)break e;if(!(d instanceof a)){u.lastIndex=0;var m=u.exec(d);if(m){c&&(f=m[1].length);var y=m.index-1+f,m=m[0].slice(f),v=m.length,k=y+v,b=d.slice(0,y+1),w=d.slice(k+1),N=[p,1];b&&N.push(b);var O=new a(l,g?t.tokenize(m,g):m,h);N.push(O),w&&N.push(w),Array.prototype.splice.apply(r,N)}}}}}return r},hooks:{all:{},add:function(e,n){var a=t.hooks.all;a[e]=a[e]||[],a[e].push(n)},run:function(e,n){var a=t.hooks.all[e];if(a&&a.length)for(var r,i=0;r=a[i++];)r(n)}}},n=t.Token=function(e,t,n){this.type=e,this.content=t,this.alias=n};if(n.stringify=function(e,a,r){if("string"==typeof e)return e;if("Array"===t.util.type(e))return e.map(function(t){return n.stringify(t,a,e)}).join("");var i={type:e.type,content:n.stringify(e.content,a,r),tag:"span",classes:["token",e.type],attributes:{},language:a,parent:r};if("comment"==i.type&&(i.attributes.spellcheck="true"),e.alias){var l="Array"===t.util.type(e.alias)?e.alias:[e.alias];Array.prototype.push.apply(i.classes,l)}t.hooks.run("wrap",i);var s="";for(var o in i.attributes)s+=o+'="'+(i.attributes[o]||"")+'"';return"<"+i.tag+' class="'+i.classes.join(" ")+'" '+s+">"+i.content+"</"+i.tag+">"},!self.document)return self.addEventListener?(self.addEventListener("message",function(e){var n=JSON.parse(e.data),a=n.language,r=n.code;self.postMessage(JSON.stringify(t.util.encode(t.tokenize(r,t.languages[a])))),self.close()},!1),self.Prism):self.Prism;var a=document.getElementsByTagName("script");return a=a[a.length-1],a&&(t.filename=a.src,document.addEventListener&&!a.hasAttribute("data-manual")&&document.addEventListener("DOMContentLoaded",t.highlightAll)),self.Prism}();"undefined"!=typeof module&&module.exports&&(module.exports=Prism);;
+Prism.languages.clike={comment:[{pattern:/(^|[^\\])\/\*[\w\W]*?\*\//,lookbehind:!0},{pattern:/(^|[^\\:])\/\/.*/,lookbehind:!0}],string:/("|')(\\[\s\S]|(?!\1)[^\\\r\n])*\1/,"class-name":{pattern:/((?:(?:class|interface|extends|implements|trait|instanceof|new)\s+)|(?:catch\s+\())[a-z0-9_\.\\]+/i,lookbehind:!0,inside:{punctuation:/(\.|\\)/}},keyword:/\b(if|else|while|do|for|return|in|instanceof|function|new|try|throw|catch|finally|null|break|continue)\b/,"boolean":/\b(true|false)\b/,"function":{pattern:/[a-z0-9_]+\(/i,inside:{punctuation:/\(/}},number:/\b-?(0x[\dA-Fa-f]+|\d*\.?\d+([Ee]-?\d+)?)\b/,operator:/[-+]{1,2}|!|<=?|>=?|={1,3}|&{1,2}|\|?\||\?|\*|\/|~|\^|%/,ignore:/&(lt|gt|amp);/i,punctuation:/[{}[\];(),.:]/};;
+Prism.languages.bash=Prism.languages.extend("clike",{comment:{pattern:/(^|[^"{\\])(#.*?(\r?\n|$))/,lookbehind:!0},string:{pattern:/("|')(\\?[\s\S])*?\1/,inside:{property:/\$([a-zA-Z0-9_#\?\-\*!@]+|\{[^\}]+\})/}},number:{pattern:/([^\w\.])-?(0x[\dA-Fa-f]+|\d*\.?\d+([Ee]-?\d+)?)\b/,lookbehind:!0},"function":/\b(?:alias|apropos|apt-get|aptitude|aspell|awk|basename|bash|bc|bg|builtin|bzip2|cal|cat|cd|cfdisk|chgrp|chmod|chown|chroot|chkconfig|cksum|clear|cmp|comm|command|cp|cron|crontab|csplit|cut|date|dc|dd|ddrescue|declare|df|diff|diff3|dig|dir|dircolors|dirname|dirs|dmesg|du|echo|egrep|eject|enable|env|ethtool|eval|exec|exit|expand|expect|export|expr|fdformat|fdisk|fg|fgrep|file|find|fmt|fold|format|free|fsck|ftp|fuser|gawk|getopts|git|grep|groupadd|groupdel|groupmod|groups|gzip|hash|head|help|hg|history|hostname|htop|iconv|id|ifconfig|ifdown|ifup|import|install|jobs|join|kill|killall|less|link|ln|locate|logname|logout|look|lpc|lpr|lprint|lprintd|lprintq|lprm|ls|lsof|make|man|mkdir|mkfifo|mkisofs|mknod|more|most|mount|mtools|mtr|mv|mmv|nano|netstat|nice|nl|nohup|notify-send|nslookup|open|op|passwd|paste|pathchk|ping|pkill|popd|pr|printcap|printenv|printf|ps|pushd|pv|pwd|quota|quotacheck|quotactl|ram|rar|rcp|read|readarray|readonly|reboot|rename|renice|remsync|rev|rm|rmdir|rsync|screen|scp|sdiff|sed|select|seq|service|sftp|shift|shopt|shutdown|sleep|slocate|sort|source|split|ssh|stat|strace|su|sudo|sum|suspend|sync|tail|tar|tee|test|time|timeout|times|touch|top|traceroute|trap|tr|tsort|tty|type|ulimit|umask|umount|unalias|uname|unexpand|uniq|units|unrar|unshar|until|uptime|useradd|userdel|usermod|users|uuencode|uudecode|v|vdir|vi|vmstat|wait|watch|wc|wget|whereis|which|who|whoami|write|xargs|xdg-open|yes|zip)\b/,keyword:/\b(if|then|else|elif|fi|for|break|continue|while|in|case|function|select|do|done|until|echo|exit|return|set|declare)\b/}),Prism.languages.insertBefore("bash","keyword",{property:/\$([a-zA-Z0-9_#\?\-\*!@]+|\{[^}]+\})/}),Prism.languages.insertBefore("bash","comment",{important:/(^#!\s*\/bin\/bash)|(^#!\s*\/bin\/sh)/});;
+Prism.languages.c=Prism.languages.extend("clike",{string:/("|')([^\n\\\1]|\\.|\\\r*\n)*?\1/,keyword:/\b(asm|typeof|inline|auto|break|case|char|const|continue|default|do|double|else|enum|extern|float|for|goto|if|int|long|register|return|short|signed|sizeof|static|struct|switch|typedef|union|unsigned|void|volatile|while)\b/,operator:/[-+]{1,2}|!=?|<{1,2}=?|>{1,2}=?|\->|={1,2}|\^|~|%|&{1,2}|\|?\||\?|\*|\//}),Prism.languages.insertBefore("c","string",{property:{pattern:/((^|\n)\s*)#\s*[a-z]+([^\n\\]|\\.|\\\r*\n)*/i,lookbehind:!0,inside:{string:{pattern:/(#\s*include\s*)(<.+?>|("|')(\\?.)+?\3)/,lookbehind:!0}}}}),delete Prism.languages.c["class-name"],delete Prism.languages.c["boolean"];;
+Prism.languages.objectivec=Prism.languages.extend("c",{keyword:/(\b(asm|typeof|inline|auto|break|case|char|const|continue|default|do|double|else|enum|extern|float|for|goto|if|int|long|register|return|short|signed|sizeof|static|struct|switch|typedef|union|unsigned|void|volatile|while|in|self|super)\b)|((?=[\w|@])(@interface|@end|@implementation|@protocol|@class|@public|@protected|@private|@property|@try|@catch|@finally|@throw|@synthesize|@dynamic|@selector)\b)/,string:/(?:("|')([^\n\\\1]|\\.|\\\r*\n)*?\1)|(@"([^\n\\"]|\\.|\\\r*\n)*?")/,operator:/[-+]{1,2}|!=?|<{1,2}=?|>{1,2}=?|\->|={1,2}|\^|~|%|&{1,2}|\|?\||\?|\*|\/|@/});;
+Prism.languages.ruby=Prism.languages.extend("clike",{comment:/#[^\r\n]*(\r?\n|$)/,keyword:/\b(alias|and|BEGIN|begin|break|case|class|def|define_method|defined|do|each|else|elsif|END|end|ensure|false|for|if|in|module|new|next|nil|not|or|raise|redo|require|rescue|retry|return|self|super|then|throw|true|undef|unless|until|when|while|yield)\b/,builtin:/\b(Array|Bignum|Binding|Class|Continuation|Dir|Exception|FalseClass|File|Stat|File|Fixnum|Fload|Hash|Integer|IO|MatchData|Method|Module|NilClass|Numeric|Object|Proc|Range|Regexp|String|Struct|TMS|Symbol|ThreadGroup|Thread|Time|TrueClass)\b/,constant:/\b[A-Z][a-zA-Z_0-9]*[?!]?\b/}),Prism.languages.insertBefore("ruby","keyword",{regex:{pattern:/(^|[^/])\/(?!\/)(\[.+?]|\\.|[^/\r\n])+\/[gim]{0,3}(?=\s*($|[\r\n,.;})]))/,lookbehind:!0},variable:/[@$]+\b[a-zA-Z_][a-zA-Z_0-9]*[?!]?\b/,symbol:/:\b[a-zA-Z_][a-zA-Z_0-9]*[?!]?\b/});;
+Prism.languages.markup={comment:/<!--[\w\W]*?-->/,prolog:/<\?[\w\W]+?\?>/,doctype:/<!DOCTYPE[\w\W]+?>/,cdata:/<!\[CDATA\[[\w\W]*?]]>/i,tag:{pattern:/<\/?[^\s>\/=.]+(?:\s+[^\s>\/=]+(?:=(?:("|')(?:\\\1|\\?(?!\1)[\w\W])*\1|[^\s'">=]+))?)*\s*\/?>/i,inside:{tag:{pattern:/^<\/?[^\s>\/]+/i,inside:{punctuation:/^<\/?/,namespace:/^[^\s>\/:]+:/}},"attr-value":{pattern:/=(?:('|")[\w\W]*?(\1)|[^\s>]+)/i,inside:{punctuation:/[=>"']/}},punctuation:/\/?>/,"attr-name":{pattern:/[^\s>\/]+/,inside:{namespace:/^[^\s>\/:]+:/}}}},entity:/&#?[\da-z]{1,8};/i},Prism.hooks.add("wrap",function(a){"entity"===a.type&&(a.attributes.title=a.content.replace(/&amp;/,"&"))}),Prism.languages.xml=Prism.languages.markup,Prism.languages.html=Prism.languages.markup,Prism.languages.mathml=Prism.languages.markup,Prism.languages.svg=Prism.languages.markup;;
+Prism.languages.javascript=Prism.languages.extend("clike",{keyword:/\b(as|async|await|break|case|catch|class|const|continue|debugger|default|delete|do|else|enum|export|extends|false|finally|for|from|function|get|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|set|static|super|switch|this|throw|true|try|typeof|var|void|while|with|yield)\b/,number:/\b-?(0x[\dA-Fa-f]+|0b[01]+|0o[0-7]+|\d*\.?\d+([Ee][+-]?\d+)?|NaN|Infinity)\b/,"function":/[_$a-zA-Z\xA0-\uFFFF][_$a-zA-Z0-9\xA0-\uFFFF]*(?=\()/i}),Prism.languages.insertBefore("javascript","keyword",{regex:{pattern:/(^|[^/])\/(?!\/)(\[.+?]|\\.|[^/\\\r\n])+\/[gimyu]{0,5}(?=\s*($|[\r\n,.;})]))/,lookbehind:!0}}),Prism.languages.insertBefore("javascript","class-name",{"template-string":{pattern:/`(?:\\`|\\?[^`])*`/,inside:{interpolation:{pattern:/\$\{[^}]+\}/,inside:{"interpolation-punctuation":{pattern:/^\$\{|\}$/,alias:"punctuation"},rest:Prism.languages.javascript}},string:/[\s\S]+/}}}),Prism.languages.markup&&Prism.languages.insertBefore("markup","tag",{script:{pattern:/<script[\w\W]*?>[\w\W]*?<\/script>/i,inside:{tag:{pattern:/<script[\w\W]*?>|<\/script>/i,inside:Prism.languages.markup.tag.inside},rest:Prism.languages.javascript},alias:"language-javascript"}}),Prism.languages.js=Prism.languages.javascript;
+Prism.languages.swift=Prism.languages.extend("clike",{keyword:/\b(as|associativity|break|case|class|continue|convenience|default|deinit|didSet|do|dynamicType|else|enum|extension|fallthrough|final|for|func|get|if|import|in|infix|init|inout|internal|is|lazy|left|let|mutating|new|none|nonmutating|operator|optional|override|postfix|precedence|prefix|private|protocol|public|required|return|right|safe|self|Self|set|static|struct|subscript|super|switch|Type|typealias|unowned|unowned|unsafe|var|weak|where|while|willSet|__COLUMN__|__FILE__|__FUNCTION__|__LINE__)\b/,number:/\b([\d_]+(\.[\de_]+)?|0x[a-f0-9_]+(\.[a-f0-9p_]+)?|0b[01_]+|0o[0-7_]+)\b/i,constant:/\b(nil|[A-Z_]{2,}|k[A-Z][A-Za-z_]+)\b/,atrule:/@\b(IBOutlet|IBDesignable|IBAction|IBInspectable|class_protocol|exported|noreturn|NSCopying|NSManaged|objc|UIApplicationMain|auto_closure)\b/,builtin:/\b([A-Z]\S+|abs|advance|alignof|alignofValue|assert|contains|count|countElements|debugPrint|debugPrintln|distance|dropFirst|dropLast|dump|enumerate|equal|filter|find|first|getVaList|indices|isEmpty|join|last|lazy|lexicographicalCompare|map|max|maxElement|min|minElement|numericCast|overlaps|partition|prefix|print|println|reduce|reflect|reverse|sizeof|sizeofValue|sort|sorted|split|startsWith|stride|strideof|strideofValue|suffix|swap|toDebugString|toString|transcode|underestimateCount|unsafeBitCast|withExtendedLifetime|withUnsafeMutablePointer|withUnsafeMutablePointers|withUnsafePointer|withUnsafePointers|withVaList)\b/});;
+Prism.hooks.add("after-highlight",function(e){var t=e.element.parentNode,s=/\s*\bline-numbers\b\s*/;if(t&&/pre/i.test(t.nodeName)&&(s.test(t.className)||s.test(e.element.className))){s.test(e.element.className)&&(e.element.className=e.element.className.replace(s,"")),s.test(t.className)||(t.className+=" line-numbers");var a,n=1+e.code.split("\n").length,l=new Array(n);l=l.join("<span></span>"),a=document.createElement("span"),a.className="line-numbers-rows",a.innerHTML=l,t.hasAttribute("data-start")&&(t.style.counterReset="linenumber "+(parseInt(t.getAttribute("data-start"),10)-1)),e.element.appendChild(a)}});;
+  !function(){if(self.Prism){var e={csharp:"C#",cpp:"C++"};Prism.hooks.add("before-highlight",function(a){var t=a.element.parentNode;if(t&&/pre/i.test(t.nodeName)){var i=e[a.language]||a.language;t.setAttribute("data-language",i)}})}}();;</script>
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="/assets/icons/favicon.ico?v=<?php $filename = 'favicon.ico'; if (file_exists($filename)) { echo filemtime($filename) } ?>" />
+<link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+<link rel="manifest" href="/assets/icons/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff"><meta name="p:domain_verify" content="976a52763d83eb0f62377f13d0f2c79c"/>
+<!-- End of Squarespace Headers -->
+    <script>
+      Y.Squarespace.FollowButtonUtils = {};
+      Y.Squarespace.FollowButtonUtils.renderAll = function(){};
+    </script>
+  </head>
+
+  <body id="item-5594fd5fe4b099fe48976ef7" class="event-excerpts event-list-date event-list-time event-list-address event-icalgcal-links  events-layout-columns events-width-full gallery-design-slideshow aspect-ratio-auto lightbox-style-dark gallery-navigation-bullets gallery-info-overlay-show-on-hover gallery-arrow-style-no-background gallery-show-arrows gallery-auto-crop   fixed-header  parallax-scrolling  first-index-image-fullscreen index-image-height-two-thirds image-overlay  title--description-alignment-left title--description-position-over-image title-background  description-button-style-solid description-button-corner-style-square underline-body-links blog-layout-columns blog-width-full   show-category-navigation product-list-titles-under product-list-alignment-center product-item-size-11-square product-image-auto-crop product-gallery-size-11-square product-gallery-auto-crop show-product-price show-product-item-nav product-social-sharing   opentable-style-light newsletter-style-light small-button-style-solid small-button-shape-square medium-button-style-solid medium-button-shape-square large-button-style-solid large-button-shape-square button-style-solid button-corner-style-square tweak-product-quick-view-button-style-floating tweak-product-quick-view-button-position-bottom tweak-product-quick-view-lightbox-excerpt-display-truncate tweak-product-quick-view-lightbox-show-arrows tweak-product-quick-view-lightbox-show-close-button tweak-product-quick-view-lightbox-controls-weight-light native-currency-code-usd view-item collection-type-blog collection-layout-default collection-5594defde4b0ad11495b5c4e mobile-style-available">
+    <div id="mobileNav" data-content-field="navigation-mobileNav">
+      
+  <nav class="main-nav">
+      <div class="nav-wrapper">
+        <ul class="cf">
+        
+
+          
+            <li class="blog-collection active-link">
+
+            
+              <a href="/"><span>Blog</span></a>
+            
+            </li>
+          
+
+          
+            
+        
+
+          
+            <li class="page-collection">
+
+            
+              <a href="/portfolio/"><span>Portfolio</span></a>
+            
+            </li>
+          
+
+          
+            
+        
+
+          
+            <li class="page-collection">
+
+            
+              <a href="/speaking-yo/"><span>Speaking</span></a>
+            
+            </li>
+          
+
+          
+            
+        
+
+          
+            <li class="page-collection">
+
+            
+              <a href="/about/"><span>About</span></a>
+            
+            </li>
+          
+
+          
+            
+        
+      </ul>
+    </div>
+  </nav>
+
+    </div>
+
+    <div class="site-wrapper">
+      <div class="site-inner-wrapper">
+      <!--CONTENT INJECTION POINT-->
+      
+        <div id="header-wrapper">
+          <header id="header" class="sqs-announcement-bar-dropzone">
+            <div class="title-nav-wrapper">
+              
+              <h1 data-content-field="site-title" data-annotation-alignment="bottom" class="site-title">
+                <a href="/" id="top">
+                
+                  KrakenDev
+                
+                </a>
+              </h1>
+              
+              <a class="icon-menu" id="mobileMenu"></a>
+              <!--MAIN NAVIGATION-->
+              <div id="desktopNav" data-content-field="navigation-mainNav" data-annotation-alignment="bottom left">
+                
+  <nav class="main-nav">
+      <div class="nav-wrapper">
+        <ul class="cf">
+        
+
+          
+            <li class="blog-collection active-link">
+
+            
+              <a href="/"><span>Blog</span></a>
+            
+            </li>
+          
+
+          
+            
+        
+
+          
+            <li class="page-collection">
+
+            
+              <a href="/portfolio/"><span>Portfolio</span></a>
+            
+            </li>
+          
+
+          
+            
+        
+
+          
+            <li class="page-collection">
+
+            
+              <a href="/speaking-yo/"><span>Speaking</span></a>
+            
+            </li>
+          
+
+          
+            
+        
+
+          
+            <li class="page-collection">
+
+            
+              <a href="/about/"><span>About</span></a>
+            
+            </li>
+          
+
+          
+            
+        
+      </ul>
+    </div>
+  </nav>
+
+              </div>
+            </div>
+          </header>
+        
+          
+          <div class="title-desc-wrapper no-main-image" data-content-field="main-image">
+            <div class="title-desc-inner" data-collection-id="5594fd5fe4b099fe48976ef7">
+              
+              
+              <div class="page-title-wrapper"><h1 class="page-title">
+                
+                How to Highlight Your TODOs, FIXMEs, & ERRORs In Xcode
+                
+              </h1></div>
+              <br> <!-- this keeps the inline-blocks from collapsing -->
+              <div class="page-desc">
+                <p class="date entry-author">
+                  <time class="published" datetime="2015-07-02">July  2, 2015</time>
+                  <span class="author-name"><br>
+                    <em>by</em> <a href="/?author=5592eaffe4b08369d0205792">Hector Matos</a>
+                  </span>
+                </p>
+              </div>
+              
+            
+            </div>
+          </div>
+        </div>
+
+        <section id="content-wrapper">
+          <div class="sqs-cart-dropzone"></div>
+          <div class="content">
+
+            <div class="content-inner" data-content-field="main-content">
+              <section class="blog-item">
+
+  
+    <article class="entry hentry category-swift tag-build-phase tag-todo tag-swift tag-bash tag-xcode tag-fixme tag-run-script tag-generate-warnings tag-error tag-generate-errors tag-scripting author-hector-matos post-type-text clear" id="article-5594fd5fe4b099fe48976ef7" data-item-id="5594fd5fe4b099fe48976ef7">
+
+<!--       <div class="entry-title-wrapper">
+        <h1 data-content-field="title" class="entry-title">How to Highlight Your TODOs, FIXMEs, & ERRORs In Xcode</h1>
+      </div> -->
+
+      <div class="entry-content">
+
+        
+          <div class="sqs-layout sqs-grid-12 columns-12" data-layout-label="Post Body" data-type="item" data-updated-on="1435827645176" id="item-5594fd5fe4b099fe48976ef7"><div class="row sqs-row"><div class="col sqs-col-12 span-12"><div class="sqs-block markdown-block sqs-block-markdown" data-block-type="44" id="block-6d9e7f7d4419306563ed"><div class="sqs-block-content"><p>It was a day like any other day: Squashing bugs, writing code, and  generally being awesome. It was then that I wrote a block of code that needed to be revisited on another day. It's a common scenario you can probably relate to, where I had to interface with an API that wasn't ready/live yet. I knew the general structure of the API's response object, but I had to mock it out since I couldn't test it yet. Like any other developer, I wrote a comment that looked like this:</p><pre class="line-numbers"><code class="language-swift">//TODO: Connect to the actual API when it is ready. 
+//Keeping this code the way it is at release time can only mean bad things. 
+//Really, really bad things. 
+//Like a dragon eating a bunny bad.
+let responseObject = Mock.getMockObjectForAPI("NotReadyAPI")
+
+//Do cool things with the responseObject</code></pre><p>At this point, I wanted to do a warning in Xcode like we used to do in Objective-C with compiler directives like so:</p><pre class="line-numbers"><code class="language-objectivec">#warning For the love of God fix this
+- (NSInteger)crashingMethod {
+    @throw NSInternalInconsistencyException;
+    return 0;
+}</code></pre></div></div><div class="sqs-block image-block sqs-block-image sqs-col-5 span-5 float float-right" data-block-type="5" id="block-yui_3_17_2_10_1435884673640_4910"><div class="sqs-block-content"> 
+
+  
+    <div class="image-block-outer-wrapper layout-caption-below design-layout-inline">
+    
+      <div class="intrinsic" style="max-width:400.0px;">
+        
+          <div style="padding-bottom:100.0%;" class="image-block-wrapper   has-aspect-ratio" data-description="" >
+            <noscript><img src="https://static1.squarespace.com/static/5592eb03e4b051859f0b377f/t/5595eee6e4b06639d23be78f/1435889398468/nq3wj.jpg"  alt="nq3wj.jpg"  /></noscript><img class="thumb-image" alt="nq3wj.jpg" data-src="https://static1.squarespace.com/static/5592eb03e4b051859f0b377f/t/5595eee6e4b06639d23be78f/1435889398468/nq3wj.jpg" data-image="https://static1.squarespace.com/static/5592eb03e4b051859f0b377f/t/5595eee6e4b06639d23be78f/1435889398468/nq3wj.jpg" data-image-dimensions="400x400" data-image-focal-point="0.5,0.5" data-load="false" data-image-id="5595eee6e4b06639d23be78f" data-type="image" />
+          </div>
+        
+
+        
+
+      </div>
+    
+    </div>
+  
+
+
+</div></div><div class="sqs-block markdown-block sqs-block-markdown" data-block-type="44" id="block-yui_3_17_2_5_1436199408624_11624"><div class="sqs-block-content">
+<p>But alas, I could not and that made me sad.</p>
+<p>Like the man of action I am, I did what you would expect me to do: I DID SOMETHING ABOUT IT. <a href="http://jeffreysambells.com/2013/01/31/generate-xcode-warnings-from-todo-comments">Turns out</a>, you can write a run script to achieve this same functionality for you!</p></div></div><div class="sqs-block spacer-block sqs-block-spacer" data-aspect-ratio="2.291666666666667" data-block-type="21" id="block-yui_3_17_2_10_1435884673640_27245"><div class="sqs-block-content">&nbsp;</div></div><div class="sqs-block markdown-block sqs-block-markdown" data-block-type="44" id="block-yui_3_17_2_10_1435884673640_27316"><div class="sqs-block-content"><h1 id="runscriptbuildphases">Run Script Build Phases</h1>
+
+<p>Xcode supports injecting bash commands or scripts in different phases of your dev cycle. You can run a bash script anytime before or after building, running, testing, profiling, analyzing, or even archiving!</p></div></div><div class="sqs-block image-block sqs-block-image sqs-col-8 span-8 float float-right" data-block-type="5" id="block-yui_3_17_2_10_1435884673640_23066"><div class="sqs-block-content"> 
+
+  
+    <div class="image-block-outer-wrapper layout-caption-below design-layout-inline">
+    
+      <div class="intrinsic" style="max-width:1678.0px;">
+        
+          <div style="padding-bottom:24.672229766845703%;" class="image-block-wrapper   has-aspect-ratio" data-description="" >
+            <noscript><img src="https://static1.squarespace.com/static/5592eb03e4b051859f0b377f/t/5595ffe0e4b04425d935ee93/1435893730250/"  /></noscript><img class="thumb-image" data-src="https://static1.squarespace.com/static/5592eb03e4b051859f0b377f/t/5595ffe0e4b04425d935ee93/1435893730250/" data-image="https://static1.squarespace.com/static/5592eb03e4b051859f0b377f/t/5595ffe0e4b04425d935ee93/1435893730250/" data-image-dimensions="1678x414" data-image-focal-point="0.5,0.5" data-load="false" data-image-id="5595ffe0e4b04425d935ee93" data-type="image" />
+          </div>
+        
+
+        
+
+      </div>
+    
+    </div>
+  
+
+
+</div></div><div class="sqs-block markdown-block sqs-block-markdown" data-block-type="44" id="block-yui_3_17_2_10_1435884673640_26436"><div class="sqs-block-content"><p>To do this, navigate to your project's build phases in Xcode, click on the + sign towards the top left of the window, and then click on "New Run Script Build Phase" in the drop down menu:</p></div></div><div class="sqs-block horizontalrule-block sqs-block-horizontalrule" data-block-type="47" id="block-yui_3_17_2_10_1435884673640_32674"><div class="sqs-block-content"><hr /></div></div><div class="sqs-block image-block sqs-block-image sqs-col-6 span-6 float float-left" data-block-type="5" id="block-yui_3_17_2_1_1435976198666_27859"><div class="sqs-block-content"> 
+
+  
+    <div class="image-block-outer-wrapper layout-caption-below design-layout-inline">
+    
+      <div class="intrinsic" style="max-width:1674.0px;">
+        
+          <div style="padding-bottom:24.731182098388672%;" class="image-block-wrapper   has-aspect-ratio" data-description="" >
+            <noscript><img src="https://static1.squarespace.com/static/5592eb03e4b051859f0b377f/t/55974401e4b0f75fd299aea7/1435976707915/"  /></noscript><img class="thumb-image" data-src="https://static1.squarespace.com/static/5592eb03e4b051859f0b377f/t/55974401e4b0f75fd299aea7/1435976707915/" data-image="https://static1.squarespace.com/static/5592eb03e4b051859f0b377f/t/55974401e4b0f75fd299aea7/1435976707915/" data-image-dimensions="1674x414" data-image-focal-point="0.5,0.5" data-load="false" data-image-id="55974401e4b0f75fd299aea7" data-type="image" />
+          </div>
+        
+
+        
+
+      </div>
+    
+    </div>
+  
+
+
+</div></div><div class="sqs-block markdown-block sqs-block-markdown" data-block-type="44" id="block-yui_3_17_2_10_1435884673640_31141"><div class="sqs-block-content"><p>You should then see a new section added where you can inject your bash script. In fact, if you've been going crazy writing Swift scripts after reading my post on <a href="http://krakendev.io/scripting-in-swift">scripting in swift</a>, you can place it in your project's root directory and you can execute it from your new run script!</p></div></div><div class="sqs-block spacer-block sqs-block-spacer" data-aspect-ratio="2.291666666666667" data-block-type="21" id="block-yui_3_17_2_10_1435884673640_34416"><div class="sqs-block-content">&nbsp;</div></div><div class="sqs-block markdown-block sqs-block-markdown" data-block-type="44" id="block-yui_3_17_2_10_1435884673640_33512"><div class="sqs-block-content"><p><strong># Marking Your TODO's, FIXME's, &amp; ERROR's With A Legit Xcode Warning</strong></p>
+
+<p>In the body of your run script build phase, copy and paste this lovely bit of code:</p>
+
+<pre data-preserve-html-node="true" class="line-numbers"><code data-preserve-html-node="true" class="language-bash">TAGS="TODO:|FIXME:"
+find "${SRCROOT}" \( -name "*.h" -or -name "*.m" -or -name "*.swift" \) -print0 | xargs -0 egrep --with-filename --line-number --only-matching "($TAGS).*\$" | perl -p -e "s/($TAGS)/ warning: \$1/"</code></pre>
+
+<p>From here on out, you should now see warnings when you mark your code with <code>TODO:</code> or <code>FIXME:</code> comment blocks! Here's a screenshot of the magic in action:</p></div></div><div class="sqs-block image-block sqs-block-image" data-block-type="5" id="block-yui_3_17_2_10_1435884673640_38040"><div class="sqs-block-content"> 
+
+  
+    <div class="image-block-outer-wrapper layout-caption-below design-layout-inline">
+    
+      <div class="intrinsic" style="max-width:2010.0px;">
+        
+          <div style="padding-bottom:23.184078216552734%;" class="image-block-wrapper   has-aspect-ratio" data-description="" >
+            <noscript><img src="https://static1.squarespace.com/static/5592eb03e4b051859f0b377f/t/55961e1ee4b0eb5f837b7bd4/1435901473346/"  /></noscript><img class="thumb-image" data-src="https://static1.squarespace.com/static/5592eb03e4b051859f0b377f/t/55961e1ee4b0eb5f837b7bd4/1435901473346/" data-image="https://static1.squarespace.com/static/5592eb03e4b051859f0b377f/t/55961e1ee4b0eb5f837b7bd4/1435901473346/" data-image-dimensions="2010x466" data-image-focal-point="0.5,0.5" data-load="false" data-image-id="55961e1ee4b0eb5f837b7bd4" data-type="image" />
+          </div>
+        
+
+        
+
+      </div>
+    
+    </div>
+  
+
+
+</div></div><div class="sqs-block markdown-block sqs-block-markdown" data-block-type="44" id="block-yui_3_17_2_10_1435884673640_39016"><div class="sqs-block-content"><p>To take this even one step further, we can edit this script to also highlight errors using an <code>//ERROR:</code> comment block. As you know, there are situations where we want to step up our warning game and highlight an error by marking our code with <code>//ERROR</code>s. To do this, change your bash script in your run script build phase to say this:</p>
+<pre data-preserve-html-node="true" class="line-numbers"><code data-preserve-html-node="true" class="language-bash">TAGS="TODO:|FIXME:"
+ERRORTAG="ERROR:"
+find "${SRCROOT}" \( -name "*.h" -or -name "*.m" -or -name "*.swift" \) -print0 | xargs -0 egrep --with-filename --line-number --only-matching "($TAGS).*\$|($ERRORTAG).*\$" | perl -p -e "s/($TAGS)/ warning: \$1/" | perl -p -e "s/($ERRORTAG)/ error: \$1/"</code></pre>
+
+<p>I don't know about all of you, but I'm possibly the most forgetful person in the world. <strong>(BUBBLES EDIT: HE <em>REALLY IS</em> THE MOST FORGETFUL PERSON ON EARTH)</strong> When I sign off for the day, I don't always have a completed section of code so I like to use <code>//ERROR:</code>'s in my code to remind what to work on the next day.</p>
+</div></div><div class="sqs-block image-block sqs-block-image" data-block-type="5" id="block-yui_3_17_2_10_1435884673640_45144"><div class="sqs-block-content"> 
+
+  
+    <div class="image-block-outer-wrapper layout-caption-below design-layout-inline">
+    
+      <div class="intrinsic" style="max-width:2018.0px;">
+        
+          <div style="padding-bottom:10.109018325805664%;" class="image-block-wrapper   has-aspect-ratio" data-description="" >
+            <noscript><img src="https://static1.squarespace.com/static/5592eb03e4b051859f0b377f/t/55962242e4b0e7f9efad9ed1/1435902534730/"  /></noscript><img class="thumb-image" data-src="https://static1.squarespace.com/static/5592eb03e4b051859f0b377f/t/55962242e4b0e7f9efad9ed1/1435902534730/" data-image="https://static1.squarespace.com/static/5592eb03e4b051859f0b377f/t/55962242e4b0e7f9efad9ed1/1435902534730/" data-image-dimensions="2018x204" data-image-focal-point="0.5,0.5" data-load="false" data-image-id="55962242e4b0e7f9efad9ed1" data-type="image" />
+          </div>
+        
+
+        
+
+      </div>
+    
+    </div>
+  
+
+
+</div></div><div class="sqs-block markdown-block sqs-block-markdown" data-block-type="44" id="block-yui_3_17_2_10_1435884673640_46003"><div class="sqs-block-content"><p>When my IDE looks like <strong>that</strong> after waking up, I feel pretty compelled to get shit done. And don't worry, error's generated using this run script <strong><em>WILL NOT</em></strong> fail your build.</p></div></div><div class="sqs-block spacer-block sqs-block-spacer" data-aspect-ratio="2.291666666666667" data-block-type="21" id="block-yui_3_17_2_10_1435884673640_63176"><div class="sqs-block-content">&nbsp;</div></div><div class="sqs-block markdown-block sqs-block-markdown" data-block-type="44" id="block-yui_3_17_2_10_1435884673640_59530"><div class="sqs-block-content"><h1 id="conclusion">Conclusion</h1>
+
+<p>In your everyday work environment you will always come across a section of code that you absolutely need to revisit later but have to temporarily patch up to move on. Unfortunately, even a simple <code>//TODO:</code>, <code>//FIXME:</code>, or <code>//ERROR:</code> in a comment is just not enough. You'd be surprised how many people forget their <code>//TODO:</code>'s, <code>//FIXME:</code>'s, and <code>//ERROR:</code>'s in a project's lifetime. Using this run script in this situation is a great way to ensure you don't miss a thing in your project development cycle. Hope this helps!</p></div></div><div class="sqs-block html-block sqs-block-html" data-block-type="2" id="block-yui_3_17_2_10_1435884673640_63533"><div class="sqs-block-content"><p class="text-align-center">Happy coding fellow nerds!</p></div></div><div class="sqs-block image-block sqs-block-image" data-block-type="5" id="block-yui_3_17_2_5_1435903221827_12667"><div class="sqs-block-content"> 
+
+  
+    <div class="image-block-outer-wrapper layout-caption-below design-layout-inline">
+    
+      <div class="intrinsic" style="max-width:450.0px;">
+        
+          <div style="padding-bottom:104.44444274902344%;" class="image-block-wrapper   has-aspect-ratio" data-description="" >
+            <noscript><img src="https://static1.squarespace.com/static/5592eb03e4b051859f0b377f/t/5596261be4b014bac5de33e0/1435903515986/KrakenDevIcon.png"  alt="KrakenDevIcon.png"  /></noscript><img class="thumb-image" alt="KrakenDevIcon.png" data-src="https://static1.squarespace.com/static/5592eb03e4b051859f0b377f/t/5596261be4b014bac5de33e0/1435903515986/KrakenDevIcon.png" data-image="https://static1.squarespace.com/static/5592eb03e4b051859f0b377f/t/5596261be4b014bac5de33e0/1435903515986/KrakenDevIcon.png" data-image-dimensions="450x470" data-image-focal-point="0.5,0.5" data-load="false" data-image-id="5596261be4b014bac5de33e0" data-type="image" />
+          </div>
+        
+
+        
+
+      </div>
+    
+    </div>
+  
+
+
+</div></div></div></div></div>
+        
+
+        <p class="entry-actions">
+          
+          <a class="entry-comments" href="/blog/generating-warnings-in-xcode#comments-outer-wrapper" title="Comments">
+          
+            
+  <a href="/blog/generating-warnings-in-xcode" class="sqs-comment-link sqs-disqus-comment-link" data-id="5594fd5fe4b099fe48976ef7"></a>
+
+
+          
+          </a>
+        
+        
+  <span class="sqs-simple-like" data-item-id="5594fd5fe4b099fe48976ef7" data-like-count="9">
+    <span class="like-icon"></span>
+    <span class="like-count"></span>
+  </span>
+
+<span class="squarespace-social-buttons inline-style" data-system-data-id="" data-asset-url="https://static1.squarespace.com/static/5592eb03e4b051859f0b377f/5594defde4b0ad11495b5c4e/5594fd5fe4b099fe48976ef7/1466895041264/" data-record-type="1" data-full-url="/blog/generating-warnings-in-xcode" data-title="How to Highlight Your TODOs, FIXMEs, &amp; ERRORs In Xcode"></span>
+        </p>
+
+        
+
+      </div>
+      
+    </article>
+
+    <div id="comments-outer-wrapper">
+  <div class="squarespace-comments" id="disqus_thread"></div>
+
+</div>
+  
+
+</section>
+            </div>
+            
+            <footer class="entry-footer clear">
+              <div class="outer-wrapper">
+                <div class="wrapper">
+                  
+                  <div class="entry-meta">
+                    <div><em>Posted in</em> <a href="/?category=Swift" rel="tag">Swift</a></div>
+                     <em>and</em> 
+                    <div><em>tagged with</em> <a href="/?tag=build+phase" rel="tag">build phase</a>, <a href="/?tag=todo" rel="tag">todo</a>, <a href="/?tag=swift" rel="tag">swift</a>, <a href="/?tag=bash" rel="tag">bash</a>, <a href="/?tag=xcode" rel="tag">xcode</a>, <a href="/?tag=fixme" rel="tag">fixme</a>, <a href="/?tag=run+script" rel="tag">run script</a>, <a href="/?tag=generate+warnings" rel="tag">generate warnings</a>, <a href="/?tag=error" rel="tag">error</a>, <a href="/?tag=generate+errors" rel="tag">generate errors</a>, <a href="/?tag=scripting" rel="tag">scripting</a></div>
+                    
+                    
+                    
+                  </div>
+                  
+
+                  
+                  <nav class="pagination cf">
+                    
+                    
+                    <div class="newer"><a href="/blog/subclassing-can-suck-and-heres-why">Newer</a></div>
+                    <div class="older"><a href="/blog/scripting-in-swift">Older</a></div>
+                    
+                    
+                  </nav>
+                  
+                </div>
+              </div>
+            </footer>
+            
+          </div>
+        </section>
+        
+        
+
+      
+
+        <!--FOOTER WITH OPEN BLOCK FIELD-->
+        <footer id="footer">
+          <div class="back-to-top-link"><a href="#top"><span class="arrow"></span>Top</a></div>
+          <div class="footer-wrapper">
+            <div id="secondaryNav" data-content-field="navigation-secondaryNav">
+              
+            </div>
+            <div class="sqs-layout sqs-grid-12 columns-12" data-layout-label="Footer Content" data-type="block-field" data-updated-on="1435948694493" id="footerBlocks"><div class="row sqs-row"><div class="col sqs-col-12 span-12"><div class="sqs-block rss-block sqs-block-rss" data-block-type="49" id="block-yui_3_17_2_2_1435908533023_6948"><div class="sqs-block-content">
+
+<a href="https://krakendev.io/?format=rss" title="KrakenDev RSS" class="social-rss">KrakenDev RSS</a></div></div><div class="sqs-block socialaccountlinks-v2-block sqs-block-socialaccountlinks-v2" data-block-type="54" id="block-yui_3_17_2_1_1404423809069_5215"><div class="sqs-block-content">
+
+<div class="sqs-svg-icon--outer social-icon-alignment-center social-icons-color-white social-icons-size-extra-large social-icons-shape-circle social-icons-style-knockout" >
+  <nav class="sqs-svg-icon--list">
+    <a href="https://twitter.com/allonsykraken" target="_blank" class="sqs-svg-icon--wrapper twitter">
+      <div>
+        <svg class="sqs-svg-icon--social" viewBox="0 0 64 64">
+          <use class="sqs-use--icon" xlink:href="/universal/svg/social-accounts.svg#twitter-icon"></use>
+          <use class="sqs-use--mask" xlink:href="/universal/svg/social-accounts.svg#twitter-mask"></use>
+        </svg>
+      </div>
+    </a><a href="https://github.com/hectormatos2011" target="_blank" class="sqs-svg-icon--wrapper github">
+      <div>
+        <svg class="sqs-svg-icon--social" viewBox="0 0 64 64">
+          <use class="sqs-use--icon" xlink:href="/universal/svg/social-accounts.svg#github-icon"></use>
+          <use class="sqs-use--mask" xlink:href="/universal/svg/social-accounts.svg#github-mask"></use>
+        </svg>
+      </div>
+    </a><a href="https://www.linkedin.com/in/hectormatos" target="_blank" class="sqs-svg-icon--wrapper linkedin">
+      <div>
+        <svg class="sqs-svg-icon--social" viewBox="0 0 64 64">
+          <use class="sqs-use--icon" xlink:href="/universal/svg/social-accounts.svg#linkedin-icon"></use>
+          <use class="sqs-use--mask" xlink:href="/universal/svg/social-accounts.svg#linkedin-mask"></use>
+        </svg>
+      </div>
+    </a><a href="https://www.pinterest.com/hectormatos2011/" target="_blank" class="sqs-svg-icon--wrapper pinterest">
+      <div>
+        <svg class="sqs-svg-icon--social" viewBox="0 0 64 64">
+          <use class="sqs-use--icon" xlink:href="/universal/svg/social-accounts.svg#pinterest-icon"></use>
+          <use class="sqs-use--mask" xlink:href="/universal/svg/social-accounts.svg#pinterest-mask"></use>
+        </svg>
+      </div>
+    </a><a href="mailto:hectormatos2011@gmail.com" target="_blank" class="sqs-svg-icon--wrapper email">
+      <div>
+        <svg class="sqs-svg-icon--social" viewBox="0 0 64 64">
+          <use class="sqs-use--icon" xlink:href="/universal/svg/social-accounts.svg#email-icon"></use>
+          <use class="sqs-use--mask" xlink:href="/universal/svg/social-accounts.svg#email-mask"></use>
+        </svg>
+      </div>
+    </a>
+  </nav>
+</div></div></div><div class="sqs-block newsletter-block sqs-block-newsletter" data-block-type="51" id="block-yui_3_17_2_11_1435903221827_14753"><div class="sqs-block-content">
+
+<div class="newsletter-form-wrapper  " >
+
+  <form class="newsletter-form" autocomplete="on" method="POST" onsubmit="return (function(form) { Y.use
+  ('squarespace-form-submit', 'node',
+  function (Y) { (new Y.Squarespace.FormSubmit({ formNode: Y.Node(form) })).submit('55962f8be4b04ab9f75bf349', '', 'footerBlocks') }); return false;})(this)">
+
+    <header class="newsletter-form-header">
+      <h2 class="newsletter-form-header-title">Get Notified!</h2>
+      <div class="newsletter-form-header-description"><p>Sign up with your email address to get notified when I post something new. Go on. Go ahead. You know you wanna. All the cool kids are doing it.</p></div>
+    </header>
+
+    <div class="newsletter-form-body">
+
+      <div class="newsletter-form-fields-wrapper form-fields">
+
+        
+
+        
+
+          
+            <div id="email-yui_3_17_2_11_1435903221827_14760" class="newsletter-form-field-wrapper form-item field email required">
+              <label class="newsletter-form-field-label title" for="email-yui_3_17_2_11_1435903221827_14760-field">Email Address</label>
+              <input id="email-yui_3_17_2_11_1435903221827_14760-field" class="newsletter-form-field-element field-element" name="email" x-autocompletetype="email" type="text" spellcheck="false" placeholder="Email Address" />
+            </div>
+          
+
+        
+
+          
+
+        
+
+      </div>
+
+      <div class="newsletter-form-button-wrapper submit-wrapper">
+        <button class="newsletter-form-button sqs-system-button sqs-editable-button-layout sqs-editable-button-style sqs-editable-button-shape" type="submit" value="Do It!"><span class="newsletter-form-spinner sqs-spin light large"></span><span class="newsletter-form-button-label">Do It!</span><span class="newsletter-form-button-icon"></span></button>
+      </div>
+
+    </div>
+
+    
+      <div class="newsletter-form-footnote"><p>I respect your privacy and will NEVER share your data with anyone. You can count on me.</p></div>
+    
+
+    <div class="hidden form-submission-text"><p>You, my friend, are awesome. And you've made my day. Thank you for making my day. Here's an awesome quote:</p><p>I am Inigo Montoya. You killed my father. Prepare to die.</p></div>
+    <div class="hidden form-submission-html" data-submission-html=""></div>
+
+  </form>
+
+</div>
+</div></div></div></div></div>
+          </div>
+        </footer>
+
+      <script type="text/javascript" data-sqs-type="imageloader-bootstraper">(function() {if(window.ImageLoader) { window.ImageLoader.bootstrap(); }})();</script>
+<script>Squarespace.afterBodyLoad(Y);</script>
+      <script type="text/javascript" src="https://static1.squarespace.com/static/ta/5592eb03e4b051859f0b377f/9/scripts/combo/?mutation-observer.js&rafscroll.js&site.js"></script>
+      
+      
+      </div>
+    </div>
+
+  
+  </body>
+</html>

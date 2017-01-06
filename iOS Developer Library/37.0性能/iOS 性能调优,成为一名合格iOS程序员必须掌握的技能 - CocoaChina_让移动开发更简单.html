@@ -1,0 +1,793 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <title>iOS 性能调优,成为一名合格iOS程序员必须掌握的技能 - CocoaChina_让移动开发更简单</title>
+    <meta name="keywords" content="iOS性能调优,测试,Instuments,Core AnimationiPhone开发,iOS开发,iPad开发,Mac开发,苹果开发中文站,iPhone开发中文站,CocoaChina首页, Mac OS开发, Cocoa介绍,移动互联网,触控科技,Cocoa,Apple,developer,iOS,iPhone,iPad,iMac,iPod Touch,iPhone5,iPhone4S,iPad3,招聘,iPhone程序员,Objective-c,iPhone应用外包,ios6,ios面试,Cocos2d-x,cocos2d,iTunes,App Store,苹果开发" />
+    <meta name="description" content="CocoaChina前身是全球成立最早规模最大的苹果开发中文站，现致力为所有移动开发者提供资讯服务、问答服务、代码下载、工具库及人才招聘服务" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="baidu-tc-cerfication" content="3300a939a1098c27e94457b75a0bb8c1" />
+    <script type='text/javascript'>
+        function gotoMobilePage() {
+            var sUserAgent = navigator.userAgent.toLowerCase();
+            var agent_iphone = /iphone/i;
+            var agent_android = /android/i;
+            //var agent_ipad = /ipad/i;
+            var agent_ipod = /ipod/i;
+            var agent_wphone = /windows phone/i;
+            if(agent_iphone.test(sUserAgent) || agent_android.test(sUserAgent) || agent_ipod.test(sUserAgent) || agent_wphone.test(sUserAgent)){
+                var re = /\/\w+\/\d+\/(\d+)\.html/, 
+                    result = re.exec(window.location.pathname);
+                if ( result )
+                {
+                    window.location.href = "http://www.cocoachina.com/cms/wap.php?action=article&id=" + result[1];
+                } else {
+                    window.location.href = "http://m.cocoachina.com/";
+                }
+            }
+        }
+        gotoMobilePage(); 
+    </script>
+    <link rel="stylesheet" href="http://cdn.cocimg.com/assets/css/global.css?v=20150818" media="all">
+    <link rel="stylesheet" href="http://cdn.cocimg.com/assets/css/index.css?v=20151015" media="all">
+    <link href="http://cdn.cocimg.com/assets/css/module.css?v=20150906" rel="stylesheet">
+    <link href="http://cdn.cocimg.com/assets/css/style.css?v=620150818" rel="stylesheet">
+    <link href="http://cdn.cocimg.com/assets/css/navheader.css?v=20160301" rel="stylesheet" />
+    <script src="http://cdn.cocimg.com/assets/js/jquery.min.js?v=20150818" type="text/javascript"></script>
+    <script type="text/javascript" src="http://cdn.cocimg.com/assets/js/navbar.js?v=20151013"></script>
+    <script type="text/javascript" src="http://s.csbew.com/k.js"></script>
+    
+</head>
+<body>
+
+    <div class="nav-header">
+            <div class="nav-header-top">
+                <div class="nav-logo nav-fl"><a href="/"><img src="http://cdn.cocimg.com/assets/images/logo.png?v=201510272" /></a></div>
+                <div class="nav-list nav-fl">
+                    <ul>
+                        <li><a href="/news/">资讯</a></li>
+                        <li><a href="/bbs/">论坛</a></li>
+                        <li><a target="_blank" href="http://code.cocoachina.com/" title="CODE">代码</a></li>
+                        <li><a href="http://tools.cocoachina.com" title="工具" target='_blank'>工具</a></li>
+                        <li><a target="_blank" href="http://job.cocoachina.com/" title="JOB">招聘</a></li>
+                        <li><a target="_blank" href="http://cvp.cocos.com/" title="CVP">CVP</a></li>
+                        <li><a target="_blank" href="http://waikuai.cocoachina.com/" title="waikuai">外快</a></li>
+                        <li><a target="_blank" href="http://blog.cocoachina.com/" title="blog">博客</a><span class="new-item-flag">new</span></li>
+                    </ul>
+                </div>
+                <div class="nav-search nav-fl">
+                    <div class="nav-search-flag" style="display:block"><img src="http://cdn.cocimg.com/assets/img/search-icon.png?v=20150825" /></div>
+                    <div class="nav-search-form" style="display:none">
+                        <form action="/cms/plus/search.php" name="formsearch" method="post" target="_blank">
+                            <input type="hidden" name="kwtype" value="0" />
+                            <input type="hidden" name="searchtype" value="titlekeyword" />
+                            <input name="keyword" type="text" placeholder="站内搜索" />
+                            <input type="button" />
+                        </form>
+                    </div>
+                </div>
+                <div class="nav-user nav-fr">
+                    <!-- #region 未登录时显示此区域 -->
+                    <div class="nav-user-login" style="display:block">
+                        <a href="/bbs/login.php">登录</a>|
+                        <a href="/bbs/register.php">注册</a>
+                    </div>
+                    <!-- #endregion -->
+                    <!-- #region 已登录时显示此区域 -->
+                    <div class="nav-user-name" style="display:none">
+                        <div><alert></alert><img src="/assets/img/user.png" />Guest</div>
+                        <ul>
+                            <li><a href="#"><img src="/assets/img/i-man.png" />我的主页</a></li>
+                            <li><alert></alert><a href="#"><img src="/assets/img/i-mail.png" />我的消息</a></li>
+                            <li><a href="#"><img src="/assets/img/i-setting.png" />账户设置</a></li>
+                            <li><a href="index-offline.html"><img src="/assets/img/i-logout.png" />退出</a></li>
+                        </ul>
+                    </div>
+                    <!-- #endregion -->
+                </div>
+                <div class="nav-clear"></div>
+            </div>
+        <div class="nav-header-bottom">
+            <ul>
+                <li><a id="ios" href="/ios/" title="ios">iOS开发</a></li>
+                <li><a id="swift" href="/swift/" title="swift">Swift</a></li>
+                <li><a id="app_store" href="/appstore/" title="appstore">App Store研究</a></li>
+                <li><a id="design" href="/design/" title="design">产品设计</a></li>
+                <li><a id="review" href="/review/" title="review">应用</a></li>
+                <li><a id="review" href="/vr/" title="review">VR</a></li>
+                <li><a id="game" href="/game/" title="game">游戏开发</a></li>
+                <li><a id="apple" href="/apple/" title="apple">苹果相关</a></li>
+                <!-- <li><a id="cocos" href="/cocos/" title="cocos">Cocos引擎</a></li>-->
+                <!--<li><a id="webapp" href="/webapp/" title="HTML5">HTML5</a></li>-->
+                <li><a id="android" href="/android/" title="android">安卓相关</a></li>
+                <li><a id="market" href="/market/" title="market">营销推广</a></li>
+                <li><a id="industry" href="/industry/" title="industry">业界动态</a></li>
+                <li><a id="programmer" href="/programmer/" title="programmer">程序人生</a></li>
+            </ul>
+        </div>
+    </div>
+
+<script language="javascript">
+    function IsPC() {
+        var userAgentInfo = navigator.userAgent;
+        var Agents = new Array("Android", "iPhone", "SymbianOS", "Windows Phone", "iPod");
+        var flag = true;
+        for (var v = 0; v < Agents.length; v++) {
+        if (userAgentInfo.indexOf(Agents[v]) > 0) { flag = false; break; }
+        }
+        return flag;
+    }
+    if (!IsPC()){
+           window.location.href = "http://www.cocoachina.com/cms/wap.php?action=article&id=18528";
+    }
+
+</script>
+<!--middle-->
+<div class="middle clearfix">
+    <div class="m-wrap">
+        <div class="m-ad2" style="margin-top:12px;">
+            <div class="ad2-l">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- CC首页底部左侧72890 -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:728px;height:90px"
+                     data-ad-client="ca-pub-1180518835303646"
+                     data-ad-slot="8012423965"></ins>
+                <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            <div class="ad2-r">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- CC资讯页25090 -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:250px;height:90px"
+                     data-ad-client="ca-pub-1180518835303646"
+                     data-ad-slot="9489157162"></ins>
+                <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </div>
+        <!--left-->
+        <div class="detail-left float-l">
+            <p class="crumbs"><a href="/" title="首页">首页</a> &gt;</span><a href="/ios" title="iOS开发"><span id="type_name">iOS开发</span></a></p>
+            <div class="detail-main">
+                <h2>iOS 性能调优,成为一名合格iOS程序员必须掌握的技能</h2>
+                <div class="p-ico clearfix">
+                    <div>
+                        <span class="ml0">2017-01-06 06:06</span>
+                        <span>编辑：
+                        <a href="" id="field_author" target="_blank">AllanHou</a></span>
+                        <span>分类：<a href="/ios/" target="_blank">iOS开发</a></span>
+                        <span id="source">来源：<a href="http://www.jianshu.com/p/05b68c84913a" target="_blank">iOS巍的简书</a></span>
+
+                        <div class="float-r">
+                            <span id="artical_comment_cnt"><i></i></span>
+                            <span><i class="view"></i><script src="/cms/plus/count.php?view=yes&aid=18528&mid=68" language="javascript"></script></span>
+                    </div>
+                    </div>
+                </div>
+                <div class="p-ico clearfix">
+                    <p class="related float-l"><a href="/cms/tags.php?/Core+animation/" target="_blank">Core animation</a><a href="/cms/tags.php?/%E6%B5%8B%E8%AF%95/" target="_blank">测试</a><a href="/cms/tags.php?/iOS%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/" target="_blank">iOS性能调优</a><a href="/cms/tags.php?/Instuments/" target="_blank">Instuments</a></p>
+                    <input type="hidden" id="article_id"  value="18528"/>
+                </div>
+                <div class="adsbox clearfix">
+                    <div class="float-l">
+                        <div class="float-l"><b>招聘信息：</b></div>
+                        <ul class="float-l" id="invitelist" style="margin-top: 0px;">
+                            <li><a href='http://job.cocoachina.com/job/show?id=68283' target='_blank'>Mac开发</a></li><li><a href='http://job.cocoachina.com/job/show?id=68039' target='_blank'>技术合伙人</a></li><li><a href='http://job.cocoachina.com/job/show?id=68040' target='_blank'>移动应用开发项目经理</a></li><li><a href='http://job.cocoachina.com/job/show?id=68288' target='_blank'>iOS Developer</a></li><li><a href='http://job.cocoachina.com/job/show?id=68348' target='_blank'>微信书城开发</a></li><li><a href='http://job.cocoachina.com/job/show?id=68347' target='_blank'>数字图书商城开发</a></li><li><a href='http://job.cocoachina.com/job/show?id=68346' target='_blank'>iOS维护</a></li><li><a href='http://job.cocoachina.com/job/show?id=68345' target='_blank'>手机视频剪辑字幕配音工具iOS类app</a></li><li><a href='http://job.cocoachina.com/job/show?id=68344' target='_blank'>点读笔开发</a></li><li><a href='http://job.cocoachina.com/job/show?id=68343' target='_blank'>UI设计</a></li><li><a href='http://job.cocoachina.com/job/show?id=68342' target='_blank'>app推广与运营</a></li>
+                            <!--<script src="http://www.cocoachina.com/bbs/new.php?action=article&fidin=26&digest=0&postdate=0&author=0&fname=0&hits=0&replies=0&pre=1&num=3&length=120&order=2" charset="gbk"></script>-->
+                        </ul>
+                    </div>
+                    <div class="float-r">
+                        <a href="javascript:void(0)" class="prev"></a>
+                        <a href="javascript:void(0)" class="next"></a>
+                    </div>
+                </div>
+                <div id="detailbody" class="field_body">
+                    <p>Tip: 很多大大留言说，不能登录，没法看，因为需要在YWWeiBoCommon.swift文件里面配置 自己的微博AppKey等信息，其实只要看了评论的人，就知道怎么回事了，因为问的比较多，所以在这里说一下，就不一一回复了<br/>提供了基于Swift3.0模仿的新浪微博的Demo，大家可以下载看一看:<a href="https://github.com/iosyaowei/Weibo" target="_blank">基于Swift3.0高仿的微博客户端</a>,里面针对于微博首页的复杂页面的优化做了很多的处理，页面的FPS 一直保持在59 ~ 60 。<br/>看下demo的效果：</p><p style="text-align:center"><img src="http://cc.cocimg.com/api/uploads/20170105/1483621665565015.gif" title="1483621665565015.gif" alt="0011.gif"/></p><p style="text-align: center;">FPS测试.gif</p><p><strong>CPU 和GPU</strong></p><p>关于绘图和动画有两种处理方式CPU(中央处理器)和GPU(图形处理器)，CPU的工作都在软件层面，而GPU的在硬件层面。<br/>总的来说，可以使用CPU做任何事情，但是对于图像的处理，通常GPU会更快，因为GPU使用图像对高度并行浮点运算做了优化（尽管我也不知道是什么鬼？？），所以，我们想尽可能的把屏幕渲染的工作交给硬件去处理，而问题在于GPU并没有无限制处理的性能，一旦资源用尽，即使CPU并没有完全占用，GPU性能还是会下降。<br/>所以，目前大多的性能优化都是关于智能利用GPU和CPU，平衡它们之间工作负载。</p><p><strong>测量，而不是猜测</strong></p><p>现在知道哪些可能会影响性能，该如何修复呢？有许多传统的诡计来优化，但如果盲目使用的话，可能会造成更多性能上的问题，而不是优化了。<br/>如何正确的测量而不是猜测这点很重要，根据性能相关知识写出的代码不同于仓促优化，前者是正确的姿势，后者则是在浪费生命。<br/>那改如何测量，第一步就是确保在真实环境下测试你的程序。</p><p><strong>真机测试，而不是模拟器</strong></p><p>当你开始做一些性能方面的工作时候，一定要在真机上测试，而不是模拟器，模拟器虽然可以加快开发效率，但却不能准确提供真机的性能参数<br/>模拟器运行在Mac上，然而Mac上的cpu比ios设备要快很多，相反，Mac上的GPU和ios设备上的不一样，模拟器不得已需要在软件层面(CPU)模拟ios设备，所以GPU的相关操作在模拟器上面运行的会更慢<br/>另一件重要的就是性能测试的时候一定要用发布配置，而不是调试模式，因为当用发布环境打包的时候，编译器会引入一些提高性能的优化，比如：去除调试符号或者移除并重新组织代码，因为可以自己做到这些，比如禁用NSlog、print语句，因为 ，只需要关心发布性能。</p><p><strong>测试帧率</strong></p><p>可以在程序中使用CADisplayLink来测量帧率，在屏幕上显示出来,我用Swift3.0模仿YY大神的代码写了一个简单的FPS指示器&nbsp;<a href="https://github.com/iosyaowei/Weibo/blob/master/WeiBo/Classes/Utils(%E5%B7%A5%E5%85%B7)/YWFPSLabel/YWFPSLabel.swift" target="_blank">YWFPSLabel</a>,使用CADisplayLink监视FPS数值，日常开发的时候，可以有直接的体现，不用再靠猜了...<br/><a href="https://github.com/iosyaowei/Weibo/blob/master/WeiBo/Classes/Utils(%E5%B7%A5%E5%85%B7)/YWFPSLabel/YWFPSLabel.swift" target="_blank">YWFPSLabel</a>集成也很方便,在AppDelegate的application方法里加下面两句即可</p><pre class="brush:js;toolbar:false">let&nbsp;FPSLab&nbsp;=&nbsp;YWFPSLabel(frame:&nbsp;CGRect())
+UIApplication.shared.keyWindow!.addSubview(FPSLab)</pre><p>不知道大家有木有看到头部那个小label啊~~~<br/>但是应用内的FPS显示并不能完全真实的测量出性能，因为它仅仅能测试出应用内的帧率，还有很多是动画都是在应用外发生（在渲染进程中处理），但应用内FPS计数可以对一些性能问题提供参考，一旦找到问题，需要更多的精确详细信息来定位问题所在，我们就要使用Instuments了，它可以看到更多准确是信息，查看到所有与显示的数据。</p><p><strong>Instuments</strong></p><p>Instuments是Xcode套件中没有被充分利用的工具，很多iOS开发者从来没用过Instrument，特别是通过短暂培训出来的同学们，所以，很多面试官也会问性能条调优方面的知识，来判断面试的同学是否真正应用对年开发经验。</p><ul class=" list-paddingleft-2" ><li><p>Activity Monitor</p></li></ul><p>个人觉的很像Windows的任务管理器，可以查看所有的进程，以及进程的内存、cpu使用百分比等数据等，就不多介绍了，打开一看大概就知道怎么回事</p><ul class=" list-paddingleft-2" ><li><p>Allocations</p></li></ul><p>管理内存是app开发中最重要的一个方面，对于开发者来说，在程序架构中减少内存的使用通常都是使用Allocations去定位和找出减少内存使用的方式<br/>接下来，谈一下内存泄漏的两种情况</p><ul class=" list-paddingleft-2" ><li><p>第一种：为对象A申请了内存空间，之后再也没用过对象A，也没释放过A导致内存泄漏，这种是Leaked Memory内存泄漏</p></li><li><p>第二种：类似于递归，不断地申请内存空间导致的内存泄漏，这种情况是Abandoned Momory<br/>此工具可以让开发者很好的了解每个方法占用内存的情况，并定位相关的代码<br/></p></li></ul><p style="text-align:center"><img src="http://cc.cocimg.com/api/uploads/20170105/1483621770994991.png" title="1483621770994991.png" alt="2240549-b3c8cf33409d836d.png" width="857" height="511" style="width: 857px; height: 511px;"/></p><p style="text-align: center;">Allocations查看方法占用内存.png</p><p>右键就可以打开Xcode自动定位到相关占用内存方法的代码上</p><p style="text-align:center"><img src="http://cc.cocimg.com/api/uploads/20170105/1483621806154847.png" title="1483621806154847.png" alt="QQ截图20170105210957.png"/></p><p style="text-align: center;">定位到相关代码.png</p><p>第二种情况可以根据下图的操作清晰的找到对用的代码问题</p><p style="text-align:center"><img src="http://cc.cocimg.com/api/uploads/20170105/1483621830325953.png" title="1483621830325953.png" alt="QQ截图20170105211019.png"/></p><p style="text-align: center;">定位Abandoned Momory.png</p><p>解释一下，第二种情况我们应该如何操作，重复的执行一系列的操作时候内存不会继续增加，比如打开和关闭一个窗口，这样的操作，每一次操作的前后，内存应该是相同的，通过多次循环操作，内存不会递增下去，通过这种分析结果，观察内存分配趋势，当发现不正确的结果或者矛盾的结果，就可以研究是不是Abandoned Momory的问题，并可以修正这个问题了</p><p><strong>Core Animation</strong></p><p>之前说过自己写的<a href="https://github.com/iosyaowei/Weibo/blob/master/WeiBo/Classes/Utils(%E5%B7%A5%E5%85%B7)/YWFPSLabel/YWFPSLabel.swift" target="_blank">YWFPSLabel</a>只能检测应用内的FPS,而此工具考虑到了程序外的动画，理想的FPS值为60左右，过低的话就用该进性优化了，根据WWDC的说法，当FPS 低于45的时候，用户就会察觉到到滑动有卡顿</p><p style="text-align:center"><img src="http://cc.cocimg.com/api/uploads/20170105/1483621877125562.png" title="1483621877125562.png" alt="QQ截图20170105211110.png"/></p><p style="text-align: center;">Core Animation.png</p><p>圈着数字红色方框中的数字，代表着FPS值，理论上60最佳，实际过程中59就可以了，说明就是很流畅的，说明一下操作方式：在手指不离开屏幕的情况下，上下滑动屏幕列表<br/>介绍一下Deug Display中选项的作用</p><ul class=" list-paddingleft-2" ><li><p>Color Blended Layers（混合过度绘制）</p></li></ul><p>打开此选项屏幕的效果图如下：<br/></p><p style="text-align:center"><img src="http://cc.cocimg.com/api/uploads/20170105/1483621901286697.jpg" title="1483621901286697.jpg" alt="2240549-0f7b0b69d9980910.jpg" width="460" height="843" style="width: 460px; height: 843px;"/></p><p style="text-align: center;">Color Blended Layers.jpg</p><p>这个选项基于渲染程度对屏幕中的混合区域进行绿到红的高亮（也就是多个半透明图层的叠加），由于重绘的原因，混合对GPU性能会有影响，同时也是滑动或者动画掉帧的罪魁祸首之一<br/>GPU每一帧的绘制的像素有最大限制，这个情况下可以轻易绘制整个屏幕的像素，但如果发生重叠像素的关系需要不停的重绘同一区域的，掉帧和卡顿就有可能发生<br/>GPU会放弃绘制那些完全被其他图层遮挡的像素，但是要计算出一个图层是否被遮挡也是相当复杂并且会消耗CPU的资源，同样，合并不同图层的透明重叠元素消耗的资源也很大，所以，为了快速处理，一般不要使用透明图层，<br/>1). 给View添加一个固定、不透明的颜色<br/>2). 设置opaque 属性为true<br/>但是这对性能调优的帮助并不大，因为UIView的opaque 属性默认为true，也就是说，只要不是认为设置成透明，都不会出现图层混合<br/>而对于UIIimageView来说，不仅需要自身需要不是透明的，它的图片也不能含有alpha通道，这也上图9张图片是绿色的原因，因此图像自身的性质也可能会对结果有影响，所以你确定自己的代码没问题，还出现了混合图层可能就是图片的问题了<br/>而针对于屏幕中的文字高亮成红色，是因为一没有给文字的label增加不透明的背景颜色，而是当UILabel内容为中文时，label的实际渲染区域要大于label的size，因为外围有了一圈的阴影，才会出现图层混合我们需要给中文的label加上如下代码：</p><pre class="brush:js;toolbar:false">retweededTextLab?.layer.masksToBounds&nbsp;=&nbsp;true
+retweededTextLab?.backgroundColor&nbsp;=&nbsp;UIColor.groupTableViewBackground
+statusLab.layer.masksToBounds&nbsp;=&nbsp;true
+statusLab.backgroundColor&nbsp;=&nbsp;UIColor.white</pre><p>看下效果图：</p><p style="text-align:center"><img src="http://cc.cocimg.com/api/uploads/20170105/1483621968537192.png" title="1483621968537192.png" alt="QQ截图20170105211240.png"/></p><p style="text-align: center;">图层混合优化.png</p><p>那些label的颜色也变成蓝色的了，这里有一点需要说明一下，<br/>1).&nbsp;statusLab.layer.masksToBounds = true&nbsp;单独使用不会出现离屏渲染<br/>2). 如果对label设置了圆角的话，圆角部分会离屏渲染，离屏渲染的前提是位图发生了形变</p><ul class=" list-paddingleft-2" ><li><p>Color Hits Green and Misses Red(光栅化缓存图层的命中情况)</p></li></ul><p>这个选项主要是检测我们有无滥用或正确使用layer的shouldRasterize属性.成功被缓存的layer会标注为绿色,没有成功缓存的会标注为红色。<br/>很多视图Layer由于Shadow、Mask和Gradient等原因渲染很高，因此UIKit提供了API用于缓存这些Layer,self.layer.shouldRasterize = true系统会将这些Layer缓存成Bitmap位图供渲染使用，如果失效时便丢弃这些Bitmap重新生成。图层Rasterization栅格化好处是对刷新率影响较小，坏处是删格化处理后的Bitmap缓存需要占用内存，而且当图层需要缩放时，要对删格化后的Bitmap做额外计算。 使用这个选项后时，如果Rasterized的Layer失效，便会标注为红色，如果有效标注为绿色。当测试的应用频繁闪现出红色标注图层时，表明对图层做的Rasterization作用不大。<br/>在测试的过程中,第一次加载时,开启光栅化的layer会显示为红色,这是很正常的,因为还没有缓存成功。但是如果在接下来的测试,。例如我们来回滚动TableView时,我们仍然发现有许多红色区域,那就需要谨慎对待了</p><ul class=" list-paddingleft-2" ><li><p>Color Copied Image (拷贝的图片)</p></li></ul><p>这个选项主要检查我们有无使用不正确图片格式,由于手机显示都是基于像素的，所以当手机要显示一张图片的时候，系统会帮我们对图片进行转化。比如一个像素占用一个字节，故而RGBA则占用了4个字节，则1920 x 1080的图片占用了7.9M左右，但是平时jpg或者png的图片并没有那么大，因为它们对图片做了压缩，但是是可逆的。所以此时，如果图片的格式不正确，则系统将图片转化为像素的时间就有可能变长。而该选项就是检测图片的格式是否是系统所支持的，若是GPU不支持的色彩格式的图片则会标记为青色,则只能由CPU来进行处理。CPU被强制生成了一些图片，然后发送到渲染服务器，而不是简单的指向原始图片的的指针。我们不希望在滚动视图的时候,CPU实时来进行处理,因为有可能会阻塞主线程。</p><ul class=" list-paddingleft-2" ><li><p>Color Immediately (颜色立即更新)</p></li></ul><p>通常 Core Animation 以每秒10此的频率更新图层的调试颜色，对于某些效果来说，这可能太慢了，这个选项可以用来设置每一帧都更新（可能会影响到渲染性能，所以不要一直都设置它）</p><ul class=" list-paddingleft-2" ><li><p>Color Misaligned Image (图片对齐方式)</p></li></ul><p>这里会高亮那些被缩放或者拉伸以及没有正确对齐到像素边界的图片，即图片Size和imageView中的Size不匹配，会使图过程片缩放，而缩放会占用CPU，所以在写代码的时候保证图片的大小匹配好imageView，如下图所示：<br/>图片尺寸 170 * 220px</p><pre class="brush:js;toolbar:false">let&nbsp;imageView&nbsp;=&nbsp;UIImageView(frame:&nbsp;CGRect(x:&nbsp;50,&nbsp;y:&nbsp;100,&nbsp;width:&nbsp;170,&nbsp;height:&nbsp;220))
+imageView.image&nbsp;=&nbsp;UIImage(named:&nbsp;"cat")
+view.addSubview(imageView)</pre><p>苹果的单位以点计算，而 imageView的尺寸是170&nbsp;220 pt 而图片是 170&nbsp;220px，所以相当于在屏幕上对图片方法了一倍，看效果图如下：<br/></p><p style="text-align:center"><img src="http://cc.cocimg.com/api/uploads/20170105/1483622018900138.png" title="1483622018900138.png" alt="2240549-28d9369c482b5375.png"/></p><p style="text-align: center;">Color Misaligned Image.png</p><p>可以看到图片高亮成黄色显示，更改下imageView的大小</p><pre class="brush:js;toolbar:false">let&nbsp;imageView&nbsp;=&nbsp;UIImageView(frame:&nbsp;CGRect(x:&nbsp;50,&nbsp;y:&nbsp;100,&nbsp;width:&nbsp;85,&nbsp;height:&nbsp;110))
+imageView.image&nbsp;=&nbsp;UIImage(named:&nbsp;"cat")
+view.addSubview(imageView)</pre><p>看下效果图</p><p style="text-align:center"><img src="http://cc.cocimg.com/api/uploads/20170105/1483622038385992.png" title="1483622038385992.png" alt="2240549-212550d0ec32e60a.png"/></p><p style="text-align: center;">Color Misaligned Image -2.png</p><p>当imageView和image的大小一致的时候，就正常显示了</p><ul class=" list-paddingleft-2" ><li><p>Color Offscreen- Rendered Yellow (离屏渲染)</p></li></ul><p>这里会把那些需要离屏渲染的到图层高亮成黄色，而出发离屏渲染的可能有</p><pre class="brush:js;toolbar:false">/*&nbsp;圆角处理&nbsp;*/
+view.layer.maskToBounds&nbsp;=&nbsp;truesomeView.clipsToBounds&nbsp;=&nbsp;true
+/*&nbsp;设置阴影&nbsp;*/
+view.shadow..
+/*&nbsp;栅格化&nbsp;*/
+view.layer.shouldRastarize&nbsp;=&nbsp;true</pre><p>针对栅格化处理，我们需要指定屏幕的分辨率</p><pre class="brush:js;toolbar:false">//离屏渲染&nbsp;-&nbsp;异步绘制&nbsp;&nbsp;耗电
+self.layer.drawsAsynchronously&nbsp;=&nbsp;true
+
+//栅格化&nbsp;-&nbsp;异步绘制之后&nbsp;，会生成一张独立的图片&nbsp;cell&nbsp;在屏幕上滚动的时候，本质上滚动的是这张图片&nbsp;
+//cell&nbsp;优化，要尽量减少图层的数量，想当于只有一层
+//停止滚动之后，可以接受监听
+self.layer.shouldRasterize&nbsp;=&nbsp;true
+
+//使用&nbsp;“栅格化”&nbsp;必须指定分辨率
+self.layer.rasterizationScale&nbsp;=&nbsp;UIScreen.main.scale</pre><p>指定阴影的路径，可以防止离屏渲染</p><pre class="brush:js;toolbar:false">//&nbsp;指定阴影曲线，防止阴影效果带来的离屏渲染
+imageView.layer.shadowPath&nbsp;=&nbsp;UIBezierPath(rect:&nbsp;imageView.bounds).cgPath</pre><p>这行代码制定了阴影路径，如果没有手动指定，Core Animation会去自动计算，这就会触发离屏渲染。如果人为指定了阴影路径，就可以免去计算，从而避免产生离屏渲染。<br/>设置cornerRadius本身并不会导致离屏渲染，但很多时候它还需要配合layer.masksToBounds = true使用。根据之前的总结，设置masksToBounds会导致离屏渲染。解决方案是尽可能在滑动时避免设置圆角，如果必须设置圆角，可以使用光栅化技术将圆角缓存起来：</p><p>// 设置圆角label.layer.masksToBounds = truelabel.layer.cornerRadius = 8label.layer.shouldRasterize = truelabel.layer.rasterizationScale = layer.contentsScale<br/></p><p>如果界面中有很多控件需要设置圆角，比如tableView中，当tableView有超过25个圆角，使用如下方法</p><p>view.layer.cornerRadius = 10view.maskToBounds = Yes<br/></p><p>那么fps将会下降很多，特别是对某些控件还设置了阴影效果，更会加剧界面的卡顿、掉帧现象，对于不同的控件将采用不同的方法进行处理：<br/>1). 对于label类，可以通过CoreGraphics来画出一个圆角的label<br/>2). 对于imageView，通过CoreGraphics对绘画出来的image进行裁边处理，形成一个圆角的imageView,代码如下:</p><pre class="brush:js;toolbar:false">&nbsp;&nbsp;&nbsp;&nbsp;///&nbsp;创建圆角图片
+&nbsp;&nbsp;&nbsp;&nbsp;///
+&nbsp;&nbsp;&nbsp;&nbsp;///&nbsp;-&nbsp;parameter&nbsp;radius:&nbsp;&nbsp;&nbsp;&nbsp;圆角的半径
+&nbsp;&nbsp;&nbsp;&nbsp;///&nbsp;-&nbsp;parameter&nbsp;size:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;图片的尺寸
+&nbsp;&nbsp;&nbsp;&nbsp;///&nbsp;-&nbsp;parameter&nbsp;backColor:&nbsp;背景颜色&nbsp;默认&nbsp;white
+&nbsp;&nbsp;&nbsp;&nbsp;///&nbsp;-&nbsp;parameter&nbsp;lineWith:&nbsp;&nbsp;圆角线宽&nbsp;默认&nbsp;1
+&nbsp;&nbsp;&nbsp;&nbsp;///&nbsp;-&nbsp;parameter&nbsp;lineColor:&nbsp;线颜色&nbsp;默认&nbsp;darkGray
+&nbsp;&nbsp;&nbsp;&nbsp;///
+&nbsp;&nbsp;&nbsp;&nbsp;///&nbsp;-&nbsp;returns:&nbsp;image
+&nbsp;&nbsp;&nbsp;&nbsp;func&nbsp;yw_drawRectWithRoundCornor(radius:&nbsp;CGFloat,&nbsp;size:&nbsp;CGSize,&nbsp;backColor:&nbsp;UIColor&nbsp;=&nbsp;UIColor.white,&nbsp;lineWith:&nbsp;CGFloat&nbsp;=&nbsp;1,&nbsp;lineColor:&nbsp;UIColor&nbsp;=&nbsp;UIColor.darkGray)&nbsp;->&nbsp;UIImage?&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let&nbsp;rect&nbsp;=&nbsp;CGRect(origin:&nbsp;CGPoint(x:&nbsp;0,&nbsp;y:&nbsp;0),&nbsp;size:&nbsp;size)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UIGraphicsBeginImageContextWithOptions(rect.size,&nbsp;true,&nbsp;0)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let&nbsp;bezier&nbsp;=&nbsp;UIBezierPath(roundedRect:&nbsp;rect,&nbsp;byRoundingCorners:&nbsp;UIRectCorner.allCorners,&nbsp;cornerRadii:&nbsp;CGSize(width:&nbsp;radius,&nbsp;height:&nbsp;radius))
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;backColor.setFill()
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UIRectFill(rect)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bezier.addClip()
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;draw(in:&nbsp;rect)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bezier.lineWidth&nbsp;=&nbsp;1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lineColor.setStroke()
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bezier.stroke()
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let&nbsp;result&nbsp;=&nbsp;UIGraphicsGetImageFromCurrentImageContext()
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UIGraphicsEndImageContext()
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;result
+&nbsp;&nbsp;&nbsp;&nbsp;}</pre><ul class=" list-paddingleft-2" ><li><p>Color Compositing Fast-Path Blue</p></li></ul><p>这个选项会对任何直接使用OpenGL绘制的图层进行高亮，如果仅仅使用UIKit或者Core Animation的API，不会有任何效果，恕我才疏学浅，所以，我在测试的时候，确实在屏幕上没有任何反应的，openGL 绘制，我也不会，所以，就不知道到底会有什么效果了，哪位大神会的话，贴段代码，给我试试啊~~~</p><ul class=" list-paddingleft-2" ><li><p>Flash Updated Regions (Core Graphics 绘制的图层)</p></li></ul><p>此选项会对重绘的内容进行高亮成黄色，也就是软件层面使用Core Graphics 绘制的图层。我测试的时候，好像有点问题，这种解释，不知道是不是我写代码的问题，所以，就不多说了</p><p>上面说的这些高亮图层，几个常用的选项在模拟器里面可以直接调试，非常方便<br/></p><p style="text-align:center"><img src="http://cc.cocimg.com/api/uploads/20170105/1483622246179452.png" title="1483622246179452.png" alt="2240549-c0125396e45acb61.png" width="463" height="352" style="width: 463px; height: 352px;"/></p><p style="text-align: center;">模拟器高亮图层.png</p><p><br/>红框中的选项，上面都有解释，这里就不说了，勾选项，打开模拟器，一看就知道了~<br/>麻蛋、Core Animation 部分终于扯完了，扯了好多啊。。。</p><ul class=" list-paddingleft-2" ><li><p>Leaks</p></li></ul><p>又一个灰常重要的工具，主要检查内存泄漏，在前面Allcations里面我们提到内存泄漏分两种，现在我们研究Leaked Memory， 从用户使用角度来看，内存泄漏本身不会产生什么危害，作为用户，根本感觉不到内存泄漏的存在，真正的危害在于内存泄漏的堆积，最终会耗尽系统所有的内存。我们直接看图：<br/></p><p style="text-align:center"><img src="http://cc.cocimg.com/api/uploads/20170105/1483622278645630.png" title="1483622278645630.png" alt="2240549-07e85030b3b379e8.png" width="746" height="362" style="width: 746px; height: 362px;"/></p><p style="text-align: center;">界面的介绍</p><p>在 instruments 中,虽然选择了 Leaks 模板,但默认情况下也会添加 Allocations 模板.基本上凡是内存分析都会使用 Allocations 模板, 它可以监控内存分布情况。<br/>选中 Allocations 模板3区域会显示随着时间的变化内存使用的折线图,同时在4区域会显示内存使用的详细信息,以及对象分配情况.<br/>点击 Leaks 模板, 可以查看内存泄露情况。如果在3区域有 红X 出现, 则有内存泄露, 4区域则会显示泄露的对象.<br/>打用leaks进行监测：点击泄露对象可以在(下图)看到它们的内存地址, 占用字节, 所属框架和响应方法等信息.打开扩展视图, 可以看到右边的跟踪堆栈信息，4 黑色代码最有可能出现内存泄漏的方法<br/></p><p style="text-align:center"><img src="http://cc.cocimg.com/api/uploads/20170105/1483622325201298.png" title="1483622325201298.png" alt="2240549-0178cbac8f7001a3.png" width="769" height="402" style="width: 769px; height: 402px;"/></p><p style="text-align: left;">监测结果的分析，<br/></p><p style="text-align: center;"><img src="http://cc.cocimg.com/api/uploads/20170105/1483622345216975.png" title="1483622345216975.png" alt="2240549-24fc96bb7b9d984c.png" width="777" height="589" style="width: 777px; height: 589px;"/></p><p style="text-align: left;"><strong>Time Profiler</strong></p><p>在开发的过程中，我们经常能感觉到，点击某一按钮，或者做了某一操作，有卡顿，这就是延迟，那使用此工具，就可以揪出耗时的函数，先看一下，调试界面介绍：</p><p style="text-align:center"><img src="http://cc.cocimg.com/api/uploads/20170105/1483622395450987.png" title="1483622395450987.png" alt="2240549-fc28a11ba943ce3d.png" width="757" height="491" style="width: 757px; height: 491px;"/></p><p style="text-align: center;">time Profiler.png</p><p>根据查看的相关耗时操作，我们就可以右键定位当耗时的方法：<br/>写一个简单例子看一下：</p><p style="text-align:center"><img src="http://cc.cocimg.com/api/uploads/20170105/1483622419395994.png" title="1483622419395994.png" alt="2240549-f7e89be0cdb57de7.png" width="747" height="235" style="width: 747px; height: 235px;"/></p><p style="text-align: left;"><span style="line-height: 1.8;">看上图，可以很清楚看到此方法耗时比较严重，右键打开定位到此方法的代码：</span><br/></p><p style="text-align:center"><img src="http://cc.cocimg.com/api/uploads/20170105/1483622479797190.png" title="1483622479797190.png" alt="2240549-e793e6648eb4b30d (1).png" width="745" height="278" style="width: 745px; height: 278px;"/></p><p><span style="line-height: 1.8;">代码截图如下：</span><br/></p><p style="text-align:center"><img src="http://cc.cocimg.com/api/uploads/20170105/1483622502211008.png" title="1483622502211008.png" alt="2240549-518b8f4d9c0613fe.png" width="754" height="219" style="width: 754px; height: 219px;"/></p><p><span style="line-height: 1.8;">这时候，我们把循环放到子线程来做</span><br/></p><pre class="brush:js;toolbar:false">&nbsp;&nbsp;&nbsp;&nbsp;@IBAction&nbsp;func&nbsp;btnAction(_&nbsp;sender:&nbsp;AnyObject)&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let&nbsp;svc&nbsp;=&nbsp;SecondViewController()
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;svc.title&nbsp;=&nbsp;"第二个页面"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//全局队列异步执行
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DispatchQueue.global().async&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;0..<8888&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(i)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;navigationController?.pushViewController(svc,&nbsp;animated:&nbsp;true)
+&nbsp;&nbsp;&nbsp;&nbsp;}</pre><p>看效果图：</p><p style="text-align:center"><img src="http://cc.cocimg.com/api/uploads/20170105/1483622542731310.png" title="1483622542731310.png" alt="2240549-29192d461798e858.png" width="762" height="195" style="width: 762px; height: 195px;"/></p><p><span style="line-height: 1.8;">到这里比较重要Instrument调试工具介绍的差不多了，说一个Xcode8.0新出的功能，很好用也很重要的功能：</span></p><p style="text-align:center"><img src="http://cc.cocimg.com/api/uploads/20170105/1483622566888546.png" title="1483622566888546.png" alt="2240549-95af00e9cc66fd1d.png"/></p><p><span style="line-height: 1.8;">还是以例子说说吧，Viewcontroller里面一个button，点击跳到SecondViewcontroller，SecondViewcontroller里面有个View，view里面有个button，button点击回到ViewController,实现是通过view的属性拿到SecondviewConroller的引用，pop回去</span><br/></p><p>子view的代码如下：</p><pre class="brush:js;toolbar:false">class&nbsp;SubView:&nbsp;UIView&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;&nbsp;delegate:&nbsp;SecondViewController?
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@IBAction&nbsp;func&nbsp;brnAction(_&nbsp;sender:&nbsp;AnyObject)&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;delegate?.navigationController!.popViewController(animated:&nbsp;true)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+}</pre><p>当我们从第二个控制器，回到第一个控制器的时候，我们点一下，刚那个按钮，看图：<br/></p><p style="text-align:center"><img src="http://cc.cocimg.com/api/uploads/20170105/1483622603115778.png" title="1483622603115778.png" alt="2240549-26cdf4b29bcfccab.png"/></p><p><span style="line-height: 1.8;">第二个控制器和子View都内存中，我们很容易，就可以发现问题了，这是因为，SecondViewController强引用了SubView，而我们SubView也强引用了SecondViewcontroller，就造成相互强引用，引用计数器不能为0，不能销毁了，我们只要把属性前面加个weak，变成弱引用就可以了</span><br/></p><pre class="brush:js;toolbar:false">weak&nbsp;var&nbsp;&nbsp;delegate:&nbsp;SecondViewController?
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@IBAction&nbsp;func&nbsp;brnAction(_&nbsp;sender:&nbsp;AnyObject)&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;delegate?.navigationController!.popViewController(animated:&nbsp;true)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</pre><p>这时候，我们从第二个控制器pop回来的时候，看下内存：<br/></p><p style="text-align:center"><img src="http://cc.cocimg.com/api/uploads/20170105/1483622636842957.png" title="1483622636842957.png" alt="2240549-b6d98af07c69aef4.png"/></p><p><span style="line-height: 1.8;">现在就没问题了，怎样这个工具是不是挺好用啊</span><br/></p><p>还有一些针对TableView，collectionView的优化，有空再聊吧，</p><p><strong>声明：</strong><br/>1.本文有些文字描述，来自于其他博客和文章，因为觉的描述挺好（好吧我承认、自己也写不出来），所以就拿来用了，若有不妥的地方，请告知我，我会立即删除修改<br/>2.因为本人的水平有限，可能有写的不对的地方，欢迎各位大大多指点、不胜感激</p>
+                </div>
+                <div id="page" style="padding:0"></div>
+
+                <div class="wx_article">
+                    <div class="article_weixin">
+                        <img src="http://cdn.cocimg.com/cms/templets/images/article_weixin.jpg" width="131" height="131" alt="搜索CocoaChina微信公众号：CocoaChina"/>
+                        <div class="article_scan">微信扫一扫</div>
+                        <div class="article_txt" ><span style="color:#999999">订阅每日移动开发及APP推广热点资讯<br/>公众号：</span>CocoaChina</div>
+                    </div>
+                </div>
+
+               <div class="clearfix tgbox">
+                    <a href="http://www.cocoachina.com/deliver.php" class="tg float-l" target="_blank">我要投稿</a>&nbsp;&nbsp;
+                    <a style="margin-left:10px"  href="javascript:void(0)" onClick="add_favors(18528,'iOS 性能调优,成为一名合格iOS程序员必须掌握的技能')" class="tg float-l" >收藏文章</a>
+                    <div class="share float-r">分享到：
+                        <div class="bdsharebuttonbox" id="sharediv"><a href="#" class="bds_more" data-cmd="more"></a> <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a> <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+                    </div>
+                </div>
+
+
+                <a class="zanbox" href="javascript:void(0)" id="zanbox" onClick="postDigg('good',18528)" title="哎呦，不错噢，赞一个" >
+                    <strong id="newdigg">
+                     <script src="/cms/plus/count.php?view=yes&digg_id=18528&mid=68" language="javascript"></script>
+                    </strong>
+                </a>
+            </div>
+
+            <div class="article-prev">上一篇：<a href='/ios/20161230/18481.html'>如何用Xcode8解决多线程问题</a> </div>
+            <div class="article-next"></div>
+
+            <!--相关资讯-->
+            <div class="part-wrap clearfix">
+                <h3>相关资讯</h3>
+                <ul class="info-list clearfix">
+                    <li>
+                        <a href="/ios/20161208/18316.html" target="_blank" title="Appium是一个移动端的自动化框架，可用于测试原生应用，移动网页应用和混合型应用，且是跨平台的。可用于IOS和Android以及firefox的操作系统。原生的应用是指用android或ios的sdk编写的应用，移动网页应">玩转Appium自动化测试</a>
+                     </li>
+<li>
+                        <a href="/ios/20161202/18260.html" target="_blank" title="UIAutomation 是苹果提供的自动化测试框架，iOS 不像 Android 那样可以在 xml 文件中自动生成唯一的 id 作为标签，需要我们手动为控件添加可访问性（Accessibility）。如何让一个控件的可访问标签在当前页面">为 UIAutomation 添加自动化测试标签的探索</a>
+                     </li>
+<li>
+                        <a href="/ios/20161123/18163.html" target="_blank" title="??最近科技公司流年不利，那边与整个硅谷唱反调的川普逆袭上台了，这边特斯拉被评为美国最不可靠汽车品牌，据报道是因为特斯拉为Model X增加了过于复杂的功能（高科技多也怪我咯），如前门采用">没有单元测试，何谈重构</a>
+                     </li>
+<li>
+                        <a href="/ios/20161103/17934.html" target="_blank" title="现在很多人在开发iOS时都使用ReactiveCocoa，它是一个函数式和响应式编程的框架，使用Signal来代替KVO、Notification、Delegate和Target-Action等传递消息和解决对象之间状态与状态的依赖过多问题。但很多时候使">如何在ReactiveCocoa中写单元测试</a>
+                     </li>
+<li>
+                        <a href="/ios/20160711/17004.html" target="_blank" title="自从Xcode7 出来之后，一般的真机测试不需要开发者账号，也就不需要看这篇教程，只有app具有“推送”等功能的时候，要真机测试就必须要开发者账号和设置证书。苹果只是让你体验一下它的基本功能">iOS—最全的真机测试教程</a>
+                     </li>
+<li>
+                        <a href="/ios/20160707/16974.html" target="_blank" title="今天，苹果向开发者和公测用户发布了 iOS 9.3.3 第五个测试版">苹果发布 iOS 9.3.3 第五个开发者测试版和公测版</a>
+                     </li>
+<li>
+                        <a href="/ios/20160613/16626.html" target="_blank" title="从6月1日开始苹果要求之后审核的项目必须支持iPv6,如果不支持将被拒绝。掘金最近一次审核被就被拒绝了。原因是LeanCloud更新了一个版本才支持IPv6,更新之后找了几篇搭建IPv6网络的文章都不太满意,于">iOS-不用网线搭建IPv6网络测试环境</a>
+                     </li>
+<li>
+                        <a href="/ios/20160607/16612.html" target="_blank" title="在计算机编程中，单元测试（英语：Unit Testing）又称为模块测试, 是针对程序模块（软件设计的最小单位）来进行正确性检验的测试工作。程序单元是应用的最小可测试部件。">iOS开发——单元测试</a>
+                     </li>
+<li>
+                        <a href="/ios/20160525/16431.html" target="_blank" title="IPv4 和 IPv6的区别就是 IP 地址前者是 .（dot）分割，后者是以 :（冒号）分割的。本文介绍本地如何搭建IPv6环境测试你的APP。">【指南】本地如何搭建IPv6环境测试你的APP</a>
+                     </li>
+<li>
+                        <a href="/ios/20160421/15912.html" target="_blank" title="基于iOS运行时机制以及面向切面编程实现一种可复用而且与工程其他代码高度解耦的用户统计埋点方案。">可复用且高度解耦的iOS用户统计实现</a>
+                     </li>
+
+                </ul>
+            </div>
+            <div class="clearfix" style="margin-top:20px;" >
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- CC评论框 -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:750px;height:90px"
+                     data-ad-client="ca-pub-1180518835303646"
+                     data-ad-slot="8242010366"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            <!-- 评论模块start -->
+            
+            <div class="clearfix" id="commnet_list_holder" style="margin-bottom:50px;">
+                <div class="glab-comment-form">
+                    <div class="dcbt">我来说两句</div>
+                    <div class="user-head">
+                        <img id="user_face_url" src="http://cdn.cocimg.com/bbs/images/face/none.gif" height="43" width="43" alt="">
+                    </div>
+                    <div class="form-region">
+                        <textarea name="comment" id="main_comment_content" cols="30" rows="10" placeholder="你怎么看？快来评论一下吧！"></textarea>
+                        <a class="submitform" id="main_comment_bt">发表评论</a>
+                        <div class="unlogin-mask">
+                            <div>您还没有登录！请<a href="/bbs/login.php">登录</a>或<a href="/bbs/register.php">注册</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="glab-comment-callback-msg" class="glab-comment-info"></div>
+                <div class="glab-comment-title">所有评论（<span>0</span>）</div>
+                <div class="glab-commentlist" id="commentlist">
+                    <a id="refresh_comment_btn" href="javascript:;" onclick="$('#morecomment').trigger('click')">刷新评论</a>
+                </div>
+                <div class="glab-comment-more" id="morecomment" style="display:none">
+                    更多评论
+                </div>
+            </div>
+            
+            <!-- 评论模块end -->
+
+
+        </div>
+        <!--./left-->
+        <!--侧边栏-->
+        <div class="clearfix newslist">
+            <div class="rightSide detail-right float-r"  >
+                <!--两周热门资讯推荐-->
+                <div>
+                    <div class="part-wrap clearfix">
+                        <h3>热门资讯</h3>
+                        <ul class="related-hot">
+                            <li class="clearfix"><a href="http://www.cocoachina.com/apple/20161222/18431.html" class="float-l pic" target="_blank" title="不必惊慌，苹果延迟了App接入HTTPS服务截止日期"><img src="http://cc.cocimg.com/api/uploads/161223/74a1e3ce472f62c38bf5c60847fdac57.png"  style="max-height:60px" alt="不必惊慌，苹果延迟了App接入HTTPS服务截止日期"/></a><div style="margin-left:86px"><p class="related-intro"><a href="http://www.cocoachina.com/apple/20161222/18431.html" target="_blank" title="不必惊慌，苹果延迟了App接入HTTPS服务截止日期">不必惊慌，苹果延迟了App接入HTTPS服务截止日期</a></p><p class="hits">点击量<span>12505</span></p></div></li><li class="clearfix"><a href="http://www.cocoachina.com/programmer/20161226/18437.html" class="float-l pic" target="_blank" title="哈哈哈哈哈哈哈哈哈哈哈《iOS界裁员：从入门到精通》"><img src="http://cc.cocimg.com/api/uploads/161223/f05b6605280fef9fedc287f6d503a4b5.gif"  style="max-height:60px" alt="哈哈哈哈哈哈哈哈哈哈哈《iOS界裁员：从入门到精通》"/></a><div style="margin-left:86px"><p class="related-intro"><a href="http://www.cocoachina.com/programmer/20161226/18437.html" target="_blank" title="哈哈哈哈哈哈哈哈哈哈哈《iOS界裁员：从入门到精通》">哈哈哈哈哈哈哈哈哈哈哈《iOS界裁员：从入门到精通》</a></p><p class="hits">点击量<span>10577</span></p></div></li><li class="clearfix"><a href="http://www.cocoachina.com/ios/20161230/18477.html" class="float-l pic" target="_blank" title="告别2016迎接2017，分享一些第三方插件"><img src="http://cc.cocimg.com/api/uploads/161230/d6dc2da188f74d23ccad829e5afd25d6.jpg"  style="max-height:60px" alt="告别2016迎接2017，分享一些第三方插件"/></a><div style="margin-left:86px"><p class="related-intro"><a href="http://www.cocoachina.com/ios/20161230/18477.html" target="_blank" title="告别2016迎接2017，分享一些第三方插件">告别2016迎接2017，分享一些第三方插件</a></p><p class="hits">点击量<span>8155</span></p></div></li><li class="clearfix"><a href="http://www.cocoachina.com/industry/20161228/18465.html" class="float-l pic" target="_blank" title="张小龙首次公开解读小程序：1月9号上线（附演讲全文）"><img src="http://cc.cocimg.com/api/uploads/161228/51fa9720ac4849814cf337acebaec329.jpg"  style="max-height:60px" alt="张小龙首次公开解读小程序：1月9号上线（附演讲全文）"/></a><div style="margin-left:86px"><p class="related-intro"><a href="http://www.cocoachina.com/industry/20161228/18465.html" target="_blank" title="张小龙首次公开解读小程序：1月9号上线（附演讲全文）">张小龙首次公开解读小程序：1月9号上线（附演讲全文）</a></p><p class="hits">点击量<span>5936</span></p></div></li><li class="clearfix"><a href="http://www.cocoachina.com/programmer/20161229/18469.html" class="float-l pic" target="_blank" title="技术人员的发展之路"><img src="http://cc.cocimg.com/api/uploads/161228/0776e43a06d57cb68251f2792fc58e4b.jpg"  style="max-height:60px" alt="技术人员的发展之路"/></a><div style="margin-left:86px"><p class="related-intro"><a href="http://www.cocoachina.com/programmer/20161229/18469.html" target="_blank" title="技术人员的发展之路">技术人员的发展之路</a></p><p class="hits">点击量<span>5690</span></p></div></li><li class="clearfix"><a href="http://www.cocoachina.com/ios/20161227/18451.html" class="float-l pic" target="_blank" title="【总结】升级Xcode8遇到的问题及解决方案!!!"><img src="http://cc.cocimg.com/api/uploads/161226/61950c1c4e2257b95c810d843233ff43.jpg"  style="max-height:60px" alt="【总结】升级Xcode8遇到的问题及解决方案!!!"/></a><div style="margin-left:86px"><p class="related-intro"><a href="http://www.cocoachina.com/ios/20161227/18451.html" target="_blank" title="【总结】升级Xcode8遇到的问题及解决方案!!!">【总结】升级Xcode8遇到的问题及解决方案!!!</a></p><p class="hits">点击量<span>5028</span></p></div></li><li class="clearfix"><a href="http://www.cocoachina.com/programmer/20161231/18489.html" class="float-l pic" target="_blank" title="网上学习编程的七大趋势"><img src="http://cc.cocimg.com/api/uploads/161231/60dcd7c3a1cd91a49604439c258a6205.jpg"  style="max-height:60px" alt="网上学习编程的七大趋势"/></a><div style="margin-left:86px"><p class="related-intro"><a href="http://www.cocoachina.com/programmer/20161231/18489.html" target="_blank" title="网上学习编程的七大趋势">网上学习编程的七大趋势</a></p><p class="hits">点击量<span>4432</span></p></div></li><li class="clearfix"><a href="http://www.cocoachina.com/ios/20161228/18461.html" class="float-l pic" target="_blank" title="半糖iOS版首页实现与基本原理揭秘"><img src="http://cc.cocimg.com/api/uploads/161227/fa6a53801b6edd246b7ae8e8c5da08dc.png"  style="max-height:60px" alt="半糖iOS版首页实现与基本原理揭秘"/></a><div style="margin-left:86px"><p class="related-intro"><a href="http://www.cocoachina.com/ios/20161228/18461.html" target="_blank" title="半糖iOS版首页实现与基本原理揭秘">半糖iOS版首页实现与基本原理揭秘</a></p><p class="hits">点击量<span>3794</span></p></div></li><li class="clearfix"><a href="http://www.cocoachina.com/ios/20161226/18444.html" class="float-l pic" target="_blank" title="iOS书写高质量代码之耦合的处理"><img src="http://cc.cocimg.com/api/uploads/161226/052d6b914cd5c7f169b66943d35bf5c5.jpg"  style="max-height:60px" alt="iOS书写高质量代码之耦合的处理"/></a><div style="margin-left:86px"><p class="related-intro"><a href="http://www.cocoachina.com/ios/20161226/18444.html" target="_blank" title="iOS书写高质量代码之耦合的处理">iOS书写高质量代码之耦合的处理</a></p><p class="hits">点击量<span>3724</span></p></div></li><li class="clearfix noborder-b"><a href="http://www.cocoachina.com/design/20170103/18486.html" class="float-l pic" target="_blank" title="APP视觉风格的水下冰川—总被人忽略的“配图”"><img src="http://cc.cocimg.com/api/uploads/161231/e9059a83ce0fcbc3e5237c7186d650f3.gif"  style="max-height:60px" alt="APP视觉风格的水下冰川—总被人忽略的“配图”"/></a><div style="margin-left:86px"><p class="related-intro"><a href="http://www.cocoachina.com/design/20170103/18486.html" target="_blank" title="APP视觉风格的水下冰川—总被人忽略的“配图”">APP视觉风格的水下冰川—总被人忽略的“配图”</a></p><p class="hits">点击量<span>3158</span></p></div></li>
+                        </ul>
+                    </div>
+               </div>
+               <!--./两周热门资讯推荐-->
+               <!--综合评论-->
+                <div class="part-wrap clearfix" style="margin-top: 15px;">
+                    <h3>综合评论</h3>
+                    <ul class="related-comment clearfix" id="all_comments_holder">
+                        <li><span class="hide_comment">mark</span><br/><p><span>kongfugen</span><span>评论了</span><a href="http://www.cocoachina.com/ios/20161230/18477.html" title="告别2016迎接2017，分享一些第三方插件" target="_blank" ><span>告别2016迎接2017，分享一些第三方插件</span></a></p></li><li><span class="hide_comment">能控制在点击按钮的时候上一个tab的位置不变么？&nbsp;不然每次我回到上一个tab的时候都不是我上次滑动的位子了<br></span><br/><p><span>zhangchuanw</span><span>评论了</span><a href="http://www.cocoachina.com/ios/20161228/18461.html" title="半糖iOS版首页实现与基本原理揭秘" target="_blank" ><span>半糖iOS版首页实现与基本原理揭秘</span></a></p></li><li><span class="hide_comment">还好，编码风格大部分都对上了。</span><br/><p><span>Zroclee</span><span>评论了</span><a href="http://www.cocoachina.com/ios/20170105/18515.html" title="提升自己逼格的编程之美之代码规范" target="_blank" ><span>提升自己逼格的编程之美之代码规范</span></a></p></li><li><span class="hide_comment">预加载这个新点网上的内容还是很少的.讲的很细.</span><br/><p><span>xuzc0618</span><span>评论了</span><a href="http://www.cocoachina.com/ios/20160706/16952.html" title="【WWDC2016 Session笔记】 iOS ..." target="_blank" ><span>【WWDC2016 Session笔记】 iOS ...</span></a></p></li><li><span class="hide_comment">m</span><br/><p><span>李文友</span><span>评论了</span><a href="http://www.cocoachina.com/ios/20170105/18513.html" title="ObjC黑科技 - Method Swizzle ..." target="_blank" ><span>ObjC黑科技 - Method Swizzle ...</span></a></p></li><li><span class="hide_comment">Mark</span><br/><p><span>ljz2012008</span><span>评论了</span><a href="http://www.cocoachina.com/programmer/20170105/18510.html" title="普通程序员如何转向AI方向" target="_blank" ><span>普通程序员如何转向AI方向</span></a></p></li><li><span class="hide_comment">mark</span><br/><p><span>灰太狼的岁月</span><span>评论了</span><a href="http://www.cocoachina.com/ios/20161230/18477.html" title="告别2016迎接2017，分享一些第三方插件" target="_blank" ><span>告别2016迎接2017，分享一些第三方插件</span></a></p></li><li><span class="hide_comment">赞</span><br/><p><span>xiaoyouPrince</span><span>评论了</span><a href="http://www.cocoachina.com/ios/20161220/18393.html" title="AFNetworking之于https认证" target="_blank" ><span>AFNetworking之于https认证</span></a></p></li><li><span class="hide_comment">mark</span><br/><p><span>dswios</span><span>评论了</span><a href="http://www.cocoachina.com/programmer/20161230/18471.html" title="为什么软件开发者不适合测试他们自己编写的软件" target="_blank" ><span>为什么软件开发者不适合测试他们自己编写的软件</span></a></p></li><li class="noborder-b"><span class="hide_comment">mark</span><br/><p><span>528257097</span><span>评论了</span><a href="http://www.cocoachina.com/ios/20150728/12759.html" title="源码推荐(7.28)：习惯了的Sqlite，自己动..." target="_blank" ><span>源码推荐(7.28)：习惯了的Sqlite，自己动...</span></a></p></li>
+                    </ul>
+                </div>
+                <!--./综合评论-->
+                <!--相关帖子-->
+                <div class="part-wrap clearfix" style="margin:15px 0 15px 0;">
+                    <h3>相关帖子</h3>
+                    <ul class="related-comment clearfix">
+                        <script charset="gb2312" src="http://www.cocoachina.com/bbs/new.php?action=article&fidin=21_18_2_8_19_41_59_48_56_14_36_5&digest=0&postdate=0&author=0&fname=0&hits=0&replies=0&pre=0&num=10&length=100&order=2&like=ios#Core animation"></script>
+                    </ul>
+                </div>
+                <!--./相关帖子-->
+                <iframe width="230" height="550" class="share_self" frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=230&height=550&fansRow=2&ptype=1&speed=0&skin=5&isTitle=1&noborder=1&isWeibo=1&isFans=0&uid=1659808677&verifier=6043be56&dpc=1"></iframe>
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- CC列表页面230x230 -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:230px;height:230px"
+                     data-ad-client="ca-pub-1180518835303646"
+                     data-ad-slot="6765277166"></ins>
+                <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </div>
+        <!--./侧边栏-->
+    </div>
+
+    <div id="coco-store" style="display:none">
+        <div class="storebox">
+            <h5>提示</h5>
+            <h3>已经收藏该篇文章</h3>
+            <p class="p1"><a href="/bbs/u.php?action=favor&tag=1" target="_blank">去我的收藏夹</a></p>
+            <p class="p2"><a href="/bbs/login.php">请登录</a></p>
+        </div>
+    </div> <!--收藏提示-->
+</div>
+
+<script type="text/javascript">
+
+function postDigg(ftype,aid)
+{
+    var taget_obj = document.getElementById('newdigg');
+    var saveid = GetCookie('diggid');
+    if(saveid != null)
+    {
+        var saveids = saveid.split(',');
+        var hasid = false;
+        saveid = '';
+        j = 1;
+        for(i=saveids.length-1;i>=0;i--)
+        {
+            if(saveids[i]==aid && hasid) continue;
+            else {
+                if(saveids[i]==aid && !hasid) hasid = true;
+                saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+                j++;
+                if(j==20 && hasid) break;
+                if(j==19 && !hasid) break;
+            }
+        }
+        if(hasid) { alert("您已经顶过该帖，请不要重复顶帖 ！"); return; }
+        else saveid += ','+aid;
+        SetCookie('diggid',saveid,1);
+    }
+    else
+    {
+        SetCookie('diggid',aid,1);
+    }
+    myajax = new DedeAjax(taget_obj,false,false,'','','');
+    var url = "/cms/plus/digg_ajax.php?action="+ftype+"&id="+aid;
+    myajax.SendGet2(url);
+    DedeXHTTP = null;
+    $('#zanbox').addClass('zanbox-selected');
+}
+function getDigg(aid)
+{
+    var taget_obj = document.getElementById('newdigg');
+    myajax = new DedeAjax(taget_obj,false,false,'','','');
+    myajax.SendGet2("/cms/plus/digg_ajax.php?id="+aid);
+    DedeXHTTP = null;
+}
+
+
+//显示对应的导航：
+$(function(){
+    var article_id = $('#article_id').val();
+    var saveid = GetCookie('diggid');
+
+    if(saveid != null)
+    {
+        var saveids = saveid.split(',');
+        var hasid = false;
+        saveid = '';
+        j = 1;
+        for(i=saveids.length-1;i>=0;i--)
+        {
+            if(saveids[i]==article_id && hasid) continue;
+            else {
+                if(saveids[i]==article_id && !hasid) hasid = true;
+                saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+                j++;
+                if(j==20 && hasid) break;
+                if(j==19 && !hasid) break;
+            }
+        }
+
+        if(hasid)
+        {
+            $('#zanbox').addClass('zanbox-selected');
+        }
+
+    }
+
+});
+
+window.onload = function() {
+
+    $('#sharediv').removeClass('bdshare-button-style1-32');
+    $('#sharediv').attr('class','bdsharebuttonbox');
+};
+</script>
+<script type="text/javascript" src="http://cdn.cocimg.com/cms/templets/js/shCore.js"></script>
+    <script type="text/javascript" src="http://cdn.cocimg.com/cms/templets/js/brush.js"></script>
+    <link type="text/css" rel="stylesheet" href="http://cdn.cocimg.com/cms/templets/style/shCoreDefault.css"/>
+    <script type="text/javascript">
+    //SyntaxHighlighter.config.clipboardSwf = '/js/scripts/clipboard.swf';
+
+    SyntaxHighlighter.all();</script>
+
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"iOS 性能调优,成为一名合格iOS程序员必须掌握的技能 - 来自CocoaChina苹果开发中文站@CocoaChina","bdMini":"2","bdMiniList":false,"bdPic":"http://api.cocoachina.com/uploads/170105/3990c9f3b0be9cd21543a823bdf2c6e2.jpg","bdStyle":"1","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api//js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+<!--./cont-->
+
+<!-- 回复评论框模板 -->
+<script type="text/javascript" src="http://cdn.cocimg.com/cms/templets/js/comment.js?v=20151019"></script>
+<script type="text/javascript" src="http://cdn.cocimg.com/cms/templets/js/mustache.min.js"></script>
+<!-- 回复评论框模板 -->
+<script id="reply_comment_template" type="x-tmpl-mustache">
+    <div id="sub-reply-comment" class="reply-comment">
+        <textarea name="subcomment" id="sub-reply-txt" cols="30" rows="10" placeholder="你怎么看？快来评论一下吧！"></textarea>
+        <input type="hidden" id="sub-reply-id" value="{{commentid}}" />
+        <input type="hidden" id="sub-reply-userid" value="{{parentuserid}}" />
+        <input type="hidden" id="sub-reply-username" value="{{parentusername}}" />
+        <a type="button" id="sub_comment_bt" class="submitbt">提交</a>
+        <div class="clearfloat"></div>
+        <div class="unlogin-mask">
+            <div>您还没有登录！请<a href="/bbs/login.php">登录</a>或<a href="/bbs/register.php">注册</a></div>
+        </div>
+    </div>
+</script>
+
+<!-- 评论模板 -->
+<script id="main_comment_template" type="x-tmpl-mustache">
+    <div class="glab-comment" rel-data-id="{{comment_id}}" rel-user-id="{{user_id}}" rel-user-name="{{user_name}}" rel-layer="1">
+        <div class="comment-left">
+            <a href="/bbs/u.php?action=feed&uid={{user_id}}" target="_blank"><img src="{{user_icon_url}}" height="43" width="43" alt=""></a>
+        </div>
+        <div class="comment-right">
+            <div class="comment-author"><a href="/bbs/u.php?action=feed&uid={{user_id}}" target="_blank">{{user_name}}</a><span class="puptime">{{create_time}}</span></div>
+            <div class="comment-content">{{&content}}</div>
+            <div class="comment-buttons">
+                <span class="ding">                    
+                    <img src="http://cdn.cocimg.com/cms/templets/images/zan-default.png" height="14" width="14" alt="" class="default" style="{{#has_supported}} display:none; {{/has_supported}}">
+                    <img src="http://cdn.cocimg.com/cms/templets/images/zan-active.png" height="14" width="14" alt="" class="actived" style="{{^has_supported}} display:none; {{/has_supported}}">
+                    <span class="zancnt">{{support}}</span>
+                </span>
+                <span class="cai">
+                    <img src="http://cdn.cocimg.com/cms/templets/images/cai-default.png" height="14" width="14" alt="" class="default" style="{{#has_reported}} display:none; {{/has_reported}}">
+                    <img src="http://cdn.cocimg.com/cms/templets/images/cai-active.png" height="14" width="14" alt="" class="actived" style="{{^has_reported}} display:none; {{/has_reported}}">
+                    <span class="zancnt">{{report}}</span>
+                </span>
+                <span class="replybt">回复</span>
+            </div>
+        </div>
+            {{#sub}}
+                <div class="glab-comment glab-sub-comment" rel-data-id="{{comment_id}}" rel-user-id="{{user_id}}" rel-user-name="{{user_name}}" rel-layer="2">
+                    <div class="comment-left">
+                        <a href="/bbs/u.php?action=feed&uid={{user_id}}" target="_blank"><img src="{{user_icon_url}}" height="43" width="43" alt=""></a>
+                    </div>
+                    <div class="comment-right">
+                        <div class="comment-author"><a href="/bbs/u.php?action=feed&uid={{user_id}}" target="_blank">{{user_name}}</a><span class="puptime">{{create_time}}</span></div>
+                        <div class="comment-content"><a href="/bbs/u.php?action=feed&uid={{parent_user_id}}" target="_blank">回复：{{parent}}</a>{{&content}}</div>
+                        <div class="comment-buttons">
+                            <span class="ding">
+                                <img src="http://cdn.cocimg.com/cms/templets/images/zan-default.png" height="14" width="14" alt="" class="default" style="{{#has_supported}} display:none; {{/has_supported}}">
+                                <img src="http://cdn.cocimg.com/cms/templets/images/zan-active.png" height="14" width="14" alt="" class="actived" style="{{^has_supported}} display:none; {{/has_supported}}">
+                                <span class="zancnt">{{support}}</span>
+                            </span>
+                            <span class="cai">
+                                <img src="http://cdn.cocimg.com/cms/templets/images/cai-default.png" height="14" width="14" alt="" class="default" style="{{#has_reported}} display:none; {{/has_reported}}">
+                                <img src="http://cdn.cocimg.com/cms/templets/images/cai-active.png" height="14" width="14" alt="" class="actived" style="{{^has_reported}} display:none; {{/has_reported}}">
+                                <span class="zancnt">{{report}}</span>
+                            </span>
+                            <span class="replybt">回复</span>
+                        </div>          
+                    </div>
+                </div>
+            {{/sub}}         
+    </div>  
+</script>
+
+
+<script id="sub_comment_template" type="x-tmpl-mustache">
+    <div class="glab-comment glab-sub-comment" rel-data-id="{{comment_id}}" rel-user-id="{{user_id}}" rel-user-name="{{user_name}}" rel-layer="2">
+        <div class="comment-left">
+            <a href="/bbs/u.php?action=feed&uid={{user_id}}" target="_blank"><img src="{{user_icon_url}}" height="43" width="43" alt=""></a>
+        </div>
+        <div class="comment-right">
+            <div class="comment-author"><a href="/bbs/u.php?action=feed&uid={{user_id}}" target="_blank">{{user_name}}</a><span class="puptime">{{create_time}}</span></div>
+            <div class="comment-content"><a href="/bbs/u.php?action=feed&uid={{parent_user_id}}" target="_blank">回复：{{parent}}</a>{{&content}}</div>
+            <div class="comment-buttons">
+                <span class="ding">
+                    <img src="http://cdn.cocimg.com/cms/templets/images/zan-default.png" height="14" width="14" alt="" class="default" style="{{#has_supported}} display:none; {{/has_supported}}">
+                    <img src="http://cdn.cocimg.com/cms/templets/images/zan-active.png" height="14" width="14" alt="" class="actived" style="{{^has_supported}} display:none; {{/has_supported}}">
+                    <span class="zancnt">{{support}}</span>
+                </span>
+                <span class="cai">
+                    <img src="http://cdn.cocimg.com/cms/templets/images/cai-default.png" height="14" width="14" alt="" class="default" style="{{#has_reported}} display:none; {{/has_reported}}">
+                    <img src="http://cdn.cocimg.com/cms/templets/images/cai-active.png" height="14" width="14" alt="" class="actived" style="{{^has_reported}} display:none; {{/has_reported}}">
+                    <span class="zancnt">{{report}}</span>
+                </span>
+                <span class="replybt">回复</span>
+            </div>          
+        </div>
+    </div>
+</script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-68948817-1', 'auto', {'name': 'newTracker'});
+  ga('newTracker.send', 'pageview');
+
+</script>
+</div>    
+<!--右侧浮动-->
+    <div class="r-bar">
+        <img src="http://cdn.cocimg.com/cms/templets/images/coco_weixin.png" class="weixin">
+    	<a href="http://weibo.com/cocoachina" target="_blank" title="" class="weibo">sina</a>
+        <a href="javascript:void(0);" target="_blank" title="" class="feedback">weixin</a>
+        <a href="mailto:support@cocoachina.com" title="" class="kefu">mail</a>
+        <a href="javascript:;" title="回到顶部" class="returntop">回到顶部</a>
+    </div>
+
+<script language="javascript" src="/cms/bbsauth_plus2015.php" type="text/javascript"></script>
+<script type="text/javascript">
+$(function(){
+    if (typeof(_user_info_html) != 'undefined' && _user_info_html)
+    {
+        $('.nav-user-login').hide();
+        $('.nav-user-name').html(_user_info_html).show();
+    }
+
+	var type = $('#type_name').html();
+	if(type)
+	{	
+		switch( type )
+		{
+			case 'iOS开发':
+				$('#ios').addClass('light');
+				break;
+			case 'AppStore研究':
+				$('#app_store').addClass('light');
+				break;
+			case 'Mac开发':
+				$('#mac').addClass('light');
+				break;
+			case '产品设计':
+				$('#design').addClass('light');
+				break;
+			case 'Cocos引擎':
+				$('#cocos').addClass('light');
+				break;
+			case 'WebApp':
+				$('#webapp').addClass('light');
+				break;
+			case 'Swift':
+				$('#swift').addClass('light');
+				break;
+			case '游戏开发':
+				$('#game').addClass('light');
+				break;
+			case '苹果相关':
+				$('#apple').addClass('light');
+				break;
+			case '营销推广':
+				$('#market').addClass('light');
+				break;		
+			case '业界动态':
+				$('#industry').addClass('light');
+				break;	
+			case '程序人生':
+				$('#programmer').addClass('light');
+				break;																																
+				
+		}
+	}
+});
+</script>
+<!--./cont-->
+<script type="text/javascript" src="/cms/templets/js/index.js?20111546514"></script>
+<script src="http://cdn.cocimg.com/cms/templets/js/jquery.colorbox-min.js" type="text/javascript"></script>
+<script src="/cms/templets/js/script.js?t=2045479411" type="text/javascript"></script>
+<script type="text/javascript">
+			jQuery(function()
+			{
+				//更改文章来源
+				var source = $('#source a').html();								
+				if( source == '未知' )
+					jQuery('#source a').html('CocoaChina');
+				if( jQuery('#source a').attr('href')=='')
+					jQuery('#source').html('来源：'+source);
+				
+				//获取用户登录的id
+//                var content = jQuery('.t-lid').attr("href");
+//                var uid = 0;
+//                if( content )
+//                {
+//                    content = content.split('=');
+//                    uid = content[1];
+//                }
+//                var timestamp = new Date().getTime();	
+//                var uid2 = parseInt(uid);
+//                if(uid2==uid && uid2!=0){
+//                    uid = uid<<2;			
+//                    uid = uid+''+timestamp;
+//                }else{
+//                    uid = "";
+//                }
+//                var oIframe=document.getElementById("comiframe");
+//                if(oIframe){
+//                    var oUrl=window.location.href;
+//                    oUrl = encodeURIComponent(oUrl);
+//
+//                    oIframe.src="/comment.php?url="+oUrl+"&uid="+uid;
+//                }
+
+				
+			});
+		</script>
+<!--footer-->
+<div class="footer clearfix">
+    <div class="footer-b">
+        <div>
+            <a href="/aboutus/index.html" target="_blank">关于我们</a>
+            <a href="/contactus/index.html" target="_blank">商务合作</a>
+            <a href="mailto:support@cocoachina.com" target="_blank">联系我们</a>
+            <a href="/corps" target="_blank">合作伙伴</a>
+        </div>
+        <p class="footer-b-p">北京触控科技有限公司版权所有</p>
+        <p>
+            &copy;2016 Chukong Technologies,Inc.
+            <i>
+                <a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备 11006519号 　京ICP证 100954号</a> 京公网安备11010502020289 
+                <a href="http://182.131.21.137/ccnt-apply/admin/business/preview/business-preview!lookUrlRFID.action?main_id=A580B24B1AE846CE9DA949026D63939F" target="_blank">
+                    <img src="http://cdn.cocimg.com/cms/templets/images/jingwen.png" style="margin: -10px auto -14px -10px;" />
+                    京网文[2012]0426-138号
+                </a>
+            </i>
+        </p>
+    </div>
+</div>
+<!--./footer-->
+<script language="javascript" type="text/javascript" src="/cms/include/dedeajax2-min.js"></script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?88399e4c4cf744609c4fc8c3a8935691";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-16940817-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  
+ 
+function search_check()
+{
+	var search_keyword = $('#search_keyword').val();
+
+	if( search_keyword.length < 2 )
+	{
+		alert("搜索关键字不能少于2个字节，请重新输入。");
+	}
+	else
+	{
+		$('#searchform').submit();
+	}
+}
+
+</script>
+<script type="text/javascript">
+_acK({aid:116313,format:0,mode:1,gid:1,serverbaseurl:"afp.csbew.com/"});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,985 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <title>一步步构建iOS路由 - CocoaChina_让移动开发更简单</title>
+    <meta name="keywords" content="iOS路由,iOS开发iPhone开发,iOS开发,iPad开发,Mac开发,苹果开发中文站,iPhone开发中文站,CocoaChina首页, Mac OS开发, Cocoa介绍,移动互联网,触控科技,Cocoa,Apple,developer,iOS,iPhone,iPad,iMac,iPod Touch,iPhone5,iPhone4S,iPad3,招聘,iPhone程序员,Objective-c,iPhone应用外包,ios6,ios面试,Cocos2d-x,cocos2d,iTunes,App Store,苹果开发" />
+    <meta name="description" content="CocoaChina前身是全球成立最早规模最大的苹果开发中文站，现致力为所有移动开发者提供资讯服务、问答服务、代码下载、工具库及人才招聘服务" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="baidu-tc-cerfication" content="3300a939a1098c27e94457b75a0bb8c1" />
+    <script type='text/javascript'>
+        function gotoMobilePage() {
+            var sUserAgent = navigator.userAgent.toLowerCase();
+            var agent_iphone = /iphone/i;
+            var agent_android = /android/i;
+            //var agent_ipad = /ipad/i;
+            var agent_ipod = /ipod/i;
+            var agent_wphone = /windows phone/i;
+            if(agent_iphone.test(sUserAgent) || agent_android.test(sUserAgent) || agent_ipod.test(sUserAgent) || agent_wphone.test(sUserAgent)){
+                var re = /\/\w+\/\d+\/(\d+)\.html/, 
+                    result = re.exec(window.location.pathname);
+                if ( result )
+                {
+                    window.location.href = "http://www.cocoachina.com/cms/wap.php?action=article&id=" + result[1];
+                } else {
+                    window.location.href = "http://m.cocoachina.com/";
+                }
+            }
+        }
+        gotoMobilePage(); 
+    </script>
+    <link rel="stylesheet" href="http://cdn.cocimg.com/assets/css/global.css?v=20150818" media="all">
+    <link rel="stylesheet" href="http://cdn.cocimg.com/assets/css/index.css?v=20151015" media="all">
+    <link href="http://cdn.cocimg.com/assets/css/module.css?v=20150906" rel="stylesheet">
+    <link href="http://cdn.cocimg.com/assets/css/style.css?v=620150818" rel="stylesheet">
+    <link href="http://cdn.cocimg.com/assets/css/navheader.css?v=20160301" rel="stylesheet" />
+    <script src="http://cdn.cocimg.com/assets/js/jquery.min.js?v=20150818" type="text/javascript"></script>
+    <script type="text/javascript" src="http://cdn.cocimg.com/assets/js/navbar.js?v=20151013"></script>
+    <script type="text/javascript" src="http://s.csbew.com/k.js"></script>
+    
+</head>
+<body>
+
+    <div class="nav-header">
+            <div class="nav-header-top">
+                <div class="nav-logo nav-fl"><a href="/"><img src="http://cdn.cocimg.com/assets/images/logo.png?v=201510272" /></a></div>
+                <div class="nav-list nav-fl">
+                    <ul>
+                        <li><a href="/news/">资讯</a></li>
+                        <li><a href="/bbs/">论坛</a></li>
+                        <li><a target="_blank" href="http://code.cocoachina.com/" title="CODE">代码</a></li>
+                        <li><a href="http://tools.cocoachina.com" title="工具" target='_blank'>工具</a></li>
+                        <li><a target="_blank" href="http://job.cocoachina.com/" title="JOB">招聘</a></li>
+                        <li><a target="_blank" href="http://cvp.cocos.com/" title="CVP">CVP</a></li>
+                        <li><a target="_blank" href="http://waikuai.cocoachina.com/" title="waikuai">外快</a></li>
+                        <li><a target="_blank" href="http://blog.cocoachina.com/" title="blog">博客</a><span class="new-item-flag">new</span></li>
+                    </ul>
+                </div>
+                <div class="nav-search nav-fl">
+                    <div class="nav-search-flag" style="display:block"><img src="http://cdn.cocimg.com/assets/img/search-icon.png?v=20150825" /></div>
+                    <div class="nav-search-form" style="display:none">
+                        <form action="/cms/plus/search.php" name="formsearch" method="post" target="_blank">
+                            <input type="hidden" name="kwtype" value="0" />
+                            <input type="hidden" name="searchtype" value="titlekeyword" />
+                            <input name="keyword" type="text" placeholder="站内搜索" />
+                            <input type="button" />
+                        </form>
+                    </div>
+                </div>
+                <div class="nav-user nav-fr">
+                    <!-- #region 未登录时显示此区域 -->
+                    <div class="nav-user-login" style="display:block">
+                        <a href="/bbs/login.php">登录</a>|
+                        <a href="/bbs/register.php">注册</a>
+                    </div>
+                    <!-- #endregion -->
+                    <!-- #region 已登录时显示此区域 -->
+                    <div class="nav-user-name" style="display:none">
+                        <div><alert></alert><img src="/assets/img/user.png" />Guest</div>
+                        <ul>
+                            <li><a href="#"><img src="/assets/img/i-man.png" />我的主页</a></li>
+                            <li><alert></alert><a href="#"><img src="/assets/img/i-mail.png" />我的消息</a></li>
+                            <li><a href="#"><img src="/assets/img/i-setting.png" />账户设置</a></li>
+                            <li><a href="index-offline.html"><img src="/assets/img/i-logout.png" />退出</a></li>
+                        </ul>
+                    </div>
+                    <!-- #endregion -->
+                </div>
+                <div class="nav-clear"></div>
+            </div>
+        <div class="nav-header-bottom">
+            <ul>
+                <li><a id="ios" href="/ios/" title="ios">iOS开发</a></li>
+                <li><a id="swift" href="/swift/" title="swift">Swift</a></li>
+                <li><a id="app_store" href="/appstore/" title="appstore">App Store研究</a></li>
+                <li><a id="design" href="/design/" title="design">产品设计</a></li>
+                <li><a id="review" href="/review/" title="review">应用</a></li>
+                <li><a id="review" href="/vr/" title="review">VR</a></li>
+                <li><a id="game" href="/game/" title="game">游戏开发</a></li>
+                <li><a id="apple" href="/apple/" title="apple">苹果相关</a></li>
+                <!-- <li><a id="cocos" href="/cocos/" title="cocos">Cocos引擎</a></li>-->
+                <!--<li><a id="webapp" href="/webapp/" title="HTML5">HTML5</a></li>-->
+                <li><a id="android" href="/android/" title="android">安卓相关</a></li>
+                <li><a id="market" href="/market/" title="market">营销推广</a></li>
+                <li><a id="industry" href="/industry/" title="industry">业界动态</a></li>
+                <li><a id="programmer" href="/programmer/" title="programmer">程序人生</a></li>
+            </ul>
+        </div>
+    </div>
+
+<script language="javascript">
+    function IsPC() {
+        var userAgentInfo = navigator.userAgent;
+        var Agents = new Array("Android", "iPhone", "SymbianOS", "Windows Phone", "iPod");
+        var flag = true;
+        for (var v = 0; v < Agents.length; v++) {
+        if (userAgentInfo.indexOf(Agents[v]) > 0) { flag = false; break; }
+        }
+        return flag;
+    }
+    if (!IsPC()){
+           window.location.href = "http://www.cocoachina.com/cms/wap.php?action=article&id=18563";
+    }
+
+</script>
+<!--middle-->
+<div class="middle clearfix">
+    <div class="m-wrap">
+        <div class="m-ad2" style="margin-top:12px;">
+            <div class="ad2-l">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- CC首页底部左侧72890 -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:728px;height:90px"
+                     data-ad-client="ca-pub-1180518835303646"
+                     data-ad-slot="8012423965"></ins>
+                <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            <div class="ad2-r">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- CC资讯页25090 -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:250px;height:90px"
+                     data-ad-client="ca-pub-1180518835303646"
+                     data-ad-slot="9489157162"></ins>
+                <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </div>
+        <!--left-->
+        <div class="detail-left float-l">
+            <p class="crumbs"><a href="/" title="首页">首页</a> &gt;</span><a href="/ios" title="iOS开发"><span id="type_name">iOS开发</span></a></p>
+            <div class="detail-main">
+                <h2>一步步构建iOS路由</h2>
+                <div class="p-ico clearfix">
+                    <div>
+                        <span class="ml0">2017-01-11 06:16</span>
+                        <span>编辑：
+                        <a href="" id="field_author" target="_blank">AllanHou</a></span>
+                        <span>分类：<a href="/ios/" target="_blank">iOS开发</a></span>
+                        <span id="source">来源：<a href="http://www.jianshu.com/p/3a902f274a3d" target="_blank">Neo_joke的简书</a></span>
+
+                        <div class="float-r">
+                            <span id="artical_comment_cnt"><i></i></span>
+                            <span><i class="view"></i><script src="/cms/plus/count.php?view=yes&aid=18563&mid=68" language="javascript"></script></span>
+                    </div>
+                    </div>
+                </div>
+                <div class="p-ico clearfix">
+                    <p class="related float-l"><a href="/cms/tags.php?/iOS%E5%BC%80%E5%8F%91/" target="_blank">iOS开发</a><a href="/cms/tags.php?/iOS%E8%B7%AF%E7%94%B1/" target="_blank">iOS路由</a></p>
+                    <input type="hidden" id="article_id"  value="18563"/>
+                </div>
+                <div class="adsbox clearfix">
+                    <div class="float-l">
+                        <div class="float-l"><b>招聘信息：</b></div>
+                        <ul class="float-l" id="invitelist" style="margin-top: 0px;">
+                            <li><a href='http://job.cocoachina.com/job/show?id=68283' target='_blank'>Mac开发</a></li><li><a href='http://job.cocoachina.com/job/show?id=68039' target='_blank'>技术合伙人</a></li><li><a href='http://job.cocoachina.com/job/show?id=68040' target='_blank'>移动应用开发项目经理</a></li><li><a href='http://job.cocoachina.com/job/show?id=68288' target='_blank'>iOS Developer</a></li><li><a href='http://job.cocoachina.com/job/show?id=68348' target='_blank'>微信书城开发</a></li><li><a href='http://job.cocoachina.com/job/show?id=68347' target='_blank'>数字图书商城开发</a></li><li><a href='http://job.cocoachina.com/job/show?id=68346' target='_blank'>iOS维护</a></li><li><a href='http://job.cocoachina.com/job/show?id=68345' target='_blank'>手机视频剪辑字幕配音工具iOS类app</a></li><li><a href='http://job.cocoachina.com/job/show?id=68344' target='_blank'>点读笔开发</a></li><li><a href='http://job.cocoachina.com/job/show?id=68343' target='_blank'>UI设计</a></li><li><a href='http://job.cocoachina.com/job/show?id=68342' target='_blank'>app推广与运营</a></li>
+                            <!--<script src="http://www.cocoachina.com/bbs/new.php?action=article&fidin=26&digest=0&postdate=0&author=0&fname=0&hits=0&replies=0&pre=1&num=3&length=120&order=2" charset="gbk"></script>-->
+                        </ul>
+                    </div>
+                    <div class="float-r">
+                        <a href="javascript:void(0)" class="prev"></a>
+                        <a href="javascript:void(0)" class="next"></a>
+                    </div>
+                </div>
+                <div id="detailbody" class="field_body">
+                    <p style="text-align:center"><img src="http://cc.cocimg.com/api/uploads/20170110/1484056367875778.jpg" title="1484056367875778.jpg" alt="4444_meitu_5.jpg"/></p><p><a href="http://www.jianshu.com/p/3a902f274a3d" target="_blank">原文</a></p><p>接上一篇<a href="http://www.jianshu.com/p/be7da3ed4100" target="_blank">移动端路由层设计</a></p><p>为啥要说iOS路由呢？</p><p>路由层其实在逻辑上的设计都是一样的，关于对界面跳转的实现部分却与Android平台和iOS平台上的导航机制有着非常紧密的关系，Android操作系统有着天然的架构优势，Intent机制可以协助应用间的交互与通讯，是对调用组件和数据传递的描述，本身这种机制就解除了代码逻辑和界面之间的依赖关系，只有数据依赖。而iOS的界面导航和转场机制则大部分依赖UI组件各自的实现，所以如何解决这个问题，iOS端路由的实现则比较有代表性。</p><p>其实说白一点，路由层解决的核心问题就是原来界面或者组件之间相互调用都必须相互依赖，需要导入目标的头文件、需要清楚目标对象的逻辑，而现在全部都通过路由中转，只依赖路由，或者依靠一些消息传递机制连路由都不依赖。其次，路由的核心逻辑就是目标匹配，对于外部调用的情况来说，URL如何匹配Handler是最为重要的，匹配就必然用到正则表达式。了解这些关键点以后就有了设计的目的性，let‘s do it~</p><p><span style="line-height: 1.8;">设计类图：</span></p><p style="text-align:center"><img src="http://cc.cocimg.com/api/uploads/20170110/1484055213190042.png" title="1484055213190042.png" alt="2.png"/></p><p>这里面有如下几个类：</p><ol class=" list-paddingleft-2" ><li><p>WLRRouteRequest，路由层的请求，无论是跨应用的外部调用还是内部调用，最后都形成一个路由请求，该请求包含了URL上的queryparameters和路径参数，还有内部调用时直接传入的原生参数，还有请求发起者对目标预留的回调block</p></li><li><p>WLRRouteHandler，路由层的handler处理，handler接收一个WLRRouteRequest对象，来完成是否是界面跳转，还是组件加载，还是内部逻辑</p></li><li><p>WLRRouter，路由核心对象，内部持有注册的Handler，比方说负责界面跳转的Handler，负责组件加载的Handler，负责API的Handler等等，路由的作用就是将外部调用传入的URL或者是内部调用传入的target，在内部匹配上对应的handler，然后调用生命周期方法，完成处理过程，当然，图中还有route的中间件，实际上是预留AOP的口子，方面后期扩展</p></li><li><p>WLRRouteMatcher，用以处理外部调用的URL是否能与预设的正则表达式匹配，在WLRRouter中，每一次注册一个handler，都会用一个URL匹配的表达式生成一个WLRRouteMatcher</p></li><li><p>WLRRegularExpression，继承NSRegularExpression，用以匹配URL，WLRRouteMatcher内部有一个WLRRegularExpression对象，WLRRouteMatcher接受一个URL，会使用WLRRegularExpression生成一个WLRMatchResult对象，来确定是否匹配成功，如果匹配成果则将URL上的路径参数给取出来</p></li><li><p>WLRMatchResult，用以描述WLRRegularExpression的匹配结果，包含路径参数</p></li></ol><p>工作流程：</p><ol class=" list-paddingleft-2" ><li><p>App启动实例化WLRRouter对象</p></li><li><p>实例化WLRRouteHandler对象</p></li><li><p>WLRRouter对象挂载WLRRouteHandler实例与URL的表达式相对应，WLRRouter内部生成一个WLRRouteMatcher对象，与URL的表达式相对应</p></li><li><p>外部调用的URL和callback传入WLRRouter对象</p></li><li><p>WLRRouter对象遍历内部持有的URL的匹配表达式，并找到每一个WLRRouteMatcher对象，将URL传入看是否能返回WLRRouteRequest对象</p></li><li><p>将WLRRouteRequest对象传入对应的WLRRouteHandler对象</p></li><li><p>WLRRouteHandler对象根据WLRRouteRequest寻找到TargetViewController和SourceViewController，在生命周期函数里，完成参数传递与视图转场</p></li></ol><p><strong>WLRRouteRequest:</strong></p><p>了解了以上，我们从WLRRouteRequest入手。<br/>其实WLRRouteRequest跟NSURLRequest差不多，不过WLRRouteRequest继承NSObject，实现NSCopying协议，大概如下：</p><pre class="brush:js;toolbar:false">#import&nbsp;(Foundation/Foundation.h)(因识别问题，此处圆括号替换尖括号)
+
+@interface&nbsp;WLRRouteRequest&nbsp;:&nbsp;NSObject(NSCopying)(此处圆括号替换尖括号)
+//外部调用的URL
+@property&nbsp;(nonatomic,&nbsp;copy,&nbsp;readonly)&nbsp;NSURL&nbsp;*URL;
+//URL表达式，比方说调用登录界面的表达式可以为：AppScheme://user/login/138********，那URL的匹配表达式可以是：/login/:phone([0-9]+),路径必须以/login开头，后面接0-9的电话号码数字，当然你也可以直接把电话号码的正则匹配写全
+@property(nonatomic,copy)NSString&nbsp;*&nbsp;routeExpression;
+//如果URL是AppScheme://user/login/138********?/callBack="",那么这个callBack就出现在这
+@property&nbsp;(nonatomic,&nbsp;copy,&nbsp;readonly)&nbsp;NSDictionary&nbsp;*queryParameters;
+//这里面会出现{@"phone":@"138********"}
+@property&nbsp;(nonatomic,&nbsp;copy,&nbsp;readonly)&nbsp;NSDictionary&nbsp;*routeParameters;
+//这里面存放的是内部调用传递的原生参数
+@property&nbsp;(nonatomic,&nbsp;copy,&nbsp;readonly)&nbsp;NSDictionary&nbsp;*primitiveParams;
+//自动检测窃取回调的callBack&nbsp;的Url
+@property&nbsp;(nonatomic,&nbsp;strong)&nbsp;NSURL&nbsp;*callbackURL;
+//目标的viewcontrolller或者是组件可以通过这个
+@property(nonatomic,copy)void(^targetCallBack)(NSError&nbsp;*error,id&nbsp;responseObject);
+//用以表明该request是否被消费
+@property(nonatomic)BOOL&nbsp;isConsumed;
+//简便方法，用以下标法取参数
+-&nbsp;(id)objectForKeyedSubscript:(NSString&nbsp;*)key;
+//初始化方法
+-(instancetype)initWithURL:(NSURL&nbsp;*)URL&nbsp;routeExpression:(NSString&nbsp;*)routeExpression&nbsp;routeParameters:(NSDictionary&nbsp;*)routeParameters&nbsp;primitiveParameters:(NSDictionary&nbsp;*)primitiveParameters&nbsp;targetCallBack:(void(^)(NSError&nbsp;*&nbsp;error,id&nbsp;responseObject))targetCallBack;
+-(instancetype)initWithURL:(NSURL&nbsp;*)URL;
+//默认完成目标的回调
+-(void)defaultFinishTargetCallBack;
+@end</pre><p>NSURLRequest其实应该是个值类型的对象，所以实现拷贝协议，该对象的实现部分没有什么可讲的，对照源代码查阅即可。</p><p><strong>WLRRouteHandler</strong></p><pre class="brush:js;toolbar:false">#import&nbsp;(Foundation/Foundation.h)(此处圆括号替换尖括号)
+@class&nbsp;WLRRouteRequest;
+@interface&nbsp;WLRRouteHandler&nbsp;:&nbsp;NSObject
+//即将handle某一个请求
+-&nbsp;(BOOL)shouldHandleWithRequest:(WLRRouteRequest&nbsp;*)request;
+//根据request取出调用的目标视图控制器
+-(UIViewController&nbsp;*)targetViewControllerWithRequest:(WLRRouteRequest&nbsp;*)request;
+//根据request取出来源的视图控制器
+-(UIViewController&nbsp;*)sourceViewControllerForTransitionWithRequest:(WLRRouteRequest&nbsp;*)request;
+//开始进行转场
+-(BOOL)transitionWithRequest:(WLRRouteRequest&nbsp;*)request&nbsp;error:(NSError&nbsp;*__autoreleasing&nbsp;*)error;
+@end</pre><p>当WLRRouter对象完成了URL的匹配生成Request，并寻找到Handler的时候，首先会调用- (BOOL)shouldHandleWithRequest:(WLRRouteRequest *)request;，来确定handler是否愿意处理，如果愿意，则调用-(BOOL)transitionWithRequest:(WLRRouteRequest *)request error:(NSError *__autoreleasing *)error;，内部则通过便利方法获取targetViewController与SourceViewController，然后进行转场，核心方法的实现为：</p><pre class="brush:js;toolbar:false">-(BOOL)transitionWithRequest:(WLRRouteRequest&nbsp;*)request&nbsp;error:(NSError&nbsp;*__autoreleasing&nbsp;*)error{
+&nbsp;&nbsp;&nbsp;&nbsp;UIViewController&nbsp;*&nbsp;sourceViewController&nbsp;=&nbsp;[self&nbsp;sourceViewControllerForTransitionWithRequest:request];
+&nbsp;&nbsp;&nbsp;&nbsp;UIViewController&nbsp;*&nbsp;targetViewController&nbsp;=&nbsp;[self&nbsp;targetViewControllerWithRequest:request];
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;((![sourceViewController&nbsp;isKindOfClass:[UIViewController&nbsp;class]])||(![targetViewController&nbsp;isKindOfClass:[UIViewController&nbsp;class]]))&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*error&nbsp;=&nbsp;[NSError&nbsp;WLRTransitionError];
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;NO;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(targetViewController&nbsp;!=&nbsp;nil)&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;targetViewController.wlr_request&nbsp;=&nbsp;request;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;([self&nbsp;preferModalPresentationWithRequest:request]||![sourceViewController&nbsp;isKindOfClass:[UINavigationController&nbsp;class]])&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[sourceViewController&nbsp;presentViewController:targetViewController&nbsp;animated:YES&nbsp;completion:nil];
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;if&nbsp;([sourceViewController&nbsp;isKindOfClass:[UINavigationController&nbsp;class]]){
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UINavigationController&nbsp;*&nbsp;nav&nbsp;=&nbsp;(UINavigationController&nbsp;*)sourceViewController;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[nav&nbsp;pushViewController:targetViewController&nbsp;animated:YES];
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;YES;
+}
+-&nbsp;(BOOL)preferModalPresentationWithRequest:(WLRRouteRequest&nbsp;*)request;{
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;NO;
+}</pre><p>这里根据SourceController的类型进行判断，其实request对象的信息足够可以判断目标视图应该如何打开，从本质上来讲，URL的匹配表达式是跟业务强关联的也是跟UI交互逻辑强关联的，transitionWithRequest方法实现里，你大可以继承一下，然后重写转场过程，甚至你可以在这自己设置iOS7自定义的转场，提供动画控制器和实现转场协议的对象，进而可以整体的控制Appp内部的实现。</p><p><strong>WLRRegularExpression</strong></p><p>该类继承NSRegularExpression</p><pre class="brush:js;toolbar:false">#import&nbsp;(Foundation/Foundation.h)(此处圆括号替换尖括号)
+@class&nbsp;WLRMatchResult;
+@interface&nbsp;WLRRegularExpression&nbsp;:&nbsp;NSRegularExpression
+//传入一个URL返回一个匹配结果
+-(WLRMatchResult&nbsp;*)matchResultForString:(NSString&nbsp;*)string;
+//根据一个URL的表达式创建一个WLRRegularExpression实例
++(WLRRegularExpression&nbsp;*)expressionWithPattern:(NSString&nbsp;*)pattern;
+@end</pre><p>该对象主要的功能是将一个URL传入查看是否匹配，并且将表达式上声明的路径参数从URL上取下来。<br/>比说，我们设置的URL匹配的表达式是: login/:phone([0-9]+)，那AppScheme://user/login/138**&nbsp;这样的URL应该是匹配，并且将138的手机号取出来，对应到phone上，这个过程必须用到正则表达式的分组提取子串的功能，:phone是约定好的提取子串的值对应的key的名字，其实这个url的正则表达式应该是： /login/([0-9]+)$，<strong>那么WLRRegularExpression对象需要知道需要提取所有子串的key还有将URL匹配的表达式转换为真正的正则表达式</strong>。</p><pre class="brush:js;toolbar:false">-(instancetype)initWithPattern:(NSString&nbsp;*)pattern&nbsp;options:(NSRegularExpressionOptions)options&nbsp;error:(NSError&nbsp;*&nbsp;_Nullable&nbsp;__autoreleasing&nbsp;*)error{
+//初始化方法中将URL匹配的表达式pattern转换为真正的正则表达式
+&nbsp;&nbsp;&nbsp;&nbsp;NSString&nbsp;*transformedPattern&nbsp;=&nbsp;[WLRRegularExpression&nbsp;transfromFromPattern:pattern];
+//用转化后的结果初始化父类
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(self&nbsp;=&nbsp;[super&nbsp;initWithPattern:transformedPattern&nbsp;options:options&nbsp;error:error])&nbsp;{
+//同时将需要提取的子串的值的Key保存到数组中
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.routerParamNamesArr&nbsp;=&nbsp;[[self&nbsp;class]&nbsp;routeParamNamesFromPattern:pattern];
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;self;
+}
+//转换为正则表达式
++(NSString*)transfromFromPattern:(NSString&nbsp;*)pattern{
+//将pattern拷贝
+&nbsp;&nbsp;&nbsp;&nbsp;NSString&nbsp;*&nbsp;transfromedPattern&nbsp;=&nbsp;[NSString&nbsp;stringWithString:pattern];
+//利用:[a-zA-Z0-9-_][^/]+这个正则表达式，将URL匹配的表达式的子串key提取出来，也就是像&nbsp;/login/:phone([0-9]+)/:name[a-zA-Z-_]这样的pattern，需要将:phone([0-9]+)和:name[a-zA-Z-_]提取出来
+&nbsp;&nbsp;&nbsp;&nbsp;NSArray&nbsp;*&nbsp;paramPatternStrings&nbsp;=&nbsp;[self&nbsp;paramPatternStringsFromPattern:pattern];
+&nbsp;&nbsp;&nbsp;&nbsp;NSError&nbsp;*&nbsp;err;
+//再根据:[a-zA-Z0-9-_]+这个正则表达式，将带有提取子串的key全部去除，比如将:phone([0-9]+)去除:phone改成([0-9]+)
+&nbsp;&nbsp;&nbsp;&nbsp;NSRegularExpression&nbsp;*&nbsp;paramNamePatternEx&nbsp;=&nbsp;[NSRegularExpression&nbsp;regularExpressionWithPattern:WLRRouteParamNamePattern&nbsp;options:NSRegularExpressionCaseInsensitive&nbsp;error:&err];
+&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(NSString&nbsp;*&nbsp;paramPatternString&nbsp;in&nbsp;paramPatternStrings)&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NSString&nbsp;*&nbsp;replaceParamPatternString&nbsp;=&nbsp;[paramPatternString&nbsp;copy];
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NSTextCheckingResult&nbsp;*&nbsp;foundParamNamePatternResult&nbsp;=[paramNamePatternEx&nbsp;matchesInString:paramPatternString&nbsp;options:NSMatchingReportProgress&nbsp;range:NSMakeRange(0,&nbsp;paramPatternString.length)].firstObject;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(foundParamNamePatternResult)&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NSString&nbsp;*paramNamePatternString&nbsp;=[paramPatternString&nbsp;substringWithRange:&nbsp;foundParamNamePatternResult.range];
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;replaceParamPatternString&nbsp;=&nbsp;[replaceParamPatternString&nbsp;stringByReplacingOccurrencesOfString:paramNamePatternString&nbsp;withString:@""];
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(replaceParamPatternString.length&nbsp;==&nbsp;0)&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;replaceParamPatternString&nbsp;=&nbsp;WLPRouteParamMatchPattern;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transfromedPattern&nbsp;=&nbsp;[transfromedPattern&nbsp;stringByReplacingOccurrencesOfString:paramPatternString&nbsp;withString:replaceParamPatternString];
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(transfromedPattern.length&nbsp;&&&nbsp;!([transfromedPattern&nbsp;characterAtIndex:0]&nbsp;==&nbsp;&#39;/&#39;))&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transfromedPattern&nbsp;=&nbsp;[@"^"&nbsp;stringByAppendingString:transfromedPattern];
+&nbsp;&nbsp;&nbsp;&nbsp;}
+//最后结尾要用$符号
+&nbsp;&nbsp;&nbsp;&nbsp;transfromedPattern&nbsp;=&nbsp;[transfromedPattern&nbsp;stringByAppendingString:@"$"];
+//最后会将/login/:phone([0-9]+)转换为login/([0-9]+)$
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;transfromedPattern;
+}</pre><p>在Matcher对象匹配一个URL的时候</p><pre class="brush:js;toolbar:false">-(WLRMatchResult&nbsp;*)matchResultForString:(NSString&nbsp;*)string{
+//首先通过自身方法将URL进行匹配得出NSTextCheckingResult结果的数组
+&nbsp;&nbsp;&nbsp;&nbsp;NSArray&nbsp;*&nbsp;array&nbsp;=&nbsp;[self&nbsp;matchesInString:string&nbsp;options:0&nbsp;range:NSMakeRange(0,&nbsp;string.length)];
+&nbsp;&nbsp;&nbsp;&nbsp;WLRMatchResult&nbsp;*&nbsp;result&nbsp;=&nbsp;[[WLRMatchResult&nbsp;alloc]init];
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(array.count&nbsp;==&nbsp;0)&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;result;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;result.match&nbsp;=&nbsp;YES;
+&nbsp;&nbsp;&nbsp;&nbsp;NSMutableDictionary&nbsp;*&nbsp;paramDict&nbsp;=&nbsp;[NSMutableDictionary&nbsp;dictionary];
+//遍历NSTextCheckingResult结果
+&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(NSTextCheckingResult&nbsp;*&nbsp;paramResult&nbsp;in&nbsp;array)&nbsp;{
+//再便利根据初始化的时候提取的子串的Key的数组
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(int&nbsp;i&nbsp;=&nbsp;1;&nbsp;i<&nbsp;paramResult.numberOfRanges&&i&nbsp;<&nbsp;=&nbsp;self.routerParamNamesArr.count;i++&nbsp;)&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NSString&nbsp;*&nbsp;paramName&nbsp;=&nbsp;self.routerParamNamesArr[i-1];
+//将值取出，然后将key和value放入到paramDict
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NSString&nbsp;*&nbsp;paramValue&nbsp;=&nbsp;[string&nbsp;substringWithRange:[paramResult&nbsp;rangeAtIndex:i]];
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[paramDict&nbsp;setObject:paramValue&nbsp;forKey:paramName];
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;}
+//最后赋值给WLRMatchResult对象
+&nbsp;&nbsp;&nbsp;&nbsp;result.paramProperties&nbsp;=&nbsp;paramDict;
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;result;
+}</pre><p>核心代码总共80多行，源码大家可以详阅</p><p><strong>WLRRouteMatcher</strong></p><pre class="brush:js;toolbar:false">#import&nbsp;(Foundation/Foundation.h)(此处圆括号替换尖括号)
+@class&nbsp;WLRRouteRequest;
+@interface&nbsp;WLRRouteMatcher&nbsp;:&nbsp;NSObject
+//传入URL匹配的表达式，获取一个matcher实例
++(instancetype)matcherWithRouteExpression:(NSString&nbsp;*)expression;
+//传入URL，如果能匹配上，则生成WLRRouteRequest对象，同时将各种参数解析好交由WLRRouteRequest携带
+-(WLRRouteRequest&nbsp;*)createRequestWithURL:(NSURL&nbsp;*)URL&nbsp;primitiveParameters:(NSDictionary&nbsp;*)primitiveParameters&nbsp;targetCallBack:(void(^)(NSError&nbsp;*,&nbsp;id&nbsp;responseObject))targetCallBack;
+@end</pre><p>属性有如下：</p><pre class="brush:js;toolbar:false">//scheme
+@property(nonatomic,copy)&nbsp;NSString&nbsp;*&nbsp;scheme;
+//WLRRegularExpression的实例&nbsp;
+@property(nonatomic,strong)WLRRegularExpression&nbsp;*&nbsp;regexMatcher;
+//匹配的表达式
+@property(nonatomic,copy)NSString&nbsp;*&nbsp;routeExpressionPattern;</pre><p>初始化方法：</p><pre class="brush:js;toolbar:false">-(instancetype)initWithRouteExpression:(NSString&nbsp;*)routeExpression{
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(![routeExpression&nbsp;length])&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;nil;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(self&nbsp;=&nbsp;[super&nbsp;init])&nbsp;{
+//将scheme与path部分分别取出
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NSArray&nbsp;*&nbsp;parts&nbsp;=&nbsp;[routeExpression&nbsp;componentsSeparatedByString:@"://"];
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_scheme&nbsp;=&nbsp;parts.count>1?[parts&nbsp;firstObject]:nil;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_routeExpressionPattern&nbsp;=[parts&nbsp;lastObject];
+//将path部分当做URL匹配表达式生成WLRRegularExpression实例
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_regexMatcher&nbsp;=&nbsp;[WLRRegularExpression&nbsp;expressionWithPattern:_routeExpressionPattern];
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;self;
+}</pre><p>匹配方法：</p><pre class="brush:js;toolbar:false">-(WLRRouteRequest&nbsp;*)createRequestWithURL:(NSURL&nbsp;*)URL&nbsp;primitiveParameters:(NSDictionary&nbsp;*)primitiveParameters&nbsp;targetCallBack:(void&nbsp;(^)(NSError&nbsp;*,&nbsp;id))targetCallBack{
+&nbsp;&nbsp;&nbsp;&nbsp;NSString&nbsp;*&nbsp;urlString&nbsp;=&nbsp;[NSString&nbsp;stringWithFormat:@"%@%@",URL.host,URL.path];
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(self.scheme.length&nbsp;&&&nbsp;![self.scheme&nbsp;isEqualToString:URL.scheme])&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;nil;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+//调用self.regexMatcher将URL传入，获取WLRMatchResult结果，看是否匹配
+&nbsp;&nbsp;&nbsp;&nbsp;WLRMatchResult&nbsp;*&nbsp;result&nbsp;=&nbsp;[self.regexMatcher&nbsp;matchResultForString:urlString];
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(!result.isMatch)&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;nil;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+//如果匹配，则将result.paramProperties路径参数传入，初始化一个WLRRouteRequest实例
+&nbsp;&nbsp;&nbsp;&nbsp;WLRRouteRequest&nbsp;*&nbsp;request&nbsp;=&nbsp;[[WLRRouteRequest&nbsp;alloc]initWithURL:URL&nbsp;routeExpression:self.routeExpressionPattern&nbsp;routeParameters:result.paramProperties&nbsp;primitiveParameters:primitiveParameters&nbsp;targetCallBack:targetCallBack];
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;request;
+}</pre><p><strong>WLRRouter</strong></p><pre class="brush:js;toolbar:false">@class&nbsp;WLRRouteRequest;
+@class&nbsp;WLRRouteHandler;
+@interface&nbsp;WLRRouter&nbsp;:&nbsp;NSObject
+//注册block回调的URL匹配表达式，可用作内部调用
+-(void)registerBlock:(WLRRouteRequest&nbsp;*(^)(WLRRouteRequest&nbsp;*&nbsp;request))routeHandlerBlock&nbsp;forRoute:(NSString&nbsp;*)route;
+//注册一个WLRRouteHandler对应的URL匹配表达式route
+-(void)registerHandler:(WLRRouteHandler&nbsp;*)handler&nbsp;forRoute:(NSString&nbsp;*)route;
+//判断url是否可以被handle
+-(BOOL)canHandleWithURL:(NSURL&nbsp;*)url;
+-(void)setObject:(id)obj&nbsp;forKeyedSubscript:(NSString&nbsp;*)key;
+-(id)objectForKeyedSubscript:(NSString&nbsp;*)key;
+//调用handleURL方法，传入URL、原生参数和targetCallBack和完成匹配的completionBlock
+-(BOOL)handleURL:(NSURL&nbsp;*)URL&nbsp;primitiveParameters:(NSDictionary&nbsp;*)primitiveParameters&nbsp;targetCallBack:(void(^)(NSError&nbsp;*,&nbsp;id&nbsp;responseObject))targetCallBack&nbsp;withCompletionBlock:(void(^)(BOOL&nbsp;handled,&nbsp;NSError&nbsp;*error))completionBlock;</pre><p>在实现部分，有三个属性：</p><pre class="brush:js;toolbar:false">//每一个URL的匹配表达式route对应一个matcher实例，放在字典中
+@property(nonatomic,strong)NSMutableDictionary&nbsp;*&nbsp;routeMatchers;
+//每一个URL匹配表达式route对应一个WLRRouteHandler实例
+@property(nonatomic,strong)NSMutableDictionary&nbsp;*&nbsp;routeHandles;
+//每一个URL匹配表达式route对应一个回调的block
+@property(nonatomic,strong)NSMutableDictionary&nbsp;*&nbsp;routeblocks;</pre><p>在Route挂在Handler和回调的block的时候:</p><pre class="brush:js;toolbar:false">-(void)registerBlock:(WLRRouteRequest&nbsp;*(^)(WLRRouteRequest&nbsp;*))routeHandlerBlock&nbsp;forRoute:(NSString&nbsp;*)route{
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(routeHandlerBlock&nbsp;&&&nbsp;[route&nbsp;length])&nbsp;{
+//首先添加一个WLRRouteMatcher实例
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[self.routeMatchers&nbsp;setObject:[WLRRouteMatcher&nbsp;matcherWithRouteExpression:route]&nbsp;forKey:route];
+//删除route对应的handler对象
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[self.routeHandles&nbsp;removeObjectForKey:route];
+//将routeHandlerBlock和route存入对应关系的字典中
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.routeblocks[route]&nbsp;=&nbsp;routeHandlerBlock;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+}
+-(void)registerHandler:(WLRRouteHandler&nbsp;*)handler&nbsp;forRoute:(NSString&nbsp;*)route{
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(handler&nbsp;&&&nbsp;[route&nbsp;length])&nbsp;{
+//首先生成route对应的WLRRouteMatcher实例
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[self.routeMatchers&nbsp;setObject:[WLRRouteMatcher&nbsp;matcherWithRouteExpression:route]&nbsp;forKey:route];
+//删除route对应的block回调
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[self.routeblocks&nbsp;removeObjectForKey:route];
+//设置route对应的handler
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.routeHandles[route]&nbsp;=&nbsp;handler;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+}</pre><p>接下来完善handle方法:</p><pre class="brush:js;toolbar:false">-(BOOL)handleURL:(NSURL&nbsp;*)URL&nbsp;primitiveParameters:(NSDictionary&nbsp;*)primitiveParameters&nbsp;targetCallBack:(void(^)(NSError&nbsp;*error,&nbsp;id&nbsp;responseObject))targetCallBack&nbsp;withCompletionBlock:(void(^)(BOOL&nbsp;handled,&nbsp;NSError&nbsp;*error))completionBlock{
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(!URL)&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;NO;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;NSError&nbsp;*&nbsp;error;
+&nbsp;&nbsp;&nbsp;&nbsp;WLRRouteRequest&nbsp;*&nbsp;request;
+&nbsp;&nbsp;&nbsp;&nbsp;__block&nbsp;BOOL&nbsp;isHandled&nbsp;=&nbsp;NO;
+//遍历routeMatchers中的WLRRouteMatcher对象，将URL传入对象，看是否能得到WLRRouteRequest对象
+&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(NSString&nbsp;*&nbsp;route&nbsp;in&nbsp;self.routeMatchers.allKeys)&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WLRRouteMatcher&nbsp;*&nbsp;matcher&nbsp;=&nbsp;[self.routeMatchers&nbsp;objectForKey:route];
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WLRRouteRequest&nbsp;*&nbsp;request&nbsp;=&nbsp;[matcher&nbsp;createRequestWithURL:URL&nbsp;primitiveParameters:primitiveParameters&nbsp;targetCallBack:targetCallBack];
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(request)&nbsp;{
+//如果得到WLRRouteRequest对象，说明匹配成功，则进行handler的生命周期函数调用或是这block回调
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;isHandled&nbsp;=&nbsp;[self&nbsp;handleRouteExpression:route&nbsp;withRequest:request&nbsp;error:&error];
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(!request)&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;error&nbsp;=&nbsp;[NSError&nbsp;WLRNotFoundError];
+&nbsp;&nbsp;&nbsp;&nbsp;}
+//在调用完毕block或者是handler的生命周期方法以后，回调完成的completionHandler
+&nbsp;&nbsp;&nbsp;&nbsp;[self&nbsp;completeRouteWithSuccess:isHandled&nbsp;error:error&nbsp;completionHandler:completionBlock];
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;isHandled;
+}
+//根据request进行handler的生命周期函数调用或者是block回调
+-(BOOL)handleRouteExpression:(NSString&nbsp;*)routeExpression&nbsp;withRequest:(WLRRouteRequest&nbsp;*)request&nbsp;error:(NSError&nbsp;*__autoreleasing&nbsp;*)error&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;id&nbsp;handler&nbsp;=&nbsp;self[routeExpression];
+//self.routeHandles和self.routeblocks拿到route对应的回调block或者是handler实例
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;([handler&nbsp;isKindOfClass:NSClassFromString(@"NSBlock")])&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WLRRouteRequest&nbsp;*(^blcok)(WLRRouteRequest&nbsp;*)&nbsp;=&nbsp;handler;
+//调用回调的block
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WLRRouteRequest&nbsp;*&nbsp;backRequest&nbsp;=&nbsp;blcok(request);
+//判断block里面是否消费了此request，如果没有而目标设置了目标回调targetCallBack，那么在此进行默认回调
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(backRequest.isConsumed==NO)&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(backRequest.targetCallBack)&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dispatch_async(dispatch_get_main_queue(),&nbsp;^{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;backRequest.targetCallBack(nil,nil);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;YES;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;if&nbsp;([handler&nbsp;isKindOfClass:[WLRRouteHandler&nbsp;class]]){
+//拿到url对应的handler对象后，先调用handler的shouldHandleWithRequest方法，如果返回YES，则调用进行转场的transitionWithRequest方法
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WLRRouteHandler&nbsp;*&nbsp;rHandler&nbsp;=&nbsp;(WLRRouteHandler&nbsp;*)handler;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(![rHandler&nbsp;shouldHandleWithRequest:request])&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;NO;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;[rHandler&nbsp;transitionWithRequest:request&nbsp;error:error];
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;YES;
+}</pre><p>以上我们可以看到，Route将匹配的逻辑单独封装到WLRRouteMatcher对象中，将匹配后的结果生成WLRRouteRequest实例以携带足够完整的数据，同时将真正处理视图控制器的转场或者是组件的加载或者是未来可能拓展的handle业务封装到WLRRouteHandler实例中，匹配逻辑对应的处理逻辑干净分离，匹配逻辑可单独塑造业务匹配，处理逻辑可以通过继承扩展或者冲洗WLRRouteHandler的生命周期函数来更好的处理回调业务。如果WLRRouteHandler不能提供足够多的扩展性，则可以使用block回调最大限度的进行扩展。<br/>以上，就是路由部分的整体实现。</p><p><strong>转场的扩展</strong></p><p>在WLRRouteHandler中，其实我们可以单独控制路由经过的页面跳转的转场。</p><pre class="brush:js;toolbar:false">-(UIViewController&nbsp;*)targetViewControllerWithRequest:(WLRRouteRequest&nbsp;*)request{
+}
+-(UIViewController&nbsp;*)sourceViewControllerForTransitionWithRequest:(WLRRouteRequest&nbsp;*)request{
+}
+-(BOOL)transitionWithRequest:(WLRRouteRequest&nbsp;*)request&nbsp;error:(NSError&nbsp;*__autoreleasing&nbsp;*)error{
+
+}</pre><p>这样的生命周期函数是不是很像UIViewControllerContextTransitioning转场上下文的协议的设定？- (nullable __kindof UIViewController *)viewControllerForKey:(UITransitionContextViewControllerKey)key;方法使上下文提供目标控制器和源控制器，其实在handler中你完全可以自定义一个子类，在transitionWithRequest方法里，设置遵守UIViewControllerTransitioningDelegate的代理，然后在此提供遵守 UIViewControllerAnimatedTransitioning的动画控制器，然后自定义转场上下文，实现自定义UI转场，而对应的匹配逻辑是与此无关的，我们就可以在路由曾控制全局的页面转场效果。对自定义转场不太熟悉的同学请移步我之前的文章:<br/><a href="http://www.jianshu.com/p/85447e28f91d" target="_blank">ContainerViewController的ViewController 转场</a></p><p><strong>路由的安全</strong></p><p>有两个方面可以去做</p><ol class=" list-paddingleft-2" ><li><p>WLRRouteHandler实例中，&nbsp;-(BOOL)shouldHandleWithRequest:(WLRRouteRequest *)request中可以检测request中的参数，比方说效验source或者是效验业务参数完整等</p></li><li><p>WLRRouter实例中handleURL方法，将在随后的WLRRoute的0.0.2版本中加入中间件的支持，就是在找到handler之前，将按照中间件注册的顺序回调中间件，而我们可以在中间件中实现风控业务、认证机制、加密验签等等</p></li></ol><p><strong>路由的效率</strong></p><p>目前我们实现的路由是一个同步阻塞型的，在处理并发的时候可能会出现一些问题，或者是在注册比较多的route表达式以后，遍历和匹配的过程会损耗性能，比较好的实现方式是，将Route修改成异步非阻塞型的，但是API全部要换成异步API，起步我们先把同步型的搞定，随后慢慢提供异步版本的路由~</p><p><strong>路由的使用</strong></p><p>在大部分App实践MVVM架构或者更为复杂的VIPER架构的时候，除了迫切需要一个比较解耦的消息传递机制，如何更好的剥离目标实体的获取和配合UIKit这一层的转场逻辑是一项比较复杂的挑战，路由实际上是充当MVVM的ViewModel中比较解耦的目标获取逻辑和VIPER中Router层，P与V的调用全部靠Router转发。</p><p>在实施以组件化为目的的工程化改造中，如何抽离单独业务为组件，比较好的管理业务与业务之间的依赖，就必须使用一个入侵比较小的Route，WLRRoute入侵的地方在于WLRRouteHandler的transitionWithRequest逻辑中，通过一个UIViewController的扩展，给 targetViewController.wlr_request = request;设置了WLRRouteRequest对象给目标业务，但虽然如此，你依旧可以重写WLRRouteHandler的transitionWithRequest方法，来构建你自己参数传递方式，这一点完全取决于你如何更好的使得业务无感知而使用路由。</p><p><span style="line-height: 1.8;">最后附上代码地址：喜欢的来个星吧…</span><a href="https://github.com/Neojoke/WLRRoute" target="_blank" style="line-height: 1.8;">https://github.com/Neojoke/WLRRoute</a></p><p>12.27更新：感谢这位同学，写了一篇讨论性的&nbsp;<a href="http://www.jianshu.com/p/a6f6086b54ac" target="_blank">文章</a>，对我启发很大，我尊敬以及欣赏能够深入思考并且愿意分享自己的idea的人。</p>
+                </div>
+                <div id="page" style="padding:0"></div>
+
+                <div class="wx_article">
+                    <div class="article_weixin">
+                        <img src="http://cdn.cocimg.com/cms/templets/images/article_weixin.jpg" width="131" height="131" alt="搜索CocoaChina微信公众号：CocoaChina"/>
+                        <div class="article_scan">微信扫一扫</div>
+                        <div class="article_txt" ><span style="color:#999999">订阅每日移动开发及APP推广热点资讯<br/>公众号：</span>CocoaChina</div>
+                    </div>
+                </div>
+
+               <div class="clearfix tgbox">
+                    <a href="http://www.cocoachina.com/deliver.php" class="tg float-l" target="_blank">我要投稿</a>&nbsp;&nbsp;
+                    <a style="margin-left:10px"  href="javascript:void(0)" onClick="add_favors(18563,'一步步构建iOS路由')" class="tg float-l" >收藏文章</a>
+                    <div class="share float-r">分享到：
+                        <div class="bdsharebuttonbox" id="sharediv"><a href="#" class="bds_more" data-cmd="more"></a> <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a> <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+                    </div>
+                </div>
+
+
+                <a class="zanbox" href="javascript:void(0)" id="zanbox" onClick="postDigg('good',18563)" title="哎呦，不错噢，赞一个" >
+                    <strong id="newdigg">
+                     <script src="/cms/plus/count.php?view=yes&digg_id=18563&mid=68" language="javascript"></script>
+                    </strong>
+                </a>
+            </div>
+
+            <div class="article-prev">上一篇：<a href='/ios/20161230/18481.html'>如何用Xcode8解决多线程问题</a> </div>
+            <div class="article-next"></div>
+
+            <!--相关资讯-->
+            <div class="part-wrap clearfix">
+                <h3>相关资讯</h3>
+                <ul class="info-list clearfix">
+                    <li>
+                        <a href="/ios/20170106/18525.html" target="_blank" title="不知道大家对throttle这个单词是否看着眼熟，还是说对这个计算机基础概念有很清晰的了解了。今天就来聊聊和throttle相关的一些技术场景。">iOS编程中throttle那些事</a>
+                     </li>
+<li>
+                        <a href="/ios/20170105/18522.html" target="_blank" title="前面几篇博客都是关于排序的，在之前陆陆续续发布的博客中，我们先后介绍了冒泡排序、选择排序、插入排序、希尔排序、堆排序、归并排序以及快速排序。俗话说的好，做事儿要善始善终，本篇博">iOS可视化动态绘制八种排序过程</a>
+                     </li>
+<li>
+                        <a href="/ios/20170104/18507.html" target="_blank" title="XMNetworking 是一个轻量的、简单易用但功能强大的网络库，基于 AFNetworking 3.0 封装。">XMNetworking 网络库的设计与使用</a>
+                     </li>
+<li>
+                        <a href="/ios/20161226/18444.html" target="_blank" title="耦合是每个程序员都必须面对的话题，也是容易被忽视的存在，怎么处理耦合关系到我们最后的代码质量。">iOS书写高质量代码之耦合的处理</a>
+                     </li>
+<li>
+                        <a href="/ios/20161226/18443.html" target="_blank" title="本文是系列文章《Android和iOS开发中的异步处理》的第四篇。在本篇文章中，我们主要讨论在客户端编程中经常使用的队列结构，它的异步编程方式以及相关的接口设计问题。">Android和iOS开发中的异步处理（四）——异步任务和队列</a>
+                     </li>
+<li>
+                        <a href="/ios/20161223/18430.html" target="_blank" title="本文旨在提供iOS应用程序安全审核方法的概述，并介绍一些可用于执行分析的工具。">iOS安全审计入门</a>
+                     </li>
+<li>
+                        <a href="/ios/20161220/18400.html" target="_blank" title="滴滴出行客户端App架构团队在对ReactNative、Weex进行调研尝试后发现并不适用于滴滴现有业务，由此自研了iOS动态化方案——DynamicCocoa，在这篇文章中，作者详细分享了它的背景以及具体功能实现。">滴滴 iOS 动态化方案 DynamicCocoa 的诞生与起航</a>
+                     </li>
+<li>
+                        <a href="/ios/20161221/18391.html" target="_blank" title="iOS分析定位崩溃问题有很多种方式，但是发布到AppStore的应用如果崩溃了，我们该怎么办呢？通常我们都会在系统中接入统计系统，在系统崩溃的时候记录下崩溃日志，下次启动时将日志发送到服务端">iOS分析崩溃日志</a>
+                     </li>
+<li>
+                        <a href="/ios/20161214/18351.html" target="_blank" title="有些时候我们需要下载旧版本的 App 进行研究或者其他用途，然而在 iOS 下，苹果的 App Store 里面默认只能下载最新版本的 App，对滴，就是这么任性，不服不行。然而在 Android 里面任意一个应用商店都可">【iOS秘籍】-下载历史版本App超详细教程</a>
+                     </li>
+<li>
+                        <a href="/ios/20161212/18335.html" target="_blank" title="这一篇讲述RunLoop如何保证NSTimer在视图滑动时，依然能正常运转。">RunLoop 总结：RunLoop的应用场景（二）</a>
+                     </li>
+
+                </ul>
+            </div>
+            <div class="clearfix" style="margin-top:20px;" >
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- CC评论框 -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:750px;height:90px"
+                     data-ad-client="ca-pub-1180518835303646"
+                     data-ad-slot="8242010366"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            <!-- 评论模块start -->
+            
+            <div class="clearfix" id="commnet_list_holder" style="margin-bottom:50px;">
+                <div class="glab-comment-form">
+                    <div class="dcbt">我来说两句</div>
+                    <div class="user-head">
+                        <img id="user_face_url" src="http://cdn.cocimg.com/bbs/images/face/none.gif" height="43" width="43" alt="">
+                    </div>
+                    <div class="form-region">
+                        <textarea name="comment" id="main_comment_content" cols="30" rows="10" placeholder="你怎么看？快来评论一下吧！"></textarea>
+                        <a class="submitform" id="main_comment_bt">发表评论</a>
+                        <div class="unlogin-mask">
+                            <div>您还没有登录！请<a href="/bbs/login.php">登录</a>或<a href="/bbs/register.php">注册</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="glab-comment-callback-msg" class="glab-comment-info"></div>
+                <div class="glab-comment-title">所有评论（<span>0</span>）</div>
+                <div class="glab-commentlist" id="commentlist">
+                    <a id="refresh_comment_btn" href="javascript:;" onclick="$('#morecomment').trigger('click')">刷新评论</a>
+                </div>
+                <div class="glab-comment-more" id="morecomment" style="display:none">
+                    更多评论
+                </div>
+            </div>
+            
+            <!-- 评论模块end -->
+
+
+        </div>
+        <!--./left-->
+        <!--侧边栏-->
+        <div class="clearfix newslist">
+            <div class="rightSide detail-right float-r"  >
+                <!--两周热门资讯推荐-->
+                <div>
+                    <div class="part-wrap clearfix">
+                        <h3>热门资讯</h3>
+                        <ul class="related-hot">
+                            <li class="clearfix"><a href="http://www.cocoachina.com/ios/20161230/18477.html" class="float-l pic" target="_blank" title="告别2016迎接2017，分享一些第三方插件"><img src="http://cc.cocimg.com/api/uploads/161230/d6dc2da188f74d23ccad829e5afd25d6.jpg"  style="max-height:60px" alt="告别2016迎接2017，分享一些第三方插件"/></a><div style="margin-left:86px"><p class="related-intro"><a href="http://www.cocoachina.com/ios/20161230/18477.html" target="_blank" title="告别2016迎接2017，分享一些第三方插件">告别2016迎接2017，分享一些第三方插件</a></p><p class="hits">点击量<span>9002</span></p></div></li><li class="clearfix"><a href="http://www.cocoachina.com/industry/20161228/18465.html" class="float-l pic" target="_blank" title="张小龙首次公开解读小程序：1月9号上线（附演讲全文）"><img src="http://cc.cocimg.com/api/uploads/161228/51fa9720ac4849814cf337acebaec329.jpg"  style="max-height:60px" alt="张小龙首次公开解读小程序：1月9号上线（附演讲全文）"/></a><div style="margin-left:86px"><p class="related-intro"><a href="http://www.cocoachina.com/industry/20161228/18465.html" target="_blank" title="张小龙首次公开解读小程序：1月9号上线（附演讲全文）">张小龙首次公开解读小程序：1月9号上线（附演讲全文）</a></p><p class="hits">点击量<span>6718</span></p></div></li><li class="clearfix"><a href="http://www.cocoachina.com/programmer/20170109/18542.html" class="float-l pic" target="_blank" title="那个找不到工作的iOS程序猿"><img src="http://cc.cocimg.com/api/uploads/170108/f130cf1c1369d874fe4d8dba05f34fa4.jpg"  style="max-height:60px" alt="那个找不到工作的iOS程序猿"/></a><div style="margin-left:86px"><p class="related-intro"><a href="http://www.cocoachina.com/programmer/20170109/18542.html" target="_blank" title="那个找不到工作的iOS程序猿">那个找不到工作的iOS程序猿</a></p><p class="hits">点击量<span>6259</span></p></div></li><li class="clearfix"><a href="http://www.cocoachina.com/programmer/20161229/18469.html" class="float-l pic" target="_blank" title="技术人员的发展之路"><img src="http://cc.cocimg.com/api/uploads/161228/0776e43a06d57cb68251f2792fc58e4b.jpg"  style="max-height:60px" alt="技术人员的发展之路"/></a><div style="margin-left:86px"><p class="related-intro"><a href="http://www.cocoachina.com/programmer/20161229/18469.html" target="_blank" title="技术人员的发展之路">技术人员的发展之路</a></p><p class="hits">点击量<span>5825</span></p></div></li><li class="clearfix"><a href="http://www.cocoachina.com/ios/20170105/18515.html" class="float-l pic" target="_blank" title="提升自己逼格的编程之美之代码规范"><img src="http://cc.cocimg.com/api/uploads/170104/024a2ed1317315b7e58cc8bb55e660c6.jpg"  style="max-height:60px" alt="提升自己逼格的编程之美之代码规范"/></a><div style="margin-left:86px"><p class="related-intro"><a href="http://www.cocoachina.com/ios/20170105/18515.html" target="_blank" title="提升自己逼格的编程之美之代码规范">提升自己逼格的编程之美之代码规范</a></p><p class="hits">点击量<span>5292</span></p></div></li><li class="clearfix"><a href="http://www.cocoachina.com/programmer/20161231/18489.html" class="float-l pic" target="_blank" title="网上学习编程的七大趋势"><img src="http://cc.cocimg.com/api/uploads/161231/60dcd7c3a1cd91a49604439c258a6205.jpg"  style="max-height:60px" alt="网上学习编程的七大趋势"/></a><div style="margin-left:86px"><p class="related-intro"><a href="http://www.cocoachina.com/programmer/20161231/18489.html" target="_blank" title="网上学习编程的七大趋势">网上学习编程的七大趋势</a></p><p class="hits">点击量<span>5279</span></p></div></li><li class="clearfix"><a href="http://www.cocoachina.com/ios/20161228/18461.html" class="float-l pic" target="_blank" title="半糖iOS版首页实现与基本原理揭秘"><img src="http://cc.cocimg.com/api/uploads/161227/fa6a53801b6edd246b7ae8e8c5da08dc.png"  style="max-height:60px" alt="半糖iOS版首页实现与基本原理揭秘"/></a><div style="margin-left:86px"><p class="related-intro"><a href="http://www.cocoachina.com/ios/20161228/18461.html" target="_blank" title="半糖iOS版首页实现与基本原理揭秘">半糖iOS版首页实现与基本原理揭秘</a></p><p class="hits">点击量<span>4705</span></p></div></li><li class="clearfix"><a href="http://www.cocoachina.com/design/20170103/18486.html" class="float-l pic" target="_blank" title="APP视觉风格的水下冰川—总被人忽略的“配图”"><img src="http://cc.cocimg.com/api/uploads/161231/e9059a83ce0fcbc3e5237c7186d650f3.gif"  style="max-height:60px" alt="APP视觉风格的水下冰川—总被人忽略的“配图”"/></a><div style="margin-left:86px"><p class="related-intro"><a href="http://www.cocoachina.com/design/20170103/18486.html" target="_blank" title="APP视觉风格的水下冰川—总被人忽略的“配图”">APP视觉风格的水下冰川—总被人忽略的“配图”</a></p><p class="hits">点击量<span>4002</span></p></div></li><li class="clearfix"><a href="http://www.cocoachina.com/ios/20170110/18544.html" class="float-l pic" target="_blank" title="iOS即时通讯，从入门到“放弃”？"><img src="http://cc.cocimg.com/api/uploads/170109/fe0c5e253a9077ad5ac62286359ca8ce.jpg"  style="max-height:60px" alt="iOS即时通讯，从入门到“放弃”？"/></a><div style="margin-left:86px"><p class="related-intro"><a href="http://www.cocoachina.com/ios/20170110/18544.html" target="_blank" title="iOS即时通讯，从入门到“放弃”？">iOS即时通讯，从入门到“放弃”？</a></p><p class="hits">点击量<span>3239</span></p></div></li><li class="clearfix noborder-b"><a href="http://www.cocoachina.com/ios/20161228/18394.html" class="float-l pic" target="_blank" title="如何用Xcode 8和Swift 3 构建条形码和二维码识别器"><img src="http://cc.cocimg.com/api/uploads/161226/d098ece44e0c5174d61f6d5f0ca9184e.png"  style="max-height:60px" alt="如何用Xcode 8和Swift 3 构建条形码和二维码识别器"/></a><div style="margin-left:86px"><p class="related-intro"><a href="http://www.cocoachina.com/ios/20161228/18394.html" target="_blank" title="如何用Xcode 8和Swift 3 构建条形码和二维码识别器">如何用Xcode 8和Swift 3 构建条形码和二维码识别器</a></p><p class="hits">点击量<span>3218</span></p></div></li>
+                        </ul>
+                    </div>
+               </div>
+               <!--./两周热门资讯推荐-->
+               <!--综合评论-->
+                <div class="part-wrap clearfix" style="margin-top: 15px;">
+                    <h3>综合评论</h3>
+                    <ul class="related-comment clearfix" id="all_comments_holder">
+                        <li><span class="hide_comment">我已经裸辞了，本来是打算转行到前段的，发现其实随波逐流并不怎么好！现在又开始重拾ios，现在年后整理整理知识点，做好年后去找ios的工作。<br>怎么说呢？其实行情不是很好，但是高级人才永远那么少，只有技术的提升，才不会过于担心行情的变化。<br>也许现在H5、小程序很火，也许明年后也会结局也会过于饱和。<br>精通一门语音，才去专研其他语音，是最好的！我是吃了多门语音都会，但不精通的亏。</span><br/><p><span>随偑侕荇</span><span>评论了</span><a href="http://www.cocoachina.com/programmer/20170109/18542.html" title="那个找不到工作的iOS程序猿" target="_blank" ><span>那个找不到工作的iOS程序猿</span></a></p></li><li><span class="hide_comment">感觉很厉害</span><br/><p><span>q8900321</span><span>评论了</span><a href="http://www.cocoachina.com/ios/20170110/18552.html" title="iOS A/B Test 方案探索" target="_blank" ><span>iOS A/B Test 方案探索</span></a></p></li><li><span class="hide_comment">第一次见到这么好的干货&nbsp;&nbsp;赞一个<br></span><br/><p><span>wo461606742</span><span>评论了</span><a href="http://www.cocoachina.com/ios/20170110/18544.html" title="iOS即时通讯，从入门到“放弃”？" target="_blank" ><span>iOS即时通讯，从入门到“放弃”？</span></a></p></li><li><span class="hide_comment">好文章作者有心了，我觉得现在摩客工具走的就是低保真的路线，出图超快，很喜欢</span><br/><p><span>小米粉丝</span><span>评论了</span><a href="http://www.cocoachina.com/ios/20141208/10544.html" title="低保真原型初级指南" target="_blank" ><span>低保真原型初级指南</span></a></p></li><li><span class="hide_comment">分享mockplus工具具备交互功能，基本够用了</span><br/><p><span>小米粉丝</span><span>评论了</span><a href="http://www.cocoachina.com/design/20150408/11506.html" title="从产品原型到交互设计的过渡" target="_blank" ><span>从产品原型到交互设计的过渡</span></a></p></li><li><span class="hide_comment">分享使用mockplus一个工具搞定原型设计</span><br/><p><span>小米粉丝</span><span>评论了</span><a href="http://www.cocoachina.com/design/20150225/11191.html" title="产品经理小技术：图片素材随手找，原型设计快又好" target="_blank" ><span>产品经理小技术：图片素材随手找，原型设计快又好</span></a></p></li><li><span class="hide_comment">感谢了，不过我用了mockplus后感觉一切都简单了</span><br/><p><span>小米粉丝</span><span>评论了</span><a href="http://www.cocoachina.com/design/20150414/11556.html" title="聊聊线框图、原型和视觉稿的区别" target="_blank" ><span>聊聊线框图、原型和视觉稿的区别</span></a></p></li><li><span class="hide_comment">分享我用的mockplus做原型试试，你会发现比用笔和纸还要快</span><br/><p><span>小米粉丝</span><span>评论了</span><a href="http://www.cocoachina.com/design/20150723/12682.html" title="速战速决！如何在3天内围绕UX快速设计天气应用原型" target="_blank" ><span>速战速决！如何在3天内围绕UX快速设计天气应用原型</span></a></p></li><li><span class="hide_comment">摩客这么好用的工具才每月不到10元，很人性啊</span><br/><p><span>小米粉丝</span><span>评论了</span><a href="http://www.cocoachina.com/design/20160229/15319.html" title="2016你一定要试试这8款原型设计工具" target="_blank" ><span>2016你一定要试试这8款原型设计工具</span></a></p></li><li class="noborder-b"><span class="hide_comment">写的不错</span><br/><p><span>society2012</span><span>评论了</span><a href="http://www.cocoachina.com/ios/20170110/18544.html" title="iOS即时通讯，从入门到“放弃”？" target="_blank" ><span>iOS即时通讯，从入门到“放弃”？</span></a></p></li>
+                    </ul>
+                </div>
+                <!--./综合评论-->
+                <!--相关帖子-->
+                <div class="part-wrap clearfix" style="margin:15px 0 15px 0;">
+                    <h3>相关帖子</h3>
+                    <ul class="related-comment clearfix">
+                        <script charset="gb2312" src="http://www.cocoachina.com/bbs/new.php?action=article&fidin=21_18_2_8_19_41_59_48_56_14_36_5&digest=0&postdate=0&author=0&fname=0&hits=0&replies=0&pre=0&num=10&length=100&order=2&like=ios#iOS开发"></script>
+                    </ul>
+                </div>
+                <!--./相关帖子-->
+                <iframe width="230" height="550" class="share_self" frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=230&height=550&fansRow=2&ptype=1&speed=0&skin=5&isTitle=1&noborder=1&isWeibo=1&isFans=0&uid=1659808677&verifier=6043be56&dpc=1"></iframe>
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- CC列表页面230x230 -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:230px;height:230px"
+                     data-ad-client="ca-pub-1180518835303646"
+                     data-ad-slot="6765277166"></ins>
+                <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </div>
+        <!--./侧边栏-->
+    </div>
+
+    <div id="coco-store" style="display:none">
+        <div class="storebox">
+            <h5>提示</h5>
+            <h3>已经收藏该篇文章</h3>
+            <p class="p1"><a href="/bbs/u.php?action=favor&tag=1" target="_blank">去我的收藏夹</a></p>
+            <p class="p2"><a href="/bbs/login.php">请登录</a></p>
+        </div>
+    </div> <!--收藏提示-->
+</div>
+
+<script type="text/javascript">
+
+function postDigg(ftype,aid)
+{
+    var taget_obj = document.getElementById('newdigg');
+    var saveid = GetCookie('diggid');
+    if(saveid != null)
+    {
+        var saveids = saveid.split(',');
+        var hasid = false;
+        saveid = '';
+        j = 1;
+        for(i=saveids.length-1;i>=0;i--)
+        {
+            if(saveids[i]==aid && hasid) continue;
+            else {
+                if(saveids[i]==aid && !hasid) hasid = true;
+                saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+                j++;
+                if(j==20 && hasid) break;
+                if(j==19 && !hasid) break;
+            }
+        }
+        if(hasid) { alert("您已经顶过该帖，请不要重复顶帖 ！"); return; }
+        else saveid += ','+aid;
+        SetCookie('diggid',saveid,1);
+    }
+    else
+    {
+        SetCookie('diggid',aid,1);
+    }
+    myajax = new DedeAjax(taget_obj,false,false,'','','');
+    var url = "/cms/plus/digg_ajax.php?action="+ftype+"&id="+aid;
+    myajax.SendGet2(url);
+    DedeXHTTP = null;
+    $('#zanbox').addClass('zanbox-selected');
+}
+function getDigg(aid)
+{
+    var taget_obj = document.getElementById('newdigg');
+    myajax = new DedeAjax(taget_obj,false,false,'','','');
+    myajax.SendGet2("/cms/plus/digg_ajax.php?id="+aid);
+    DedeXHTTP = null;
+}
+
+
+//显示对应的导航：
+$(function(){
+    var article_id = $('#article_id').val();
+    var saveid = GetCookie('diggid');
+
+    if(saveid != null)
+    {
+        var saveids = saveid.split(',');
+        var hasid = false;
+        saveid = '';
+        j = 1;
+        for(i=saveids.length-1;i>=0;i--)
+        {
+            if(saveids[i]==article_id && hasid) continue;
+            else {
+                if(saveids[i]==article_id && !hasid) hasid = true;
+                saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+                j++;
+                if(j==20 && hasid) break;
+                if(j==19 && !hasid) break;
+            }
+        }
+
+        if(hasid)
+        {
+            $('#zanbox').addClass('zanbox-selected');
+        }
+
+    }
+
+});
+
+window.onload = function() {
+
+    $('#sharediv').removeClass('bdshare-button-style1-32');
+    $('#sharediv').attr('class','bdsharebuttonbox');
+};
+</script>
+<script type="text/javascript" src="http://cdn.cocimg.com/cms/templets/js/shCore.js"></script>
+    <script type="text/javascript" src="http://cdn.cocimg.com/cms/templets/js/brush.js"></script>
+    <link type="text/css" rel="stylesheet" href="http://cdn.cocimg.com/cms/templets/style/shCoreDefault.css"/>
+    <script type="text/javascript">
+    //SyntaxHighlighter.config.clipboardSwf = '/js/scripts/clipboard.swf';
+
+    SyntaxHighlighter.all();</script>
+
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"一步步构建iOS路由 - 来自CocoaChina苹果开发中文站@CocoaChina","bdMini":"2","bdMiniList":false,"bdPic":"http://api.cocoachina.com/uploads/170110/b3ed419248e14437d4e88f852333d2c5.png","bdStyle":"1","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api//js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+<!--./cont-->
+
+<!-- 回复评论框模板 -->
+<script type="text/javascript" src="http://cdn.cocimg.com/cms/templets/js/comment.js?v=20151019"></script>
+<script type="text/javascript" src="http://cdn.cocimg.com/cms/templets/js/mustache.min.js"></script>
+<!-- 回复评论框模板 -->
+<script id="reply_comment_template" type="x-tmpl-mustache">
+    <div id="sub-reply-comment" class="reply-comment">
+        <textarea name="subcomment" id="sub-reply-txt" cols="30" rows="10" placeholder="你怎么看？快来评论一下吧！"></textarea>
+        <input type="hidden" id="sub-reply-id" value="{{commentid}}" />
+        <input type="hidden" id="sub-reply-userid" value="{{parentuserid}}" />
+        <input type="hidden" id="sub-reply-username" value="{{parentusername}}" />
+        <a type="button" id="sub_comment_bt" class="submitbt">提交</a>
+        <div class="clearfloat"></div>
+        <div class="unlogin-mask">
+            <div>您还没有登录！请<a href="/bbs/login.php">登录</a>或<a href="/bbs/register.php">注册</a></div>
+        </div>
+    </div>
+</script>
+
+<!-- 评论模板 -->
+<script id="main_comment_template" type="x-tmpl-mustache">
+    <div class="glab-comment" rel-data-id="{{comment_id}}" rel-user-id="{{user_id}}" rel-user-name="{{user_name}}" rel-layer="1">
+        <div class="comment-left">
+            <a href="/bbs/u.php?action=feed&uid={{user_id}}" target="_blank"><img src="{{user_icon_url}}" height="43" width="43" alt=""></a>
+        </div>
+        <div class="comment-right">
+            <div class="comment-author"><a href="/bbs/u.php?action=feed&uid={{user_id}}" target="_blank">{{user_name}}</a><span class="puptime">{{create_time}}</span></div>
+            <div class="comment-content">{{&content}}</div>
+            <div class="comment-buttons">
+                <span class="ding">                    
+                    <img src="http://cdn.cocimg.com/cms/templets/images/zan-default.png" height="14" width="14" alt="" class="default" style="{{#has_supported}} display:none; {{/has_supported}}">
+                    <img src="http://cdn.cocimg.com/cms/templets/images/zan-active.png" height="14" width="14" alt="" class="actived" style="{{^has_supported}} display:none; {{/has_supported}}">
+                    <span class="zancnt">{{support}}</span>
+                </span>
+                <span class="cai">
+                    <img src="http://cdn.cocimg.com/cms/templets/images/cai-default.png" height="14" width="14" alt="" class="default" style="{{#has_reported}} display:none; {{/has_reported}}">
+                    <img src="http://cdn.cocimg.com/cms/templets/images/cai-active.png" height="14" width="14" alt="" class="actived" style="{{^has_reported}} display:none; {{/has_reported}}">
+                    <span class="zancnt">{{report}}</span>
+                </span>
+                <span class="replybt">回复</span>
+            </div>
+        </div>
+            {{#sub}}
+                <div class="glab-comment glab-sub-comment" rel-data-id="{{comment_id}}" rel-user-id="{{user_id}}" rel-user-name="{{user_name}}" rel-layer="2">
+                    <div class="comment-left">
+                        <a href="/bbs/u.php?action=feed&uid={{user_id}}" target="_blank"><img src="{{user_icon_url}}" height="43" width="43" alt=""></a>
+                    </div>
+                    <div class="comment-right">
+                        <div class="comment-author"><a href="/bbs/u.php?action=feed&uid={{user_id}}" target="_blank">{{user_name}}</a><span class="puptime">{{create_time}}</span></div>
+                        <div class="comment-content"><a href="/bbs/u.php?action=feed&uid={{parent_user_id}}" target="_blank">回复：{{parent}}</a>{{&content}}</div>
+                        <div class="comment-buttons">
+                            <span class="ding">
+                                <img src="http://cdn.cocimg.com/cms/templets/images/zan-default.png" height="14" width="14" alt="" class="default" style="{{#has_supported}} display:none; {{/has_supported}}">
+                                <img src="http://cdn.cocimg.com/cms/templets/images/zan-active.png" height="14" width="14" alt="" class="actived" style="{{^has_supported}} display:none; {{/has_supported}}">
+                                <span class="zancnt">{{support}}</span>
+                            </span>
+                            <span class="cai">
+                                <img src="http://cdn.cocimg.com/cms/templets/images/cai-default.png" height="14" width="14" alt="" class="default" style="{{#has_reported}} display:none; {{/has_reported}}">
+                                <img src="http://cdn.cocimg.com/cms/templets/images/cai-active.png" height="14" width="14" alt="" class="actived" style="{{^has_reported}} display:none; {{/has_reported}}">
+                                <span class="zancnt">{{report}}</span>
+                            </span>
+                            <span class="replybt">回复</span>
+                        </div>          
+                    </div>
+                </div>
+            {{/sub}}         
+    </div>  
+</script>
+
+
+<script id="sub_comment_template" type="x-tmpl-mustache">
+    <div class="glab-comment glab-sub-comment" rel-data-id="{{comment_id}}" rel-user-id="{{user_id}}" rel-user-name="{{user_name}}" rel-layer="2">
+        <div class="comment-left">
+            <a href="/bbs/u.php?action=feed&uid={{user_id}}" target="_blank"><img src="{{user_icon_url}}" height="43" width="43" alt=""></a>
+        </div>
+        <div class="comment-right">
+            <div class="comment-author"><a href="/bbs/u.php?action=feed&uid={{user_id}}" target="_blank">{{user_name}}</a><span class="puptime">{{create_time}}</span></div>
+            <div class="comment-content"><a href="/bbs/u.php?action=feed&uid={{parent_user_id}}" target="_blank">回复：{{parent}}</a>{{&content}}</div>
+            <div class="comment-buttons">
+                <span class="ding">
+                    <img src="http://cdn.cocimg.com/cms/templets/images/zan-default.png" height="14" width="14" alt="" class="default" style="{{#has_supported}} display:none; {{/has_supported}}">
+                    <img src="http://cdn.cocimg.com/cms/templets/images/zan-active.png" height="14" width="14" alt="" class="actived" style="{{^has_supported}} display:none; {{/has_supported}}">
+                    <span class="zancnt">{{support}}</span>
+                </span>
+                <span class="cai">
+                    <img src="http://cdn.cocimg.com/cms/templets/images/cai-default.png" height="14" width="14" alt="" class="default" style="{{#has_reported}} display:none; {{/has_reported}}">
+                    <img src="http://cdn.cocimg.com/cms/templets/images/cai-active.png" height="14" width="14" alt="" class="actived" style="{{^has_reported}} display:none; {{/has_reported}}">
+                    <span class="zancnt">{{report}}</span>
+                </span>
+                <span class="replybt">回复</span>
+            </div>          
+        </div>
+    </div>
+</script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-68948817-1', 'auto', {'name': 'newTracker'});
+  ga('newTracker.send', 'pageview');
+
+</script>
+</div>    
+<!--右侧浮动-->
+    <div class="r-bar">
+        <img src="http://cdn.cocimg.com/cms/templets/images/coco_weixin.png" class="weixin">
+    	<a href="http://weibo.com/cocoachina" target="_blank" title="" class="weibo">sina</a>
+        <a href="javascript:void(0);" target="_blank" title="" class="feedback">weixin</a>
+        <a href="mailto:support@cocoachina.com" title="" class="kefu">mail</a>
+        <a href="javascript:;" title="回到顶部" class="returntop">回到顶部</a>
+    </div>
+
+<script language="javascript" src="/cms/bbsauth_plus2015.php" type="text/javascript"></script>
+<script type="text/javascript">
+$(function(){
+    if (typeof(_user_info_html) != 'undefined' && _user_info_html)
+    {
+        $('.nav-user-login').hide();
+        $('.nav-user-name').html(_user_info_html).show();
+    }
+
+	var type = $('#type_name').html();
+	if(type)
+	{	
+		switch( type )
+		{
+			case 'iOS开发':
+				$('#ios').addClass('light');
+				break;
+			case 'AppStore研究':
+				$('#app_store').addClass('light');
+				break;
+			case 'Mac开发':
+				$('#mac').addClass('light');
+				break;
+			case '产品设计':
+				$('#design').addClass('light');
+				break;
+			case 'Cocos引擎':
+				$('#cocos').addClass('light');
+				break;
+			case 'WebApp':
+				$('#webapp').addClass('light');
+				break;
+			case 'Swift':
+				$('#swift').addClass('light');
+				break;
+			case '游戏开发':
+				$('#game').addClass('light');
+				break;
+			case '苹果相关':
+				$('#apple').addClass('light');
+				break;
+			case '营销推广':
+				$('#market').addClass('light');
+				break;		
+			case '业界动态':
+				$('#industry').addClass('light');
+				break;	
+			case '程序人生':
+				$('#programmer').addClass('light');
+				break;																																
+				
+		}
+	}
+});
+</script>
+<!--./cont-->
+<script type="text/javascript" src="/cms/templets/js/index.js?20111546514"></script>
+<script src="http://cdn.cocimg.com/cms/templets/js/jquery.colorbox-min.js" type="text/javascript"></script>
+<script src="/cms/templets/js/script.js?t=2045479411" type="text/javascript"></script>
+<script type="text/javascript">
+			jQuery(function()
+			{
+				//更改文章来源
+				var source = $('#source a').html();								
+				if( source == '未知' )
+					jQuery('#source a').html('CocoaChina');
+				if( jQuery('#source a').attr('href')=='')
+					jQuery('#source').html('来源：'+source);
+				
+				//获取用户登录的id
+//                var content = jQuery('.t-lid').attr("href");
+//                var uid = 0;
+//                if( content )
+//                {
+//                    content = content.split('=');
+//                    uid = content[1];
+//                }
+//                var timestamp = new Date().getTime();	
+//                var uid2 = parseInt(uid);
+//                if(uid2==uid && uid2!=0){
+//                    uid = uid<<2;			
+//                    uid = uid+''+timestamp;
+//                }else{
+//                    uid = "";
+//                }
+//                var oIframe=document.getElementById("comiframe");
+//                if(oIframe){
+//                    var oUrl=window.location.href;
+//                    oUrl = encodeURIComponent(oUrl);
+//
+//                    oIframe.src="/comment.php?url="+oUrl+"&uid="+uid;
+//                }
+
+				
+			});
+		</script>
+<!--footer-->
+<div class="footer clearfix">
+    <div class="footer-b">
+        <div>
+            <a href="/aboutus/index.html" target="_blank">关于我们</a>
+            <a href="/contactus/index.html" target="_blank">商务合作</a>
+            <a href="mailto:support@cocoachina.com" target="_blank">联系我们</a>
+            <a href="/corps" target="_blank">合作伙伴</a>
+        </div>
+        <p class="footer-b-p">北京触控科技有限公司版权所有</p>
+        <p>
+            &copy;2016 Chukong Technologies,Inc.
+            <i>
+                <a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备 11006519号 　京ICP证 100954号</a> 京公网安备11010502020289 
+                <a href="http://182.131.21.137/ccnt-apply/admin/business/preview/business-preview!lookUrlRFID.action?main_id=A580B24B1AE846CE9DA949026D63939F" target="_blank">
+                    <img src="http://cdn.cocimg.com/cms/templets/images/jingwen.png" style="margin: -10px auto -14px -10px;" />
+                    京网文[2012]0426-138号
+                </a>
+            </i>
+        </p>
+    </div>
+</div>
+<!--./footer-->
+<script language="javascript" type="text/javascript" src="/cms/include/dedeajax2-min.js"></script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?88399e4c4cf744609c4fc8c3a8935691";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-16940817-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  
+ 
+function search_check()
+{
+	var search_keyword = $('#search_keyword').val();
+
+	if( search_keyword.length < 2 )
+	{
+		alert("搜索关键字不能少于2个字节，请重新输入。");
+	}
+	else
+	{
+		$('#searchform').submit();
+	}
+}
+
+</script>
+<script type="text/javascript">
+_acK({aid:116313,format:0,mode:1,gid:1,serverbaseurl:"afp.csbew.com/"});
+</script>
+
+</body>
+</html>

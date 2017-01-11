@@ -1,0 +1,730 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <title>如何用Xcode8解决多线程问题 - CocoaChina_让移动开发更简单</title>
+    <meta name="keywords" content="Xcode8,多线程iPhone开发,iOS开发,iPad开发,Mac开发,苹果开发中文站,iPhone开发中文站,CocoaChina首页, Mac OS开发, Cocoa介绍,移动互联网,触控科技,Cocoa,Apple,developer,iOS,iPhone,iPad,iMac,iPod Touch,iPhone5,iPhone4S,iPad3,招聘,iPhone程序员,Objective-c,iPhone应用外包,ios6,ios面试,Cocos2d-x,cocos2d,iTunes,App Store,苹果开发" />
+    <meta name="description" content="CocoaChina前身是全球成立最早规模最大的苹果开发中文站，现致力为所有移动开发者提供资讯服务、问答服务、代码下载、工具库及人才招聘服务" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="baidu-tc-cerfication" content="3300a939a1098c27e94457b75a0bb8c1" />
+    <script type='text/javascript'>
+        function gotoMobilePage() {
+            var sUserAgent = navigator.userAgent.toLowerCase();
+            var agent_iphone = /iphone/i;
+            var agent_android = /android/i;
+            //var agent_ipad = /ipad/i;
+            var agent_ipod = /ipod/i;
+            var agent_wphone = /windows phone/i;
+            if(agent_iphone.test(sUserAgent) || agent_android.test(sUserAgent) || agent_ipod.test(sUserAgent) || agent_wphone.test(sUserAgent)){
+                var re = /\/\w+\/\d+\/(\d+)\.html/, 
+                    result = re.exec(window.location.pathname);
+                if ( result )
+                {
+                    window.location.href = "http://www.cocoachina.com/cms/wap.php?action=article&id=" + result[1];
+                } else {
+                    window.location.href = "http://m.cocoachina.com/";
+                }
+            }
+        }
+        gotoMobilePage(); 
+    </script>
+    <link rel="stylesheet" href="http://cdn.cocimg.com/assets/css/global.css?v=20150818" media="all">
+    <link rel="stylesheet" href="http://cdn.cocimg.com/assets/css/index.css?v=20151015" media="all">
+    <link href="http://cdn.cocimg.com/assets/css/module.css?v=20150906" rel="stylesheet">
+    <link href="http://cdn.cocimg.com/assets/css/style.css?v=620150818" rel="stylesheet">
+    <link href="http://cdn.cocimg.com/assets/css/navheader.css?v=20160301" rel="stylesheet" />
+    <script src="http://cdn.cocimg.com/assets/js/jquery.min.js?v=20150818" type="text/javascript"></script>
+    <script type="text/javascript" src="http://cdn.cocimg.com/assets/js/navbar.js?v=20151013"></script>
+    <script type="text/javascript" src="http://s.csbew.com/k.js"></script>
+    
+</head>
+<body>
+
+    <div class="nav-header">
+            <div class="nav-header-top">
+                <div class="nav-logo nav-fl"><a href="/"><img src="http://cdn.cocimg.com/assets/images/logo.png?v=201510272" /></a></div>
+                <div class="nav-list nav-fl">
+                    <ul>
+                        <li><a href="/news/">资讯</a></li>
+                        <li><a href="/bbs/">论坛</a></li>
+                        <li><a target="_blank" href="http://code.cocoachina.com/" title="CODE">代码</a></li>
+                        <li><a href="http://tools.cocoachina.com" title="工具" target='_blank'>工具</a></li>
+                        <li><a target="_blank" href="http://job.cocoachina.com/" title="JOB">招聘</a></li>
+                        <li><a target="_blank" href="http://cvp.cocos.com/" title="CVP">CVP</a></li>
+                        <li><a target="_blank" href="http://waikuai.cocoachina.com/" title="waikuai">外快</a></li>
+                        <li><a target="_blank" href="http://blog.cocoachina.com/" title="blog">博客</a><span class="new-item-flag">new</span></li>
+                    </ul>
+                </div>
+                <div class="nav-search nav-fl">
+                    <div class="nav-search-flag" style="display:block"><img src="http://cdn.cocimg.com/assets/img/search-icon.png?v=20150825" /></div>
+                    <div class="nav-search-form" style="display:none">
+                        <form action="/cms/plus/search.php" name="formsearch" method="post" target="_blank">
+                            <input type="hidden" name="kwtype" value="0" />
+                            <input type="hidden" name="searchtype" value="titlekeyword" />
+                            <input name="keyword" type="text" placeholder="站内搜索" />
+                            <input type="button" />
+                        </form>
+                    </div>
+                </div>
+                <div class="nav-user nav-fr">
+                    <!-- #region 未登录时显示此区域 -->
+                    <div class="nav-user-login" style="display:block">
+                        <a href="/bbs/login.php">登录</a>|
+                        <a href="/bbs/register.php">注册</a>
+                    </div>
+                    <!-- #endregion -->
+                    <!-- #region 已登录时显示此区域 -->
+                    <div class="nav-user-name" style="display:none">
+                        <div><alert></alert><img src="/assets/img/user.png" />Guest</div>
+                        <ul>
+                            <li><a href="#"><img src="/assets/img/i-man.png" />我的主页</a></li>
+                            <li><alert></alert><a href="#"><img src="/assets/img/i-mail.png" />我的消息</a></li>
+                            <li><a href="#"><img src="/assets/img/i-setting.png" />账户设置</a></li>
+                            <li><a href="index-offline.html"><img src="/assets/img/i-logout.png" />退出</a></li>
+                        </ul>
+                    </div>
+                    <!-- #endregion -->
+                </div>
+                <div class="nav-clear"></div>
+            </div>
+        <div class="nav-header-bottom">
+            <ul>
+                <li><a id="ios" href="/ios/" title="ios">iOS开发</a></li>
+                <li><a id="swift" href="/swift/" title="swift">Swift</a></li>
+                <li><a id="app_store" href="/appstore/" title="appstore">App Store研究</a></li>
+                <li><a id="design" href="/design/" title="design">产品设计</a></li>
+                <li><a id="review" href="/review/" title="review">应用</a></li>
+                <li><a id="review" href="/vr/" title="review">VR</a></li>
+                <li><a id="game" href="/game/" title="game">游戏开发</a></li>
+                <li><a id="apple" href="/apple/" title="apple">苹果相关</a></li>
+                <!-- <li><a id="cocos" href="/cocos/" title="cocos">Cocos引擎</a></li>-->
+                <!--<li><a id="webapp" href="/webapp/" title="HTML5">HTML5</a></li>-->
+                <li><a id="android" href="/android/" title="android">安卓相关</a></li>
+                <li><a id="market" href="/market/" title="market">营销推广</a></li>
+                <li><a id="industry" href="/industry/" title="industry">业界动态</a></li>
+                <li><a id="programmer" href="/programmer/" title="programmer">程序人生</a></li>
+            </ul>
+        </div>
+    </div>
+
+<script language="javascript">
+    function IsPC() {
+        var userAgentInfo = navigator.userAgent;
+        var Agents = new Array("Android", "iPhone", "SymbianOS", "Windows Phone", "iPod");
+        var flag = true;
+        for (var v = 0; v < Agents.length; v++) {
+        if (userAgentInfo.indexOf(Agents[v]) > 0) { flag = false; break; }
+        }
+        return flag;
+    }
+    if (!IsPC()){
+           window.location.href = "http://www.cocoachina.com/cms/wap.php?action=article&id=18481";
+    }
+
+</script>
+<!--middle-->
+<div class="middle clearfix">
+    <div class="m-wrap">
+        <div class="m-ad2" style="margin-top:12px;">
+            <div class="ad2-l">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- CC首页底部左侧72890 -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:728px;height:90px"
+                     data-ad-client="ca-pub-1180518835303646"
+                     data-ad-slot="8012423965"></ins>
+                <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            <div class="ad2-r">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- CC资讯页25090 -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:250px;height:90px"
+                     data-ad-client="ca-pub-1180518835303646"
+                     data-ad-slot="9489157162"></ins>
+                <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </div>
+        <!--left-->
+        <div class="detail-left float-l">
+            <p class="crumbs"><a href="/" title="首页">首页</a> &gt;</span><a href="/ios" title="iOS开发"><span id="type_name">iOS开发</span></a></p>
+            <div class="detail-main">
+                <h2>如何用Xcode8解决多线程问题</h2>
+                <div class="p-ico clearfix">
+                    <div>
+                        <span class="ml0">2016-12-30 00:48</span>
+                        <span>编辑：
+                        <a href="" id="field_author" target="_blank">AllanHou</a></span>
+                        <span>分类：<a href="/ios/" target="_blank">iOS开发</a></span>
+                        <span id="source">来源：<a href="http://mrpeak.cn/blog/thread-sanitizer/" target="_blank">Mrpeak投稿</a></span>
+
+                        <div class="float-r">
+                            <span id="artical_comment_cnt"><i></i></span>
+                            <span><i class="view"></i><script src="/cms/plus/count.php?view=yes&aid=18481&mid=68" language="javascript"></script></span>
+                    </div>
+                    </div>
+                </div>
+                <div class="p-ico clearfix">
+                    <p class="related float-l"><a href="/cms/tags.php?/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" target="_blank">多线程</a><a href="/cms/tags.php?/xcode8/" target="_blank">xcode8</a></p>
+                    <input type="hidden" id="article_id"  value="18481"/>
+                </div>
+                <div class="adsbox clearfix">
+                    <div class="float-l">
+                        <div class="float-l"><b>招聘信息：</b></div>
+                        <ul class="float-l" id="invitelist" style="margin-top: 0px;">
+                            <li><a href='http://job.cocoachina.com/job/show?id=68283' target='_blank'>Mac开发</a></li><li><a href='http://job.cocoachina.com/job/show?id=68288' target='_blank'>iOS Developer</a></li><li><a href='http://job.cocoachina.com/job/show?id=68040' target='_blank'>移动应用开发项目经理</a></li><li><a href='http://job.cocoachina.com/job/show?id=68039' target='_blank'>技术合伙人</a></li><li><a href='http://job.cocoachina.com/job/show?id=68348' target='_blank'>微信书城开发</a></li><li><a href='http://job.cocoachina.com/job/show?id=68347' target='_blank'>数字图书商城开发</a></li><li><a href='http://job.cocoachina.com/job/show?id=68346' target='_blank'>iOS维护</a></li><li><a href='http://job.cocoachina.com/job/show?id=68345' target='_blank'>手机视频剪辑字幕配音工具iOS类app</a></li><li><a href='http://job.cocoachina.com/job/show?id=68344' target='_blank'>点读笔开发</a></li><li><a href='http://job.cocoachina.com/job/show?id=68343' target='_blank'>UI设计</a></li><li><a href='http://job.cocoachina.com/job/show?id=68342' target='_blank'>app推广与运营</a></li>
+                            <!--<script src="http://www.cocoachina.com/bbs/new.php?action=article&fidin=26&digest=0&postdate=0&author=0&fname=0&hits=0&replies=0&pre=1&num=3&length=120&order=2" charset="gbk"></script>-->
+                        </ul>
+                    </div>
+                    <div class="float-r">
+                        <a href="javascript:void(0)" class="prev"></a>
+                        <a href="javascript:void(0)" class="next"></a>
+                    </div>
+                </div>
+                <div id="detailbody" class="field_body">
+                    <p style="text-align:center"><img src="http://cc.cocimg.com/api/uploads/20161229/1483023161108071.jpg" title="1483023161108071.jpg" alt="77B58PIC8RX_1024.jpg"/></p><p><a href="http://mrpeak.cn/blog/thread-sanitizer/" target="_blank">原文</a></p><p>Xcode 8诞生有段时日了，不知道大家对其中的新Feature是否都学习过一遍了，今天给大家介绍下Xcode 8中一个很实用的特性，Thread Sanitizer，用来解决平时编写代码时难以调试的多线程问题，顺道梳理下一些常见的容易混淆的多线程概念。</p><p><span style="font-size: 16px;"><strong>Thread Sanitizer</strong></span></p><p>这款工具集成在Xcode 8中，主要帮助定位多线程相关的问题，还没有了解过的同学可以先查看&nbsp;<a href="https://developer.apple.com/videos/play/wwdc2016/412/" target="_blank">WWDC 2016 Session 412</a>。官方的介绍当中它可以查出以下多线程相关的问题：</p><ul class=" list-paddingleft-2" ><li><p>Use of uninitialized mutexes</p></li><li><p>Thread leaks (missing pthread_join)</p></li><li><p>Unsafe calls in signal handlers (ex:malloc)</p></li><li><p>Unlock from wrong thread</p></li><li><p>Data races</p></li></ul><p>前面四项出现的场景较少，真正体现这款工具强大之处的是最后一项，检查data races，也是我们平时写多线程代码时最容易遇到的问题，一旦踩坑，现象往往是偶现的，难以调试。</p><p>在开始介绍Thread Sanitizer如何使用之前，我们应该先花点时间了解下什么是data race，以及它到底有什么危害，建议先看下我之前写过的一篇<a href="http://www.mrpeak.cn/blog/ios-thread-safety/" target="_blank">关于iOS多线程安全的文章</a>。</p><p>data race的定义很简单：<strong>当至少有两个线程同时访问同一个变量，而且至少其中有一个是写操作时，就发生了data race</strong>。这段定义只是描述了什么是data race，却没有说明data race会带来什么严重后果，这是因为data race可能会造成多种影响，而且有些影响不一定是致命的（比如crash）。data race也不是什么罕见的场景，只要涉及到多线程编程，遇到的概率非常之高，下面我们看一些data race具体的例子及其危害。</p><p><strong>场景一：计算出错</strong></p><p>这也是大学课程里经常举例的一个场景，Objective C代码如下：</p><p><img src="http://cc.cocimg.com/api/uploads/20161229/1483022790396889.png" title="1483022790396889.png" alt="01.png"/></p><p>最后计算的结果有很大概率小于20000，原因是count ++为非原子操作。这也是data race的场景，这种race没有crash也没有memory corruption，因此有些人把这种race称作<strong>benign race(良性的race)</strong>。不过上面提到的WWDC视频中，苹果的工程师说到：</p><p><span style="color: rgb(89, 89, 89);">There is No Such Thing as a “Benign” Race</span></p><p>意思是，只要发生data race，就没有良性一说了，因为虽然程序没有crash，但count最后的值还是出错了，这种 错误必然会导致逻辑上的错误，如果这个count值代表的是你银行卡余额，你应该会更加同意苹果工程师的观点。</p><p><strong>场景二：Crash！</strong></p><p>这种场景是真正会导致crash和memory corruption的，发生在两个线程同时对同一个变量执行写操作时，比如如下Objective C代码：</p><p><img src="http://cc.cocimg.com/api/uploads/20161229/1483022842955069.png" title="1483022842955069.png" alt="02.png"/></p><p>这也属于data race的场景，一般会出现在对于复杂对象（class或者struct）的多线程写操作中，原因是因为写操作本身不是原子的，而且写操作背后会调用更多的内存操作，多线程同时写时，会导致这块内存区间处于中间的不稳定状态，进而crash，这是真正的恶性的data race。</p><p><strong>场景三：乱序</strong></p><p>过去几年Review代码的经历中，看到过不少如下使用公共变量来做多线程同步的，比如：</p><p><img src="http://cc.cocimg.com/api/uploads/20161229/1483022863680772.png" title="1483022863680772.png" alt="03.png"/></p><p>按理说，count最后会输出值10。可实际上，编译器并不知道thread 2对count和countFinished这两个变量的赋值顺序有依赖，所以基于优化的目的，有可能会调整thread 1中count = 10;和countFinished = true;生成的最后指令的执行顺序，最后也就导致count值输出的时机不对，虽然最后count的值还是10。这也可以看做是一种benign race，因为也不会crash，而是程序的流程出错。而且这种错误的调试及其困难，因为逻辑上是完全正确的，不明白其中缘由的同学甚至会怀疑是系统bug。</p><p>遇到这种多线程读写状态，而且存在顺序依赖的场景，不能简单依赖代码逻辑。解决这种data race场景有一个简单办法：加锁，比如使用NSLock，将对顺序有依赖的代码块整个原子化，加锁之所以有用是因为会生成memory barrier，从而避免了编译器优化。</p><p><strong>场景四：内存泄漏</strong></p><p>iOS刚诞生不久时，还没有多少Best Practise，不少人写单例的时候还不会用到dispatch_once_t，而是采用如下直白的写法：</p><p><img src="http://cc.cocimg.com/api/uploads/20161229/1483022888994935.png" title="1483022888994935.png" alt="04.png"/></p><p>这种写法的问题是，多线程环境下，thread A和thread B会同时进入sharedInstance = [[Singleton alloc] init];，Singleton被多创建了一次，MRC环境就产生了内存泄漏。</p><p>这是个经典的例子，也是data race的场景之一，其结果是造成额外的内存泄漏，这种race也可以算作是benign的，但也是我们平时编写代码应该避免的。</p><p>上面几个是我们写iOS代码比较容易遇到的，还有其他一些就不一一举例了，只要理解了data race的含义都不难分析这些race导致的具体问题。</p><p><span style="font-size: 16px;"><strong>BOOL是否多线程安全？</strong></span></p><p>在之前那篇iOS多线程安全的文章中，我提到对于BOOL类型的property来说，声明为atomic并没有意义，nonatmoic对于BOOL的get，set也是安全的。</p><p><img src="http://cc.cocimg.com/api/uploads/20161229/1483022914313635.png" title="1483022914313635.png" alt="05.png"/></p><p>原理我也简单解释了一下，但之后有一些朋友私底下和我交流，还是对这一观点存疑。</p><p>实际上，上面的WWDC视频中，苹果的工程师也提到了这一点：有些人认为pointer sized的变量操作时是天然多线程安全的。所谓的pointer size也就是我们指针变量的大小，64位系统为8字节。这位工程师提到，这种看法是问题的，理由如下：</p><p><span style="color: rgb(89, 89, 89);">On some architectures (ex., x86) reads and writes are atomic</span></p><p><span style="color: rgb(89, 89, 89);">But even a “benign” race is undefined behavior in C</span></p><p><span style="color: rgb(89, 89, 89);">May cause issues with new compilers or architectures</span></p><p>C标准对于这种行为定义是undefined behavior，意思是最后的结果是不确定的，不同的编译器针对不同的CPU架构所产生的最后执行文件，其执行结果是没有规定的，如果有哪个硬件平台上出现了crash，那么也没有违背C的标准，因为C没有规定其一定是原子操作。</p><p>同时，据我所知（扒过一些资料），以及我这么些年写iOS代码的经历，nonatomic修饰的BOOL确实是原子操作且多线程安全的，我也没找到什么样的CPU架构下，pointer sized的变量是非原子操作的。</p><p>所以，更准确更严格的说法应该是：现阶段的iOS设备软硬件环境下，BOOL的读写是原子的，不过将来不一定，苹果官方和C标准都没有做任何保证。</p><p><span style="font-size: 16px;"><strong>如何使用Thread Sanitizer</strong></span></p><p>启用Thread Sanitizer的方式很简单，只需要在Xcode的scheme中勾选Thread Sanitizer即可，如下图：</p><p style="text-align:center"><img src="http://cc.cocimg.com/api/uploads/20161229/1483022948611888.png" title="1483022948611888.png" alt="07.png"/></p><p>这里要注意的是，Thread Sanitizer现阶段只能在模拟器环境下执行，真机还不支持，而且我测试发现，只支持64位系统，也就是说iPhone 5及其更早的模拟器也不支持，iPhone 5s之后才是64位系统。</p><p>勾选之后，重新编译运行代码即可，我用下面一段代码做测试：</p><p><img src="http://cc.cocimg.com/api/uploads/20161229/1483022980779041.png" title="1483022980779041.png" alt="08.png"/></p><p>运行之后会在Xcode中出现如下提示：</p><p><img src="http://cc.cocimg.com/api/uploads/20161229/1483022985654669.png" title="1483022985654669.png" alt="09.png"/></p><p></p><p>很直观，Xcode直接提示你发生了data race的变量及其代码位置，同时还清晰的展示了函数当前的各线程调用栈，十分清晰，接下来你要做的就是增加同步操作，比如加锁，从而消除data race，再运行测试是否生效。</p><p><strong>原理</strong></p><p>Thread Sanitizer的工作原理在WWDC的视频中也介绍过了，大家可以仔细看下视频，大致原理是记录每个线程访问变量的信息来做分析，值得一提的是，现阶段的Thread Sanitizer最多只同时记录4个线程的访问信息，在复杂的场景下，可能出现偶尔检测不出data race的场景，所以需要长时间经常性的运行来尽可能多的发现data race，这也是为什么苹果建议默认开启Thread Sanitizer，而且Thread Sanitizer造成的额外性能损耗非常之小。</p><p><strong>结束语</strong></p><p>以上就是Xcode 8新增的多线程问题调试工具Thread Sanitizer，了解背后原理再去使用工具才更得心应手，赶紧拿公司项目跑一跑吧，发现一堆data race可能性一般来说是还是比较高的 :)</p><p style="text-align:center"><img src="http://cc.cocimg.com/api/uploads/20161229/1483023012193478.png" title="1483023012193478.png" alt="QQ截图20161229225241.png"/></p>
+                </div>
+                <div id="page" style="padding:0"></div>
+
+                <div class="wx_article">
+                    <div class="article_weixin">
+                        <img src="http://cdn.cocimg.com/cms/templets/images/article_weixin.jpg" width="131" height="131" alt="搜索CocoaChina微信公众号：CocoaChina"/>
+                        <div class="article_scan">微信扫一扫</div>
+                        <div class="article_txt" ><span style="color:#999999">订阅每日移动开发及APP推广热点资讯<br/>公众号：</span>CocoaChina</div>
+                    </div>
+                </div>
+
+               <div class="clearfix tgbox">
+                    <a href="http://www.cocoachina.com/deliver.php" class="tg float-l" target="_blank">我要投稿</a>&nbsp;&nbsp;
+                    <a style="margin-left:10px"  href="javascript:void(0)" onClick="add_favors(18481,'如何用Xcode8解决多线程问题')" class="tg float-l" >收藏文章</a>
+                    <div class="share float-r">分享到：
+                        <div class="bdsharebuttonbox" id="sharediv"><a href="#" class="bds_more" data-cmd="more"></a> <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a> <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+                    </div>
+                </div>
+
+
+                <a class="zanbox" href="javascript:void(0)" id="zanbox" onClick="postDigg('good',18481)" title="哎呦，不错噢，赞一个" >
+                    <strong id="newdigg">
+                     <script src="/cms/plus/count.php?view=yes&digg_id=18481&mid=68" language="javascript"></script>
+                    </strong>
+                </a>
+            </div>
+
+            <div class="article-prev">上一篇：<a href='/ios/20161229/18470.html'>源码推荐：Json/xml自动生成model类插件 高度自定义的TabBarController</a> </div>
+            <div class="article-next"></div>
+
+            <!--相关资讯-->
+            <div class="part-wrap clearfix">
+                <h3>相关资讯</h3>
+                <ul class="info-list clearfix">
+                    <li>
+                        <a href="/ios/20161227/18451.html" target="_blank" title="这些Xcode8的新特性,你应该了解!!!">【总结】升级Xcode8遇到的问题及解决方案!!!</a>
+                     </li>
+<li>
+                        <a href="/ios/20161228/18394.html" target="_blank" title="作为一个iOS开发者，你可能会想知道怎样让你的app读取二维码。在iOS7之前，你不得不依赖第三方库来实现扫描功能。现在，你可以使用内置的AVFoundation框架来发现和实时读取条形码。">如何用Xcode 8和Swift 3 构建条形码和二维码识别器</a>
+                     </li>
+<li>
+                        <a href="/ios/20161215/18356.html" target="_blank" title="熟悉 Core Data 的开发者并不认为这个框架用起来很难。如果你遵循这个框架的规则，Core Data 不会让你感到困惑。但通常这也是个问题，开发者犯错往往是因为违反了某条他们并不知道的规则。所以，这">使用Core Data时需要避免的三个常犯错误</a>
+                     </li>
+<li>
+                        <a href="/ios/20161213/18344.html" target="_blank" title="在 Xcode 8.0的版本里面，苹果引入了一个新的面向 macOS 的 App Extension，叫做 Xcode Source Editor（源代码编辑器）。通过这个源代码编辑器，我们也拥有了自己编写一个Xcode插件的能力 。此外，我们再也不用">iOS 10 Day By Day: Xcode Source Editor Extensions</a>
+                     </li>
+<li>
+                        <a href="/ios/20161207/18313.html" target="_blank" title="推出Xcode8已有两个多月，也有不少朋友分享了安装插件的方法，笔者在这里整理了一个亲测有效的方法。">如何在Xcode8上安装插件</a>
+                     </li>
+<li>
+                        <a href="/ios/20161206/18295.html" target="_blank" title="线程： 线程是操作系统能够进行运算调度的最小单位。它被包含在进程之中，是进程中的实际运作单位。一条线程指的是进程中一个单一顺序的控制流，一个进程中可以并发多个线程，每条线程并行执">IOS多线程编程简介</a>
+                     </li>
+<li>
+                        <a href="/ios/20161205/18281.html" target="_blank" title="GCD做为iOS开发中多线程管理的重要帮手。起初我只能说是用过，但是并没有较为仔细的了解它。最近又一次重新梳理了一下，虽然目前来看，还存在一些问题，无法解释。但还是先做个笔记，与大家分">GCD解毒</a>
+                     </li>
+<li>
+                        <a href="/ios/20161129/18211.html" target="_blank" title="iOS多线程安全的概念在很多地方都会遇到，为什么不安全，不安全又该怎么去定义，其实是个值得深究的话题。">iOS多线程到底不安全在哪里？</a>
+                     </li>
+<li>
+                        <a href="/ios/20161129/18208.html" target="_blank" title="苹果出了Xcode8之后，就加了签名让之前的自定义插件无法继续的安装使用。苹果爸爸这一措施让我们措手不及。">Xcode8时代让我们一起继续使用我们的插件吧</a>
+                     </li>
+<li>
+                        <a href="/ios/20161125/18183.html" target="_blank" title="能够根据注释自动生成类似于apple官方文档的功能固然很强大，但是对开发人员来说，还是直接看自己的注释来的实在方便。
+不过，如果需要给CTO或者老板一份代码报告的话，用这个工具还是很方便（">使用AppleDoc自动生成项目文档（XCode8）</a>
+                     </li>
+
+                </ul>
+            </div>
+            <div class="clearfix" style="margin-top:20px;" >
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- CC评论框 -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:750px;height:90px"
+                     data-ad-client="ca-pub-1180518835303646"
+                     data-ad-slot="8242010366"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            <!-- 评论模块start -->
+            
+            <div class="clearfix" id="commnet_list_holder" style="margin-bottom:50px;">
+                <div class="glab-comment-form">
+                    <div class="dcbt">我来说两句</div>
+                    <div class="user-head">
+                        <img id="user_face_url" src="http://cdn.cocimg.com/bbs/images/face/none.gif" height="43" width="43" alt="">
+                    </div>
+                    <div class="form-region">
+                        <textarea name="comment" id="main_comment_content" cols="30" rows="10" placeholder="你怎么看？快来评论一下吧！"></textarea>
+                        <a class="submitform" id="main_comment_bt">发表评论</a>
+                        <div class="unlogin-mask">
+                            <div>您还没有登录！请<a href="/bbs/login.php">登录</a>或<a href="/bbs/register.php">注册</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="glab-comment-callback-msg" class="glab-comment-info"></div>
+                <div class="glab-comment-title">所有评论（<span>0</span>）</div>
+                <div class="glab-commentlist" id="commentlist">
+                    <a id="refresh_comment_btn" href="javascript:;" onclick="$('#morecomment').trigger('click')">刷新评论</a>
+                </div>
+                <div class="glab-comment-more" id="morecomment" style="display:none">
+                    更多评论
+                </div>
+            </div>
+            
+            <!-- 评论模块end -->
+
+
+        </div>
+        <!--./left-->
+        <!--侧边栏-->
+        <div class="clearfix newslist">
+            <div class="rightSide detail-right float-r"  >
+                <!--两周热门资讯推荐-->
+                <div>
+                    <div class="part-wrap clearfix">
+                        <h3>热门资讯</h3>
+                        <ul class="related-hot">
+                            <li class="clearfix"><a href="http://www.cocoachina.com/apple/20161222/18431.html" class="float-l pic" target="_blank" title="不必惊慌，苹果延迟了App接入HTTPS服务截止日期"><img src="http://cc.cocimg.com/api/uploads/161223/74a1e3ce472f62c38bf5c60847fdac57.png"  style="max-height:60px" alt="不必惊慌，苹果延迟了App接入HTTPS服务截止日期"/></a><div style="margin-left:86px"><p class="related-intro"><a href="http://www.cocoachina.com/apple/20161222/18431.html" target="_blank" title="不必惊慌，苹果延迟了App接入HTTPS服务截止日期">不必惊慌，苹果延迟了App接入HTTPS服务截止日期</a></p><p class="hits">点击量<span>10992</span></p></div></li><li class="clearfix"><a href="http://www.cocoachina.com/ios/20161219/18387.html" class="float-l pic" target="_blank" title="2016年iOS技术圈回顾"><img src="http://cc.cocimg.com/api/uploads/161219/91fedee3644d53acce875d63146793aa.jpg"  style="max-height:60px" alt="2016年iOS技术圈回顾"/></a><div style="margin-left:86px"><p class="related-intro"><a href="http://www.cocoachina.com/ios/20161219/18387.html" target="_blank" title="2016年iOS技术圈回顾">2016年iOS技术圈回顾</a></p><p class="hits">点击量<span>10397</span></p></div></li><li class="clearfix"><a href="http://www.cocoachina.com/programmer/20161219/18375.html" class="float-l pic" target="_blank" title="2017编程趋势预测：这10种编程技术将成为趋势"><img src="http://cc.cocimg.com/api/uploads/161218/b2892a9cc6719e99d22178cc8bf46493.jpg"  style="max-height:60px" alt="2017编程趋势预测：这10种编程技术将成为趋势"/></a><div style="margin-left:86px"><p class="related-intro"><a href="http://www.cocoachina.com/programmer/20161219/18375.html" target="_blank" title="2017编程趋势预测：这10种编程技术将成为趋势">2017编程趋势预测：这10种编程技术将成为趋势</a></p><p class="hits">点击量<span>10024</span></p></div></li><li class="clearfix"><a href="http://www.cocoachina.com/programmer/20161226/18437.html" class="float-l pic" target="_blank" title="哈哈哈哈哈哈哈哈哈哈哈《iOS界裁员：从入门到精通》"><img src="http://cc.cocimg.com/api/uploads/161223/f05b6605280fef9fedc287f6d503a4b5.gif"  style="max-height:60px" alt="哈哈哈哈哈哈哈哈哈哈哈《iOS界裁员：从入门到精通》"/></a><div style="margin-left:86px"><p class="related-intro"><a href="http://www.cocoachina.com/programmer/20161226/18437.html" target="_blank" title="哈哈哈哈哈哈哈哈哈哈哈《iOS界裁员：从入门到精通》">哈哈哈哈哈哈哈哈哈哈哈《iOS界裁员：从入门到精通》</a></p><p class="hits">点击量<span>9738</span></p></div></li><li class="clearfix"><a href="http://www.cocoachina.com/programmer/20161222/18414.html" class="float-l pic" target="_blank" title="B站技术大牛月薪5000终离职？"><img src="http://cc.cocimg.com/api/uploads/161221/6e97581dd96da6b3009c48d0dcb0be0e.jpg"  style="max-height:60px" alt="B站技术大牛月薪5000终离职？"/></a><div style="margin-left:86px"><p class="related-intro"><a href="http://www.cocoachina.com/programmer/20161222/18414.html" target="_blank" title="B站技术大牛月薪5000终离职？">B站技术大牛月薪5000终离职？</a></p><p class="hits">点击量<span>7744</span></p></div></li><li class="clearfix"><a href="http://www.cocoachina.com/swift/20161221/18407.html" class="float-l pic" target="_blank" title="Swift 并行编程现状和展望 - async/await 和参与者模式"><img src="http://cc.cocimg.com/api/uploads/161221/10e4a1d68ee741b2305aeac43bf18a27.jpg"  style="max-height:60px" alt="Swift 并行编程现状和展望 - async/await 和参与者模式"/></a><div style="margin-left:86px"><p class="related-intro"><a href="http://www.cocoachina.com/swift/20161221/18407.html" target="_blank" title="Swift 并行编程现状和展望 - async/await 和参与者模式">Swift 并行编程现状和展望 - async/await 和参与者模式</a></p><p class="hits">点击量<span>4321</span></p></div></li><li class="clearfix"><a href="http://www.cocoachina.com/ios/20161227/18451.html" class="float-l pic" target="_blank" title="【总结】升级Xcode8遇到的问题及解决方案!!!"><img src="http://cc.cocimg.com/api/uploads/161226/61950c1c4e2257b95c810d843233ff43.jpg"  style="max-height:60px" alt="【总结】升级Xcode8遇到的问题及解决方案!!!"/></a><div style="margin-left:86px"><p class="related-intro"><a href="http://www.cocoachina.com/ios/20161227/18451.html" target="_blank" title="【总结】升级Xcode8遇到的问题及解决方案!!!">【总结】升级Xcode8遇到的问题及解决方案!!!</a></p><p class="hits">点击量<span>3918</span></p></div></li><li class="clearfix"><a href="http://www.cocoachina.com/ios/20161220/18393.html" class="float-l pic" target="_blank" title="AFNetworking之于https认证"><img src="http://cc.cocimg.com/api/uploads/161219/aa2f4ed89f9c9647ad3d8ea86ad38c23.png"  style="max-height:60px" alt="AFNetworking之于https认证"/></a><div style="margin-left:86px"><p class="related-intro"><a href="http://www.cocoachina.com/ios/20161220/18393.html" target="_blank" title="AFNetworking之于https认证">AFNetworking之于https认证</a></p><p class="hits">点击量<span>3718</span></p></div></li><li class="clearfix"><a href="http://www.cocoachina.com/industry/20161228/18465.html" class="float-l pic" target="_blank" title="张小龙首次公开解读小程序：1月9号上线（附演讲全文）"><img src="http://cc.cocimg.com/api/uploads/161228/51fa9720ac4849814cf337acebaec329.jpg"  style="max-height:60px" alt="张小龙首次公开解读小程序：1月9号上线（附演讲全文）"/></a><div style="margin-left:86px"><p class="related-intro"><a href="http://www.cocoachina.com/industry/20161228/18465.html" target="_blank" title="张小龙首次公开解读小程序：1月9号上线（附演讲全文）">张小龙首次公开解读小程序：1月9号上线（附演讲全文）</a></p><p class="hits">点击量<span>2898</span></p></div></li><li class="clearfix noborder-b"><a href="http://www.cocoachina.com/ios/20161226/18444.html" class="float-l pic" target="_blank" title="iOS书写高质量代码之耦合的处理"><img src="http://cc.cocimg.com/api/uploads/161226/052d6b914cd5c7f169b66943d35bf5c5.jpg"  style="max-height:60px" alt="iOS书写高质量代码之耦合的处理"/></a><div style="margin-left:86px"><p class="related-intro"><a href="http://www.cocoachina.com/ios/20161226/18444.html" target="_blank" title="iOS书写高质量代码之耦合的处理">iOS书写高质量代码之耦合的处理</a></p><p class="hits">点击量<span>2814</span></p></div></li>
+                        </ul>
+                    </div>
+               </div>
+               <!--./两周热门资讯推荐-->
+               <!--综合评论-->
+                <div class="part-wrap clearfix" style="margin-top: 15px;">
+                    <h3>综合评论</h3>
+                    <ul class="related-comment clearfix" id="all_comments_holder">
+                        <li><span class="hide_comment">我感觉文章写得挺好的呀，很有道理。为什么还有人在这里喷，请这些人不要到处传递负能量！</span><br/><p><span>followme勇闯天涯</span><span>评论了</span><a href="http://www.cocoachina.com/programmer/20161229/18469.html" title="技术人员的发展之路" target="_blank" ><span>技术人员的发展之路</span></a></p></li><li><span class="hide_comment">想现在自学&nbsp;过完年找工作呢&nbsp;</span><br/><p><span>直持小崔</span><span>评论了</span><a href="http://www.cocoachina.com/ios/20161219/18387.html" title="2016年iOS技术圈回顾" target="_blank" ><span>2016年iOS技术圈回顾</span></a></p></li><li><span class="hide_comment">楼主&nbsp;2017年iOS开发找工作会好吗&nbsp;</span><br/><p><span>直持小崔</span><span>评论了</span><a href="http://www.cocoachina.com/ios/20161219/18387.html" title="2016年iOS技术圈回顾" target="_blank" ><span>2016年iOS技术圈回顾</span></a></p></li><li><span class="hide_comment">如果把所有用户的操作都放在ViewModel层，感觉很不合理，特别是push操作，感觉放在ViewController层也是可以的。私以为viewModel层主要用来放获取网络数据或者本地数据那部分代码，以及获取数据之后回调viewController让其刷新数据就好。</span><br/><p><span>hmj20101011</span><span>评论了</span><a href="http://www.cocoachina.com/ios/20150122/10987.html" title="浅谈iOS中MVVM的架构设计与团队协作" target="_blank" ><span>浅谈iOS中MVVM的架构设计与团队协作</span></a></p></li><li><span class="hide_comment">我们搞后台PHP的没事在公司技术部的群里，发微信小程序的消息，比我们这些原生开发还关心。</span><br/><p><span>frew</span><span>评论了</span><a href="http://www.cocoachina.com/industry/20161228/18465.html" title="张小龙首次公开解读小程序：1月9号上线（附演讲全文..." target="_blank" ><span>张小龙首次公开解读小程序：1月9号上线（附演讲全文...</span></a></p></li><li><span class="hide_comment">然而有什么用</span><br/><p><span>1ioser</span><span>评论了</span><a href="http://www.cocoachina.com/ios/20161214/18351.html" title="【iOS秘籍】-下载历史版本App超详细教程" target="_blank" ><span>【iOS秘籍】-下载历史版本App超详细教程</span></a></p></li><li><span class="hide_comment">2017年AppStore新提交应用必须打开ATS？&nbsp;请问作者这是谁说的？苹果根本没通知</span><br/><p><span>yuedong56</span><span>评论了</span><a href="http://www.cocoachina.com/ios/20161130/18227.html" title="都要懂得HTTPS知识点" target="_blank" ><span>都要懂得HTTPS知识点</span></a></p></li><li><span class="hide_comment">加了太多的功能,&nbsp;本来的快捷操作变得不快捷了.&nbsp;</span><br/><p><span>iimgal</span><span>评论了</span><a href="http://www.cocoachina.com/design/20161227/18452.html" title="关于iOS 10锁屏界面交互的一次严肃分析" target="_blank" ><span>关于iOS 10锁屏界面交互的一次严肃分析</span></a></p></li><li><span class="hide_comment">麻烦作者写文章的时候，先把最后一句贴上，好嘛？</span><br/><p><span>yuedong56</span><span>评论了</span><a href="http://www.cocoachina.com/ios/20161125/18189.html" title="手把手教你反编译别人的app" target="_blank" ><span>手把手教你反编译别人的app</span></a></p></li><li class="noborder-b"><span class="hide_comment">垃圾翻译，cocoaChina能不能对翻译文章好好把把关，文章都读不通，还放到首页，也是醉了</span><br/><p><span>侃不婷</span><span>评论了</span><a href="http://www.cocoachina.com/review/20161229/18472.html" title="《超级马里奥跑酷》为什么卖得不好？" target="_blank" ><span>《超级马里奥跑酷》为什么卖得不好？</span></a></p></li>
+                    </ul>
+                </div>
+                <!--./综合评论-->
+                <!--相关帖子-->
+                <div class="part-wrap clearfix" style="margin:15px 0 15px 0;">
+                    <h3>相关帖子</h3>
+                    <ul class="related-comment clearfix">
+                        <script charset="gb2312" src="http://www.cocoachina.com/bbs/new.php?action=article&fidin=21_18_2_8_19_41_59_48_56_14_36_5&digest=0&postdate=0&author=0&fname=0&hits=0&replies=0&pre=0&num=10&length=100&order=2&like=ios#多线程"></script>
+                    </ul>
+                </div>
+                <!--./相关帖子-->
+                <iframe width="230" height="550" class="share_self" frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=230&height=550&fansRow=2&ptype=1&speed=0&skin=5&isTitle=1&noborder=1&isWeibo=1&isFans=0&uid=1659808677&verifier=6043be56&dpc=1"></iframe>
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- CC列表页面230x230 -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:230px;height:230px"
+                     data-ad-client="ca-pub-1180518835303646"
+                     data-ad-slot="6765277166"></ins>
+                <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </div>
+        <!--./侧边栏-->
+    </div>
+
+    <div id="coco-store" style="display:none">
+        <div class="storebox">
+            <h5>提示</h5>
+            <h3>已经收藏该篇文章</h3>
+            <p class="p1"><a href="/bbs/u.php?action=favor&tag=1" target="_blank">去我的收藏夹</a></p>
+            <p class="p2"><a href="/bbs/login.php">请登录</a></p>
+        </div>
+    </div> <!--收藏提示-->
+</div>
+
+<script type="text/javascript">
+
+function postDigg(ftype,aid)
+{
+    var taget_obj = document.getElementById('newdigg');
+    var saveid = GetCookie('diggid');
+    if(saveid != null)
+    {
+        var saveids = saveid.split(',');
+        var hasid = false;
+        saveid = '';
+        j = 1;
+        for(i=saveids.length-1;i>=0;i--)
+        {
+            if(saveids[i]==aid && hasid) continue;
+            else {
+                if(saveids[i]==aid && !hasid) hasid = true;
+                saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+                j++;
+                if(j==20 && hasid) break;
+                if(j==19 && !hasid) break;
+            }
+        }
+        if(hasid) { alert("您已经顶过该帖，请不要重复顶帖 ！"); return; }
+        else saveid += ','+aid;
+        SetCookie('diggid',saveid,1);
+    }
+    else
+    {
+        SetCookie('diggid',aid,1);
+    }
+    myajax = new DedeAjax(taget_obj,false,false,'','','');
+    var url = "/cms/plus/digg_ajax.php?action="+ftype+"&id="+aid;
+    myajax.SendGet2(url);
+    DedeXHTTP = null;
+    $('#zanbox').addClass('zanbox-selected');
+}
+function getDigg(aid)
+{
+    var taget_obj = document.getElementById('newdigg');
+    myajax = new DedeAjax(taget_obj,false,false,'','','');
+    myajax.SendGet2("/cms/plus/digg_ajax.php?id="+aid);
+    DedeXHTTP = null;
+}
+
+
+//显示对应的导航：
+$(function(){
+    var article_id = $('#article_id').val();
+    var saveid = GetCookie('diggid');
+
+    if(saveid != null)
+    {
+        var saveids = saveid.split(',');
+        var hasid = false;
+        saveid = '';
+        j = 1;
+        for(i=saveids.length-1;i>=0;i--)
+        {
+            if(saveids[i]==article_id && hasid) continue;
+            else {
+                if(saveids[i]==article_id && !hasid) hasid = true;
+                saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+                j++;
+                if(j==20 && hasid) break;
+                if(j==19 && !hasid) break;
+            }
+        }
+
+        if(hasid)
+        {
+            $('#zanbox').addClass('zanbox-selected');
+        }
+
+    }
+
+});
+
+window.onload = function() {
+
+    $('#sharediv').removeClass('bdshare-button-style1-32');
+    $('#sharediv').attr('class','bdsharebuttonbox');
+};
+</script>
+<script type="text/javascript" src="http://cdn.cocimg.com/cms/templets/js/shCore.js"></script>
+    <script type="text/javascript" src="http://cdn.cocimg.com/cms/templets/js/brush.js"></script>
+    <link type="text/css" rel="stylesheet" href="http://cdn.cocimg.com/cms/templets/style/shCoreDefault.css"/>
+    <script type="text/javascript">
+    //SyntaxHighlighter.config.clipboardSwf = '/js/scripts/clipboard.swf';
+
+    SyntaxHighlighter.all();</script>
+
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"如何用Xcode8解决多线程问题 - 来自CocoaChina苹果开发中文站@CocoaChina","bdMini":"2","bdMiniList":false,"bdPic":"http://api.cocoachina.com/uploads/161229/90cf80e9430a1580c2b1822f5f916f76.jpg","bdStyle":"1","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api//js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+<!--./cont-->
+
+<!-- 回复评论框模板 -->
+<script type="text/javascript" src="http://cdn.cocimg.com/cms/templets/js/comment.js?v=20151019"></script>
+<script type="text/javascript" src="http://cdn.cocimg.com/cms/templets/js/mustache.min.js"></script>
+<!-- 回复评论框模板 -->
+<script id="reply_comment_template" type="x-tmpl-mustache">
+    <div id="sub-reply-comment" class="reply-comment">
+        <textarea name="subcomment" id="sub-reply-txt" cols="30" rows="10" placeholder="你怎么看？快来评论一下吧！"></textarea>
+        <input type="hidden" id="sub-reply-id" value="{{commentid}}" />
+        <input type="hidden" id="sub-reply-userid" value="{{parentuserid}}" />
+        <input type="hidden" id="sub-reply-username" value="{{parentusername}}" />
+        <a type="button" id="sub_comment_bt" class="submitbt">提交</a>
+        <div class="clearfloat"></div>
+        <div class="unlogin-mask">
+            <div>您还没有登录！请<a href="/bbs/login.php">登录</a>或<a href="/bbs/register.php">注册</a></div>
+        </div>
+    </div>
+</script>
+
+<!-- 评论模板 -->
+<script id="main_comment_template" type="x-tmpl-mustache">
+    <div class="glab-comment" rel-data-id="{{comment_id}}" rel-user-id="{{user_id}}" rel-user-name="{{user_name}}" rel-layer="1">
+        <div class="comment-left">
+            <a href="/bbs/u.php?action=feed&uid={{user_id}}" target="_blank"><img src="{{user_icon_url}}" height="43" width="43" alt=""></a>
+        </div>
+        <div class="comment-right">
+            <div class="comment-author"><a href="/bbs/u.php?action=feed&uid={{user_id}}" target="_blank">{{user_name}}</a><span class="puptime">{{create_time}}</span></div>
+            <div class="comment-content">{{&content}}</div>
+            <div class="comment-buttons">
+                <span class="ding">                    
+                    <img src="http://cdn.cocimg.com/cms/templets/images/zan-default.png" height="14" width="14" alt="" class="default" style="{{#has_supported}} display:none; {{/has_supported}}">
+                    <img src="http://cdn.cocimg.com/cms/templets/images/zan-active.png" height="14" width="14" alt="" class="actived" style="{{^has_supported}} display:none; {{/has_supported}}">
+                    <span class="zancnt">{{support}}</span>
+                </span>
+                <span class="cai">
+                    <img src="http://cdn.cocimg.com/cms/templets/images/cai-default.png" height="14" width="14" alt="" class="default" style="{{#has_reported}} display:none; {{/has_reported}}">
+                    <img src="http://cdn.cocimg.com/cms/templets/images/cai-active.png" height="14" width="14" alt="" class="actived" style="{{^has_reported}} display:none; {{/has_reported}}">
+                    <span class="zancnt">{{report}}</span>
+                </span>
+                <span class="replybt">回复</span>
+            </div>
+        </div>
+            {{#sub}}
+                <div class="glab-comment glab-sub-comment" rel-data-id="{{comment_id}}" rel-user-id="{{user_id}}" rel-user-name="{{user_name}}" rel-layer="2">
+                    <div class="comment-left">
+                        <a href="/bbs/u.php?action=feed&uid={{user_id}}" target="_blank"><img src="{{user_icon_url}}" height="43" width="43" alt=""></a>
+                    </div>
+                    <div class="comment-right">
+                        <div class="comment-author"><a href="/bbs/u.php?action=feed&uid={{user_id}}" target="_blank">{{user_name}}</a><span class="puptime">{{create_time}}</span></div>
+                        <div class="comment-content"><a href="/bbs/u.php?action=feed&uid={{parent_user_id}}" target="_blank">回复：{{parent}}</a>{{&content}}</div>
+                        <div class="comment-buttons">
+                            <span class="ding">
+                                <img src="http://cdn.cocimg.com/cms/templets/images/zan-default.png" height="14" width="14" alt="" class="default" style="{{#has_supported}} display:none; {{/has_supported}}">
+                                <img src="http://cdn.cocimg.com/cms/templets/images/zan-active.png" height="14" width="14" alt="" class="actived" style="{{^has_supported}} display:none; {{/has_supported}}">
+                                <span class="zancnt">{{support}}</span>
+                            </span>
+                            <span class="cai">
+                                <img src="http://cdn.cocimg.com/cms/templets/images/cai-default.png" height="14" width="14" alt="" class="default" style="{{#has_reported}} display:none; {{/has_reported}}">
+                                <img src="http://cdn.cocimg.com/cms/templets/images/cai-active.png" height="14" width="14" alt="" class="actived" style="{{^has_reported}} display:none; {{/has_reported}}">
+                                <span class="zancnt">{{report}}</span>
+                            </span>
+                            <span class="replybt">回复</span>
+                        </div>          
+                    </div>
+                </div>
+            {{/sub}}         
+    </div>  
+</script>
+
+
+<script id="sub_comment_template" type="x-tmpl-mustache">
+    <div class="glab-comment glab-sub-comment" rel-data-id="{{comment_id}}" rel-user-id="{{user_id}}" rel-user-name="{{user_name}}" rel-layer="2">
+        <div class="comment-left">
+            <a href="/bbs/u.php?action=feed&uid={{user_id}}" target="_blank"><img src="{{user_icon_url}}" height="43" width="43" alt=""></a>
+        </div>
+        <div class="comment-right">
+            <div class="comment-author"><a href="/bbs/u.php?action=feed&uid={{user_id}}" target="_blank">{{user_name}}</a><span class="puptime">{{create_time}}</span></div>
+            <div class="comment-content"><a href="/bbs/u.php?action=feed&uid={{parent_user_id}}" target="_blank">回复：{{parent}}</a>{{&content}}</div>
+            <div class="comment-buttons">
+                <span class="ding">
+                    <img src="http://cdn.cocimg.com/cms/templets/images/zan-default.png" height="14" width="14" alt="" class="default" style="{{#has_supported}} display:none; {{/has_supported}}">
+                    <img src="http://cdn.cocimg.com/cms/templets/images/zan-active.png" height="14" width="14" alt="" class="actived" style="{{^has_supported}} display:none; {{/has_supported}}">
+                    <span class="zancnt">{{support}}</span>
+                </span>
+                <span class="cai">
+                    <img src="http://cdn.cocimg.com/cms/templets/images/cai-default.png" height="14" width="14" alt="" class="default" style="{{#has_reported}} display:none; {{/has_reported}}">
+                    <img src="http://cdn.cocimg.com/cms/templets/images/cai-active.png" height="14" width="14" alt="" class="actived" style="{{^has_reported}} display:none; {{/has_reported}}">
+                    <span class="zancnt">{{report}}</span>
+                </span>
+                <span class="replybt">回复</span>
+            </div>          
+        </div>
+    </div>
+</script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-68948817-1', 'auto', {'name': 'newTracker'});
+  ga('newTracker.send', 'pageview');
+
+</script>
+</div>    
+<!--右侧浮动-->
+    <div class="r-bar">
+        <img src="http://cdn.cocimg.com/cms/templets/images/coco_weixin.png" class="weixin">
+    	<a href="http://weibo.com/cocoachina" target="_blank" title="" class="weibo">sina</a>
+        <a href="javascript:void(0);" target="_blank" title="" class="feedback">weixin</a>
+        <a href="mailto:support@cocoachina.com" title="" class="kefu">mail</a>
+        <a href="javascript:;" title="回到顶部" class="returntop">回到顶部</a>
+    </div>
+
+<script language="javascript" src="/cms/bbsauth_plus2015.php" type="text/javascript"></script>
+<script type="text/javascript">
+$(function(){
+    if (typeof(_user_info_html) != 'undefined' && _user_info_html)
+    {
+        $('.nav-user-login').hide();
+        $('.nav-user-name').html(_user_info_html).show();
+    }
+
+	var type = $('#type_name').html();
+	if(type)
+	{	
+		switch( type )
+		{
+			case 'iOS开发':
+				$('#ios').addClass('light');
+				break;
+			case 'AppStore研究':
+				$('#app_store').addClass('light');
+				break;
+			case 'Mac开发':
+				$('#mac').addClass('light');
+				break;
+			case '产品设计':
+				$('#design').addClass('light');
+				break;
+			case 'Cocos引擎':
+				$('#cocos').addClass('light');
+				break;
+			case 'WebApp':
+				$('#webapp').addClass('light');
+				break;
+			case 'Swift':
+				$('#swift').addClass('light');
+				break;
+			case '游戏开发':
+				$('#game').addClass('light');
+				break;
+			case '苹果相关':
+				$('#apple').addClass('light');
+				break;
+			case '营销推广':
+				$('#market').addClass('light');
+				break;		
+			case '业界动态':
+				$('#industry').addClass('light');
+				break;	
+			case '程序人生':
+				$('#programmer').addClass('light');
+				break;																																
+				
+		}
+	}
+});
+</script>
+<!--./cont-->
+<script type="text/javascript" src="/cms/templets/js/index.js?20111546514"></script>
+<script src="http://cdn.cocimg.com/cms/templets/js/jquery.colorbox-min.js" type="text/javascript"></script>
+<script src="/cms/templets/js/script.js?t=2045479411" type="text/javascript"></script>
+<script type="text/javascript">
+			jQuery(function()
+			{
+				//更改文章来源
+				var source = $('#source a').html();								
+				if( source == '未知' )
+					jQuery('#source a').html('CocoaChina');
+				if( jQuery('#source a').attr('href')=='')
+					jQuery('#source').html('来源：'+source);
+				
+				//获取用户登录的id
+//                var content = jQuery('.t-lid').attr("href");
+//                var uid = 0;
+//                if( content )
+//                {
+//                    content = content.split('=');
+//                    uid = content[1];
+//                }
+//                var timestamp = new Date().getTime();	
+//                var uid2 = parseInt(uid);
+//                if(uid2==uid && uid2!=0){
+//                    uid = uid<<2;			
+//                    uid = uid+''+timestamp;
+//                }else{
+//                    uid = "";
+//                }
+//                var oIframe=document.getElementById("comiframe");
+//                if(oIframe){
+//                    var oUrl=window.location.href;
+//                    oUrl = encodeURIComponent(oUrl);
+//
+//                    oIframe.src="/comment.php?url="+oUrl+"&uid="+uid;
+//                }
+
+				
+			});
+		</script>
+<!--footer-->
+<div class="footer clearfix">
+    <div class="footer-b">
+        <div>
+            <a href="/aboutus/index.html" target="_blank">关于我们</a>
+            <a href="/contactus/index.html" target="_blank">商务合作</a>
+            <a href="mailto:support@cocoachina.com" target="_blank">联系我们</a>
+            <a href="/corps" target="_blank">合作伙伴</a>
+        </div>
+        <p class="footer-b-p">北京触控科技有限公司版权所有</p>
+        <p>
+            &copy;2016 Chukong Technologies,Inc.
+            <i>
+                <a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备 11006519号 　京ICP证 100954号</a> 京公网安备11010502020289 
+                <a href="http://182.131.21.137/ccnt-apply/admin/business/preview/business-preview!lookUrlRFID.action?main_id=A580B24B1AE846CE9DA949026D63939F" target="_blank">
+                    <img src="http://cdn.cocimg.com/cms/templets/images/jingwen.png" style="margin: -10px auto -14px -10px;" />
+                    京网文[2012]0426-138号
+                </a>
+            </i>
+        </p>
+    </div>
+</div>
+<!--./footer-->
+<script language="javascript" type="text/javascript" src="/cms/include/dedeajax2-min.js"></script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?88399e4c4cf744609c4fc8c3a8935691";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-16940817-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  
+ 
+function search_check()
+{
+	var search_keyword = $('#search_keyword').val();
+
+	if( search_keyword.length < 2 )
+	{
+		alert("搜索关键字不能少于2个字节，请重新输入。");
+	}
+	else
+	{
+		$('#searchform').submit();
+	}
+}
+
+</script>
+<script type="text/javascript">
+_acK({aid:116313,format:0,mode:1,gid:1,serverbaseurl:"afp.csbew.com/"});
+</script>
+
+</body>
+</html>

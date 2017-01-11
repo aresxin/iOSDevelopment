@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <title>ObjC 中国 - iOS 上的相机捕捉</title>
+        <meta charset="UTF-8">
+        
+        <!-- Latest compiled and minified CSS -->
+        <link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+        
+        <link rel="stylesheet" href="/stylesheets/bootstrap-flat.min.css">
+        <link rel="shortcut icon" href="/assets/images/favicon.png">
+        
+        <link rel="stylesheet" href="/stylesheets/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        
+          ga('create', 'UA-49045539-1', 'auto');
+          ga('send', 'pageview');
+        
+        </script>
+    </head>
+    <body>
+        <div id="__wrapper">
+            <header>
+            <nav class="navbar navbar-default">
+              <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="/">[@] ObjC 中国</a>
+                </div>
+            
+                <div class="collapse navbar-collapse" id="navbar-collapse">
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="/issues/">期刊</a></li>
+                    <li ><a href="/products/">书籍</a></li> 
+                  </ul>
+            
+                   <ul class="nav navbar-nav navbar-right">
+                      <li><a href="/login/"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>
+                  </ul> 
+            
+                </div>
+              </div>
+            </nav>
+            </header>
+            <main class="container">
+            <div class="article article-container">
+    <div class="article-header">
+        <div class="article-header-top row">
+            <div class="col-xs-6 col-xs-offset-0">
+                <a class="article-back" href="/issues/"><span class="glyphicon glyphicon-menu-left"></span> 返回期刊列表</a>
+            </div>
+        </div>
+        <div>
+            <div class="article-title">iOS 上的相机捕捉</div>
+            <div class="article-meta text-center">
+                <div class="article-meta-item"><span class="glyphicon glyphicon-user"></span> <a href="http://nathanwhy.github.io/">nathanwhy</a></div>
+                <div class="article-meta-item"><span class="glyphicon glyphicon-calendar"></span> 2015/02/20</div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="article-content">
+        <p>第一台 iPhone 问世就装有相机。在第一个 SKDs 版本中，在 app 里面整合相机的唯一方法就是使用 <code>UIImagePickerController</code>，但到了 iOS 4，发布了更灵活的 AVFoundation 框架。</p>
+<p>在这篇文章里，我们将会看到如何使用 AVFoundation 捕捉图像，如何操控相机，以及它在 iOS 8 的新特性。</p>
+<h2 id="-">概述</h2>
+<h3 id="avfoundation-vs-uiimagepickercontroller-">AVFoundation vs. <code>UIImagePickerController</code></h3>
+<p><code>UIImagePickerController</code> 提供了一种非常简单的拍照方法。它支持所有的基本功能，比如切换到前置摄像头，开关闪光灯，点击屏幕区域实现对焦和曝光，以及在 iOS 8 中像系统照相机应用一样调整曝光。</p>
+<p>然而，当有直接访问相机的需求时，也可以选择 AVFoundation 框架。它提供了完全的操作权，例如，以编程方式更改硬件参数，或者操纵实时预览图。</p>
+<h3 id="avfoundation-">AVFoundation 相关类</h3>
+<p>AVFoundation 框架基于以下几个类实现图像捕捉 ，通过这些类可以访问来自相机设备的原始数据并控制它的组件。</p>
+<ul>
+<li><code>AVCaptureDevice</code> 是关于相机硬件的接口。它被用于控制硬件特性，诸如镜头的位置、曝光、闪光灯等。</li>
+<li><code>AVCaptureDeviceInput</code> 提供来自设备的数据。</li>
+<li><code>AVCaptureOutput</code> 是一个抽象类，描述 capture session 的结果。以下是三种关于静态图片捕捉的具体子类：<ul>
+<li><code>AVCaptureStillImageOutput</code> 用于捕捉静态图片</li>
+<li><code>AVCaptureMetadataOutput</code> 启用检测人脸和二维码</li>
+<li><code>AVCaptureVideoOutput</code> 为实时预览图提供原始帧</li>
+</ul>
+</li>
+<li><code>AVCaptureSession</code> 管理输入与输出之间的数据流，以及在出现问题时生成运行时错误。</li>
+<li><code>AVCaptureVideoPreviewLayer</code> 是 <code>CALayer</code> 的子类，可被用于自动显示相机产生的实时图像。它还有几个工具性质的方法，可将 layer 上的坐标转化到设备上。它看起来像输出，但其实不是。另外，它<strong>拥有</strong> session (outputs 被 session <strong>所拥有</strong>)。</li>
+</ul>
+<h2 id="-">设置</h2>
+<p>让我们看看如何捕获图像。首先我们需要一个 <code>AVCaptureSession</code> 对象:</p>
+<pre><code>let session = AVCaptureSession()
+</code></pre><p>现在我们需要一个相机设备输入。在大多数 iPhone 和 iPad 中，我们可以选择后置摄像头或前置摄像头 -- 又称自拍相机 (selfie camera) -- 之一。那么我们必须先遍历所有能提供视频数据的设备 (麦克风也属于 <code>AVCaptureDevice</code>，因此略过不谈)，并检查 <code>position</code> 属性：</p>
+<pre><code>let availableCameraDevices = AVCaptureDevice.devicesWithMediaType(AVMediaTypeVideo)
+for device in availableCameraDevices as [AVCaptureDevice] {
+  if device.position == .Back {
+    backCameraDevice = device
+  }
+  else if device.position == .Front {
+    frontCameraDevice = device
+  }
+}
+</code></pre><p>然后，一旦我们发现合适的相机设备，我们就能获得相关的 <code>AVCaptureDeviceInput</code> 对象。我们会将它设置为 session 的输入：</p>
+<pre><code>var error:NSError?
+let possibleCameraInput: AnyObject? = AVCaptureDeviceInput.deviceInputWithDevice(backCameraDevice, error: &amp;error)
+if let backCameraInput = possibleCameraInput as? AVCaptureDeviceInput {
+  if self.session.canAddInput(backCameraInput) {
+    self.session.addInput(backCameraInput)
+  }
+}
+</code></pre><p>注意当 app 首次运行时，第一次调用 <code>AVCaptureDeviceInput.deviceInputWithDevice()</code> 会触发系统提示，向用户请求访问相机。这在 iOS 7 的时候只有部分国家会有，到了 iOS 8 拓展到了所有地区。除非得到用户同意，否则相机的输入会一直是一个黑色画面的数据流。</p>
+<p>对于处理相机的权限，更合适的方法是先确认当前的授权状态。要是在授权还没有确定的情况下 (也就是说用户还没有看过弹出的授权对话框时)，我们应该明确地发起请求。</p>
+<pre><code>let authorizationStatus = AVCaptureDevice.authorizationStatusForMediaType(AVMediaTypeVideo)
+switch authorizationStatus {
+case .NotDetermined:
+  // 许可对话没有出现，发起授权许可
+  AVCaptureDevice.requestAccessForMediaType(AVMediaTypeVideo,
+    completionHandler: { (granted:Bool) -&gt; Void in
+    if granted {
+      // 继续
+    }
+    else {
+      // 用户拒绝，无法继续
+    }
+  })
+case .Authorized:
+  // 继续
+case .Denied, .Restricted:
+  // 用户明确地拒绝授权，或者相机设备无法访问
+}
+</code></pre><p>如果能继续的话，我们会有两种方式来显示来自相机的图像流。最简单的就是，生成一个带有 <code>AVCaptureVideoPreviewLayer</code> 的 view，并使用 capture session 作为初始化参数。</p>
+<pre><code>previewLayer = AVCaptureVideoPreviewLayer.layerWithSession(session) as AVCaptureVideoPreviewLayer
+previewLayer.frame = view.bounds
+view.layer.addSublayer(previewLayer)
+</code></pre><p><code>AVCaptureVideoPreviewLayer</code> 会自动地显示来自相机的输出。当我们需要将实时预览图上的点击转换到设备的坐标系统中，比如点击某区域实现对焦时，这种做法会很容易办到。之后我们会看到具体细节。</p>
+<p>第二种方法是从输出数据流捕捉单一的图像帧，并使用 OpenGL 手动地把它们显示在 view 上。这有点复杂，但是如果我们想要对实时预览图进行操作或使用滤镜的话，就是必要的了。</p>
+<p>为获得数据流，我们需要创建一个 <code>AVCaptureVideoDataOutput</code>，这样一来，当相机在运行时，我们通过代理方法 <code>captureOutput(_:didOutputSampleBuffer:fromConnection:)</code> 就能获得所有图像帧 (除非我们处理太慢而导致掉帧)，然后将它们绘制在一个 <code>GLKView</code> 中。不需要对 OpenGL 框架有什么深刻的理解，我们只需要这样就能创建一个 <code>GLKView</code>：</p>
+<pre><code>glContext = EAGLContext(API: .OpenGLES2)
+glView = GLKView(frame: viewFrame, context: glContext)
+ciContext = CIContext(EAGLContext: glContext)
+</code></pre><p>现在轮到 <code>AVCaptureVideoOutput</code>：</p>
+<pre><code>videoOutput = AVCaptureVideoDataOutput()
+videoOutput.setSampleBufferDelegate(self, queue: dispatch_queue_create(&quot;sample buffer delegate&quot;, DISPATCH_QUEUE_SERIAL))
+if session.canAddOutput(self.videoOutput) {
+  session.addOutput(self.videoOutput)
+}
+</code></pre><p>以及代理方法：</p>
+<pre><code>func captureOutput(captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, fromConnection connection: AVCaptureConnection!) {
+  let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)
+  let image = CIImage(CVPixelBuffer: pixelBuffer)
+  if glContext != EAGLContext.currentContext() {
+    EAGLContext.setCurrentContext(glContext)
+  }
+  glView.bindDrawable()
+  ciContext.drawImage(image, inRect:image.extent(), fromRect: image.extent())
+  glView.display()
+}
+</code></pre><p>一个警告：这些来自相机的样本旋转了 90 度，这是由于相机传感器的朝向所导致的。<code>AVCaptureVideoPreviewLayer</code> 会自动处理这种情况，但在这个例子，我们需要对 <code>GLKView</code> 进行旋转。</p>
+<p>马上就要搞定了。最后一个组件 -- <code>AVCaptureStillImageOutput</code> -- 实际上是最重要的，因为它允许我们捕捉静态图片。只需要创建一个实例，并添加到 session 里去：</p>
+<pre><code>stillCameraOutput = AVCaptureStillImageOutput()
+if self.session.canAddOutput(self.stillCameraOutput) {
+  self.session.addOutput(self.stillCameraOutput)
+}
+</code></pre><h3 id="-">配置</h3>
+<p>现在我们有了所有必需的对象，应该为我们的需求寻找最合适的配置。这里又有两种方法可以实现。最简单且最推荐是使用 session preset： </p>
+<pre><code>session.sessionPreset = AVCaptureSessionPresetPhoto
+</code></pre><p><code>AVCaptureSessionPresetPhoto</code> 会为照片捕捉选择最合适的配置，比如它可以允许我们使用最高的感光度 (ISO) 和曝光时间，基于<a href="https://en.wikipedia.org/wiki/Autofocus#Phase_detection">相位检测 (phase detection)</a>的自动对焦, 以及输出全分辨率的 JPEG 格式压缩的静态图片。</p>
+<p>然而，如果你需要更多的操控，可以使用 <code>AVCaptureDeviceFormat</code> 这个类，它描述了一些设备使用的参数，比如静态图片分辨率，视频预览分辨率，自动对焦类型，感光度和曝光时间限制等。每个设备支持的格式都列在 <code>AVCaptureDevice.formats</code> 属性中，并可以赋值给 <code>AVCaptureDevice</code> 的 <code>activeFormat</code> (注意你并不能修改格式)。</p>
+<h2 id="-">操作相机</h2>
+<p>iPhone 和 iPad 中内置的相机或多或少跟其他相机有相同的操作，不同的是，一些参数如对焦、曝光时间 (在单反相机上的模拟<a href="http://objccn.io/issue-21-1/">快门</a>的速度)，感光度是可以调节，但是镜头光圈是固定不可调整的。到了 iOS 8，我们已经可以对所有这些可变参数进行手动调整了。</p>
+<p>我们之后会看到细节，不过首先，该启动相机了：</p>
+<pre><code>sessionQueue = dispatch_queue_create(&quot;com.example.camera.capture_session&quot;, DISPATCH_QUEUE_SERIAL)
+dispatch_async(sessionQueue) { () -&gt; Void in
+  self.session.startRunning()
+}
+</code></pre><p>在 session 和相机设备中完成的所有操作和配置都是利用 block 调用的。因此，建议将这些操作分配到后台的串行队列中。此外，相机设备在改变某些参数前必须先锁定，直到改变结束才能解锁，例如：</p>
+<pre><code>var error:NSError?
+if currentDevice.lockForConfiguration(&amp;error) {
+  // 锁定成功，继续配置
+  // currentDevice.unlockForConfiguration()
+}
+else {
+  // 出错，相机可能已经被锁
+}
+</code></pre><h3 id="-">对焦</h3>
+<p>在 iOS 相机上，对焦是通过移动镜片改变其到传感器之间的距离实现的。</p>
+<p>自动对焦是通过相位检测和反差检测实现的。然而，反差检测只适用于低分辨率和高 FPS 视频捕捉 (慢镜头)。</p>
+<blockquote>
+<p><p><span class="secondary radius label">编者注</span> 关于相位对焦和反差对焦，可以参看<a href="http://ask.zealer.com/post/149">这篇文章</a>。</p>
+</blockquote>
+<p><code>AVCaptureFocusMode</code> 是个枚举，描述了可用的对焦模式：</p>
+<ul>
+<li><code>Locked</code> 指镜片处于固定位置</li>
+<li><code>AutoFocus</code> 指一开始相机会先自动对焦一次，然后便处于 <code>Locked</code> 模式。</li>
+<li><code>ContinuousAutoFocus</code> 指当场景改变，相机会自动重新对焦到画面的中心点。</li>
+</ul>
+<p>设置想要的对焦模式必须在锁定之后实施：</p>
+<pre><code>let focusMode:AVCaptureFocusMode = ...
+if currentCameraDevice.isFocusModeSupported(focusMode) {
+  ... // 锁定以进行配置
+  currentCameraDevice.focusMode = focusMode
+  ... // 解锁
+  }
+}
+</code></pre><p>通常情况下，<code>AutoFocus</code> 模式会试图让屏幕中心成为最清晰的区域，但是也可以通过变换 “感兴趣的点 (point of interest)” 来设定另一个区域。这个点是一个 CGPoint，它的值从左上角 <code>{0，0}</code> 到右下角 <code>{1，1}</code>，<code>{0.5，0.5}</code> 为画面的中心点。通常可以用视频预览图上的点击手势识别来改变这个点，想要将 view 上的坐标转化到设备上的规范坐标，我们可以使用 <code>AVVideoCaptureVideoPreviewLayer.captureDevicePointOfInterestForPoint()</code>：</p>
+<pre><code>var pointInPreview = focusTapGR.locationInView(focusTapGR.view)
+var pointInCamera = previewLayer.captureDevicePointOfInterestForPoint(pointInPreview)
+...// 锁定，配置
+
+// 设置感兴趣的点
+currentCameraDevice.focusPointOfInterest = pointInCamera
+
+// 在设置的点上切换成自动对焦
+currentCameraDevice.focusMode = .AutoFocus
+
+...// 解锁
+</code></pre><p>在 iOS 8 中，有个新选项可以移动镜片的位置，从较近物体的 <code>0.0</code> 到较远物体的 <code>1.0</code> (不是指无限远)。</p>
+<pre><code>... // 锁定，配置
+var lensPosition:Float = ... // 0.0 到 1.0的float
+currentCameraDevice.setFocusModeLockedWithLensPosition(lensPosition) {
+  (timestamp:CMTime) -&gt; Void in
+  // timestamp 对应于应用了镜片位置的第一张图像缓存区
+}
+... // 解锁
+</code></pre><p>这意味着对焦可以使用 <code>UISlider</code> 设置，这有点类似于旋转单反上的对焦环。当用这种相机手动对焦时，通常有一个可见的辅助标识指向清晰的区域。AVFoundation 里面没有内置这种机制，但是比如可以通过显示 <a href="https://en.wikipedia.org/wiki/Focus_peaking">&quot;对焦峰值 (focus peaking)&quot;</a>(一种将已对焦区域高亮显示的方式) 这样的手段来补救。我们在这里不会讨论细节，不过对焦峰值可以很容易地实现，通过使用阈值边缘 (threshold edge) 滤镜 (用自定义 <code>CIFilter</code> 或 <a href="https://github.com/BradLarson/GPUImage/blob/master/framework/Source/GPUImageThresholdEdgeDetectionFilter.h"><code>GPUImageThresholdEdgeDetectionFilter</code></a>)，并调用 <code>AVCaptureAudioDataOutputSampleBufferDelegate</code>  下的 <code>captureOutput(_:didOutputSampleBuffer:fromConnection:)</code> 方法将它覆盖到实时预览图上。</p>
+<h3 id="-">曝光</h3>
+<p>在 iOS 设备上，镜头上的光圈是固定的 (在 iPhone 5s 以及其之后的光圈值是 f/2.2，之前的是 f/2.4)，因此只有改变曝光时间和传感器的灵敏度才能对图片的亮度进行调整，从而达到合适的效果。至于对焦，我们可以选择连续自动曝光，在“感兴趣的点”一次性自动曝光，或者手动曝光。除了指定“感兴趣的点”，我们可以通过设置曝光补偿 (compensation) 修改自动曝光，也就是曝光档位的目标偏移。目标偏移在<a href="http://objccn.io/issue-21-1/">曝光档数</a>里有讲到，它的范围在 <code>minExposureTargetBias</code> 与 <code>maxExposureTargetBias</code> 之间，0为默认值 (即没有“补偿”)。</p>
+<pre><code>var exposureBias:Float = ... // 在 minExposureTargetBias 和 maxExposureTargetBias 之间的值
+... // 锁定，配置
+currentDevice.setExposureTargetBias(exposureBias) { (time:CMTime) -&gt; Void in
+}
+... // 解锁
+</code></pre><p>使用手动曝光，我们可以设置 ISO 和曝光时间，两者的值都必须在设备当前格式所指定的范围内。</p>
+<pre><code>var activeFormat = currentDevice.activeFormat
+var duration:CTime = ... //在activeFormat.minExposureDuration 和 activeFormat.maxExposureDuration 之间的值，或用 AVCaptureExposureDurationCurrent 表示不变
+var iso:Float = ... // 在 activeFormat.minISO 和 activeFormat.maxISO 之间的值，或用 AVCaptureISOCurrent 表示不变
+... // 锁定，配置
+currentDevice.setExposureModeCustomWithDuration(duration, ISO: iso) { (time:CMTime) -&gt; Void in
+}
+... // 解锁
+</code></pre><p>如何知道照片曝光是否正确呢？我们可以通过 KVO，观察 <code>AVCaptureDevice</code> 的 <code>exposureTargetOffset</code> 属性，确认是否在 0 附近。</p>
+<h3 id="-">白平衡</h3>
+<p>数码相机为了适应不同类型的光照条件<a href="http://objccn.io/issue-21-1/#WhiteBalance">需要补偿</a>。这意味着在冷光线的条件下，传感器应该增强红色部分，而在暖光线下增强蓝色部分。在 iPhone 相机中，设备会自动决定合适的补光，但有时也会被场景的颜色所混淆失效。幸运地是，iOS 8 可以里手动控制白平衡。</p>
+<p>自动模式工作方式和对焦、曝光的方式一样，但是没有“感兴趣的点”，整张图像都会被纳入考虑范围。在手动模式，我们可以通过<a href="https://zh.wikipedia.org/wiki/开尔文">开尔文</a>所表示的<a href="https://zh.wikipedia.org/wiki/色温">温度</a>来调节色温和色彩。典型的色温值在 2000-3000K (类似蜡烛或灯泡的暖光源) 到 8000K (纯净的蓝色天空) 之间。色彩范围从最小的 -150 (偏绿) 到 150 (偏品红)。</p>
+<p>温度和色彩可以被用于计算来自相机传感器的恰当的 RGB 值，因此仅当它们做了基于设备的校正后才能被设置。</p>
+<p>以下是全部过程：</p>
+<pre><code>var incandescentLightCompensation = 3_000
+var tint = 0 // 不调节
+let temperatureAndTintValues = AVCaptureWhiteBalanceTemperatureAndTintValues(temperature: incandescentLightCompensation, tint: tint)
+var deviceGains = currentCameraDevice.deviceWhiteBalanceGainsForTemperatureAndTintValues(temperatureAndTintValues)
+... // 锁定，配置
+currentCameraDevice.setWhiteBalanceModeLockedWithDeviceWhiteBalanceGains(deviceGains) {
+        (timestamp:CMTime) -&gt; Void in
+    }
+  }
+... // 解锁
+</code></pre><h3 id="-">实时人脸检测</h3>
+<p><code>AVCaptureMetadataOutput</code> 可以用于检测人脸和二维码这两种物体。很明显，<a href="http://picturesofpeoplescanningqrcodes.tumblr.com">没什么人用二维码</a> (编者注: 因为在欧美现在二维码不是很流行，这里是一个恶搞。链接的这个 tumblr 博客的主题是 “当人们在扫二维码时的图片”，但是 2012 年开博至今没有任何一张图片，暗讽二维码根本没人在用，这和以中日韩为代表的亚洲用户群体的使用习惯完全相悖)，因此我们就来看看如何实现人脸检测。我们只需通过 <code>AVCaptureMetadataOutput</code> 的代理方法捕获的元对象：</p>
+<pre><code>var metadataOutput = AVCaptureMetadataOutput()
+metadataOutput.setMetadataObjectsDelegate(self, queue: self.sessionQueue)
+if session.canAddOutput(metadataOutput) {
+  session.addOutput(metadataOutput)
+}
+metadataOutput.metadataObjectTypes = [AVMetadataObjectTypeFace]
+</code></pre><pre><code>func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
+    for metadataObject in metadataObjects as [AVMetadataObject] {
+      if metadataObject.type == AVMetadataObjectTypeFace {
+        var transformedMetadataObject = previewLayer.transformedMetadataObjectForMetadataObject(metadataObject)
+      }
+    }
+</code></pre><p>更多关于人脸检测与识别的内容请查看 <a href="http://objccn.io/issue-21-9">Engin 的文章</a>。</p>
+<h3 id="-">捕捉静态图片</h3>
+<p>最后，我们要做的是捕捉高分辨率的图像，于是我们调用 <code>captureStillImageAsynchronouslyFromConnection(connection, completionHandler)</code>。在数据时被读取时，completion handler 将会在某个未指定的线程上被调用。</p>
+<p>如果设置使用 JPEG 编码作为静态图片输出，不管是通过 session <code>.Photo</code> 预设设定的，还是通过设备输出设置设定的，<code>sampleBuffer</code> 都会返回包含图像的元数据。如果在 <code>AVCaptureMetadataOutput</code> 中是可用的话，这会包含 EXIF 数据，或是被识别的人脸等：</p>
+<pre><code>dispatch_async(sessionQueue) { () -&gt; Void in
+
+  let connection = self.stillCameraOutput.connectionWithMediaType(AVMediaTypeVideo)
+
+  // 将视频的旋转与设备同步
+  connection.videoOrientation = AVCaptureVideoOrientation(rawValue: UIDevice.currentDevice().orientation.rawValue)!
+
+  self.stillCameraOutput.captureStillImageAsynchronouslyFromConnection(connection) {
+    (imageDataSampleBuffer, error) -&gt; Void in
+
+    if error == nil {
+
+      // 如果使用 session .Photo 预设，或者在设备输出设置中明确进行了设置
+      // 我们就能获得已经压缩为JPEG的数据
+
+      let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageDataSampleBuffer)
+
+      // 样本缓冲区也包含元数据，我们甚至可以按需修改它
+
+      let metadata:NSDictionary = CMCopyDictionaryOfAttachments(nil, imageDataSampleBuffer, CMAttachmentMode(kCMAttachmentMode_ShouldPropagate)).takeUnretainedValue()
+
+      if let image = UIImage(data: imageData) {
+        // 保存图片，或者做些其他想做的事情
+        ...
+      }
+    }
+    else {
+      NSLog(&quot;error while capturing still image: \(error)&quot;)
+    }
+  }
+}
+</code></pre><p>当图片被捕捉的时候，有视觉上的反馈是很好的体验。想要知道何时开始以及何时结束的话，可以使用 KVO 来观察 <code>AVCaptureStillImageOutput</code> 的 <code>isCapturingStillImage</code> 属性。</p>
+<h4 id="-">分级捕捉</h4>
+<p>在 iOS 8 还有一个有趣的特性叫“<a href="http://en.wikipedia.org/wiki/Bracketing">分级捕捉</a>”，可以在不同的曝光设置下拍摄几张照片。这在复杂的光线下拍照显得非常有用，例如，通过设定 -1、0、1 三个不同的曝光档数，然后用 HDR 算法合并成一张。</p>
+<p>以下是代码实现：</p>
+<pre><code>dispatch_async(sessionQueue) { () -&gt; Void in
+  let connection = self.stillCameraOutput.connectionWithMediaType(AVMediaTypeVideo)
+  connection.videoOrientation = AVCaptureVideoOrientation(rawValue: UIDevice.currentDevice().orientation.rawValue)!
+
+  var settings = [-1.0, 0.0, 1.0].map {
+    (bias:Float) -&gt; AVCaptureAutoExposureBracketedStillImageSettings in
+
+    AVCaptureAutoExposureBracketedStillImageSettings.autoExposureSettingsWithExposureTargetBias(bias)
+  }
+
+  var counter = settings.count
+
+  self.stillCameraOutput.captureStillImageBracketAsynchronouslyFromConnection(connection, withSettingsArray: settings) {
+    (sampleBuffer, settings, error) -&gt; Void in
+
+    ...
+    // 保存 sampleBuffer(s)
+
+    // 当计数为0，捕捉完成
+    counter--
+
+  }
+}
+</code></pre><p>这很像是单个图像捕捉，但是不同的是 completion handler 被调用的次数和设置的数组的元素个数一样多。</p>
+<h3 id="-">总结</h3>
+<p>我们已经详细看到如何在 iPhone 应用里面实现拍照的基础功能（呃…不光是 iPhone，<a href="http://ipadtography.tumblr.com/">用 iPad 拍照</a>其实也是不错的）。你也可以查看这个<a href="https://github.com/objcio/issue-21-camera-controls-demo">例子</a>。最后说下，iOS 8 允许更精确的捕捉，特别是对于高级用户，这使得 iPhone 与专业相机之间的差距缩小，至少在手动控制上。不过，不是任何人都喜欢在日常拍照时使用复杂的手动操作界面，因此请合理地使用这些特性。</p>
+<hr>
+<p>原文 <a href="http://www.objc.io/issue-21/camera-capture-on-ios.html">Camera Capture on iOS</a></p>
+
+    </div>
+    <div class="article-author-detail">
+        <div class="article-author">
+            <div class="article-author-title">
+                译者简介
+            </div>
+            <figure class="artical-media_image artical-author-photo">
+                <img width="300" height="300" src="/images/issues/authors/2015/Feb/nathanwhy.jpg">
+            </figure>
+            <div class="article-author-body">
+                <h4 class="article-author-body"> 
+                    <a href="http://nathanwhy.github.io/"> nathanwhy </a> 
+                </h4> 
+                <div class="article-author-bio">
+                    <p>iOS 开发者，兴趣广泛，正不断尝试新的挑战。</p> 
+                </div>
+            </div>
+        </div>
+    <hr>
+</div>
+
+<script src="/javascripts/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+            </main>
+            
+            
+            <div class="footer">
+            <span class="dim">© 2016 <a href="https://onevcat.com">OneV's Den</a> &amp; <a href="http://objccn.io/">ObjC 中国</a><br>本站由 <a href="http://onev.cat">@onevcat</a> 创建</span>
+            </div>
+            
+            <!-- Latest compiled and minified JavaScript -->
+            <script src="//cdn.bootcss.com/jquery/1.12.0/jquery.min.js"></script>
+            <script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+            <script src="/javascripts/main-min.js"></script>
+        </div>
+    </body>
+</html>
